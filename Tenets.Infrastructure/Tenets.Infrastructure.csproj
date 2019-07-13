@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tenets.Common\Tenets.Common.csproj" />
+    <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
+  </ItemGroup>
+
+</Project>
