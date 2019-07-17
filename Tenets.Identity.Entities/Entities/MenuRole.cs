@@ -18,7 +18,7 @@ namespace Tenets.Identity.Entities
         [StringLength(256)]
         public string MenuId { get; set; }
         [ForeignKey("RoleId")]
-        public virtual AspNetRole AspNetRole { get; set; }
+        public virtual Role Role { get; set; }
         [ForeignKey("MenuId")]
         public virtual Menu Menu { get; set; }
 
