@@ -6,7 +6,7 @@ namespace Tenets.Identity.Services.Core
 {
     public interface IBaseService<T,TDto>
     {
-        Task<IResponseResult> GetAllAsync();
+        Task<IResponseResult> GetAllAsync(bool disableTracking = false);
         Task<IResponseResult> AddAsync(TDto model);
         Task<IResponseResult> UpdateAsync(TDto model);
         Task<IResponseResult> DeleteAsync(Guid id);

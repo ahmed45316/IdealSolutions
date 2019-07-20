@@ -107,17 +107,17 @@ namespace Tenets.Identity.Services.Services
             return ResponseResult.GetRepositoryActionResult(true, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
         
-        public async Task<IResponseResult> IsUsernameExists(string name, Guid id)
+        public async Task<IResponseResult> IsUsernameExists(string name, Guid? id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == name && q.Id != id && !q.IsDeleted);
             return ResponseResult.GetRepositoryActionResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> IsEmailExists(string email, Guid id)
+        public async Task<IResponseResult> IsEmailExists(string email, Guid? id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Email == email && q.Id != id && !q.IsDeleted);
             return ResponseResult.GetRepositoryActionResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> IsPhoneExists(string phone, Guid id)
+        public async Task<IResponseResult> IsPhoneExists(string phone, Guid? id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PhoneNumber == phone && q.Id != id && !q.IsDeleted);
             return ResponseResult.GetRepositoryActionResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());

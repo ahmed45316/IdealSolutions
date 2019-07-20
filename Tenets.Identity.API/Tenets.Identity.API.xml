@@ -56,6 +56,58 @@
         <member name="M:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
             <inheritdoc />
         </member>
+        <member name="T:Tenets.Identity.API.Controllers.PageController">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.PageController.#ctor(Tenets.Common.Core.IHandlerResponse,Tenets.Identity.Services.Core.ITokenBusiness,Tenets.Identity.Services.Interfaces.IMenuServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.PageController.GetScreensSelect2(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get Screens Select2
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="searchTerm"></param>
+            <param name="lang"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.PageController.GetChildScreensSelect2(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Get child Screens Select2
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="parentId"></param>
+            <param name="searchTerm"></param>
+            <param name="lang"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.PageController.GetScreenData(System.Guid,System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Get Screen NotSelected
+            </summary>
+            <param name="roleId"></param>
+            <param name="menuId"></param>
+            <param name="childId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.PageController.GetScreenDataSelected(System.Guid,System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Get Screen Selected
+            </summary>
+            <param name="roleId"></param>
+            <param name="menuId"></param>
+            <param name="childId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.PageController.SaveScreens(Tenets.Common.Identity.Parameters.ScreensAssignedParameters)">
+            <summary>
+            Save Screens
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
         <member name="T:Tenets.Identity.API.Controllers.UserController">
             <inheritdoc />
         </member>
@@ -96,6 +148,44 @@
             <param name="id">PK</param>
             <returns>Statue of Remove</returns>
         </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.GetAllUsers(Tenets.Common.Identity.Parameters.GetAllUserParameters)">
+            <summary>
+            Get Users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.IsExists(System.String,System.Byte,System.Nullable{System.Guid})">
+            <summary>
+            Check Fields IsExists
+            </summary>
+            <param name="name"></param>
+            <param name="type"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.GetUsersSelect2(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get Users Select2
+            </summary>
+            <param name="pageSize"></param>
+            <param name="pageNumber"></param>
+            <param name="searchTerm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.GetUserAssigned(System.Guid)">
+            <summary>
+            Get users to assigned to Role 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.SaveUserAssigned(Tenets.Common.Identity.Parameters.AssignUserOnRoleParameters)">
+            <summary>
+            Save User assigned
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
         <member name="T:Tenets.Identity.API.Program">
             <inheritdoc />
         </member>
@@ -119,6 +209,60 @@
         </member>
         <member name="M:Tenets.Identity.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
             <inheritdoc />
+        </member>
+        <member name="T:Tenets.API.Controllers.Secuirty.RoleController">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.#ctor(Tenets.Common.Core.IHandlerResponse,Tenets.Identity.Services.Interfaces.IRoleServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.GetAll">
+            <summary>
+            Get all data in list 
+            </summary>
+            <returns>List of Data</returns>
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Get(System.Guid)">
+            <summary>
+            Get data by PK id in table 
+            </summary>
+            <param name="id">PK</param>
+            <returns>Object for id choosen</returns>
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Add(Tenets.Common.Identity.Dto.RoleDto)">
+            <summary>
+            Add new data in database
+            </summary>
+            <param name="model">Object load data</param>
+            <returns>Object after add</returns>
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Update(Tenets.Common.Identity.Dto.RoleDto)">
+            <summary>
+            Edit object
+            </summary>
+            <param name="model">Object to be Edit</param>
+            <returns>Object after editable</returns>
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Remove(System.Guid)">
+            <summary>
+            Hide object of data in database make isDelete:false 
+            </summary>
+            <param name="id">PK</param>
+            <returns>Statue of Remove</returns>
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.GetAllRoles(Tenets.Common.Identity.Parameters.GetAllRoleParameters)">
+            <summary>
+            Get All Roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.IsNameExists(System.String,System.String)">
+            <summary>
+            check Name is Exists
+            </summary>
+            <param name="name"></param>
+            <param name="id"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

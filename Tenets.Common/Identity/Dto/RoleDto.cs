@@ -8,6 +8,6 @@ namespace Tenets.Common.Identity.Dto
         public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsDeleted { get; set; }
-        public int UsersRoleCount { get; set; }
+        public int? UsersRoleCount { get; set; } = 0;
     }
 }

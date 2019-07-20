@@ -7,6 +7,6 @@ namespace Tenets.Common.Identity.Interface
     {
         string Name { get; set; }
         bool IsDeleted { get; set; }
-        int UsersRoleCount { get; set; }
+        int? UsersRoleCount { get; set; }
     }
 }

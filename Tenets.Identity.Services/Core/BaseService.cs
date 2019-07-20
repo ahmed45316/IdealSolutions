@@ -26,11 +26,11 @@ namespace Tenets.Identity.Services.Core
             ResponseResult = businessBaseParameter.ResponseResult;
             Mapper = businessBaseParameter.Mapper;
         }
-        public virtual async Task<IResponseResult> GetAllAsync()
+        public virtual async Task<IResponseResult> GetAllAsync(bool disableTracking=false)
         {
             try
             {
-                var query = await _unitOfWork.Repository.GetAllAsync();
+                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: disableTracking);
                 var data = Mapper.Map<IEnumerable<T>, IEnumerable<TDto>>(query);
                 return ResponseResult.GetRepositoryActionResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
