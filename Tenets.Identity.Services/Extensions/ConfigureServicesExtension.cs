@@ -1,10 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Tenets.Common.Identity.Dto;
+using Tenets.Common.Identity.Interface;
+using Tenets.Identity.Data.Context;
+using Tenets.Identity.Data.SeedData;
 
 namespace Tenets.Identity.Services.Extensions
 {
@@ -12,7 +17,9 @@ namespace Tenets.Identity.Services.Extensions
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration _configuration)
         {
+            services.DatabaseConfig(_configuration);
             services.JWTSettings(_configuration);
+            services.Dtos();
             return services;
         }
         private static void JWTSettings(this IServiceCollection services, IConfiguration _configuration)
@@ -35,6 +42,22 @@ namespace Tenets.Identity.Services.Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"])),
                 };
             });
+        }
+        private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)
+        {
+            var connection = _configuration.GetConnectionString("IdentityContext"); 
+            services.AddDbContext<IdentityContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connection));
+            services.AddScoped<DbContext, IdentityContext>();
+            services.AddSingleton<IDataInitialize, DataInitialize>();
+        }
+        private static void Dtos(this IServiceCollection services)
+        {
+            services.AddSingleton<IUserDto, UserDto>();
+            services.AddSingleton<IUserDto, UserDto>();
+            services.AddSingleton<IScreenDto, ScreenDto>();
+            services.AddSingleton<IRoleDto, RoleDto>();
+            services.AddSingleton<IMenuDto, MenuDto>();
+            services.AddSingleton<IUserLoginReturn, UserLoginReturn>();
         }
     }
 }

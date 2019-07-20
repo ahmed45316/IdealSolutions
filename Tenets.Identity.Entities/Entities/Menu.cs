@@ -5,14 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tenets.Identity.Entities.Entities.Base;
 
 namespace Tenets.Identity.Entities
 {
-    public class Menu
+    public class Menu: BaseClass
     {      
-        [Key]
-        [StringLength(256)]
-        public string Id { get; set; }
+        
         [StringLength(256)]
         public string ScreenNameAr { get; set; }
         [StringLength(256)]
@@ -30,7 +29,7 @@ namespace Tenets.Identity.Entities
         public bool IsStop { get; set; } = false;
         public int ItsOrder { get; set; }
         [StringLength(256)]
-        public string ParentId { get; set; }
+        public Guid? ParentId { get; set; }
         [ForeignKey("ParentId")]
         public virtual Menu Parent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,11 +11,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tenets.Common\Tenets.Common.csproj" />
+    <ProjectReference Include="..\Tenets.Identity.Data\Tenets.Identity.Data.csproj" />
+    <ProjectReference Include="..\Tenets.Infrastructure\Tenets.Infrastructure.csproj" />
+    <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Microsoft.AspNetCore.Authentication.JwtBearer">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.authentication.jwtbearer\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Tokens">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.identitymodel.tokens\5.3.0\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.identitymodel.tokens.jwt\5.3.0\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
   </ItemGroup>
 

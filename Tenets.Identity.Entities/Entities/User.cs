@@ -3,12 +3,10 @@ namespace Tenets.Identity.Entities
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Tenets.Identity.Entities.Entities.Base;
 
-    public class User
+    public class User : BaseClass
     {
-        [Key]
-        [StringLength(256)]
-        public string Id { get; set; }
         [StringLength(256)]
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
@@ -25,8 +23,6 @@ namespace Tenets.Identity.Entities
         public string UserName { get; set; }
         [StringLength(128)]
         public string ImgPath { get; set; }
-        public byte UserStatus { get; set; }
-        public bool IsDeleted { get; set; } = false;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsersRole> UsersRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

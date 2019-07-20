@@ -1,21 +1,18 @@
 namespace Tenets.Identity.Entities
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Tenets.Identity.Entities.Entities.Base;
 
-    public class UsersRole
+    public class UsersRole:BaseClass
     {
-        [Key]
-        [StringLength(256)]
-        public string Id { get; set; }
         [Required]
         [StringLength(256)]
-        public string RoleId { get; set; }
+        public Guid RoleId { get; set; }
         [Required]
         [StringLength(256)]
-        public string UserId { get; set; }
-        public bool IsDeleted { get; set; } = false;
-        public bool IsBlock { get; set; } = false;
+        public Guid UserId { get; set; }
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
         [ForeignKey("UserId")]

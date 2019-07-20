@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,7 @@ namespace Tenets.Identity.API
             services.RegisterCommonServices(Configuration);
             services.RegisterServices(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(options =>{options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();});
+            services.AddAutoMapper(typeof(Startup));
         }
 
         /// <inheritdoc />

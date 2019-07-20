@@ -4,9 +4,8 @@ using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Tenets.Common.Core;
-
+using AutoMapper;
 namespace Tenets.Common.Extensions
 {
     public static class ConfigureServicesCommon

@@ -1,14 +1,12 @@
 namespace Tenets.Identity.Entities
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Tenets.Identity.Entities.Entities.Base;
 
-    public class UserLogin
+    public class UserLogin:BaseClass
     {
-        [Key]
-        [StringLength(256)]
-        [Column(Order = 0)]
-        public string Id { get; set; }
         [StringLength(256)]
         [Column(Order = 1)]
         public string LoginProvider { get; set; }
@@ -17,9 +15,7 @@ namespace Tenets.Identity.Entities
         public string ProviderKey { get; set; }
         [StringLength(256)]
         [Column(Order = 3)]
-        public string UserId { get; set; }
-        public bool IsDeleted { get; set; } = false;
-        public bool IsBlock { get; set; } = false;
+        public Guid UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }

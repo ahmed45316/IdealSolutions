@@ -5,18 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tenets.Identity.Entities.Entities.Base;
 
 namespace Tenets.Identity.Entities
 {
-   public class MenuRole
+   public class MenuRole : BaseClass
     {
-        [Key]
         [StringLength(256)]
-        public string Id { get; set; }
+        public Guid RoleId { get; set; }
         [StringLength(256)]
-        public string RoleId { get; set; }
-        [StringLength(256)]
-        public string MenuId { get; set; }
+        public Guid MenuId { get; set; }
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
         [ForeignKey("MenuId")]

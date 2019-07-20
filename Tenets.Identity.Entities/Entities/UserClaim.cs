@@ -1,22 +1,20 @@
 namespace Tenets.Identity.Entities
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Tenets.Identity.Entities.Entities.Base;
 
-    public class UserClaim
+    public class UserClaim:BaseClass
     {
-        [Key]
-        [StringLength(256)]
-        public string Id { get; set; }
         [Required]
         [StringLength(256)]
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         [StringLength(256)]
         public string ClaimType { get; set; }
         [StringLength(256)]
         public string ClaimValue { get; set; }
-        public bool IsDeleted { get; set; } = false;
-        public bool IsBlock { get; set; } = false;
+
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }
