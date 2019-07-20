@@ -14,7 +14,7 @@ using Tenets.Identity.Services.Interfaces;
 
 namespace Tenets.Identity.Services.Services
 {
-    public class LoginServices : BaseService<User,IUserDto,UserDto>, ILoginServices
+    public class LoginServices : BaseService<User,IUserDto>, ILoginServices
     {
         private readonly ITokenBusiness _tokenBusiness;
         public LoginServices(IServiceBaseParameter<User> businessBaseParameter, ITokenBusiness tokenBusiness) : base(businessBaseParameter)

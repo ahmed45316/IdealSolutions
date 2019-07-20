@@ -18,7 +18,7 @@ using Tenets.Common.OptionModel;
 
 namespace Tenets.Identity.Services.Services
 {
-    public class UserServices : BaseService<User, IUserDto, UserDto>, IUserServices
+    public class UserServices : BaseService<User, IUserDto>, IUserServices
     {
         private readonly IUnitOfWork<Role> _roleUnitOfWork;
         private readonly IUnitOfWork<UsersRole> _usersRoleUnitOfWork;
@@ -33,31 +33,24 @@ namespace Tenets.Identity.Services.Services
 
         public async Task<IDataPagging> GetUsers(GetAllUserParameters parameters)
         {
-            var users = await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), disableTracking: false);
-            users = !string.IsNullOrEmpty(parameters.UserName) ? users.Where(q => q.UserName.Contains(parameters.UserName)) : users;
-            //users = !string.IsNullOrEmpty(parameters.Name) ? users.Where(q => q.Id.Equals(parameters.Name)) : users;
-            var usesrPagging = users.AsQueryable().OrderBy(parameters.OrderByValue).Skip(parameters.PageNumber).Take(parameters.PageSize).ToList();
-
-            if (!usesrPagging.Any())
+            var users = !string.IsNullOrEmpty(parameters.UserName) ? await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId)&& q.UserName.Contains(parameters.UserName), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false) : await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false);
+            if (!users.Any())
             {
                 var res = ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
                 return new DataPagging(0, 0, 0, res);
             }
-
-            var usersDto = Mapper.Map<IEnumerable<User>, IEnumerable<IUserDto>>(usesrPagging);
+            var usersDto = Mapper.Map<IEnumerable<IUserDto>>(users);
             foreach (var item in usersDto)
             {
-                //var EntityInfo = _lookupUnitOfWork.Repo.FirstOrDefault(n => n.YES_NO == 1 && n.LOOKUP_TYPE == "EntityInfo" && n.LOOKUP_CODE == item.EntityIdInfo);
-                //item.EntityIdInfoName = EntityInfo.ARABIC_VALUE;
                 var role = users.Where(q => q.Id == item.Id).SelectMany(p => p.UsersRole.Select(r => r.Role.Name)).ToList();
                 item.Roles = (role == null || role.Count == 0) ? null : String.Join(",", role.ToArray());
             }
             var repoResult = ResponseResult.GetRepositoryActionResult(usersDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             return new DataPagging(parameters.PageNumber, parameters.PageSize, users.Count(), repoResult);
         }
-        public async Task<IResponseResult> GetUser(Guid Id)
+        public override async Task<IResponseResult> GetByIdAsync(Guid id)
         {
-            var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == Id, disableTracking: false);
+            var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, disableTracking: false);
             if (user == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
             var userDto = Mapper.Map<User, IUserDto>(user);
             if (!string.IsNullOrEmpty(userDto.ImgPath))
@@ -68,41 +61,42 @@ namespace Tenets.Identity.Services.Services
             }
             return ResponseResult.GetRepositoryActionResult(userDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> AddUser(IUserDto userDto)
+        public override async Task<IResponseResult> AddAsync(IUserDto model)
         {
-            if (userDto == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
-            var isExist = await _unitOfWork.Repository.FirstOrDefaultAsync(q => (q.UserName == userDto.UserName || q.Email == userDto.Email || (q.PhoneNumber == userDto.PhoneNumber && (userDto.PhoneNumber != "" && userDto.PhoneNumber != null))) && !q.IsDeleted) != null;
+            if (model == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+            var isExist = await _unitOfWork.Repository.FirstOrDefaultAsync(q => (q.UserName == model.UserName || q.Email == model.Email || (q.PhoneNumber == model.PhoneNumber && (model.PhoneNumber != "" && model.PhoneNumber != null))) && !q.IsDeleted) != null;
             if (isExist) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NotAcceptable, message: HttpStatusCode.NotAcceptable.ToString());
-            userDto.SecurityStamp = Guid.NewGuid().ToString();
-            userDto.PasswordHash = CreptoHasher.HashPassword(userDto.PasswordHash);           
-            var user = Mapper.Map<IUserDto,User>(userDto);
+            model.SecurityStamp = Guid.NewGuid().ToString();
+            model.PasswordHash = CreptoHasher.HashPassword(model.PasswordHash);
+            var user = Mapper.Map<IUserDto, User>(model);
             var userAdded = _unitOfWork.Repository.Add(user);
             await _unitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(userDto, status: HttpStatusCode.Created, message: HttpStatusCode.Created.ToString());
+            return ResponseResult.GetRepositoryActionResult(model, status: HttpStatusCode.Created, message: HttpStatusCode.Created.ToString());
         }
-        public async Task<IResponseResult> UpdateUser(IUserDto userDto)
+        public override async Task<IResponseResult> UpdateAsync(IUserDto model)
         {
-            if (userDto == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
-            var isExist = await _unitOfWork.Repository.FirstOrDefaultAsync(q => (q.UserName == userDto.UserName || q.Email == userDto.Email || (q.PhoneNumber == userDto.PhoneNumber && (userDto.PhoneNumber != "" && userDto.PhoneNumber != null))) && q.Id != userDto.Id && !q.IsDeleted) != null;
+            if (model == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+            var isExist = await _unitOfWork.Repository.FirstOrDefaultAsync(q => (q.UserName == model.UserName || q.Email == model.Email || (q.PhoneNumber == model.PhoneNumber && (model.PhoneNumber != "" +
+            "" && model.PhoneNumber != null))) && q.Id != model.Id && !q.IsDeleted) != null;
             if (isExist) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NotAcceptable, message: HttpStatusCode.NotAcceptable.ToString());
-            var original = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == userDto.Id, disableTracking: false);
-            userDto.SecurityStamp = Guid.NewGuid().ToString();
-            userDto.PasswordHash = CreptoHasher.HashPassword(userDto.PasswordHash);
-            if (!string.IsNullOrEmpty(userDto.ImgPath))
+            var original = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == model.Id, disableTracking: false);
+            model.SecurityStamp = Guid.NewGuid().ToString();
+            model.PasswordHash = CreptoHasher.HashPassword(model.PasswordHash);
+            if (!string.IsNullOrEmpty(model.ImgPath))
             {
-                userDto.ImgPath = _imageConfig.SaveImage(userDto.ImgPath, $"User-{Guid.NewGuid().ToString()}", userDto.ImgExtinsion, "PersonalImage");
+                model.ImgPath = _imageConfig.SaveImage(model.ImgPath, $"User-{Guid.NewGuid().ToString()}", model.ImgExtinsion, "PersonalImage");
                 if (!string.IsNullOrEmpty(original.ImgPath)) _imageConfig.RemoveImage(original.ImgPath, "PersonalImage");
             }
             else
             {
-                userDto.ImgPath = original.ImgPath;
+                model.ImgPath = original.ImgPath;
             }
-            var user = Mapper.Map<IUserDto, User>(userDto);
+            var user = Mapper.Map<IUserDto, User>(model);
             _unitOfWork.Repository.Update(original, user);
             await _unitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(userDto, status: HttpStatusCode.Accepted, message: HttpStatusCode.Accepted.ToString());
+            return ResponseResult.GetRepositoryActionResult(model, status: HttpStatusCode.Accepted, message: HttpStatusCode.Accepted.ToString());
         }
-        public async Task<IResponseResult> RemoveUserById(Guid id)
+        public override async Task<IResponseResult> DeleteAsync(Guid id)
         {
             if (id == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
             var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id);
@@ -112,6 +106,7 @@ namespace Tenets.Identity.Services.Services
             await _unitOfWork.SaveChanges();
             return ResponseResult.GetRepositoryActionResult(true, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
+        
         public async Task<IResponseResult> IsUsernameExists(string name, Guid id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == name && q.Id != id && !q.IsDeleted);

@@ -49,7 +49,7 @@ namespace Tenets.Infrastructure.Repository
             return await query.FirstOrDefaultAsync();
 
         }
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate, int skip=0, int take=0, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
         {
             IQueryable<T> query = DbSet;
             if (disableTracking)
@@ -61,13 +61,13 @@ namespace Tenets.Infrastructure.Repository
             {
                 query = include(query);
             }
-            if (orderByCriteria != null)
-            {
-                query = query.OrderBy(orderByCriteria);
-            }
             if (predicate != null)
             {
                 query = query.Where(predicate);
+            }
+            if (orderByCriteria != null)
+            {
+                query = query.OrderBy(orderByCriteria).Skip(skip).Take(take);
             }
             return await query.ToListAsync();
         }

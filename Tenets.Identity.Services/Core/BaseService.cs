@@ -9,10 +9,9 @@ using Tenets.Identity.Services.UnitOfWork;
 namespace Tenets.Identity.Services.Core
 {
 
-    public class BaseService<T,TDto,TModel> : IBaseService<T,TDto,TModel>
+    public class BaseService<T,TDto> : IBaseService<T,TDto>
         where T : class
         where TDto : IPrimaryKeyField<Guid>
-        where TModel : IPrimaryKeyField<Guid>
     {
         protected readonly IUnitOfWork<T> _unitOfWork;
         protected readonly IMapper Mapper;
@@ -27,7 +26,7 @@ namespace Tenets.Identity.Services.Core
             ResponseResult = businessBaseParameter.ResponseResult;
             Mapper = businessBaseParameter.Mapper;
         }
-        public async Task<IResponseResult> GetAllAsync()
+        public virtual async Task<IResponseResult> GetAllAsync()
         {
             try
             {
@@ -42,11 +41,11 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public async Task<IResponseResult> AddAsync(TModel model)
+        public virtual async Task<IResponseResult> AddAsync(TDto model)
         {
             try
             {
-                T entity = Mapper.Map<TModel, T>(model);
+                T entity = Mapper.Map<TDto, T>(model);
                 _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
@@ -64,7 +63,7 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public async Task<IResponseResult> UpdateAsync(TModel model)
+        public virtual async Task<IResponseResult> UpdateAsync(TDto model)
         {
             try
             {
@@ -86,7 +85,7 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public async Task<IResponseResult> DeleteAsync(string id)
+        public virtual async Task<IResponseResult> DeleteAsync(Guid id)
         {
             try
             {
@@ -106,7 +105,7 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public async Task<IResponseResult> GetByIdAsync(string id)
+        public virtual async Task<IResponseResult> GetByIdAsync(Guid id)
         {
             try
             {

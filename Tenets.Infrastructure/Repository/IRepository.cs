@@ -14,7 +14,7 @@ namespace Tenets.Infrastructure.Repository
         Task<T> GetAsync(params object[] keys);
         Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IOrderedQueryable<T>> orderby = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true);
         Task<IEnumerable<T>> GetAllAsync(IEnumerable<SortModel> orderByCriteria = null,Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true);
-        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true);
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate, int skip=0, int take=0, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true);
         T Add(T newEntity);
         void AddRange(IEnumerable<T> entities);
         void Update(T originalEntity, T newEntity);

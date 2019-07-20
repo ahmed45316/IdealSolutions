@@ -17,7 +17,7 @@ using Tenets.Identity.Services.UnitOfWork;
 
 namespace Tenets.Identity.Services.Services
 {
-    public class MenuServices: BaseService<Menu, IMenuDto,MenuDto>, IMenuServices
+    public class MenuServices: BaseService<Menu, IMenuDto>, IMenuServices
     {
         private readonly IUnitOfWork<User> _userUnitOfWork;
         private readonly IUnitOfWork<Role> _roleUnitOfWork;

@@ -10,12 +10,9 @@ using Tenets.Identity.Services.Core;
 
 namespace Tenets.Identity.Services.Interfaces
 {
-    public interface IRoleServices: IBaseService<Role, IRoleDto, RoleDto>
+    public interface IRoleServices: IBaseService<Role, IRoleDto>
     {
         Task<IDataPagging> GetRoles(GetAllRoleParameters parameters);
-        Task<IResponseResult> GetRole(Guid Id);
-        Task<IResponseResult> UpdateRole(IRoleDto model);
-        Task<IResponseResult> RemoveRoleById(Guid id);
         Task<IResponseResult> IsNameExists(string name, string id);
     }
 }
