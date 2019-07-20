@@ -4,5 +4,29 @@
         <name>Tenets.Identity.API</name>
     </assembly>
     <members>
+        <member name="T:Tenets.Identity.API.Program">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Program.Main(System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Program.CreateWebHostBuilder(System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="T:Tenets.Identity.API.Startup">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
+        <member name="P:Tenets.Identity.API.Startup.Configuration">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

@@ -18,4 +18,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tenets.Common\Tenets.Common.csproj" />
+    <ProjectReference Include="..\Tenets.Identity.Services\Tenets.Identity.Services.csproj" />
+  </ItemGroup>
+
 </Project>
