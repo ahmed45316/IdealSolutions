@@ -28,7 +28,6 @@ namespace Tenets.Identity.API
             services.RegisterCommonServices(Configuration);
             services.RegisterServices(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(options =>{options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();});
-            services.AddAutoMapper(typeof(Startup));
         }
 
         /// <inheritdoc />

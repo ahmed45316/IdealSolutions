@@ -12,8 +12,9 @@ namespace Tenets.Identity.Services.UnitOfWork
         private DbContext _context;
         private IDbContextTransaction _transaction;
         public IRepository<T> Repository { get; }
-        public UnitOfWork(IConfiguration config)
+        public UnitOfWork(DbContext context)
         {
+            _context = context;
             Repository = new Repository<T>(_context);
         }
         public async Task<int> SaveChanges()

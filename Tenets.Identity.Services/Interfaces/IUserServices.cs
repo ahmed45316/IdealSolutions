@@ -6,10 +6,12 @@ using Tenets.Common.Core;
 using Tenets.Common.Identity.Interface;
 using Tenets.Common.Identity.Parameters;
 using Tenets.Common.OptionModel;
+using Tenets.Identity.Entities;
+using Tenets.Identity.Services.Core;
 
 namespace Tenets.Identity.Services.Interfaces
 {
-    public interface IUserServices
+    public interface IUserServices: IBaseService<User, IUserDto>
     {
         Task<IDataPagging> GetUsers(GetAllUserParameters parameters);
         Task<IResponseResult> IsUsernameExists(string name, Guid id);

@@ -4,6 +4,98 @@
         <name>Tenets.Identity.API</name>
     </assembly>
     <members>
+        <member name="T:Tenets.Identity.API.Controllers.AccountsController">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.AccountsController.#ctor(Tenets.Common.Core.IHandlerResponse,Tenets.Identity.Services.Interfaces.ILoginServices,Tenets.Identity.Services.Core.ITokenBusiness,Tenets.Identity.Services.Interfaces.IMenuServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.AccountsController.Login(Tenets.Common.Identity.Parameters.LoginParameters)">
+            <summary>
+            Login 
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.AccountsController.GetMenu">
+            <summary>
+            Get Menu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Tenets.Identity.API.Controllers.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="F:Tenets.Identity.API.Controllers.Base.BaseController.TokenBusiness">
+            <inheritdoc />
+        </member>
+        <member name="F:Tenets.Identity.API.Controllers.Base.BaseController.ResponseHandler">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.BaseController.#ctor(Tenets.Common.Core.IHandlerResponse)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.BaseController.#ctor(Tenets.Common.Core.IHandlerResponse,Tenets.Identity.Services.Core.ITokenBusiness)">
+            <inheritdoc />
+        </member>
+        <member name="T:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1.Get(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1.Add(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1.Update(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="T:Tenets.Identity.API.Controllers.UserController">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.#ctor(Tenets.Common.Core.IHandlerResponse,Tenets.Identity.Services.Interfaces.IUserServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.GetAll">
+            <summary>
+            Get all data in list 
+            </summary>
+            <returns>List of Data</returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.Get(System.Guid)">
+            <summary>
+            Get data by PK id in table 
+            </summary>
+            <param name="id">PK</param>
+            <returns>Object for id choosen</returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.Add(Tenets.Common.Identity.Dto.UserDto)">
+            <summary>
+            Add new data in database
+            </summary>
+            <param name="model">Object load data</param>
+            <returns>Object after add</returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.Update(Tenets.Common.Identity.Dto.UserDto)">
+            <summary>
+            Edit object
+            </summary>
+            <param name="model">Object to be Edit</param>
+            <returns>Object after editable</returns>
+        </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.Remove(System.Guid)">
+            <summary>
+            Hide object of data in database make isDelete:false 
+            </summary>
+            <param name="id">PK</param>
+            <returns>Statue of Remove</returns>
+        </member>
         <member name="T:Tenets.Identity.API.Program">
             <inheritdoc />
         </member>

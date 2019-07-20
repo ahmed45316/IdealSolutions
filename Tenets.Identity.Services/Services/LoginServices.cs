@@ -21,7 +21,7 @@ namespace Tenets.Identity.Services.Services
         {
             _tokenBusiness = tokenBusiness;
         }
-        public async Task<IResponseResult> Login(byte type,LoginParameters parameters)
+        public async Task<IResponseResult> Login(LoginParameters parameters)
         {
             var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == parameters.Username && !q.IsDeleted,include:source=>source.Include(a=>a.UsersRole),disableTracking:false);
             if (user==null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.BadRequest,

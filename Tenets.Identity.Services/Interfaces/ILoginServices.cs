@@ -6,6 +6,6 @@ namespace Tenets.Identity.Services.Interfaces
 {
     public interface ILoginServices
     {
-        Task<IResponseResult> Login(byte type, LoginParameters parameters);
+        Task<IResponseResult> Login(LoginParameters parameters);
     }
 }
