@@ -10,6 +10,6 @@ namespace Tenets.Common.Core
         object Data { get; set; }
         HttpStatusCode Status { get; set; }
         string Message { get; set; }
-        bool Success { get; set; }
+        Exception Exception { get; set; }
     }
 }

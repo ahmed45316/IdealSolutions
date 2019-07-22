@@ -18,7 +18,7 @@ namespace Tenets.Identity.API.Controllers
     {
         private readonly IMenuServices _menuServices;
         /// <inheritdoc />
-        public PageController(IHandlerResponse responseHandler, ITokenBusiness tokenBusiness, IMenuServices menuServices) : base(responseHandler, tokenBusiness)
+        public PageController(ITokenBusiness tokenBusiness, IMenuServices menuServices) : base(tokenBusiness)
         {
             _menuServices = menuServices;
         }
@@ -59,9 +59,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpGet("{roleId}/{menuId?}/{childId?}")]
         public async Task<IResult> GetScreenData(Guid roleId, Guid? menuId = null, Guid? childId = null)
         {
-            var repositoryResult = await _menuServices.GetScreens(roleId, menuId, childId);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _menuServices.GetScreens(roleId, menuId, childId);
         }
         /// <summary>
         /// Get Screen Selected
@@ -73,9 +71,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpGet("{roleId}/{menuId?}/{childId?}")]
         public async Task<IResult> GetScreenDataSelected(Guid roleId, Guid? menuId = null, Guid? childId = null)
         {
-            var repositoryResult = await _menuServices.GetScreensSelected(roleId, menuId, childId);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _menuServices.GetScreensSelected(roleId, menuId, childId);
         }
         /// <summary>
         /// Save Screens
@@ -85,9 +81,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpPost()]
         public async Task<IResult> SaveScreens([FromForm]ScreensAssignedParameters parameters)
         {
-            var repositoryResult = await _menuServices.SaveScreens(parameters);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _menuServices.SaveScreens(parameters);
         }
     }
 }

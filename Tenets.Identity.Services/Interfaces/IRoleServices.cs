@@ -13,6 +13,6 @@ namespace Tenets.Identity.Services.Interfaces
     public interface IRoleServices: IBaseService<Role, IRoleDto>
     {
         Task<IDataPagging> GetRoles(GetAllRoleParameters parameters);
-        Task<IResponseResult> IsNameExists(string name, string id);
+        Task<IResult> IsNameExists(string name, string id);
     }
 }

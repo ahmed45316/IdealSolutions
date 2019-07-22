@@ -18,7 +18,7 @@ namespace Tenets.Identity.API.Controllers
     {
         private readonly IUserServices _userServices;
         /// <inheritdoc />
-        public UserController(IHandlerResponse responseHandler, IUserServices userServices) : base(responseHandler)
+        public UserController(IUserServices userServices)
         {
             _userServices = userServices;
         }
@@ -29,9 +29,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            var repositoryResult = await _userServices.GetAllAsync();
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _userServices.GetAllAsync();
         }
         /// <summary>
         /// Get data by PK id in table 
@@ -41,9 +39,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            var repositoryResult = await _userServices.GetByIdAsync(id);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _userServices.GetByIdAsync(id);
         }
         /// <summary>
         /// Add new data in database
@@ -53,9 +49,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(UserDto model)
         {
-            var repositoryResult = await _userServices.AddAsync(model);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _userServices.AddAsync(model);
         }
         /// <summary>
         /// Edit object
@@ -65,9 +59,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(UserDto model)
         {
-            var repositoryResult = await _userServices.UpdateAsync(model);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _userServices.UpdateAsync(model);
         }
         /// <summary>
         /// Hide object of data in database make isDelete:false 
@@ -77,9 +69,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            var repositoryResult = await _userServices.DeleteAsync(id);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _userServices.DeleteAsync(id);
         }
         /// <summary>
         /// Get Users
@@ -88,8 +78,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpPost()]
         public async Task<IDataPagging> GetAllUsers(GetAllUserParameters parameters)
         {
-            var repositoryResult = await _userServices.GetUsers(parameters);
-            return repositoryResult;
+            return await _userServices.GetUsers(parameters);
         }
         /// <summary>
         /// Check Fields IsExists
@@ -101,9 +90,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpGet("{name}/{type}/{id?}")]
         public async Task<IResult> IsExists(string name, byte type, Guid? id = null)
         {
-            var repositoryResult = type == 3 ? await _userServices.IsPhoneExists(name, id) : type == 2 ? await _userServices.IsEmailExists(name, id) : await _userServices.IsUsernameExists(name, id);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return type == 3 ? await _userServices.IsPhoneExists(name, id) : type == 2 ? await _userServices.IsEmailExists(name, id) : await _userServices.IsUsernameExists(name, id);
         }
         /// <summary>
         /// Get Users Select2
@@ -135,9 +122,7 @@ namespace Tenets.Identity.API.Controllers
         [HttpPost()]
         public async Task<IResult> SaveUserAssigned([FromForm]AssignUserOnRoleParameters parameters)
         {
-            var repositoryResult = await _userServices.SaveUserAssigned(parameters);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _userServices.SaveUserAssigned(parameters);
         }
     }
 }

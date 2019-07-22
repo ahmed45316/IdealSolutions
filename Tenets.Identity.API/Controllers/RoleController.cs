@@ -1,6 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
@@ -17,7 +15,7 @@ namespace Tenets.API.Controllers.Secuirty
         private readonly IRoleServices _roleServices;
 
         /// <inheritdoc />
-        public RoleController(IHandlerResponse responseHandler,IRoleServices roleServices) : base(responseHandler)
+        public RoleController(IRoleServices roleServices)
         {
             _roleServices = roleServices;
         }
@@ -28,9 +26,7 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            var repositoryResult = await _roleServices.GetAllAsync();
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _roleServices.GetAllAsync();
         }
         /// <summary>
         /// Get data by PK id in table 
@@ -40,9 +36,7 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            var repositoryResult = await _roleServices.GetByIdAsync(id);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _roleServices.GetByIdAsync(id);
         }
         /// <summary>
         /// Add new data in database
@@ -52,9 +46,7 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpPost]
         public async Task<IResult> Add(RoleDto model)
         {
-            var repositoryResult = await _roleServices.AddAsync(model);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _roleServices.AddAsync(model);
         }
         /// <summary>
         /// Edit object
@@ -64,9 +56,7 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpPut]
         public async Task<IResult> Update(RoleDto model)
         {
-            var repositoryResult = await _roleServices.UpdateAsync(model);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _roleServices.UpdateAsync(model);
         }
         /// <summary>
         /// Hide object of data in database make isDelete:false 
@@ -76,9 +66,7 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            var repositoryResult = await _roleServices.DeleteAsync(id);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _roleServices.DeleteAsync(id);
         }
         /// <summary>
         /// Get All Roles
@@ -87,8 +75,7 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpPost]
         public async Task<IDataPagging> GetAllRoles(GetAllRoleParameters parameters)
         {
-            var repositoryResult = await _roleServices.GetRoles(parameters);
-            return repositoryResult;
+            return await _roleServices.GetRoles(parameters);
         }
         /// <summary>
         /// check Name is Exists
@@ -99,10 +86,8 @@ namespace Tenets.API.Controllers.Secuirty
         [HttpGet("{name}/{id?}")]
         public async Task<IResult> IsNameExists(string name, string id = null)
         {
-            var repositoryResult = await _roleServices.IsNameExists(name,id);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _roleServices.IsNameExists(name, id);
         }
-        
+
     }
 }

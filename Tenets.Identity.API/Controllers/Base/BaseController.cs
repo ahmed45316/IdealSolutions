@@ -18,16 +18,13 @@ namespace Tenets.Identity.API.Controllers.Base
         /// <inheritdoc />
         protected readonly ITokenBusiness TokenBusiness;
         /// <inheritdoc />
-        protected readonly IHandlerResponse ResponseHandler;
-        /// <inheritdoc />
-        public BaseController(IHandlerResponse responseHandler)
+        public BaseController()
         {
-            ResponseHandler = responseHandler;
+
         }
         /// <inheritdoc />
-        public BaseController(IHandlerResponse responseHandler, ITokenBusiness tokenBusiness)
+        public BaseController(ITokenBusiness tokenBusiness)
         {
-            ResponseHandler = responseHandler;
             TokenBusiness = tokenBusiness;
         }
     }

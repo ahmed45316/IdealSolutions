@@ -21,18 +21,18 @@ namespace Tenets.Identity.Services.Services
         {
             _tokenBusiness = tokenBusiness;
         }
-        public async Task<IResponseResult> Login(LoginParameters parameters)
+        public async Task<IResult> Login(LoginParameters parameters)
         {
             var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == parameters.Username && !q.IsDeleted,include:source=>source.Include(a=>a.UsersRole),disableTracking:false);
-            if (user==null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.BadRequest,
+            if (user==null) return ResponseResult.PostResult(status: HttpStatusCode.BadRequest,
                              message: "Wrong Username or Password");
             bool rightPass = CreptoHasher.VerifyHashedPassword(user.PasswordHash, parameters.Password);
-            if (!rightPass) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NotFound, message: "Wrong Password");
+            if (!rightPass) return ResponseResult.PostResult(status: HttpStatusCode.NotFound, message: "Wrong Password");
             var refToken = Guid.NewGuid().ToString();
             var roles = user.UsersRole.Select(q => q.RoleId).ToList();
             var userDto = Mapper.Map<User, IUserDto>(user);
             var userLoginReturn = _tokenBusiness.GenerateJsonWebToken(userDto, string.Join(",", roles), refToken);
-            return ResponseResult.GetRepositoryActionResult(userLoginReturn, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); 
+            return ResponseResult.PostResult(userLoginReturn, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); 
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Tenets.Identity.Services.Services
             _menuIdSelectedList = new List<Guid>();
         }
 
-        public async Task<IResponseResult> GetMenu(Guid userId)
+        public async Task<IResult> GetMenu(Guid userId)
         {
             var roleData =await _userUnitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == userId, include: source => source.Include(a => a.UsersRole),disableTracking:false);
             var roles = roleData.UsersRole.Select(s => s.RoleId).ToList();
@@ -153,7 +153,7 @@ namespace Tenets.Identity.Services.Services
                 }
             }
             var menuDto = Mapper.Map<List<Menu>, List<IMenuDto>>(data);
-            return ResponseResult.GetRepositoryActionResult(menuDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); ;
+            return ResponseResult.PostResult(menuDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); ;
         }
         //Screens
         public async Task<Select2PagedResult> GetScreensSelect2(string searchTerm, int pageSize, int pageNumber, string lang)
@@ -174,7 +174,7 @@ namespace Tenets.Identity.Services.Services
             select2pagedResult.Results = result;
             return select2pagedResult;
         }
-        public async Task<IResponseResult> GetScreens(Guid? roleId, Guid? menuId, Guid? childId)
+        public async Task<IResult> GetScreens(Guid? roleId, Guid? menuId, Guid? childId)
         {
             var screenDto = new List<ScreenDto>();
             var role = await _roleUnitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == roleId, include: source => source.Include(a => a.Menu), disableTracking: false);
@@ -193,7 +193,7 @@ namespace Tenets.Identity.Services.Services
                     };
                     screenDto.Add(screen);
                 }
-                return ResponseResult.GetRepositoryActionResult(screenDto,status: HttpStatusCode.OK,message: HttpStatusCode.OK.ToString());
+                return ResponseResult.PostResult(screenDto,status: HttpStatusCode.OK,message: HttpStatusCode.OK.ToString());
             }
             var parent = new Menu();
             if (childId==null)
@@ -221,9 +221,9 @@ namespace Tenets.Identity.Services.Services
                 };
                 screenDto.Add(screen);
             }
-            return ResponseResult.GetRepositoryActionResult(screenDto,status: HttpStatusCode.OK,message: HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(screenDto,status: HttpStatusCode.OK,message: HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> GetScreensSelected(Guid? roleId, Guid? menuId, Guid? childId)
+        public async Task<IResult> GetScreensSelected(Guid? roleId, Guid? menuId, Guid? childId)
         {
             var screenDto = new List<ScreenDto>();
             if (menuId==null)
@@ -276,9 +276,9 @@ namespace Tenets.Identity.Services.Services
                 }
             }
 
-            return ResponseResult.GetRepositoryActionResult(screenDto,status: HttpStatusCode.OK,message:HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(screenDto,status: HttpStatusCode.OK,message:HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> SaveScreens(ScreensAssignedParameters parameters)
+        public async Task<IResult> SaveScreens(ScreensAssignedParameters parameters)
         {
             if (parameters.ScreenAssigned != null)
             {
@@ -299,7 +299,7 @@ namespace Tenets.Identity.Services.Services
             }
 
             await _menuRoleUnitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(true,status: HttpStatusCode.Created,message: HttpStatusCode.Created.ToString());
+            return ResponseResult.PostResult(true,status: HttpStatusCode.Created,message: HttpStatusCode.Created.ToString());
         }
         private async Task GetChilds(List<Guid> menuId)
         {

@@ -19,7 +19,6 @@ namespace Tenets.Common.Extensions
         }
         private static void RegisterMainCore(this IServiceCollection services)
         {
-            services.AddTransient<IHandlerResponse, HandlerResponse>();
             services.AddTransient<IResponseResult, ResponseResult>();
             services.AddTransient<IResult, Result>();
             services.AddTransient<IDataPagging, DataPagging>();

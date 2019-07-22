@@ -8,11 +8,11 @@ namespace Tenets.Identity.Services.Interfaces
 {
     public interface IMenuServices
     {
-        Task<IResponseResult> GetMenu(Guid userId);
+        Task<IResult> GetMenu(Guid userId);
         Task<Select2PagedResult> GetScreensSelect2(string searchTerm, int pageSize, int pageNumber, string lang);
         Task<Select2PagedResult> GetChildScreensSelect2(string searchTerm, int pageSize, int pageNumber, Guid? parentId, string lang);
-        Task<IResponseResult> GetScreens(Guid? roleId, Guid? menuId, Guid? childId);
-        Task<IResponseResult> GetScreensSelected(Guid? roleId, Guid? menuId, Guid? childId);
-        Task<IResponseResult> SaveScreens(ScreensAssignedParameters parameters);
+        Task<IResult> GetScreens(Guid? roleId, Guid? menuId, Guid? childId);
+        Task<IResult> GetScreensSelected(Guid? roleId, Guid? menuId, Guid? childId);
+        Task<IResult> SaveScreens(ScreensAssignedParameters parameters);
     }
 }

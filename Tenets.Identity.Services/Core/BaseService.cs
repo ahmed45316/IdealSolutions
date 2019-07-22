@@ -19,20 +19,20 @@ namespace Tenets.Identity.Services.Core
         protected TDto currentModel { get; set; }
         protected const string AdmistratorId = "c21c91c0-5c2f-45cc-ab6d-1d256538a4ee";
         protected const string AdmistratorRoleId = "c21c91c0-5c2f-45cc-ab6d-1d256538a5ee";
-        protected IResponseResult result;
+        protected IResult result;
         protected internal BaseService(IServiceBaseParameter<T> businessBaseParameter)
         {
             _unitOfWork = businessBaseParameter.UnitOfWork;
             ResponseResult = businessBaseParameter.ResponseResult;
             Mapper = businessBaseParameter.Mapper;
         }
-        public virtual async Task<IResponseResult> GetAllAsync(bool disableTracking=false)
+        public virtual async Task<IResult> GetAllAsync(bool disableTracking=false)
         {
             try
             {
                 var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: disableTracking);
                 var data = Mapper.Map<IEnumerable<T>, IEnumerable<TDto>>(query);
-                return ResponseResult.GetRepositoryActionResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+                return ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)
             {
@@ -41,7 +41,7 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResponseResult> AddAsync(TDto model)
+        public virtual async Task<IResult> AddAsync(TDto model)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResponseResult> UpdateAsync(TDto model)
+        public virtual async Task<IResult> UpdateAsync(TDto model)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Tenets.Identity.Services.Core
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = ResponseResult.GetRepositoryActionResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
                 }
 
                 return result;
@@ -85,7 +85,7 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResponseResult> DeleteAsync(Guid id)
+        public virtual async Task<IResult> DeleteAsync(Guid id)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace Tenets.Identity.Services.Core
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = ResponseResult.GetRepositoryActionResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
                 }
                 return result;
             }
@@ -105,13 +105,13 @@ namespace Tenets.Identity.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResponseResult> GetByIdAsync(Guid id)
+        public virtual async Task<IResult> GetByIdAsync(Guid id)
         {
             try
             {
                 T query = await _unitOfWork.Repository.GetAsync(id);
                 var data = Mapper.Map<T, TDto>(query);             
-                return ResponseResult.GetRepositoryActionResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
             }
             catch (Exception e)
             {

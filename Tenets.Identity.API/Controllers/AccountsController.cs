@@ -19,10 +19,7 @@ namespace Tenets.Identity.API.Controllers
         private readonly ILoginServices _loginServices;
         private readonly IMenuServices _menuServices;
         /// <inheritdoc />
-        public AccountsController(IHandlerResponse responseHandler,
-            ILoginServices loginServices,
-            ITokenBusiness tokenBusiness, IMenuServices menuServices)
-            : base(responseHandler, tokenBusiness)
+        public AccountsController(ILoginServices loginServices,ITokenBusiness tokenBusiness, IMenuServices menuServices): base(tokenBusiness)
         {
             _loginServices = loginServices;
             _menuServices = menuServices;
@@ -36,9 +33,7 @@ namespace Tenets.Identity.API.Controllers
         [AllowAnonymous]
         public async Task<IResult> Login(LoginParameters parameter)
         {
-            var repositoryResult = await _loginServices.Login(parameter);
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _loginServices.Login(parameter);
         }
         /// <summary>
         /// Get Menu
@@ -49,9 +44,7 @@ namespace Tenets.Identity.API.Controllers
         public async Task<IResult> GetMenu()
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            var repositoryResult = await _menuServices.GetMenu(new Guid(userId));
-            var result = ResponseHandler.GetResult(repositoryResult);
-            return result;
+            return await _menuServices.GetMenu(new Guid(userId));
         }
     }
 }

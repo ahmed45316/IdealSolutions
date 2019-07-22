@@ -36,7 +36,7 @@ namespace Tenets.Identity.Services.Services
             var users = !string.IsNullOrEmpty(parameters.UserName) ? await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId)&& q.UserName.Contains(parameters.UserName), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false) : await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false);
             if (!users.Any())
             {
-                var res = ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+                var res = ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
                 return new DataPagging(0, 0, 0, res);
             }
             var usersDto = Mapper.Map<IEnumerable<IUserDto>>(users);
@@ -45,13 +45,13 @@ namespace Tenets.Identity.Services.Services
                 var role = users.Where(q => q.Id == item.Id).SelectMany(p => p.UsersRole.Select(r => r.Role.Name)).ToList();
                 item.Roles = (role == null || role.Count == 0) ? null : String.Join(",", role.ToArray());
             }
-            var repoResult = ResponseResult.GetRepositoryActionResult(usersDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            var repoResult = ResponseResult.PostResult(usersDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             return new DataPagging(parameters.PageNumber, parameters.PageSize, users.Count(), repoResult);
         }
-        public override async Task<IResponseResult> GetByIdAsync(Guid id)
+        public override async Task<IResult> GetByIdAsync(Guid id)
         {
             var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, disableTracking: false);
-            if (user == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+            if (user == null) return ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
             var userDto = Mapper.Map<User, IUserDto>(user);
             if (!string.IsNullOrEmpty(userDto.ImgPath))
             {
@@ -59,26 +59,26 @@ namespace Tenets.Identity.Services.Services
                 var extension = index > 0 ? userDto.ImgPath.Substring(index) : "";
                 userDto.ImgPath = _imageConfig.ConvertToBase64String(userDto.ImgPath, extension, "PersonalImage");
             }
-            return ResponseResult.GetRepositoryActionResult(userDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(userDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
-        public override async Task<IResponseResult> AddAsync(IUserDto model)
+        public override async Task<IResult> AddAsync(IUserDto model)
         {
-            if (model == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+            if (model == null) return ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
             var isExist = await _unitOfWork.Repository.FirstOrDefaultAsync(q => (q.UserName == model.UserName || q.Email == model.Email || (q.PhoneNumber == model.PhoneNumber && (model.PhoneNumber != "" && model.PhoneNumber != null))) && !q.IsDeleted) != null;
-            if (isExist) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NotAcceptable, message: HttpStatusCode.NotAcceptable.ToString());
+            if (isExist) return ResponseResult.PostResult(status: HttpStatusCode.NotAcceptable, message: HttpStatusCode.NotAcceptable.ToString());
             model.SecurityStamp = Guid.NewGuid().ToString();
             model.PasswordHash = CreptoHasher.HashPassword(model.PasswordHash);
             var user = Mapper.Map<IUserDto, User>(model);
             var userAdded = _unitOfWork.Repository.Add(user);
             await _unitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(model, status: HttpStatusCode.Created, message: HttpStatusCode.Created.ToString());
+            return ResponseResult.PostResult(model, status: HttpStatusCode.Created, message: HttpStatusCode.Created.ToString());
         }
-        public override async Task<IResponseResult> UpdateAsync(IUserDto model)
+        public override async Task<IResult> UpdateAsync(IUserDto model)
         {
-            if (model == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+            if (model == null) return ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
             var isExist = await _unitOfWork.Repository.FirstOrDefaultAsync(q => (q.UserName == model.UserName || q.Email == model.Email || (q.PhoneNumber == model.PhoneNumber && (model.PhoneNumber != "" +
             "" && model.PhoneNumber != null))) && q.Id != model.Id && !q.IsDeleted) != null;
-            if (isExist) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NotAcceptable, message: HttpStatusCode.NotAcceptable.ToString());
+            if (isExist) return ResponseResult.PostResult(status: HttpStatusCode.NotAcceptable, message: HttpStatusCode.NotAcceptable.ToString());
             var original = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == model.Id, disableTracking: false);
             model.SecurityStamp = Guid.NewGuid().ToString();
             model.PasswordHash = CreptoHasher.HashPassword(model.PasswordHash);
@@ -94,33 +94,33 @@ namespace Tenets.Identity.Services.Services
             var user = Mapper.Map<IUserDto, User>(model);
             _unitOfWork.Repository.Update(original, user);
             await _unitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(model, status: HttpStatusCode.Accepted, message: HttpStatusCode.Accepted.ToString());
+            return ResponseResult.PostResult(model, status: HttpStatusCode.Accepted, message: HttpStatusCode.Accepted.ToString());
         }
-        public override async Task<IResponseResult> DeleteAsync(Guid id)
+        public override async Task<IResult> DeleteAsync(Guid id)
         {
-            if (id == null) return ResponseResult.GetRepositoryActionResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
+            if (id == null) return ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
             var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id);
             var original = user;
             user.IsDeleted = true;
             _unitOfWork.Repository.Update(original, user);
             await _unitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(true, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(true, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
         
-        public async Task<IResponseResult> IsUsernameExists(string name, Guid? id)
+        public async Task<IResult> IsUsernameExists(string name, Guid? id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == name && q.Id != id && !q.IsDeleted);
-            return ResponseResult.GetRepositoryActionResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> IsEmailExists(string email, Guid? id)
+        public async Task<IResult> IsEmailExists(string email, Guid? id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Email == email && q.Id != id && !q.IsDeleted);
-            return ResponseResult.GetRepositoryActionResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
-        public async Task<IResponseResult> IsPhoneExists(string phone, Guid? id)
+        public async Task<IResult> IsPhoneExists(string phone, Guid? id)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PhoneNumber == phone && q.Id != id && !q.IsDeleted);
-            return ResponseResult.GetRepositoryActionResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            return ResponseResult.PostResult(res != null, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
         //=======================================
         public async Task<Select2PagedResult> GetUsersSelect2(string searchTerm, int pageSize, int pageNumber)
@@ -140,7 +140,7 @@ namespace Tenets.Identity.Services.Services
             var userassign = userassignQuery.Select(q => new Select2OptionModel { id = q.Id.ToString(), text = q.UserName }).ToList();
             return userassign;
         }
-        public async Task<IResponseResult> SaveUserAssigned(AssignUserOnRoleParameters parameters)
+        public async Task<IResult> SaveUserAssigned(AssignUserOnRoleParameters parameters)
         {
             var role = await _roleUnitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == parameters.RoleId, include: source => source.Include(a => a.UsersRole), disableTracking: false);
             if (parameters.AssignedUser != null)
@@ -159,7 +159,7 @@ namespace Tenets.Identity.Services.Services
             var userRemove = parameters.AssignedUser is null ? role.UsersRole : role.UsersRole.Where(q => !parameters.AssignedUser.Contains(q.UserId));
             _usersRoleUnitOfWork.Repository.RemoveRange(userRemove);
             await _usersRoleUnitOfWork.SaveChanges();
-            return ResponseResult.GetRepositoryActionResult(true, status: HttpStatusCode.Created, message: HttpStatusCode.Created.ToString());
+            return ResponseResult.PostResult(true, status: HttpStatusCode.Created, message: HttpStatusCode.Created.ToString());
         }
     }
 }
