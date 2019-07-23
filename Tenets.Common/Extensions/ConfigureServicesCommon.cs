@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using Tenets.Common.Core;
 using AutoMapper;
+using System.Linq;
+
 namespace Tenets.Common.Extensions
 {
     public static class ConfigureServicesCommon
@@ -35,13 +37,7 @@ namespace Tenets.Common.Extensions
                 options.DescribeAllEnumsAsStrings();
                 var filePath = Path.Combine(AppContext.BaseDirectory, docPath);
                 options.IncludeXmlComments(filePath);
-
-                // Swagger 2.+ support
-                var security = new Dictionary<string, IEnumerable<string>>
-                {
-                    {"Bearer", new string[] { }},
-                };
-
+                var security = new Dictionary<string, IEnumerable<string>> { { "Bearer", Enumerable.Empty<string>() } };
                 options.AddSecurityDefinition("Bearer", new ApiKeyScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",

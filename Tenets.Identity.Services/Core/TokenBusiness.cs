@@ -31,13 +31,13 @@ namespace Tenets.Identity.Services.Core
                 new Claim("UserId", userInfo.Id.ToString()),
                 new Claim("Roles", roles)
             };
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SigningKey"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]));
             var expiryInHours = DateTime.Now.AddHours(Convert.ToDouble(_config["Jwt:ExpiryInHours"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Site"],
-                audience: _config["Jwt:Site"],
+                issuer: _config["Jwt:Issuer"],
+                audience: _config["Jwt:Audience"],
                 expires: expiryInHours,
                 signingCredentials: credentials,
                 claims: claims);
@@ -62,7 +62,7 @@ namespace Tenets.Identity.Services.Core
         }
         private TokenValidationParameters TokenValidationParameters()
         {
-            string secret = _config["Jwt:SigningKey"];
+            string secret = _config["Jwt:SecretKey"];
             var key = Encoding.ASCII.GetBytes(secret);
             return new TokenValidationParameters
             {
@@ -73,10 +73,10 @@ namespace Tenets.Identity.Services.Core
                 ValidateIssuerSigningKey = true,
                 RequireSignedTokens = true,
                 // Ensure the token was issued by a trusted authorization server (default true):
-                ValidIssuer = _config["Jwt:Site"],
+                ValidIssuer = _config["Jwt:Issuer"],
                 ValidateIssuer = true,
                 // Ensure the token audience matches our audience value (default true):
-                ValidAudience = _config["Jwt:Site"],
+                ValidAudience = _config["Jwt:Audience"],
                 ValidateAudience = true,
                 // Ensure the token hasn't expired:
                 RequireExpirationTime = true,
