@@ -1,7 +1,7 @@
 ﻿using System;
 using Tenets.Common.Core;
 
-namespace Tenets.Common.Identity.Interface
+namespace Tenets.Common.ServicesCommon.Identity.Interface
 {
     public interface IRoleDto: IPrimaryKeyField<Guid>
     {

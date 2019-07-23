@@ -1,34 +1,34 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Codes.API</name>
+        <name>Transactions.API</name>
     </assembly>
     <members>
-        <member name="T:Codes.API.Program">
+        <member name="T:Transactions.API.Program">
             <inheritdoc />
         </member>
-        <member name="M:Codes.API.Program.Main(System.String[])">
+        <member name="M:Transactions.API.Program.Main(System.String[])">
             <inheritdoc />
         </member>
-        <member name="M:Codes.API.Program.CreateWebHostBuilder(System.String[])">
+        <member name="M:Transactions.API.Program.CreateWebHostBuilder(System.String[])">
             <inheritdoc />
         </member>
-        <member name="T:Codes.API.Startup">
+        <member name="T:Transactions.API.Startup">
             <inheritdoc />
         </member>
-        <member name="M:Codes.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Transactions.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <inheritdoc />
         </member>
-        <member name="P:Codes.API.Startup.Configuration">
+        <member name="P:Transactions.API.Startup.Configuration">
             <inheritdoc />
         </member>
-        <member name="M:Codes.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Transactions.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             This method gets called by the runtime. Use this method to add services to the container.
             </summary>
             <param name="services">Contract for service descriptors</param>
         </member>
-        <member name="M:Codes.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+        <member name="M:Transactions.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
             <summary>
              This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             </summary>

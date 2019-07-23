@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Tenets.Common.Identity.Interface
+namespace Tenets.Common.ServicesCommon.Identity.Interface
 {
     public interface IDecodingValidToken
     {

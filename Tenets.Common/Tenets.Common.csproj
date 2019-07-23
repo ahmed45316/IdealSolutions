@@ -12,4 +12,11 @@
     <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ServicesCommon\Codes\Interface\" />
+    <Folder Include="ServicesCommon\Codes\Parameters\" />
+    <Folder Include="ServicesCommon\Transaction\Interface\" />
+    <Folder Include="ServicesCommon\Transaction\Parameters\" />
+  </ItemGroup>
+
 </Project>

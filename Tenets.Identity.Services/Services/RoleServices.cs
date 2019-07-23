@@ -5,13 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Dto;
-using Tenets.Common.Identity.Interface;
-using Tenets.Common.Identity.Parameters;
 using Tenets.Identity.Entities;
 using Tenets.Identity.Services.Core;
 using Tenets.Identity.Services.Interfaces;
 using Tenets.Common.Extensions;
+using Tenets.Common.ServicesCommon.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
+
 namespace Tenets.Identity.Services.Services
 {
     public class RoleServices : BaseService<Role, IRoleDto>, IRoleServices

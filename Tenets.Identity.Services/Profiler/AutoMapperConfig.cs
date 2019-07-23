@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Tenets.Common.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Identity.Entities;
 
 namespace Tenets.Identity.Services.Profiler

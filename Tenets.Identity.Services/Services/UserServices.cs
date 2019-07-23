@@ -6,15 +6,14 @@ using System.Net;
 using Tenets.Common.Extensions;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Dto;
-using Tenets.Common.Identity.Interface;
-using Tenets.Common.Identity.Parameters;
 using Tenets.Identity.Entities;
 using Tenets.Identity.Services.Core;
 using Tenets.Identity.Services.UnitOfWork;
 using Tenets.Identity.Services.Interfaces;
 using Tenets.Common.Hasher;
 using Tenets.Common.OptionModel;
+using Tenets.Common.ServicesCommon.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
 
 namespace Tenets.Identity.Services.Services
 {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Tenets.Common.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Interface;
 
 namespace Tenets.Identity.Services.Core
 {

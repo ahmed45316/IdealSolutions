@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Tenets.Common.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Interface;
 
 namespace Tenets.Identity.Services.Core
 {

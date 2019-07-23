@@ -10,7 +10,7 @@
         <member name="M:Tenets.Identity.API.Controllers.AccountsController.#ctor(Tenets.Identity.Services.Interfaces.ILoginServices,Tenets.Identity.Services.Core.ITokenBusiness,Tenets.Identity.Services.Interfaces.IMenuServices)">
             <inheritdoc />
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.AccountsController.Login(Tenets.Common.Identity.Parameters.LoginParameters)">
+        <member name="M:Tenets.Identity.API.Controllers.AccountsController.Login(Tenets.Common.ServicesCommon.Identity.Parameters.LoginParameters)">
             <summary>
             Login 
             </summary>
@@ -98,7 +98,7 @@
             <param name="childId"></param>
             <returns></returns>
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.PageController.SaveScreens(Tenets.Common.Identity.Parameters.ScreensAssignedParameters)">
+        <member name="M:Tenets.Identity.API.Controllers.PageController.SaveScreens(Tenets.Common.ServicesCommon.Identity.Parameters.ScreensAssignedParameters)">
             <summary>
             Save Screens
             </summary>
@@ -124,14 +124,14 @@
             <param name="id">PK</param>
             <returns>Object for id choosen</returns>
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.UserController.Add(Tenets.Common.Identity.Dto.UserDto)">
+        <member name="M:Tenets.Identity.API.Controllers.UserController.Add(Tenets.Identity.Services.Dto.UserDto)">
             <summary>
             Add new data in database
             </summary>
             <param name="model">Object load data</param>
             <returns>Object after add</returns>
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.UserController.Update(Tenets.Common.Identity.Dto.UserDto)">
+        <member name="M:Tenets.Identity.API.Controllers.UserController.Update(Tenets.Identity.Services.Dto.UserDto)">
             <summary>
             Edit object
             </summary>
@@ -145,7 +145,7 @@
             <param name="id">PK</param>
             <returns>Statue of Remove</returns>
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.UserController.GetAllUsers(Tenets.Common.Identity.Parameters.GetAllUserParameters)">
+        <member name="M:Tenets.Identity.API.Controllers.UserController.GetAllUsers(Tenets.Common.ServicesCommon.Identity.Parameters.GetAllUserParameters)">
             <summary>
             Get Users
             </summary>
@@ -176,7 +176,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.UserController.SaveUserAssigned(Tenets.Common.Identity.Parameters.AssignUserOnRoleParameters)">
+        <member name="M:Tenets.Identity.API.Controllers.UserController.SaveUserAssigned(Tenets.Common.ServicesCommon.Identity.Parameters.AssignUserOnRoleParameters)">
             <summary>
             Save User assigned
             </summary>
@@ -202,10 +202,17 @@
             <inheritdoc />
         </member>
         <member name="M:Tenets.Identity.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <inheritdoc />
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Contract for service descriptors</param>
         </member>
         <member name="M:Tenets.Identity.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
-            <inheritdoc />
+            <summary>
+             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Provide mechanisms to configure requests</param>
+            <param name="env">Provide information about hosting</param>
         </member>
         <member name="T:Tenets.API.Controllers.Secuirty.RoleController">
             <inheritdoc />
@@ -226,14 +233,14 @@
             <param name="id">PK</param>
             <returns>Object for id choosen</returns>
         </member>
-        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Add(Tenets.Common.Identity.Dto.RoleDto)">
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Add(Tenets.Identity.Services.Dto.RoleDto)">
             <summary>
             Add new data in database
             </summary>
             <param name="model">Object load data</param>
             <returns>Object after add</returns>
         </member>
-        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Update(Tenets.Common.Identity.Dto.RoleDto)">
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.Update(Tenets.Identity.Services.Dto.RoleDto)">
             <summary>
             Edit object
             </summary>
@@ -247,7 +254,7 @@
             <param name="id">PK</param>
             <returns>Statue of Remove</returns>
         </member>
-        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.GetAllRoles(Tenets.Common.Identity.Parameters.GetAllRoleParameters)">
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.GetAllRoles(Tenets.Common.ServicesCommon.Identity.Parameters.GetAllRoleParameters)">
             <summary>
             Get All Roles
             </summary>

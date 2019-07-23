@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tenets.Common.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Interface;
 
-namespace Tenets.Common.Identity.Dto
+namespace Tenets.Identity.Services.Dto
 {
     public class MenuDto : IMenuDto
     {

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.API.Controllers.Base;
 using Tenets.Identity.Services.Core;
 using Tenets.Identity.Services.Interfaces;

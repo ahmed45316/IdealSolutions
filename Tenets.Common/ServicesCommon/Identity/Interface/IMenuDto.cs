@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Tenets.Common.Core;
 
-namespace Tenets.Common.Identity.Interface
+namespace Tenets.Common.ServicesCommon.Identity.Interface
 {
     public interface IMenuDto: IPrimaryKeyField<Guid>
     {

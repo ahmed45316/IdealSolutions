@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using Tenets.Common.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Interface;
 
-namespace Tenets.Common.Identity.Dto
+namespace Tenets.Identity.Services.Dto
 {
     public class DecodingValidToken : IDecodingValidToken
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Tenets.Common.Identity.Parameters
+namespace Tenets.Common.ServicesCommon.Identity.Parameters
 {
     public class LoginParameters
     {

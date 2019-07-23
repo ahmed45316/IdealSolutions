@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Parameters;
 using Tenets.Common.OptionModel;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
 
 namespace Tenets.Identity.Services.Interfaces
 {

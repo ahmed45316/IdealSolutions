@@ -6,12 +6,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Dto;
-using Tenets.Common.Identity.Interface;
-using Tenets.Common.Identity.Parameters;
 using Tenets.Common.OptionModel;
+using Tenets.Common.ServicesCommon.Identity.Interface;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.Entities;
 using Tenets.Identity.Services.Core;
+using Tenets.Identity.Services.Dto;
 using Tenets.Identity.Services.Interfaces;
 using Tenets.Identity.Services.UnitOfWork;
 

@@ -2,9 +2,9 @@
 using System;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Dto;
-using Tenets.Common.Identity.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.API.Controllers.Base;
+using Tenets.Identity.Services.Dto;
 using Tenets.Identity.Services.Interfaces;
 
 namespace Tenets.API.Controllers.Secuirty

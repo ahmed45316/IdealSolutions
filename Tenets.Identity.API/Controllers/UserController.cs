@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
-using Tenets.Common.Identity.Dto;
-using Tenets.Common.Identity.Interface;
-using Tenets.Common.Identity.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.API.Controllers.Base;
+using Tenets.Identity.Services.Dto;
 using Tenets.Identity.Services.Interfaces;
 
 namespace Tenets.Identity.API.Controllers

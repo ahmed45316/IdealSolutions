@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tenets.Common.Identity.Parameters
+namespace Tenets.Common.ServicesCommon.Identity.Parameters
 {
    public  class ScreensAssignedParameters
     {
