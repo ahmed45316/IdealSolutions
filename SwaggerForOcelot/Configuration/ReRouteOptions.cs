@@ -11,20 +11,20 @@ namespace SwaggerForOcelot.Configuration
     /// </summary>
     public class ReRouteOptions
     {
-        private readonly string CatchAllPlaceHolder  ;
+        private const string CatchAllPlaceHolder= "{everything}";
         private readonly string[] DefaultMethodsTypes =
             new string[] { "get", "post", "put", "delete", "options", "patch", "head", "connect", "trace" };
 
         private Lazy<HashSet<string>> _httpMethods;
 
-        public ReRouteOptions(IConfiguration configuration)
+        public ReRouteOptions()
         {
             _httpMethods = new Lazy<HashSet<string>>(()
                 => new HashSet<string>(
-                    UpstreamHttpMethod?.Count() > 0 ? UpstreamHttpMethod: DefaultMethodsTypes,
+                    UpstreamHttpMethod?.Count() > 0 ? UpstreamHttpMethod : DefaultMethodsTypes,
                     StringComparer.OrdinalIgnoreCase));
-            CatchAllPlaceHolder = configuration["CatchAllPlaceholder"];
         }
+
 
         /// <summary>
         /// Swagger key. This key is used for generating swagger documentation for downstream services.
