@@ -1,7 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Codes.Data\Codes.Data.csproj" />
+    <ProjectReference Include="..\Tenets.Infrastructure\Tenets.Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>

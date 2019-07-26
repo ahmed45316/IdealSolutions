@@ -14,7 +14,6 @@ namespace Tenets.Infrastructure.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private const bool TrueExpression = true;
         protected readonly DbContext Context;
         protected DbSet<T> DbSet;
         public Repository(DbContext context)

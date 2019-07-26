@@ -55,7 +55,7 @@ namespace Tenets.Identity.Services.Extensions
         private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)
         {
             var connection = _configuration.GetConnectionString("IdentityContext"); 
-            services.AddDbContext<IdentityContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connection));
+            services.AddDbContext<IdentityContext>(options => options.UseSqlServer(connection));
             services.AddScoped<DbContext, IdentityContext>();
             services.AddSingleton<IDataInitialize, DataInitialize>();
         }
