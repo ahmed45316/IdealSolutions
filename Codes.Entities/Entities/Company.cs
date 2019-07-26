@@ -15,6 +15,8 @@ namespace Codes.Entities.Entities
         public string Address { get; set; }
         [StringLength(128)]
         public string Logo { get; set; }
+        [StringLength(128)]
+        public string CompanyGeneralLadgerId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Branch> Branches { get; set; }
