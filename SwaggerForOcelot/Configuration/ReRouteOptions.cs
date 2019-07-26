@@ -1,4 +1,5 @@
 ﻿using Kros.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +11,19 @@ namespace SwaggerForOcelot.Configuration
     /// </summary>
     public class ReRouteOptions
     {
-        private const string CatchAllPlaceHolder = "{everything}";
+        private readonly string CatchAllPlaceHolder  ;
         private readonly string[] DefaultMethodsTypes =
             new string[] { "get", "post", "put", "delete", "options", "patch", "head", "connect", "trace" };
 
         private Lazy<HashSet<string>> _httpMethods;
 
-        public ReRouteOptions()
+        public ReRouteOptions(IConfiguration configuration)
         {
             _httpMethods = new Lazy<HashSet<string>>(()
                 => new HashSet<string>(
                     UpstreamHttpMethod?.Count() > 0 ? UpstreamHttpMethod: DefaultMethodsTypes,
                     StringComparer.OrdinalIgnoreCase));
+            CatchAllPlaceHolder = configuration["CatchAllPlaceholder"];
         }
 
         /// <summary>
