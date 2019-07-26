@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenets.Identity.API", "Tenets.Identity.API\Tenets.Identity.API.csproj", "{245E803A-AB4F-40CA-8797-921C4084B044}"
 EndProject
@@ -37,13 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGetWay", "APIGetWay\APIG
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transactions", "Transactions", "{66168CDA-5102-4FEF-961D-B0703B46B6FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Entities", "Transactions.Entities\Transactions.Entities.csproj", "{615CF1E8-8591-4923-AE7D-87050F4F98FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.Entities", "Transactions.Entities\Transactions.Entities.csproj", "{615CF1E8-8591-4923-AE7D-87050F4F98FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Data", "Transactions.Data\Transactions.Data.csproj", "{9A7FFFA9-FA5E-4020-A263-26D004488584}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.Data", "Transactions.Data\Transactions.Data.csproj", "{9A7FFFA9-FA5E-4020-A263-26D004488584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Services", "Transactions.Services\Transactions.Services.csproj", "{CECDE262-5172-433D-B5A3-50FCC4C2C707}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.Services", "Transactions.Services\Transactions.Services.csproj", "{CECDE262-5172-433D-B5A3-50FCC4C2C707}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.API", "Transactions.API\Transactions.API.csproj", "{4F131BBF-B211-4B56-AA5F-0BA35C340013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transactions.API", "Transactions.API\Transactions.API.csproj", "{4F131BBF-B211-4B56-AA5F-0BA35C340013}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerForOcelot", "SwaggerForOcelot\SwaggerForOcelot.csproj", "{97197CEA-17E9-464B-9E3E-D013EAB65F95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +117,10 @@ Global
 		{4F131BBF-B211-4B56-AA5F-0BA35C340013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F131BBF-B211-4B56-AA5F-0BA35C340013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F131BBF-B211-4B56-AA5F-0BA35C340013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97197CEA-17E9-464B-9E3E-D013EAB65F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97197CEA-17E9-464B-9E3E-D013EAB65F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97197CEA-17E9-464B-9E3E-D013EAB65F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97197CEA-17E9-464B-9E3E-D013EAB65F95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{9A7FFFA9-FA5E-4020-A263-26D004488584} = {66168CDA-5102-4FEF-961D-B0703B46B6FE}
 		{CECDE262-5172-433D-B5A3-50FCC4C2C707} = {66168CDA-5102-4FEF-961D-B0703B46B6FE}
 		{4F131BBF-B211-4B56-AA5F-0BA35C340013} = {66168CDA-5102-4FEF-961D-B0703B46B6FE}
+		{97197CEA-17E9-464B-9E3E-D013EAB65F95} = {99031C1D-AEF6-4549-A7CE-5568C0E97B62}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E5DBE31-5476-438E-AB27-40FC9BD7AF12}

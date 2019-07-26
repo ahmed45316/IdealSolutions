@@ -26,7 +26,7 @@ namespace Tenets.Common.Extensions
             services.AddTransient<IDataPagging, DataPagging>();
             services.AddTransient<IImageConfig, ImageConfig>();
         }
-        private static void AddApiDocumentationServices(this IServiceCollection services,IConfiguration configuration)
+        private static void AddApiDocumentationServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(options =>
             {

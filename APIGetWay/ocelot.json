@@ -10,10 +10,11 @@
           "Port": 6060
         }
       ],
-      "UpstreamPathTemplate": "/Identity/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ]
+      "UpstreamPathTemplate": "/I/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "identity"
     },
-    //Codes
+    //Lookups
     {
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
@@ -23,8 +24,9 @@
           "Port": 7070
         }
       ],
-      "UpstreamPathTemplate": "/Codes/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ]
+      "UpstreamPathTemplate": "/L/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "lookups"
     },
     //Transactions
     {
@@ -36,8 +38,41 @@
           "Port": 8080
         }
       ],
-      "UpstreamPathTemplate": "/Transaction/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ]
+      "UpstreamPathTemplate": "/T/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "transaction"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "identity",
+      "Config": [
+        {
+          "Name": "Identity API",
+          "Version": "v1",
+          "Url": "http://localhost:6060/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "lookups",
+      "Config": [
+        {
+          "Name": "Lookups API",
+          "Version": "v1",
+          "Url": "http://localhost:7070/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "transaction",
+      "Config": [
+        {
+          "Name": "Transaction API",
+          "Version": "v1",
+          "Url": "http://localhost:8080/swagger/v1/swagger.json"
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {}
