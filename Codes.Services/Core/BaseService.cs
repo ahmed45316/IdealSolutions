@@ -10,7 +10,7 @@ namespace Codes.Services.Core
 {
 
     public class BaseService<T,TDto> : IBaseService<T,TDto>
-        where T : class
+        where T : class, ICommonProperty
         where TDto : IPrimaryKeyField<Guid>
     {
         protected readonly IUnitOfWork<T> _unitOfWork;
@@ -39,11 +39,13 @@ namespace Codes.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResult> AddAsync(TDto model)
+        public virtual async Task<IResult> AddAsync(TDto model,string userId)
         {
             try
             {
                 T entity = Mapper.Map<TDto, T>(model);
+                entity.CreateDate = DateTime.Now;
+                entity.CreateUserId =new Guid(userId);
                 _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
@@ -61,12 +63,16 @@ namespace Codes.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResult> UpdateAsync(TDto model)
+        public virtual async Task<IResult> UpdateAsync(TDto model,string userId)
         {
             try
             {
                 T entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
                 var newEntity = Mapper.Map(model, entityToUpdate);
+                newEntity.CreateUserId = entityToUpdate.CreateUserId;
+                newEntity.CreateDate = entityToUpdate.CreateDate;
+                newEntity.ModifyDate = DateTime.Now;
+                newEntity.ModifyUserId = new Guid(userId);
                 _unitOfWork.Repository.Update(entityToUpdate,newEntity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)

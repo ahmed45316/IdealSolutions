@@ -29,8 +29,13 @@ namespace Codes.Data.Migrations
 
                     b.Property<Guid>("CompanyId");
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -53,11 +58,16 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CostCenter")
                         .HasMaxLength(128);
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
 
                     b.Property<string>("Model")
                         .HasMaxLength(64);
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("Notes")
                         .HasMaxLength(512);
@@ -75,8 +85,13 @@ namespace Codes.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -96,8 +111,13 @@ namespace Codes.Data.Migrations
 
                     b.Property<Guid>("CountryId");
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -123,11 +143,16 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CompanyGeneralLadgerId")
                         .HasMaxLength(128);
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
 
                     b.Property<string>("Logo")
                         .HasMaxLength(128);
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -151,8 +176,13 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CountryKey")
                         .HasMaxLength(8);
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -185,6 +215,10 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CostCenter")
                         .HasMaxLength(128);
 
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
                     b.Property<int>("CustomerCode");
 
                     b.Property<string>("Email")
@@ -201,11 +235,12 @@ namespace Codes.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("0");
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
-
                     b.Property<string>("Mobile")
                         .HasMaxLength(20);
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -236,8 +271,13 @@ namespace Codes.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -255,8 +295,13 @@ namespace Codes.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -283,6 +328,10 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CostCenter")
                         .HasMaxLength(128);
 
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
                     b.Property<string>("Email")
                         .HasMaxLength(64);
 
@@ -293,11 +342,12 @@ namespace Codes.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("0");
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
-
                     b.Property<string>("Mobile")
                         .HasMaxLength(20);
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -335,6 +385,10 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CostCenter")
                         .HasMaxLength(128);
 
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
                     b.Property<string>("Email")
                         .HasMaxLength(64);
 
@@ -345,11 +399,12 @@ namespace Codes.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("0");
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
-
                     b.Property<string>("Mobile")
                         .HasMaxLength(20);
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -378,8 +433,13 @@ namespace Codes.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -403,8 +463,13 @@ namespace Codes.Data.Migrations
                     b.Property<string>("CostCenter")
                         .HasMaxLength(128);
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -428,8 +493,13 @@ namespace Codes.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<string>("NameAr")
                         .HasMaxLength(128);
@@ -447,12 +517,17 @@ namespace Codes.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
                     b.Property<Guid>("CustomerId");
 
                     b.Property<Guid?>("FromTrackId");
 
-                    b.Property<DateTime?>("LastAccessed")
-                        .ValueGeneratedOnAddOrUpdate();
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
 
                     b.Property<Guid?>("ToTrackId");
 

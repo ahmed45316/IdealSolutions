@@ -12,7 +12,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     PlateNumber = table.Column<string>(maxLength: 64, nullable: true),
                     Model = table.Column<string>(maxLength: 64, nullable: true),
                     Notes = table.Column<string>(maxLength: 512, nullable: true),
@@ -28,7 +31,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true)
                 },
@@ -42,7 +48,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     TaxNumber = table.Column<string>(maxLength: 128, nullable: true),
@@ -60,7 +69,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     CountryKey = table.Column<string>(maxLength: 8, nullable: true),
@@ -77,7 +89,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true)
                 },
@@ -91,7 +106,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true)
                 },
@@ -105,7 +123,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     RentCode = table.Column<int>(nullable: false),
@@ -129,7 +150,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     RepresentativeCode = table.Column<int>(nullable: false),
@@ -153,7 +177,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true)
                 },
@@ -167,7 +194,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true)
                 },
@@ -181,7 +211,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     CompanyId = table.Column<Guid>(nullable: false),
@@ -203,7 +236,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     CountryId = table.Column<Guid>(nullable: false)
@@ -224,7 +260,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     CustomerCode = table.Column<int>(nullable: false),
@@ -256,7 +295,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     NameAr = table.Column<string>(maxLength: 128, nullable: true),
                     NameEn = table.Column<string>(maxLength: 128, nullable: true),
                     Percentage = table.Column<double>(nullable: false),
@@ -280,7 +322,10 @@ namespace Codes.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    LastAccessed = table.Column<DateTime>(nullable: true),
+                    CreateUserId = table.Column<Guid>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
+                    ModifyUserId = table.Column<Guid>(nullable: true),
+                    ModifyDate = table.Column<DateTime>(nullable: true),
                     CustomerId = table.Column<Guid>(nullable: false),
                     FromTrackId = table.Column<Guid>(nullable: true),
                     ToTrackId = table.Column<Guid>(nullable: true)
