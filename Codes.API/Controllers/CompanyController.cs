@@ -21,7 +21,7 @@ namespace Codes.API.Controllers
             _companyServices = companyServices;
         }
         /// <summary>
-        /// Add Company 
+        /// Add data 
         /// </summary>
         /// <param name="model">Object content</param>
         /// <returns></returns>
@@ -31,7 +31,7 @@ namespace Codes.API.Controllers
             return await _companyServices.AddAsync(model, userId);
         }
         /// <summary>
-        /// Get company by Id
+        /// Get data by Id
         /// </summary>
         /// <param name="id">PK</param>
         /// <returns></returns>
