@@ -34,6 +34,20 @@ namespace Codes.Services.Extensions
         private static void Dtos(this IServiceCollection services)
         {
             services.AddSingleton<ICompanyDto, CompanyDto>();
+            services.AddSingleton<IBranchDto, BranchDto>();
+            services.AddSingleton<ICarDto, CarDto>();
+            services.AddSingleton<ICarTypeDto, CarTypeDto>();
+            services.AddSingleton<ICityDto, CityDto>();
+            services.AddSingleton<ICountryDto, CountryDto>();
+            services.AddSingleton<ICustomerDto, CustomerDto>();
+            services.AddSingleton<ICustomerCategoryDto, CustomerCategoryDto>();
+            services.AddSingleton<IInvoiceTypeDto, InvoiceTypeDto>();
+            services.AddSingleton<IRentDto, RentDto>();
+            services.AddSingleton<IRepresentativeDto, RepresentativeDto>();
+            services.AddSingleton<ITaxCategoryDto, TaxCategoryDto>();
+            services.AddSingleton<ITaxTypeDto, TaxTypeDto>();
+            services.AddSingleton<ITrackDto, TrackDto>();
+            services.AddSingleton<ITrackPriceDto, TrackPriceDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {
