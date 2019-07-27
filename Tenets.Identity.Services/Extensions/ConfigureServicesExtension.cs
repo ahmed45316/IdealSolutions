@@ -23,35 +23,12 @@ namespace Tenets.Identity.Services.Extensions
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration _configuration)
         {
             services.DatabaseConfig(_configuration);
-            services.JWTSettings(_configuration);
             services.Dtos();
             services.RegisterCores();
             services.AddAutoMapper(Assembly.GetAssembly(typeof(AutoMapperConfiguration)));
             return services;
         }
-        private static void JWTSettings(this IServiceCollection services, IConfiguration _configuration)
-        {
-            services.AddAuthentication(option =>
-            {
-                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = true;
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidIssuer = _configuration["Jwt:Issuer"],
-                    ValidateAudience = true,
-                    ValidAudience = _configuration["Jwt:Audience"],
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"])),
-                };
-            });
-        }
+        
         private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)
         {
             var connection = _configuration.GetConnectionString("IdentityContext"); 
