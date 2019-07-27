@@ -25,6 +25,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="model">Object content</param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<IResult> Add(CarDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
@@ -35,6 +36,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="id">PK</param>
         /// <returns></returns>
+        [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
             return await _CarServices.GetByIdAsync(id);
@@ -43,6 +45,7 @@ namespace Codes.API.Controllers
         /// GetAll Data
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public async Task<IResult> GetAll()
         {
             return await _CarServices.GetAllAsync();
@@ -52,6 +55,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="id">PK</param>
         /// <returns></returns>
+        [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
             return await _CarServices.DeleteAsync(id);
@@ -61,6 +65,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="model">Object content</param>
         /// <returns></returns>
+        [HttpPut]
         public async Task<IResult> Update(CarDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;

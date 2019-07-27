@@ -12,7 +12,7 @@ using Tenets.Common.Core;
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
-    public class CompanyController : BaseController,IMainEndPoint<CompanyDto>
+    public class CompanyController : BaseController, IMainEndPoint<CompanyDto>
     {
         private readonly ICompanyServices _companyServices;
         /// <inheritdoc />
@@ -25,6 +25,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="model">Object content</param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<IResult> Add(CompanyDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
@@ -35,6 +36,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="id">PK</param>
         /// <returns></returns>
+        [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
             return await _companyServices.GetByIdAsync(id);
@@ -43,6 +45,7 @@ namespace Codes.API.Controllers
         /// GetAll Data
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public async Task<IResult> GetAll()
         {
             return await _companyServices.GetAllAsync();
@@ -52,6 +55,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="id">PK</param>
         /// <returns></returns>
+        [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
             return await _companyServices.DeleteAsync(id);
@@ -61,6 +65,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="model">Object content</param>
         /// <returns></returns>
+        [HttpPut]
         public async Task<IResult> Update(CompanyDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
