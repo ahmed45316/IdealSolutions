@@ -12,8 +12,8 @@ namespace Codes.Data.Configuration
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
             builder.HasIndex(u => u.CustomerCode).IsUnique();
-            builder.Property(e => e.IsWorking).HasDefaultValueSql("false");
-            builder.Property(e => e.IsOutSideCustomer).HasDefaultValueSql("false");
+            builder.Property(e => e.IsWorking).HasDefaultValueSql("0");
+            builder.Property(e => e.IsOutSideCustomer).HasDefaultValueSql("0");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Codes.Data.Configuration
         public void Configure(EntityTypeBuilder<Representative> builder)
         {
             builder.HasIndex(u => u.RepresentativeCode).IsUnique();
-            builder.Property(e => e.IsWorking).HasDefaultValueSql("false");
+            builder.Property(e => e.IsWorking).HasDefaultValueSql("0");
         }
     }
 }
