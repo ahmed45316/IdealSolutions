@@ -25,6 +25,166 @@
         <member name="M:Codes.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
             <inheritdoc />
         </member>
+        <member name="T:Codes.API.Controllers.BranchController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.BranchController.#ctor(Codes.Services.Interfaces.IBranchServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.BranchController.Add(Codes.Services.Dto.BranchDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.BranchController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.BranchController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.BranchController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.BranchController.Update(Codes.Services.Dto.BranchDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.CarController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CarController.#ctor(Codes.Services.Interfaces.ICarServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CarController.Add(Codes.Services.Dto.CarDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarController.Update(Codes.Services.Dto.CarDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.CarTypeController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.#ctor(Codes.Services.Interfaces.ICarTypeServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.Add(Codes.Services.Dto.CarTypeDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.Update(Codes.Services.Dto.CarTypeDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.CityController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CityController.#ctor(Codes.Services.Interfaces.ICityServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CityController.Add(Codes.Services.Dto.CityDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CityController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CityController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CityController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CityController.Update(Codes.Services.Dto.CityDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Controllers.CompanyController">
             <inheritdoc />
         </member>
@@ -33,14 +193,14 @@
         </member>
         <member name="M:Codes.API.Controllers.CompanyController.Add(Codes.Services.Dto.CompanyDto)">
             <summary>
-            Add Company 
+            Add data 
             </summary>
             <param name="model">Object content</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.CompanyController.Get(System.Guid)">
             <summary>
-            Get company by Id
+            Get data by Id
             </summary>
             <param name="id">PK</param>
             <returns></returns>
@@ -59,6 +219,406 @@
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.CompanyController.Update(Codes.Services.Dto.CompanyDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.CountryController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CountryController.#ctor(Codes.Services.Interfaces.ICountryServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CountryController.Add(Codes.Services.Dto.CountryDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CountryController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CountryController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CountryController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CountryController.Update(Codes.Services.Dto.CountryDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.CustomerCategoryController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.#ctor(Codes.Services.Interfaces.ICustomerCategoryServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.Add(Codes.Services.Dto.CustomerCategoryDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.Update(Codes.Services.Dto.CustomerCategoryDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.CustomerController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerController.#ctor(Codes.Services.Interfaces.ICustomerServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerController.Add(Codes.Services.Dto.CustomerDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.CustomerController.Update(Codes.Services.Dto.CustomerDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.InvoiceTypeController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.#ctor(Codes.Services.Interfaces.IInvoiceTypeServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.Add(Codes.Services.Dto.InvoiceTypeDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.Update(Codes.Services.Dto.InvoiceTypeDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.RentController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.RentController.#ctor(Codes.Services.Interfaces.IRentServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.RentController.Add(Codes.Services.Dto.RentDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RentController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RentController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RentController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RentController.Update(Codes.Services.Dto.RentDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.RepresentativeController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.RepresentativeController.#ctor(Codes.Services.Interfaces.IRepresentativeServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.RepresentativeController.Add(Codes.Services.Dto.RepresentativeDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RepresentativeController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RepresentativeController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RepresentativeController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.RepresentativeController.Update(Codes.Services.Dto.RepresentativeDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.TaxCategoryController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TaxCategoryController.#ctor(Codes.Services.Interfaces.ITaxCategoryServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TaxCategoryController.Add(Codes.Services.Dto.TaxCategoryDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxCategoryController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxCategoryController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxCategoryController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxCategoryController.Update(Codes.Services.Dto.TaxCategoryDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.TaxTypeController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TaxTypeController.#ctor(Codes.Services.Interfaces.ITaxTypeServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TaxTypeController.Add(Codes.Services.Dto.TaxTypeDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxTypeController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxTypeController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxTypeController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TaxTypeController.Update(Codes.Services.Dto.TaxTypeDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.TrackController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TrackController.#ctor(Codes.Services.Interfaces.ITrackServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TrackController.Add(Codes.Services.Dto.TrackDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackController.Update(Codes.Services.Dto.TrackDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Codes.API.Controllers.TrackPriceController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.#ctor(Codes.Services.Interfaces.ITrackPriceServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.Add(Codes.Services.Dto.TrackPriceDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.Update(Codes.Services.Dto.TrackPriceDto)">
             <summary>
             Update data 
             </summary>
