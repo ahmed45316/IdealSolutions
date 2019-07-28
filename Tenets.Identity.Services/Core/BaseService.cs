@@ -11,7 +11,7 @@ namespace Tenets.Identity.Services.Core
 
     public class BaseService<T,TDto> : IBaseService<T,TDto>
         where T : class
-        where TDto : IPrimaryKeyField<Guid>
+        where TDto : IPrimaryKeyField<Guid?>
     {
         protected readonly IUnitOfWork<T> _unitOfWork;
         protected readonly IMapper Mapper;

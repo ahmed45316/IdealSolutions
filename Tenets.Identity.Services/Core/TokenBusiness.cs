@@ -42,7 +42,7 @@ namespace Tenets.Identity.Services.Core
                 signingCredentials: credentials,
                 claims: claims);
 
-            _userLoginReturn.UserId = userInfo.Id;
+            _userLoginReturn.UserId = userInfo.Id??new Guid("710BDFD1-D75B-4C2F-B9E1-FEAE2B27491A");
             _userLoginReturn.RefreshToken = refreshToken;
             _userLoginReturn.TokenValidTo = token.ValidTo;
 
