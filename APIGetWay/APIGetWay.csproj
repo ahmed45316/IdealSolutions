@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <Reference Include="SwaggerForOcelot">
-      <HintPath>..\..\..\..\ImporatntDLL\EveryThing\SwaggerForOcelot.dll</HintPath>
+      <HintPath>ExternalDll\SwaggerForOcelot.dll</HintPath>
     </Reference>
   </ItemGroup>
 
