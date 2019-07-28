@@ -3,7 +3,7 @@ using Tenets.Common.Core;
 
 namespace Tenets.Common.ServicesCommon.Identity.Interface
 {
-    public interface IUserDto : IPrimaryKeyField<Guid>
+    public interface IUserDto : IPrimaryKeyField<Guid?>
     {
         string Email { get; set; }
         bool EmailConfirmed { get; set; }

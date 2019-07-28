@@ -5,7 +5,7 @@ using Tenets.Common.Core;
 
 namespace Tenets.Common.ServicesCommon.Codes.Interface
 {
-    public interface ICityDto : IPrimaryKeyField<Guid>
+    public interface ICityDto : IPrimaryKeyField<Guid?>
     {
         string NameAr { get; set; }
         string NameEn { get; set; }

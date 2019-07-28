@@ -6,7 +6,7 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Tenets.Common.ServicesCommon.Codes.Interface
 {
-    public interface ICompanyDto : IPrimaryKeyField<Guid>
+    public interface ICompanyDto : IPrimaryKeyField<Guid?>
     {
         string NameAr { get; set; }
         string NameEn { get; set; }

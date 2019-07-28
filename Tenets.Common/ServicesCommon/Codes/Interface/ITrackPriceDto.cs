@@ -5,7 +5,7 @@ using Tenets.Common.Core;
 
 namespace Tenets.Common.ServicesCommon.Codes.Interface
 {
-    public interface ITrackPriceDto : IPrimaryKeyField<Guid>
+    public interface ITrackPriceDto : IPrimaryKeyField<Guid?>
     {
         Guid CustomerId { get; set; }
         Guid? FromTrackId { get; set; }

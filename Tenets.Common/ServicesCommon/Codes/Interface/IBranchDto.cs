@@ -5,7 +5,7 @@ using Tenets.Common.Core;
 
 namespace Tenets.Common.ServicesCommon.Codes.Interface
 {
-    public interface IBranchDto : IPrimaryKeyField<Guid>
+    public interface IBranchDto : IPrimaryKeyField<Guid?>
     {
         string NameAr { get; set; }
         string NameEn { get; set; }

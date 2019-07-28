@@ -5,7 +5,7 @@ using Tenets.Common.Core;
 
 namespace Tenets.Common.ServicesCommon.Codes.Interface
 {
-    public interface ICarDto : IPrimaryKeyField<Guid>
+    public interface ICarDto : IPrimaryKeyField<Guid?>
     {
          string PlateNumber { get; set; }
          string Model { get; set; }
