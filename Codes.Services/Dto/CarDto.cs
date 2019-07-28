@@ -11,6 +11,6 @@ namespace Codes.Services.Dto
         public string Model { get ; set ; }
         public string Notes { get ; set ; }
         public string CostCenter { get ; set ; }
-        public Guid Id { get ; set ; }
+        public Guid? Id { get ; set ; }
     }
 }

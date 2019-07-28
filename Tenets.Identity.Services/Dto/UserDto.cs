@@ -5,7 +5,7 @@ namespace Tenets.Identity.Services.Dto
 {
     public class UserDto : IUserDto
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; } = false;
         public string PasswordHash { get; set; }

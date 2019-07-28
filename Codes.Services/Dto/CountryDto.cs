@@ -12,6 +12,6 @@ namespace Codes.Services.Dto
         public string CountryKey { get ; set ; }
         public string NationalityAr { get ; set ; }
         public string NationalityEn { get ; set ; }
-        public Guid Id { get ; set ; }
+        public Guid? Id { get ; set ; }
     }
 }

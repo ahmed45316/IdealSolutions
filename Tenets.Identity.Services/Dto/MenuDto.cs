@@ -6,7 +6,7 @@ namespace Tenets.Identity.Services.Dto
 {
     public class MenuDto : IMenuDto
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string ScreenNameAr { get; set; }
         public string ScreenNameEn { get; set; }
         public string Href { get; set; }

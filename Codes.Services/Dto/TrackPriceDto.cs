@@ -10,6 +10,6 @@ namespace Codes.Services.Dto
         public Guid CustomerId { get ; set ; }
         public Guid? FromTrackId { get ; set ; }
         public Guid? ToTrackId { get ; set ; }
-        public Guid Id { get ; set ; }
+        public Guid? Id { get ; set ; }
     }
 }

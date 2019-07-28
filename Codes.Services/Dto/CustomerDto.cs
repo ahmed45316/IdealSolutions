@@ -21,6 +21,6 @@ namespace Codes.Services.Dto
         public string AccountCode { get ; set ; }
         public string CostCenter { get ; set ; }
         public Guid RepresentativeId { get ; set ; }
-        public Guid Id { get ; set ; }
+        public Guid? Id { get ; set ; }
     }
 }

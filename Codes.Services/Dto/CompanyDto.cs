@@ -13,6 +13,6 @@ namespace Codes.Services.Dto
         public string Address { get; set; }
         public string Logo { get; set; }
         public string CompanyGeneralLadgerId { get; set; }
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
     }
 }
