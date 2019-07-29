@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 6060
+          "Port": 6066
         }
       ],
       "UpstreamPathTemplate": "/I/{everything}",
@@ -21,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7070
+          "Port": 7071
         }
       ],
       "UpstreamPathTemplate": "/L/{everything}",
@@ -50,7 +50,7 @@
         {
           "Name": "Identity API",
           "Version": "v1",
-          "Url": "http://localhost:6060/swagger/v1/swagger.json"
+          "Url": "http://localhost:6066/swagger/v1/swagger.json"
         }
       ]
     },
@@ -60,7 +60,7 @@
         {
           "Name": "Lookups API",
           "Version": "v1",
-          "Url": "http://localhost:7070/swagger/v1/swagger.json"
+          "Url": "http://localhost:7071/swagger/v1/swagger.json"
         }
       ]
     },

@@ -35,7 +35,8 @@ namespace Codes.Services.Profiler
         }
         private void MappCar()
         {
-            CreateMap<Car, ICarDto>().ReverseMap();
+            CreateMap<Car, ICarDto>()
+                .ForMember(dest => dest.ModelName , opt => opt.MapFrom(src => src.Model)).ReverseMap();
         }
         private void MappCarType()
         {
