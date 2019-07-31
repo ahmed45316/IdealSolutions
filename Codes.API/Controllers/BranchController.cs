@@ -8,6 +8,7 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
@@ -49,6 +50,15 @@ namespace Codes.API.Controllers
         public async Task<IResult> GetAll()
         {
             return await _BranchServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(BranchSearchCriteriaParameters parameters)
+        {
+            return await _BranchServices.GetAllPaggedAsync(parameters);
         }
         /// <summary>
         /// Remove data by id

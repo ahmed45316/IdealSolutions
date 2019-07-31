@@ -11,6 +11,8 @@ using Tenets.Identity.Services.Interfaces;
 using Tenets.Common.Extensions;
 using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
+using System.Linq.Expressions;
+using LinqKit;
 
 namespace Tenets.Identity.Services.Services
 {
@@ -22,15 +24,27 @@ namespace Tenets.Identity.Services.Services
         }
         public async Task<IDataPagging> GetRoles(GetAllRoleParameters parameters)
         {
-            var roles = string.IsNullOrEmpty(parameters.RoleName) ? await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorRoleId), include: source => source.Include(a => a.UsersRole), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false) : await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorRoleId) && q.Name.Contains(parameters.RoleName), include: source => source.Include(a => a.UsersRole),orderByCriteria: parameters.OrderByValue,take: parameters.PageSize,skip: parameters.PageNumber, disableTracking: false);
-            if (!roles.Any())
+            int limit = parameters.PageSize;
+            int offset = ((--parameters.PageNumber) * parameters.PageSize);
+            var roles = await _unitOfWork.Repository.FindPaggedAsync(PredicateBuilderFunction(parameters), include: source => source.Include(a => a.UsersRole),orderByCriteria: parameters.OrderByValue, take: limit, skip: offset, disableTracking: false);
+            if (!roles.Item2.Any())
             {
                 var res = ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
                 return new DataPagging(0, 0, 0, res);
             };
-            var RolesDto = Mapper.Map<IEnumerable<Role>, IEnumerable<IRoleDto>>(roles);
+            var RolesDto = Mapper.Map<IEnumerable<Role>, IEnumerable<IRoleDto>>(roles.Item2);
             var repoResult = ResponseResult.PostResult(RolesDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
-            return new DataPagging(parameters.PageNumber, parameters.PageSize, roles.Count(), repoResult);
+            return new DataPagging(++parameters.PageNumber, parameters.PageSize, roles.Item1, repoResult);
+        }
+        static Expression<Func<Role, bool>> PredicateBuilderFunction(GetAllRoleParameters parameters)
+        {
+            var predicate = PredicateBuilder.New<Role>(true);
+            predicate = predicate.And(u => !u.IsDeleted && u.Id != new Guid(AdmistratorRoleId));
+            if (!string.IsNullOrWhiteSpace(parameters.RoleName))
+            {
+                predicate = predicate.And(b => b.Name.ToLower().Contains(parameters.RoleName.ToLower()));
+            }
+            return predicate;
         }
         public override async Task<IResult> UpdateAsync(IRoleDto model)
         {

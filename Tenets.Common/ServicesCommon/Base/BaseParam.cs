@@ -7,7 +7,6 @@ namespace Tenets.Common.ServicesCommon.Identity.Base
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
-        public int Count { get; set; }
         public IEnumerable<SortModel> OrderByValue { get; set; }
     }
 }

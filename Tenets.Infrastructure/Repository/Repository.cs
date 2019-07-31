@@ -32,11 +32,6 @@ namespace Tenets.Infrastructure.Repository
             {
                 query = query.AsNoTracking();
             }
-
-            if (include != null)
-            {
-                query = include(query);
-            }
             if (orderby != null)
             {
                 query = orderby(query);
@@ -45,20 +40,19 @@ namespace Tenets.Infrastructure.Repository
             {
                 query = query.Where(predicate);
             }
+            if (include != null)
+            {
+                query = include(query);
+            }
             return await query.FirstOrDefaultAsync();
 
         }
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate, int skip=0, int take=0, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate=null, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
         {
             IQueryable<T> query = DbSet;
             if (disableTracking)
             {
                 query = query.AsNoTracking();
-            }
-
-            if (include != null)
-            {
-                query = include(query);
             }
             if (predicate != null)
             {
@@ -66,9 +60,35 @@ namespace Tenets.Infrastructure.Repository
             }
             if (orderByCriteria != null)
             {
-                query = query.OrderBy(orderByCriteria).Skip(skip).Take(take);
+                query = query.OrderBy(orderByCriteria);
+            }
+            if (include != null)
+            {
+                query = include(query);
             }
             return await query.ToListAsync();
+        }
+        public async Task<(int,IEnumerable<T>)> FindPaggedAsync(Expression<Func<T, bool>> predicate = null, int skip = 0, int take = 0, IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
+        {
+            IQueryable<T> query = DbSet;
+            if (disableTracking)
+            {
+                query = query.AsNoTracking();
+            }
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+            int count = query.Count();
+            if (orderByCriteria != null)
+            {
+                query = query.OrderBy(orderByCriteria).Skip(skip).Take(take);
+            }
+            if (include != null)
+            {
+                query = include(query);
+            }
+            return (count,await query.ToListAsync());
         }
         public async Task<IEnumerable<T>> GetAllAsync(IEnumerable<SortModel> orderByCriteria = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, bool disableTracking = true)
         {
@@ -77,7 +97,6 @@ namespace Tenets.Infrastructure.Repository
             {
                 query = query.AsNoTracking();
             }
-
             if (include != null)
             {
                 query = include(query);

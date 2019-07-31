@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LinqKit.Core" Version="1.1.16" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Codes.Data\Codes.Data.csproj" />
     <ProjectReference Include="..\Tenets.Infrastructure\Tenets.Infrastructure.csproj" />
   </ItemGroup>
