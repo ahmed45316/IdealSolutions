@@ -51,6 +51,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.BranchController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.BranchSearchCriteriaParameters)">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.BranchController.Remove(System.Guid)">
             <summary>
             Remove data by id
