@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ServicesCommon\Codes\Parameters\" />
     <Folder Include="ServicesCommon\Transaction\Interface\" />
     <Folder Include="ServicesCommon\Transaction\Parameters\" />
   </ItemGroup>

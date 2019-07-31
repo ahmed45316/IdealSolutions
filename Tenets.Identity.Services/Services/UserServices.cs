@@ -14,6 +14,8 @@ using Tenets.Common.Hasher;
 using Tenets.Common.OptionModel;
 using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
+using System.Linq.Expressions;
+using LinqKit;
 
 namespace Tenets.Identity.Services.Services
 {
@@ -32,20 +34,32 @@ namespace Tenets.Identity.Services.Services
 
         public async Task<IDataPagging> GetUsers(GetAllUserParameters parameters)
         {
-            var users = !string.IsNullOrEmpty(parameters.UserName) ? await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId)&& q.UserName.Contains(parameters.UserName), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false) : await _unitOfWork.Repository.FindAsync(q => !q.IsDeleted && q.Id != new Guid(AdmistratorId), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: parameters.PageSize, skip: parameters.PageNumber, disableTracking: false);
-            if (!users.Any())
+            int limit = parameters.PageSize;
+            int offset = ((--parameters.PageNumber) * parameters.PageSize);
+            var users =  await _unitOfWork.Repository.FindPaggedAsync(PredicateBuilderFunction(parameters), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: limit, skip: offset, disableTracking: false);
+            if (!users.Item2.Any())
             {
                 var res = ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
                 return new DataPagging(0, 0, 0, res);
             }
-            var usersDto = Mapper.Map<IEnumerable<IUserDto>>(users);
+            var usersDto = Mapper.Map<IEnumerable<IUserDto>>(users.Item2);
             foreach (var item in usersDto)
             {
-                var role = users.Where(q => q.Id == item.Id).SelectMany(p => p.UsersRole.Select(r => r.Role.Name)).ToList();
+                var role = users.Item2.Where(q => q.Id == item.Id).SelectMany(p => p.UsersRole.Select(r => r.Role.Name)).ToList();
                 item.Roles = (role == null || role.Count == 0) ? null : String.Join(",", role.ToArray());
             }
             var repoResult = ResponseResult.PostResult(usersDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
-            return new DataPagging(parameters.PageNumber, parameters.PageSize, users.Count(), repoResult);
+            return new DataPagging(++parameters.PageNumber, parameters.PageSize, users.Item1, repoResult);
+        }
+        static Expression<Func<User, bool>> PredicateBuilderFunction(GetAllUserParameters parameters)
+        {
+            var predicate = PredicateBuilder.New<User>(true);
+            predicate = predicate.And(u => !u.IsDeleted&&u.Id != new Guid(AdmistratorId));
+            if (!string.IsNullOrWhiteSpace(parameters.UserName))
+            {
+                predicate = predicate.And(b => b.UserName.ToLower().Contains(parameters.UserName.ToLower()));
+            }
+            return predicate;
         }
         public override async Task<IResult> GetByIdAsync(Guid id)
         {
