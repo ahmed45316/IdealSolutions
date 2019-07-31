@@ -45,8 +45,12 @@ namespace APIGetWay
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
-            await app.UseSwaggerForOcelotUI(Configuration)
-                .UseOcelot();
+            await app.UseSwaggerForOcelotUI(Configuration, opt =>
+            {
+                opt.DownstreamSwaggerEndPointBasePath = Configuration["DownstreamSwaggerEndPointBasePath"];
+                opt.PathToSwaggerGenerator = Configuration["PathToSwaggerGenerator"];
+            })
+            .UseOcelot();
         }
     }
 }
