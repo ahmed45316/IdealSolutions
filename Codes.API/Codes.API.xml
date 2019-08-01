@@ -51,7 +51,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.BranchController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.BranchFilter)">
+        <member name="M:Codes.API.Controllers.BranchController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.BranchFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -97,7 +97,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CarController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.CarFilter)">
+        <member name="M:Codes.API.Controllers.CarController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.CarFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -144,7 +144,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CarTypeController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.CarTypeController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -191,7 +191,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CityController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.CityFilter)">
+        <member name="M:Codes.API.Controllers.CityController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.CityFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -238,7 +238,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CompanyController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.CompanyController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -285,7 +285,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CountryController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.CountryController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -332,7 +332,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CustomerCategoryController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.CustomerCategoryController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -379,7 +379,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CustomerController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.CustomerFilter)">
+        <member name="M:Codes.API.Controllers.CustomerController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.CustomerFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -426,7 +426,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.InvoiceTypeController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.InvoiceTypeController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -473,7 +473,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.RentController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.RentFilter)">
+        <member name="M:Codes.API.Controllers.RentController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.RentFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -520,7 +520,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.RepresentativeController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.RepresentativeFilter)">
+        <member name="M:Codes.API.Controllers.RepresentativeController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.RepresentativeFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -567,7 +567,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TaxCategoryController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.TaxCategoryController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -614,7 +614,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TaxTypeController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.TaxTypeFilter)">
+        <member name="M:Codes.API.Controllers.TaxTypeController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.TaxTypeFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -661,7 +661,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TrackController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
+        <member name="M:Codes.API.Controllers.TrackController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
             <summary>
             GetAll Data paged
             </summary>
@@ -708,7 +708,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TrackPriceController.GetPaged(Tenets.Common.ServicesCommon.Codes.Parameters.TrackPriceFilter)">
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.TrackPriceFilter})">
             <summary>
             GetAll Data paged
             </summary>

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Interface;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.Services.Services
 {
@@ -19,13 +20,13 @@ namespace Codes.Services.Services
         {
 
         }
-        public async Task<IDataPagging> GetAllPaggedAsync(MainFilter filter)
+        public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<MainFilter> filter)
         {
             try
             {
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter), skip: offset, take: limit, filter.OrderByValue);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<CustomerCategory>, IEnumerable<ICustomerCategoryDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }

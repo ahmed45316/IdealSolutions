@@ -13,6 +13,7 @@ using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
 using System.Linq.Expressions;
 using LinqKit;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Tenets.Identity.Services.Services
 {
@@ -22,11 +23,11 @@ namespace Tenets.Identity.Services.Services
         {
 
         }
-        public async Task<IDataPagging> GetRoles(GetAllRoleParameters parameters)
+        public async Task<IDataPagging> GetRoles(BaseParam<RoleFilter> filter)
         {
-            int limit = parameters.PageSize;
-            int offset = ((--parameters.PageNumber) * parameters.PageSize);
-            var roles = await _unitOfWork.Repository.FindPaggedAsync(PredicateBuilderFunction(parameters), include: source => source.Include(a => a.UsersRole),orderByCriteria: parameters.OrderByValue, take: limit, skip: offset, disableTracking: false);
+            int limit = filter.PageSize;
+            int offset = ((--filter.PageNumber) * filter.PageSize);
+            var roles = await _unitOfWork.Repository.FindPaggedAsync(PredicateBuilderFunction(filter.Filter), include: source => source.Include(a => a.UsersRole),orderByCriteria: filter.OrderByValue, take: limit, skip: offset, disableTracking: false);
             if (!roles.Item2.Any())
             {
                 var res = ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
@@ -34,9 +35,9 @@ namespace Tenets.Identity.Services.Services
             };
             var RolesDto = Mapper.Map<IEnumerable<Role>, IEnumerable<IRoleDto>>(roles.Item2);
             var repoResult = ResponseResult.PostResult(RolesDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
-            return new DataPagging(++parameters.PageNumber, parameters.PageSize, roles.Item1, repoResult);
+            return new DataPagging(++filter.PageNumber, filter.PageSize, roles.Item1, repoResult);
         }
-        static Expression<Func<Role, bool>> PredicateBuilderFunction(GetAllRoleParameters parameters)
+        static Expression<Func<Role, bool>> PredicateBuilderFunction(RoleFilter parameters)
         {
             var predicate = PredicateBuilder.New<Role>(true);
             predicate = predicate.And(u => !u.IsDeleted && u.Id != new Guid(AdmistratorRoleId));

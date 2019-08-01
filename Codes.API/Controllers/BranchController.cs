@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.API.Controllers
 {
@@ -56,7 +57,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetPaged([FromBody]BranchFilter filter)
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<BranchFilter> filter)
         {
             return await _branchServices.GetAllPaggedAsync(filter);
         }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.API.Controllers.Base;
 using Tenets.Identity.Services.Dto;
@@ -75,9 +76,9 @@ namespace Tenets.Identity.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost()]
-        public async Task<IDataPagging> GetAllUsers(GetAllUserParameters parameters)
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<UserFilter> filter)
         {
-            return await _userServices.GetUsers(parameters);
+            return await _userServices.GetUsers(filter);
         }
         /// <summary>
         /// Check Fields IsExists

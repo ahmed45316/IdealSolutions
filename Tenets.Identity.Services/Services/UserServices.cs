@@ -16,6 +16,7 @@ using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
 using System.Linq.Expressions;
 using LinqKit;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Tenets.Identity.Services.Services
 {
@@ -32,11 +33,11 @@ namespace Tenets.Identity.Services.Services
             _imageConfig = imageConfig;
         }
 
-        public async Task<IDataPagging> GetUsers(GetAllUserParameters parameters)
+        public async Task<IDataPagging> GetUsers(BaseParam<UserFilter> filter)
         {
-            int limit = parameters.PageSize;
-            int offset = ((--parameters.PageNumber) * parameters.PageSize);
-            var users =  await _unitOfWork.Repository.FindPaggedAsync(PredicateBuilderFunction(parameters), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: parameters.OrderByValue, take: limit, skip: offset, disableTracking: false);
+            int limit = filter.PageSize;
+            int offset = ((--filter.PageNumber) * filter.PageSize);
+            var users =  await _unitOfWork.Repository.FindPaggedAsync(PredicateBuilderFunction(filter.Filter), include: source => source.Include(a => a.UsersRole).ThenInclude(b => b.Role), orderByCriteria: filter.OrderByValue, take: limit, skip: offset, disableTracking: false);
             if (!users.Item2.Any())
             {
                 var res = ResponseResult.PostResult(status: HttpStatusCode.NoContent, message: HttpStatusCode.NoContent.ToString());
@@ -49,9 +50,9 @@ namespace Tenets.Identity.Services.Services
                 item.Roles = (role == null || role.Count == 0) ? null : String.Join(",", role.ToArray());
             }
             var repoResult = ResponseResult.PostResult(usersDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
-            return new DataPagging(++parameters.PageNumber, parameters.PageSize, users.Item1, repoResult);
+            return new DataPagging(++filter.PageNumber, filter.PageSize, users.Item1, repoResult);
         }
-        static Expression<Func<User, bool>> PredicateBuilderFunction(GetAllUserParameters parameters)
+        static Expression<Func<User, bool>> PredicateBuilderFunction(UserFilter parameters)
         {
             var predicate = PredicateBuilder.New<User>(true);
             predicate = predicate.And(u => !u.IsDeleted&&u.Id != new Guid(AdmistratorId));

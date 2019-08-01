@@ -145,7 +145,7 @@
             <param name="id">PK</param>
             <returns>Statue of Remove</returns>
         </member>
-        <member name="M:Tenets.Identity.API.Controllers.UserController.GetAllUsers(Tenets.Common.ServicesCommon.Identity.Parameters.GetAllUserParameters)">
+        <member name="M:Tenets.Identity.API.Controllers.UserController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Identity.Parameters.UserFilter})">
             <summary>
             Get Users
             </summary>
@@ -254,7 +254,7 @@
             <param name="id">PK</param>
             <returns>Statue of Remove</returns>
         </member>
-        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.GetAllRoles(Tenets.Common.ServicesCommon.Identity.Parameters.GetAllRoleParameters)">
+        <member name="M:Tenets.API.Controllers.Secuirty.RoleController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Identity.Parameters.RoleFilter})">
             <summary>
             Get All Roles
             </summary>

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Interface;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.Services.Interfaces
 {
     public interface IRepresentativeServices : IBaseService<Representative, IRepresentativeDto>
     {
-        Task<IDataPagging> GetAllPaggedAsync(RepresentativeFilter filter);
+        Task<IDataPagging> GetAllPaggedAsync(BaseParam<RepresentativeFilter> filter);
     }
 }

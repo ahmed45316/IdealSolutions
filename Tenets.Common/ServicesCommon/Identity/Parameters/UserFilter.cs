@@ -2,7 +2,7 @@
 
 namespace Tenets.Common.ServicesCommon.Identity.Parameters
 {
-    public class GetAllUserParameters: BaseParam
+    public class UserFilter
     {
         public string UserName { get; set; }
     }

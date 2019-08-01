@@ -2,7 +2,7 @@
 
 namespace Tenets.Common.ServicesCommon.Identity.Parameters
 {
-    public class GetAllRoleParameters: BaseParam
+    public class RoleFilter
     {        
         public string RoleName { get; set; }
     }

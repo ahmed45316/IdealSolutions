@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.API.Controllers
 {
@@ -57,7 +58,7 @@ namespace Codes.API.Controllers
         /// <param name="filter">Filter resposiable for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetPaged(CarFilter filter)
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<CarFilter> filter)
         {
             return await _carServices.GetAllPaggedAsync(filter);
         }

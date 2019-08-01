@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.API.Controllers.Base;
 using Tenets.Identity.Services.Dto;
@@ -73,9 +74,9 @@ namespace Tenets.API.Controllers.Secuirty
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetAllRoles(GetAllRoleParameters parameters)
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<RoleFilter> filter)
         {
-            return await _roleServices.GetRoles(parameters);
+            return await _roleServices.GetRoles(filter);
         }
         /// <summary>
         /// check Name is Exists

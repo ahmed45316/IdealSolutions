@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
+using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
-    public class CarTypeController : BaseController,IMainEndPoint<CarTypeDto>
+    public class CarTypeController : BaseController, IMainEndPoint<CarTypeDto>
     {
         private readonly ICarTypeServices _carTypeServices;
         /// <inheritdoc />
@@ -57,7 +58,7 @@ namespace Codes.API.Controllers
         /// <param name="filter">Filter resposiable for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetPaged(MainFilter filter)
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<MainFilter> filter)
         {
             return await _carTypeServices.GetAllPaggedAsync(filter);
         }
