@@ -45,9 +45,9 @@ namespace Codes.Services.Services
             {
                 predicate = predicate.And(b => b.PlateNumber.ToLower().Contains(filter.PlateNumber.ToLower()));
             }
-            if (!string.IsNullOrWhiteSpace(filter.ModelName))
+            if (!string.IsNullOrWhiteSpace(filter.Model))
             {
-                predicate = predicate.And(b => b.Model.ToLower().Contains(filter.ModelName.ToLower()));
+                predicate = predicate.And(b => b.Model.ToLower().Contains(filter.Model.ToLower()));
             }
             return predicate;
         }
