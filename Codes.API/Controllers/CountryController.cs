@@ -8,6 +8,7 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
@@ -49,6 +50,16 @@ namespace Codes.API.Controllers
         public async Task<IResult> GetAll()
         {
             return await _CountryServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(MainFilter filter)
+        {
+            return await _CountryServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id

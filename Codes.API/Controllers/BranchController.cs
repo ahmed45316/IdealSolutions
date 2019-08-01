@@ -54,11 +54,12 @@ namespace Codes.API.Controllers
         /// <summary>
         /// GetAll Data paged
         /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetAll(BranchSearchCriteriaParameters parameters)
+        public async Task<IDataPagging> GetAll(BranchFilter filter)
         {
-            return await _BranchServices.GetAllPaggedAsync(parameters);
+            return await _BranchServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id

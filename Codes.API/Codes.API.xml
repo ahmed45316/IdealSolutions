@@ -51,7 +51,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.BranchController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.BranchSearchCriteriaParameters)">
+        <member name="M:Codes.API.Controllers.BranchController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.BranchFilter)">
             <summary>
             GetAll Data paged
             </summary>

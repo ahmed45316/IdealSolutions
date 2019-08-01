@@ -12,6 +12,6 @@ namespace Codes.Services.Interfaces
 {
     public interface IBranchServices : IBaseService<Branch, IBranchDto>
     {
-        Task<IDataPagging> GetAllPaggedAsync(BranchSearchCriteriaParameters parameters);
+        Task<IDataPagging> GetAllPaggedAsync(BranchFilter filter);
     }
 }
