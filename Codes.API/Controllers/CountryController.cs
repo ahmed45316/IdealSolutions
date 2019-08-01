@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class CountryController : BaseController,IMainEndPoint<CountryDto>
     {
-        private readonly ICountryServices _countryServices;
+        private readonly ICountryServices _CountryServices;
         /// <inheritdoc />
-        public CountryController(ICountryServices countryServices)
+        public CountryController(ICountryServices CountryServices)
         {
-            _countryServices = countryServices;
+            _CountryServices = CountryServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CountryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _countryServices.AddAsync(model, userId);
+            return await _CountryServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _countryServices.GetByIdAsync(id);
+            return await _CountryServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _countryServices.GetAllAsync();
+            return await _CountryServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(MainFilter filter)
         {
-            return await _countryServices.GetAllPaggedAsync(filter);
+            return await _CountryServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _countryServices.DeleteAsync(id);
+            return await _CountryServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CountryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _countryServices.UpdateAsync(model, userId);
+            return await _CountryServices.UpdateAsync(model, userId);
         }
     }
 }

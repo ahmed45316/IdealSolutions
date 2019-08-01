@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class CityController : BaseController,IMainEndPoint<CityDto>
     {
-        private readonly ICityServices _cityServices;
+        private readonly ICityServices _CityServices;
         /// <inheritdoc />
-        public CityController(ICityServices cityServices)
+        public CityController(ICityServices CityServices)
         {
-            _cityServices = cityServices;
+            _CityServices = CityServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CityDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _cityServices.AddAsync(model, userId);
+            return await _CityServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _cityServices.GetByIdAsync(id);
+            return await _CityServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _cityServices.GetAllAsync();
+            return await _CityServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(CityFilter filter)
         {
-            return await _cityServices.GetAllPaggedAsync(filter);
+            return await _CityServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _cityServices.DeleteAsync(id);
+            return await _CityServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CityDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _cityServices.UpdateAsync(model, userId);
+            return await _CityServices.UpdateAsync(model, userId);
         }
     }
 }

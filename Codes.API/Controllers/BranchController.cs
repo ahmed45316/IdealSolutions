@@ -56,9 +56,9 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetPaged([FromBody]BranchSearchCriteriaParameters parameters)
+        public async Task<IDataPagging> GetPaged([FromBody]BranchFilter filter)
         {
-            return await _BranchServices.GetAllPaggedAsync(parameters);
+            return await _BranchServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id

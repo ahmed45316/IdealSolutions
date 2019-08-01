@@ -55,7 +55,6 @@
             <summary>
             GetAll Data paged
             </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.BranchController.Remove(System.Guid)">
@@ -98,13 +97,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CarController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.CarFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.CarController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -143,13 +135,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.CarTypeController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.CarTypeController.Remove(System.Guid)">
@@ -192,13 +177,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CityController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.CityFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.CityController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -237,13 +215,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.CompanyController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.CompanyController.Remove(System.Guid)">
@@ -286,13 +257,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CountryController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.CountryController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -331,13 +295,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.CustomerCategoryController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.CustomerCategoryController.Remove(System.Guid)">
@@ -380,13 +337,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.CustomerController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.CustomerFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.CustomerController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -425,13 +375,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.InvoiceTypeController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.InvoiceTypeController.Remove(System.Guid)">
@@ -474,13 +417,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.RentController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.RentFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.RentController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -519,13 +455,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.RepresentativeController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.RepresentativeFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.RepresentativeController.Remove(System.Guid)">
@@ -568,13 +497,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TaxCategoryController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.TaxCategoryController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -613,13 +535,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.TaxTypeController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.TaxTypeFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.TaxTypeController.Remove(System.Guid)">
@@ -662,13 +577,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TrackController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
-            <returns></returns>
-        </member>
         <member name="M:Codes.API.Controllers.TrackController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -707,13 +615,6 @@
             <summary>
             GetAll Data
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.TrackPriceController.GetAll(Tenets.Common.ServicesCommon.Codes.Parameters.TrackPriceFilter)">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.TrackPriceController.Remove(System.Guid)">

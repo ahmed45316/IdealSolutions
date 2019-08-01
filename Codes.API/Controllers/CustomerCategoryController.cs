@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class CustomerCategoryController : BaseController,IMainEndPoint<CustomerCategoryDto>
     {
-        private readonly ICustomerCategoryServices _customerCategoryServices;
+        private readonly ICustomerCategoryServices _CustomerCategoryServices;
         /// <inheritdoc />
-        public CustomerCategoryController(ICustomerCategoryServices customerCategoryServices)
+        public CustomerCategoryController(ICustomerCategoryServices CustomerCategoryServices)
         {
-            _customerCategoryServices = customerCategoryServices;
+            _CustomerCategoryServices = CustomerCategoryServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CustomerCategoryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _customerCategoryServices.AddAsync(model, userId);
+            return await _CustomerCategoryServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _customerCategoryServices.GetByIdAsync(id);
+            return await _CustomerCategoryServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _customerCategoryServices.GetAllAsync();
+            return await _CustomerCategoryServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(MainFilter filter)
         {
-            return await _customerCategoryServices.GetAllPaggedAsync(filter);
+            return await _CustomerCategoryServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _customerCategoryServices.DeleteAsync(id);
+            return await _CustomerCategoryServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CustomerCategoryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _customerCategoryServices.UpdateAsync(model, userId);
+            return await _CustomerCategoryServices.UpdateAsync(model, userId);
         }
     }
 }

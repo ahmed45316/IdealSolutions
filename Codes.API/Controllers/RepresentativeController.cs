@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class RepresentativeController : BaseController,IMainEndPoint<RepresentativeDto>
     {
-        private readonly IRepresentativeServices _representativeServices;
+        private readonly IRepresentativeServices _RepresentativeServices;
         /// <inheritdoc />
-        public RepresentativeController(IRepresentativeServices representativeServices)
+        public RepresentativeController(IRepresentativeServices RepresentativeServices)
         {
-            _representativeServices = representativeServices;
+            _RepresentativeServices = RepresentativeServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(RepresentativeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _representativeServices.AddAsync(model, userId);
+            return await _RepresentativeServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _representativeServices.GetByIdAsync(id);
+            return await _RepresentativeServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _representativeServices.GetAllAsync();
+            return await _RepresentativeServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(RepresentativeFilter filter)
         {
-            return await _representativeServices.GetAllPaggedAsync(filter);
+            return await _RepresentativeServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _representativeServices.DeleteAsync(id);
+            return await _RepresentativeServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(RepresentativeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _representativeServices.UpdateAsync(model, userId);
+            return await _RepresentativeServices.UpdateAsync(model, userId);
         }
     }
 }

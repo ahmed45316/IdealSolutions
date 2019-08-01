@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class CustomerController : BaseController,IMainEndPoint<CustomerDto>
     {
-        private readonly ICustomerServices _customerServices;
+        private readonly ICustomerServices _CustomerServices;
         /// <inheritdoc />
-        public CustomerController(ICustomerServices customerServices)
+        public CustomerController(ICustomerServices CustomerServices)
         {
-            _customerServices = customerServices;
+            _CustomerServices = CustomerServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CustomerDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _customerServices.AddAsync(model, userId);
+            return await _CustomerServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _customerServices.GetByIdAsync(id);
+            return await _CustomerServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _customerServices.GetAllAsync();
+            return await _CustomerServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(CustomerFilter filter)
         {
-            return await _customerServices.GetAllPaggedAsync(filter);
+            return await _CustomerServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _customerServices.DeleteAsync(id);
+            return await _CustomerServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CustomerDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _customerServices.UpdateAsync(model, userId);
+            return await _CustomerServices.UpdateAsync(model, userId);
         }
     }
 }

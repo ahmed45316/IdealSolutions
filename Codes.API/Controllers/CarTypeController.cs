@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class CarTypeController : BaseController,IMainEndPoint<CarTypeDto>
     {
-        private readonly ICarTypeServices _carTypeServices;
+        private readonly ICarTypeServices _CarTypeServices;
         /// <inheritdoc />
-        public CarTypeController(ICarTypeServices carTypeServices)
+        public CarTypeController(ICarTypeServices CarTypeServices)
         {
-            _carTypeServices = carTypeServices;
+            _CarTypeServices = CarTypeServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CarTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _carTypeServices.AddAsync(model, userId);
+            return await _CarTypeServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _carTypeServices.GetByIdAsync(id);
+            return await _CarTypeServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _carTypeServices.GetAllAsync();
+            return await _CarTypeServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(MainFilter filter)
         {
-            return await _carTypeServices.GetAllPaggedAsync(filter);
+            return await _CarTypeServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _carTypeServices.DeleteAsync(id);
+            return await _CarTypeServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CarTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _carTypeServices.UpdateAsync(model, userId);
+            return await _CarTypeServices.UpdateAsync(model, userId);
         }
     }
 }

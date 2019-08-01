@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class RentController : BaseController,IMainEndPoint<RentDto>
     {
-        private readonly IRentServices _rentServices;
+        private readonly IRentServices _RentServices;
         /// <inheritdoc />
-        public RentController(IRentServices rentServices)
+        public RentController(IRentServices RentServices)
         {
-            _rentServices = rentServices;
+            _RentServices = RentServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(RentDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _rentServices.AddAsync(model, userId);
+            return await _RentServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _rentServices.GetByIdAsync(id);
+            return await _RentServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _rentServices.GetAllAsync();
+            return await _RentServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(RentFilter filter)
         {
-            return await _rentServices.GetAllPaggedAsync(filter);
+            return await _RentServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _rentServices.DeleteAsync(id);
+            return await _RentServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(RentDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _rentServices.UpdateAsync(model, userId);
+            return await _RentServices.UpdateAsync(model, userId);
         }
     }
 }

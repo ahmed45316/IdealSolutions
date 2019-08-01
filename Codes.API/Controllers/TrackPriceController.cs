@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class TrackPriceController : BaseController,IMainEndPoint<TrackPriceDto>
     {
-        private readonly ITrackPriceServices _trackPriceServices;
+        private readonly ITrackPriceServices _TrackPriceServices;
         /// <inheritdoc />
-        public TrackPriceController(ITrackPriceServices trackPriceServices)
+        public TrackPriceController(ITrackPriceServices TrackPriceServices)
         {
-            _trackPriceServices = trackPriceServices;
+            _TrackPriceServices = TrackPriceServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(TrackPriceDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _trackPriceServices.AddAsync(model, userId);
+            return await _TrackPriceServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _trackPriceServices.GetByIdAsync(id);
+            return await _TrackPriceServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _trackPriceServices.GetAllAsync();
+            return await _TrackPriceServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(TrackPriceFilter filter)
         {
-            return await _trackPriceServices.GetAllPaggedAsync(filter);
+            return await _TrackPriceServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _trackPriceServices.DeleteAsync(id);
+            return await _TrackPriceServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(TrackPriceDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _trackPriceServices.UpdateAsync(model, userId);
+            return await _TrackPriceServices.UpdateAsync(model, userId);
         }
     }
 }
