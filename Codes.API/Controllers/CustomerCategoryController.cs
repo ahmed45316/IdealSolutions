@@ -8,17 +8,18 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
     public class CustomerCategoryController : BaseController,IMainEndPoint<CustomerCategoryDto>
     {
-        private readonly ICustomerCategoryServices _CustomerCategoryServices;
+        private readonly ICustomerCategoryServices _customerCategoryServices;
         /// <inheritdoc />
-        public CustomerCategoryController(ICustomerCategoryServices CustomerCategoryServices)
+        public CustomerCategoryController(ICustomerCategoryServices customerCategoryServices)
         {
-            _CustomerCategoryServices = CustomerCategoryServices;
+            _customerCategoryServices = customerCategoryServices;
         }
         /// <summary>
         /// Add data 
@@ -29,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CustomerCategoryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _CustomerCategoryServices.AddAsync(model, userId);
+            return await _customerCategoryServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -39,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _CustomerCategoryServices.GetByIdAsync(id);
+            return await _customerCategoryServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -48,7 +49,17 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _CustomerCategoryServices.GetAllAsync();
+            return await _customerCategoryServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(MainFilter filter)
+        {
+            return await _customerCategoryServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -58,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _CustomerCategoryServices.DeleteAsync(id);
+            return await _customerCategoryServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -69,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CustomerCategoryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _CustomerCategoryServices.UpdateAsync(model, userId);
+            return await _customerCategoryServices.UpdateAsync(model, userId);
         }
     }
 }

@@ -8,17 +8,18 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
     public class TaxCategoryController : BaseController,IMainEndPoint<TaxCategoryDto>
     {
-        private readonly ITaxCategoryServices _TaxCategoryServices;
+        private readonly ITaxCategoryServices _taxCategoryServices;
         /// <inheritdoc />
-        public TaxCategoryController(ITaxCategoryServices TaxCategoryServices)
+        public TaxCategoryController(ITaxCategoryServices taxCategoryServices)
         {
-            _TaxCategoryServices = TaxCategoryServices;
+            _taxCategoryServices = taxCategoryServices;
         }
         /// <summary>
         /// Add data 
@@ -29,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(TaxCategoryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TaxCategoryServices.AddAsync(model, userId);
+            return await _taxCategoryServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -39,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _TaxCategoryServices.GetByIdAsync(id);
+            return await _taxCategoryServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -48,7 +49,17 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _TaxCategoryServices.GetAllAsync();
+            return await _taxCategoryServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(MainFilter filter)
+        {
+            return await _taxCategoryServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -58,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _TaxCategoryServices.DeleteAsync(id);
+            return await _taxCategoryServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -69,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(TaxCategoryDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TaxCategoryServices.UpdateAsync(model, userId);
+            return await _taxCategoryServices.UpdateAsync(model, userId);
         }
     }
 }

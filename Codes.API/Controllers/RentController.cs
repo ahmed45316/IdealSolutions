@@ -8,17 +8,18 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
     public class RentController : BaseController,IMainEndPoint<RentDto>
     {
-        private readonly IRentServices _RentServices;
+        private readonly IRentServices _rentServices;
         /// <inheritdoc />
-        public RentController(IRentServices RentServices)
+        public RentController(IRentServices rentServices)
         {
-            _RentServices = RentServices;
+            _rentServices = rentServices;
         }
         /// <summary>
         /// Add data 
@@ -29,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(RentDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _RentServices.AddAsync(model, userId);
+            return await _rentServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -39,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _RentServices.GetByIdAsync(id);
+            return await _rentServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -48,7 +49,17 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _RentServices.GetAllAsync();
+            return await _rentServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(RentFilter filter)
+        {
+            return await _rentServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -58,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _RentServices.DeleteAsync(id);
+            return await _rentServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -69,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(RentDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _RentServices.UpdateAsync(model, userId);
+            return await _rentServices.UpdateAsync(model, userId);
         }
     }
 }

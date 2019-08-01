@@ -21,15 +21,15 @@ namespace Codes.Services.Services
         {
 
         }
-        public async Task<IDataPagging> GetAllPaggedAsync(BranchSearchCriteriaParameters parameters)
+        public async Task<IDataPagging> GetAllPaggedAsync(BranchFilter filter)
         {
             try
             {
-                int limit = parameters.PageSize;
-                int offset = ((--parameters.PageNumber)*parameters.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(parameters),skip:offset, take: limit,parameters.OrderByValue);
+                int limit = filter.PageSize;
+                int offset = ((--filter.PageNumber)*filter.PageSize);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter),skip:offset, take: limit,filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<Branch>, IEnumerable<IBranchDto>>(query.Item2);
-                return new DataPagging(++parameters.PageNumber, parameters.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
+                return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)
             {
@@ -38,20 +38,20 @@ namespace Codes.Services.Services
                 return new DataPagging(0,0,0,result);
             }
         }
-        static Expression<Func<Branch, bool>> PredicateBuilderFunction(BranchSearchCriteriaParameters parameters)
+        static Expression<Func<Branch, bool>> PredicateBuilderFunction(BranchFilter filter)
         {
             var predicate = PredicateBuilder.New<Branch>(true);
-            if (parameters.CompanyId!=null)
+            if (filter.CompanyId!=null)
             {
-                predicate = predicate.And(b => b.CompanyId == parameters.CompanyId);
+                predicate = predicate.And(b => b.CompanyId == filter.CompanyId);
             }
-            if (!string.IsNullOrWhiteSpace(parameters.NameAr))
+            if (!string.IsNullOrWhiteSpace(filter.NameAr))
             {
-                predicate = predicate.And(b => b.NameAr.ToLower().Contains(parameters.NameAr.ToLower()));
+                predicate = predicate.And(b => b.NameAr.ToLower().Contains(filter.NameAr.ToLower()));
             }
-            if (!string.IsNullOrWhiteSpace(parameters.NameEn))
+            if (!string.IsNullOrWhiteSpace(filter.NameEn))
             {
-                predicate = predicate.And(b => b.NameEn.ToLower().Contains(parameters.NameEn.ToLower()));
+                predicate = predicate.And(b => b.NameEn.ToLower().Contains(filter.NameEn.ToLower()));
             }
             return predicate;
         }

@@ -8,17 +8,18 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
     public class TrackPriceController : BaseController,IMainEndPoint<TrackPriceDto>
     {
-        private readonly ITrackPriceServices _TrackPriceServices;
+        private readonly ITrackPriceServices _trackPriceServices;
         /// <inheritdoc />
-        public TrackPriceController(ITrackPriceServices TrackPriceServices)
+        public TrackPriceController(ITrackPriceServices trackPriceServices)
         {
-            _TrackPriceServices = TrackPriceServices;
+            _trackPriceServices = trackPriceServices;
         }
         /// <summary>
         /// Add data 
@@ -29,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(TrackPriceDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TrackPriceServices.AddAsync(model, userId);
+            return await _trackPriceServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -39,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _TrackPriceServices.GetByIdAsync(id);
+            return await _trackPriceServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -48,7 +49,17 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _TrackPriceServices.GetAllAsync();
+            return await _trackPriceServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(TrackPriceFilter filter)
+        {
+            return await _trackPriceServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -58,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _TrackPriceServices.DeleteAsync(id);
+            return await _trackPriceServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -69,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(TrackPriceDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TrackPriceServices.UpdateAsync(model, userId);
+            return await _trackPriceServices.UpdateAsync(model, userId);
         }
     }
 }

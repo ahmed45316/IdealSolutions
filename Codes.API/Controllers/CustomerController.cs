@@ -8,17 +8,18 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
     public class CustomerController : BaseController,IMainEndPoint<CustomerDto>
     {
-        private readonly ICustomerServices _CustomerServices;
+        private readonly ICustomerServices _customerServices;
         /// <inheritdoc />
-        public CustomerController(ICustomerServices CustomerServices)
+        public CustomerController(ICustomerServices customerServices)
         {
-            _CustomerServices = CustomerServices;
+            _customerServices = customerServices;
         }
         /// <summary>
         /// Add data 
@@ -29,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CustomerDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _CustomerServices.AddAsync(model, userId);
+            return await _customerServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -39,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _CustomerServices.GetByIdAsync(id);
+            return await _customerServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -48,7 +49,17 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _CustomerServices.GetAllAsync();
+            return await _customerServices.GetAllAsync();
+        }
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetAll(CustomerFilter filter)
+        {
+            return await _customerServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -58,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _CustomerServices.DeleteAsync(id);
+            return await _customerServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -69,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CustomerDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _CustomerServices.UpdateAsync(model, userId);
+            return await _customerServices.UpdateAsync(model, userId);
         }
     }
 }
