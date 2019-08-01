@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class InvoiceTypeController : BaseController,IMainEndPoint<InvoiceTypeDto>
     {
-        private readonly IInvoiceTypeServices _InvoiceTypeServices;
+        private readonly IInvoiceTypeServices _invoiceTypeServices;
         /// <inheritdoc />
-        public InvoiceTypeController(IInvoiceTypeServices InvoiceTypeServices)
+        public InvoiceTypeController(IInvoiceTypeServices invoiceTypeServices)
         {
-            _InvoiceTypeServices = InvoiceTypeServices;
+            _invoiceTypeServices = invoiceTypeServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(InvoiceTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _InvoiceTypeServices.AddAsync(model, userId);
+            return await _invoiceTypeServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _InvoiceTypeServices.GetByIdAsync(id);
+            return await _invoiceTypeServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _InvoiceTypeServices.GetAllAsync();
+            return await _invoiceTypeServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(MainFilter filter)
         {
-            return await _InvoiceTypeServices.GetAllPaggedAsync(filter);
+            return await _invoiceTypeServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _InvoiceTypeServices.DeleteAsync(id);
+            return await _invoiceTypeServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(InvoiceTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _InvoiceTypeServices.UpdateAsync(model, userId);
+            return await _invoiceTypeServices.UpdateAsync(model, userId);
         }
     }
 }

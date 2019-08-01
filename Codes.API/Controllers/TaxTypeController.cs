@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class TaxTypeController : BaseController,IMainEndPoint<TaxTypeDto>
     {
-        private readonly ITaxTypeServices _TaxTypeServices;
+        private readonly ITaxTypeServices _taxTypeServices;
         /// <inheritdoc />
-        public TaxTypeController(ITaxTypeServices TaxTypeServices)
+        public TaxTypeController(ITaxTypeServices taxTypeServices)
         {
-            _TaxTypeServices = TaxTypeServices;
+            _taxTypeServices = taxTypeServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(TaxTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TaxTypeServices.AddAsync(model, userId);
+            return await _taxTypeServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _TaxTypeServices.GetByIdAsync(id);
+            return await _taxTypeServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _TaxTypeServices.GetAllAsync();
+            return await _taxTypeServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -59,7 +59,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetAll(TaxTypeFilter filter)
         {
-            return await _TaxTypeServices.GetAllPaggedAsync(filter);
+            return await _taxTypeServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _TaxTypeServices.DeleteAsync(id);
+            return await _taxTypeServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(TaxTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TaxTypeServices.UpdateAsync(model, userId);
+            return await _taxTypeServices.UpdateAsync(model, userId);
         }
     }
 }
