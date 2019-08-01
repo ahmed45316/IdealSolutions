@@ -56,7 +56,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetAll(BranchSearchCriteriaParameters parameters)
+        public async Task<IDataPagging> GetPaged([FromBody]BranchSearchCriteriaParameters parameters)
         {
             return await _BranchServices.GetAllPaggedAsync(parameters);
         }
