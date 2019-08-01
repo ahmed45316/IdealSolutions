@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class TrackController : BaseController,IMainEndPoint<TrackDto>
     {
-        private readonly ITrackServices _TrackServices;
+        private readonly ITrackServices _trackServices;
         /// <inheritdoc />
-        public TrackController(ITrackServices TrackServices)
+        public TrackController(ITrackServices trackServices)
         {
-            _TrackServices = TrackServices;
+            _trackServices = trackServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(TrackDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TrackServices.AddAsync(model, userId);
+            return await _trackServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _TrackServices.GetByIdAsync(id);
+            return await _trackServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _TrackServices.GetAllAsync();
+            return await _trackServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -57,9 +57,9 @@ namespace Codes.API.Controllers
         /// <param name="filter">Filter resposiable for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetAll(MainFilter filter)
+        public async Task<IDataPagging> GetPaged(MainFilter filter)
         {
-            return await _TrackServices.GetAllPaggedAsync(filter);
+            return await _trackServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _TrackServices.DeleteAsync(id);
+            return await _trackServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(TrackDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _TrackServices.UpdateAsync(model, userId);
+            return await _trackServices.UpdateAsync(model, userId);
         }
     }
 }

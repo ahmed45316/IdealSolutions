@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class CarTypeController : BaseController,IMainEndPoint<CarTypeDto>
     {
-        private readonly ICarTypeServices _CarTypeServices;
+        private readonly ICarTypeServices _carTypeServices;
         /// <inheritdoc />
-        public CarTypeController(ICarTypeServices CarTypeServices)
+        public CarTypeController(ICarTypeServices carTypeServices)
         {
-            _CarTypeServices = CarTypeServices;
+            _carTypeServices = carTypeServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(CarTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _CarTypeServices.AddAsync(model, userId);
+            return await _carTypeServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _CarTypeServices.GetByIdAsync(id);
+            return await _carTypeServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _CarTypeServices.GetAllAsync();
+            return await _carTypeServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -57,9 +57,9 @@ namespace Codes.API.Controllers
         /// <param name="filter">Filter resposiable for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetAll(MainFilter filter)
+        public async Task<IDataPagging> GetPaged(MainFilter filter)
         {
-            return await _CarTypeServices.GetAllPaggedAsync(filter);
+            return await _carTypeServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -69,7 +69,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _CarTypeServices.DeleteAsync(id);
+            return await _carTypeServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -80,7 +80,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(CarTypeDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _CarTypeServices.UpdateAsync(model, userId);
+            return await _carTypeServices.UpdateAsync(model, userId);
         }
     }
 }

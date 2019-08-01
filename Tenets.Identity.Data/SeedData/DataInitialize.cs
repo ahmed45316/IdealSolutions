@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tenets.Common.Hasher;
 using Tenets.Identity.Entities;
 
 namespace Tenets.Identity.Data.SeedData
@@ -65,7 +66,7 @@ namespace Tenets.Identity.Data.SeedData
                 new User{ Id = new Guid("c21c91c0-5c2f-45cc-ab6d-1d256538a4ee"),
                   SecurityStamp = Guid.NewGuid().ToString(),
                   UserName = "admin",
-                  PasswordHash = "ALQ9yNzGkKdXRP8gdol1whMNSIZAlmjXpF6SNHELSKf0N6+aZs24+5h8B4OzpBWrIw==",
+                  PasswordHash =CreptoHasher.HashPassword("123456"),
                   Email = "admin@A3n.com",
                   PhoneNumber = "+9",
                   IsDeleted = false

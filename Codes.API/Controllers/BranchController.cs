@@ -15,11 +15,11 @@ namespace Codes.API.Controllers
     /// <inheritdoc />
     public class BranchController : BaseController,IMainEndPoint<BranchDto>
     {
-        private readonly IBranchServices _BranchServices;
+        private readonly IBranchServices _branchServices;
         /// <inheritdoc />
-        public BranchController(IBranchServices BranchServices)
+        public BranchController(IBranchServices branchServices)
         {
-            _BranchServices = BranchServices;
+            _branchServices = branchServices;
         }
         /// <summary>
         /// Add data 
@@ -30,7 +30,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Add(BranchDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _BranchServices.AddAsync(model, userId);
+            return await _branchServices.AddAsync(model, userId);
         }
         /// <summary>
         /// Get data by Id
@@ -40,7 +40,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _BranchServices.GetByIdAsync(id);
+            return await _branchServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -49,7 +49,7 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _BranchServices.GetAllAsync();
+            return await _branchServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -58,7 +58,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetPaged([FromBody]BranchFilter filter)
         {
-            return await _BranchServices.GetAllPaggedAsync(filter);
+            return await _branchServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -68,7 +68,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _BranchServices.DeleteAsync(id);
+            return await _branchServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -79,7 +79,7 @@ namespace Codes.API.Controllers
         public async Task<IResult> Update(BranchDto model)
         {
             var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _BranchServices.UpdateAsync(model, userId);
+            return await _branchServices.UpdateAsync(model, userId);
         }
     }
 }

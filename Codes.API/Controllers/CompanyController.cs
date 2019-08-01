@@ -57,7 +57,7 @@ namespace Codes.API.Controllers
         /// <param name="filter">Filter resposiable for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IDataPagging> GetAll(MainFilter filter)
+        public async Task<IDataPagging> GetPaged(MainFilter filter)
         {
             return await _companyServices.GetAllPaggedAsync(filter);
         }
