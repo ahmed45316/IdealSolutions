@@ -14,5 +14,6 @@ namespace Codes.Services.Interfaces
     public interface ITrackServices : IBaseService<Track, ITrackDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<MainFilter> filter);
+        Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
     }
 }
