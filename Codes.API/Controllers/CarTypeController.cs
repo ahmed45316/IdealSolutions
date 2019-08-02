@@ -30,8 +30,8 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(CarTypeDto model)
         {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _carTypeServices.AddAsync(model, userId);
+            
+            return await _carTypeServices.AddAsync(model);
         }
         /// <summary>
         /// Get data by Id
@@ -80,8 +80,8 @@ namespace Codes.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(CarTypeDto model)
         {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _carTypeServices.UpdateAsync(model, userId);
+            
+            return await _carTypeServices.UpdateAsync(model);
         }
     }
 }

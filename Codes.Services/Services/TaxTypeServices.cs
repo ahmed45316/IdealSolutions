@@ -2,6 +2,7 @@
 using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,10 @@ namespace Codes.Services.Services
 {
     public class TaxTypeServices : BaseService<TaxType, ITaxTypeDto>, ITaxTypeServices
     {
-        public TaxTypeServices(IServiceBaseParameter<TaxType> businessBaseParameter) : base(businessBaseParameter)
+        public TaxTypeServices(IServiceBaseParameter<TaxType> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-            
         }
+
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<TaxTypeFilter> filter)
         {
             try

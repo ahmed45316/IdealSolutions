@@ -2,6 +2,7 @@
 using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -17,10 +18,10 @@ namespace Codes.Services.Services
 {
     public class CarServices : BaseService<Car, ICarDto>, ICarServices
     {
-        public CarServices(IServiceBaseParameter<Car> businessBaseParameter) : base(businessBaseParameter)
+        public CarServices(IServiceBaseParameter<Car> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-
         }
+
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<CarFilter> filter)
         {
             try

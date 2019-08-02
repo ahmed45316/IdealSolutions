@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
 using Codes.Services.UnitOfWork;
+using Microsoft.AspNetCore.Http;
 
 namespace Codes.Services.Core
 {
@@ -16,13 +17,15 @@ namespace Codes.Services.Core
         protected readonly IUnitOfWork<T> _unitOfWork;
         protected readonly IMapper Mapper;
         protected readonly IResponseResult ResponseResult;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         protected TDto currentModel { get; set; }
         protected IResult result;
-        protected internal BaseService(IServiceBaseParameter<T> businessBaseParameter)
+        protected internal BaseService(IServiceBaseParameter<T> businessBaseParameter, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = businessBaseParameter.UnitOfWork;
             ResponseResult = businessBaseParameter.ResponseResult;
             Mapper = businessBaseParameter.Mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
         public virtual async Task<IResult> GetAllAsync(bool disableTracking=false)
         {
@@ -39,10 +42,11 @@ namespace Codes.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResult> AddAsync(TDto model,string userId)
+        public virtual async Task<IResult> AddAsync(TDto model)
         {
             try
             {
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 T entity = Mapper.Map<TDto, T>(model);
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId =new Guid(userId);
@@ -63,10 +67,11 @@ namespace Codes.Services.Core
                 return result;
             }
         }
-        public virtual async Task<IResult> UpdateAsync(TDto model,string userId)
+        public virtual async Task<IResult> UpdateAsync(TDto model)
         {
             try
             {
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 T entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;

@@ -2,6 +2,7 @@
 using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,10 @@ namespace Codes.Services.Services
 {
     public class BranchServices : BaseService<Branch, IBranchDto>, IBranchServices
     {
-        public BranchServices(IServiceBaseParameter<Branch> businessBaseParameter) : base(businessBaseParameter)
+        public BranchServices(IServiceBaseParameter<Branch> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-
         }
+
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<BranchFilter> filter)
         {
             try

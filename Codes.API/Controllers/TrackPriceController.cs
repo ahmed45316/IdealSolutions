@@ -30,8 +30,8 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(TrackPriceDto model)
         {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _trackPriceServices.AddAsync(model, userId);
+            
+            return await _trackPriceServices.AddAsync(model);
         }
         /// <summary>
         /// Get data by Id
@@ -80,8 +80,8 @@ namespace Codes.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(TrackPriceDto model)
         {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _trackPriceServices.UpdateAsync(model, userId);
+            
+            return await _trackPriceServices.UpdateAsync(model);
         }
     }
 }

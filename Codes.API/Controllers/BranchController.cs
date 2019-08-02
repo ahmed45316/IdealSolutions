@@ -30,8 +30,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(BranchDto model)
         {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _branchServices.AddAsync(model, userId);
+            return await _branchServices.AddAsync(model);
         }
         /// <summary>
         /// Get data by Id
@@ -79,8 +78,7 @@ namespace Codes.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(BranchDto model)
         {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _branchServices.UpdateAsync(model, userId);
+            return await _branchServices.UpdateAsync(model);
         }
     }
 }

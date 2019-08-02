@@ -776,6 +776,53 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <member name="T:Codes.API.Controllers.TrackSettingController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.#ctor(Codes.Services.Interfaces.ITrackSettingServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.Add(Codes.Services.Dto.TrackSettingDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.TrackSettingFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter resposiable for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.Update(Codes.Services.Dto.TrackSettingDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Program">
             <inheritdoc />
         </member>

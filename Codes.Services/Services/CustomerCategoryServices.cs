@@ -2,6 +2,7 @@
 using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -16,9 +17,8 @@ namespace Codes.Services.Services
 {
     public class CustomerCategoryServices : BaseService<CustomerCategory, ICustomerCategoryDto>, ICustomerCategoryServices
     {
-        public CustomerCategoryServices(IServiceBaseParameter<CustomerCategory> businessBaseParameter) : base(businessBaseParameter)
+        public CustomerCategoryServices(IServiceBaseParameter<CustomerCategory> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-
         }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<MainFilter> filter)
         {

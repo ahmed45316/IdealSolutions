@@ -2,6 +2,7 @@
 using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,10 @@ namespace Codes.Services.Services
 {
     public class TrackSettingServices : BaseService<TrackSetting, ITrackSettingDto>, ITrackSettingServices
     {
-        public TrackSettingServices(IServiceBaseParameter<TrackSetting> businessBaseParameter) : base(businessBaseParameter)
+        public TrackSettingServices(IServiceBaseParameter<TrackSetting> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-            
         }
+
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackSettingFilter> filter)
         {
             try

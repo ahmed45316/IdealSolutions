@@ -2,6 +2,7 @@
 using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -16,10 +17,10 @@ namespace Codes.Services.Services
 {
     public class RentServices : BaseService<Rent, IRentDto>, IRentServices
     {
-        public RentServices(IServiceBaseParameter<Rent> businessBaseParameter) : base(businessBaseParameter)
+        public RentServices(IServiceBaseParameter<Rent> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-
         }
+
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<RentFilter> filter)
         {
             try
