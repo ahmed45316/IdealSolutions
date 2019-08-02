@@ -95,6 +95,9 @@ namespace Codes.Services.Profiler
         private void MappTrackSetting()
         {
             CreateMap<TrackSetting, ITrackSettingDto>().ReverseMap();
+            CreateMap<ITrackSettingDropDownDto, TrackSetting>().ReverseMap()
+                .ForMember(dest => dest.NameAr, 
+                opt => opt.MapFrom(src => (src.FromTrack==null || src.ToTrack==null)?"": src.FromTrack.NameAr+"-"+ src.ToTrack.NameAr));
         }
     }
 }

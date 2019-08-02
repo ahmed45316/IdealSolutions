@@ -17,7 +17,7 @@ namespace Codes.Services.Core
         protected readonly IUnitOfWork<T> _unitOfWork;
         protected readonly IMapper Mapper;
         protected readonly IResponseResult ResponseResult;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        protected readonly IHttpContextAccessor _httpContextAccessor;
         protected TDto currentModel { get; set; }
         protected IResult result;
         protected internal BaseService(IServiceBaseParameter<T> businessBaseParameter, IHttpContextAccessor httpContextAccessor)
@@ -32,7 +32,7 @@ namespace Codes.Services.Core
             try
             {
                 var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: disableTracking);
-                var data = Mapper.Map<IEnumerable<T>, IEnumerable<TDto>>(query);
+                var data = Mapper.Map<IEnumerable<TDto>>(query);
                 return ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)
@@ -47,7 +47,7 @@ namespace Codes.Services.Core
             try
             {
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
-                T entity = Mapper.Map<TDto, T>(model);
+                T entity = Mapper.Map<T>(model);
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId =new Guid(userId);
                 _unitOfWork.Repository.Add(entity);
@@ -119,7 +119,7 @@ namespace Codes.Services.Core
             try
             {
                 T query = await _unitOfWork.Repository.GetAsync(id);
-                var data = Mapper.Map<T, TDto>(query);             
+                var data = Mapper.Map<TDto>(query);             
                 return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
             }
             catch (Exception e)

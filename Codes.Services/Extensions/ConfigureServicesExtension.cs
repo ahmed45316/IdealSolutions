@@ -50,6 +50,7 @@ namespace Codes.Services.Extensions
             services.AddScoped<ITrackPriceDto, TrackPriceDto>();
             services.AddScoped<IDriverDto, DriverDto>();
             services.AddScoped<ITrackSettingDto, TrackSettingDto>();
+            services.AddScoped<ITrackSettingDropDownDto, TrackSettingDropDownDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {
