@@ -4,14 +4,16 @@ using Codes.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Codes.Data.Migrations
 {
     [DbContext(typeof(CodesContext))]
-    partial class CodesContextModelSnapshot : ModelSnapshot
+    [Migration("20190802083857_AddDriversTrackSettingTrackPriceWithDetailsWithCarType")]
+    partial class AddDriversTrackSettingTrackPriceWithDetailsWithCarType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -288,55 +290,6 @@ namespace Codes.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CustomerCategories");
-                });
-
-            modelBuilder.Entity("Codes.Entities.Entities.Driver", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AccountCode")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("CostCenter")
-                        .HasMaxLength(128);
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<Guid>("CreateUserId");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(64);
-
-                    b.Property<string>("Fax")
-                        .HasMaxLength(30);
-
-                    b.Property<bool>("IsWorking");
-
-                    b.Property<string>("Mobile")
-                        .HasMaxLength(20);
-
-                    b.Property<DateTime?>("ModifyDate");
-
-                    b.Property<Guid?>("ModifyUserId");
-
-                    b.Property<string>("NameAr")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("NameEn")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(20);
-
-                    b.Property<int>("RepresentativeCode");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Drivers");
                 });
 
             modelBuilder.Entity("Codes.Entities.Entities.InvoiceType", b =>
@@ -616,7 +569,7 @@ namespace Codes.Data.Migrations
 
                     b.HasIndex("TrackSettingId");
 
-                    b.ToTable("TrackPriceDetails");
+                    b.ToTable("TrackPriceDetail");
                 });
 
             modelBuilder.Entity("Codes.Entities.Entities.TrackPriceDetailCarType", b =>
@@ -644,7 +597,7 @@ namespace Codes.Data.Migrations
 
                     b.HasIndex("TrackPriceDetailId");
 
-                    b.ToTable("TrackPriceDetailCarTypes");
+                    b.ToTable("TrackPriceDetailCarType");
                 });
 
             modelBuilder.Entity("Codes.Entities.Entities.TrackSetting", b =>

@@ -18,9 +18,12 @@ namespace Codes.Data.Context
         public virtual DbSet<CustomerCategory> CustomerCategories { get; set; }
         public virtual DbSet<InvoiceType> InvoiceTypes { get; set; }
         public virtual DbSet<TrackPrice> TrackPrices { get; set; }
+        public virtual DbSet<TrackPriceDetail> TrackPriceDetails { get; set; }
+        public virtual DbSet<TrackPriceDetailCarType> TrackPriceDetailCarTypes { get; set; }
         public virtual DbSet<Rent> Rents { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Representative> Representatives { get; set; }
+        public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<CarType> CarTypes { get; set; }
         public virtual DbSet<TaxCategory> TaxCategories { get; set; }
         public virtual DbSet<TaxType> TaxTypes { get; set; }

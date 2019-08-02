@@ -7,5 +7,7 @@ namespace Codes.Entities.Entities
 {
     public class CarType:CommonPropertyEntity
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TrackPriceDetailCarType> TrackPriceDetailCarTypes { get; set; }
     }
 }
