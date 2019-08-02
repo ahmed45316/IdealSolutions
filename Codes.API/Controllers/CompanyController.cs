@@ -63,6 +63,16 @@ namespace Codes.API.Controllers
             return await _companyServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
+        /// GetAll Data paged for dropdown
+        /// </summary>
+        /// <param name="filter">Filter resposiable for search</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetDropDown([FromBody]BaseParam<SearchCriteriaFilter> filter)
+        {
+            return await _companyServices.GetDropDownAsync(filter);
+        }
+        /// <summary>
         /// Remove data by id
         /// </summary>
         /// <param name="id">PK</param>
