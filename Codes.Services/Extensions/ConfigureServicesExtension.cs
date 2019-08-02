@@ -33,21 +33,23 @@ namespace Codes.Services.Extensions
         }
         private static void Dtos(this IServiceCollection services)
         {
-            services.AddSingleton<ICompanyDto, CompanyDto>();
-            services.AddSingleton<IBranchDto, BranchDto>();
-            services.AddSingleton<ICarDto, CarDto>();
-            services.AddSingleton<ICarTypeDto, CarTypeDto>();
-            services.AddSingleton<ICityDto, CityDto>();
-            services.AddSingleton<ICountryDto, CountryDto>();
-            services.AddSingleton<ICustomerDto, CustomerDto>();
-            services.AddSingleton<ICustomerCategoryDto, CustomerCategoryDto>();
-            services.AddSingleton<IInvoiceTypeDto, InvoiceTypeDto>();
-            services.AddSingleton<IRentDto, RentDto>();
-            services.AddSingleton<IRepresentativeDto, RepresentativeDto>();
-            services.AddSingleton<ITaxCategoryDto, TaxCategoryDto>();
-            services.AddSingleton<ITaxTypeDto, TaxTypeDto>();
-            services.AddSingleton<ITrackDto, TrackDto>();
-            services.AddSingleton<ITrackPriceDto, TrackPriceDto>();
+            services.AddScoped<ICompanyDto, CompanyDto>();
+            services.AddScoped<IBranchDto, BranchDto>();
+            services.AddScoped<ICarDto, CarDto>();
+            services.AddScoped<ICarTypeDto, CarTypeDto>();
+            services.AddScoped<ICityDto, CityDto>();
+            services.AddScoped<ICountryDto, CountryDto>();
+            services.AddScoped<ICustomerDto, CustomerDto>();
+            services.AddScoped<ICustomerCategoryDto, CustomerCategoryDto>();
+            services.AddScoped<IInvoiceTypeDto, InvoiceTypeDto>();
+            services.AddScoped<IRentDto, RentDto>();
+            services.AddScoped<IRepresentativeDto, RepresentativeDto>();
+            services.AddScoped<ITaxCategoryDto, TaxCategoryDto>();
+            services.AddScoped<ITaxTypeDto, TaxTypeDto>();
+            services.AddScoped<ITrackDto, TrackDto>();
+            services.AddScoped<ITrackPriceDto, TrackPriceDto>();
+            services.AddScoped<IDriverDto, DriverDto>();
+            services.AddScoped<ITrackSettingDto, TrackSettingDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {

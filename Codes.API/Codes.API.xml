@@ -400,6 +400,53 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <member name="T:Codes.API.Controllers.DriverController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.#ctor(Codes.Services.Interfaces.IDriverServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.Add(Codes.Services.Dto.DriverDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.DriverFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter resposiable for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.Update(Codes.Services.Dto.DriverDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Controllers.InvoiceTypeController">
             <inheritdoc />
         </member>

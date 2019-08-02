@@ -23,6 +23,8 @@ namespace Codes.Services.Profiler
             MappTaxType();
             MappTrack();
             MappTrackPrice();
+            MappDriver();
+            MappTrackSetting();
         }
 
         private void MappCompanies()
@@ -85,6 +87,14 @@ namespace Codes.Services.Profiler
         private void MappTrackPrice()
         {
             CreateMap<TrackPrice, ITrackPriceDto>().ReverseMap();
+        }
+        private void MappDriver()
+        {
+            CreateMap<Driver, IDriverDto>().ReverseMap();
+        }
+        private void MappTrackSetting()
+        {
+            CreateMap<TrackSetting, ITrackSettingDto>().ReverseMap();
         }
     }
 }

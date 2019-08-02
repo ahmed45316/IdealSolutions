@@ -32,6 +32,7 @@ namespace Codes.Data.Context
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new RepresentativeConfiguration());
             modelBuilder.ApplyConfiguration(new RentConfiguration());
+            modelBuilder.ApplyConfiguration(new DriverConfiguration());
         }
     }
 }

@@ -4,14 +4,16 @@ using Codes.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Codes.Data.Migrations
 {
     [DbContext(typeof(CodesContext))]
-    partial class CodesContextModelSnapshot : ModelSnapshot
+    [Migration("20190802122955_ModifyDriverCode")]
+    partial class ModifyDriverCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -316,9 +318,7 @@ namespace Codes.Data.Migrations
                     b.Property<string>("Fax")
                         .HasMaxLength(30);
 
-                    b.Property<bool>("IsWorking")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("0");
+                    b.Property<bool>("IsWorking");
 
                     b.Property<string>("Mobile")
                         .HasMaxLength(20);
@@ -337,9 +337,6 @@ namespace Codes.Data.Migrations
                         .HasMaxLength(20);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DriverCode")
-                        .IsUnique();
 
                     b.ToTable("Drivers");
                 });

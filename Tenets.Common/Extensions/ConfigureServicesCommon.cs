@@ -10,6 +10,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace Tenets.Common.Extensions
 {
@@ -21,6 +22,7 @@ namespace Tenets.Common.Extensions
             services.RegisterMainCore();
             services.AddApiDocumentationServices(configuration);
             services.JWTSettings(configuration);
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return services;
         }
         private static void JWTSettings(this IServiceCollection services, IConfiguration _configuration)
