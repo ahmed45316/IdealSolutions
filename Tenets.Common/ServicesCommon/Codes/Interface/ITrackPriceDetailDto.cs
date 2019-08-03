@@ -9,6 +9,5 @@ namespace Tenets.Common.ServicesCommon.Codes.Interface
     {
          Guid? TrackPriceId { get; set; }
          Guid TrackSettingId { get; set; }
-         List<object> TrackPriceDetailCarTypes { get; set; }
     }
 }

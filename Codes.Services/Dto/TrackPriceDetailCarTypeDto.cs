@@ -5,7 +5,7 @@ using Tenets.Common.ServicesCommon.Codes.Interface;
 
 namespace Codes.Services.Dto
 {
-    public class TrackPriceDetailCarTypeDto : ITrackPriceDetailCarTypeDto
+    public class TrackPriceDetailCarTypeDto
     {
         public Guid? TrackPriceDetailId { get; set; }
         public Guid CarTypeId { get; set; }

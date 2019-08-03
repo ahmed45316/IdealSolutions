@@ -13,6 +13,5 @@ namespace Tenets.Common.ServicesCommon.Codes.Interface
         decimal? OverNightPrice { get; set; }
         decimal? TownPrice { get; set; }
         decimal? RecallPrice { get; set; }
-        List<object> TrackPriceDetails { get; set; }
     }
 }

@@ -47,12 +47,9 @@ namespace Codes.Services.Extensions
             services.AddScoped<ITaxCategoryDto, TaxCategoryDto>();
             services.AddScoped<ITaxTypeDto, TaxTypeDto>();
             services.AddScoped<ITrackDto, TrackDto>();
-            services.AddScoped<ITrackPriceDto, TrackPriceDto>();
             services.AddScoped<IDriverDto, DriverDto>();
             services.AddScoped<ITrackSettingDto, TrackSettingDto>();
             services.AddScoped<ITrackSettingDropDownDto, TrackSettingDropDownDto>();
-            services.AddScoped<ITrackPriceDetailDto,TrackPriceDetailDto>();
-            services.AddScoped<ITrackPriceDetailCarTypeDto, TrackPriceDetailCarTypeDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {
