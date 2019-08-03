@@ -12,7 +12,7 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.Services.Interfaces
 {
-    public interface ITrackPriceServices : IBaseService<TrackPrice, ITrackPriceDto<TrackPriceDetailDto>>
+    public interface ITrackPriceServices : IBaseService<TrackPrice, ITrackPriceDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackPriceFilter> filter);
     }

@@ -93,12 +93,12 @@ namespace Codes.Services.Profiler
         }
         private void MappTrackPrice()
         {
-            CreateMap<TrackPrice, ITrackPriceDto<TrackPriceDetailDto>>().ReverseMap();
+            CreateMap<TrackPrice, ITrackPriceDto>().ReverseMap();
             CreateMap<TrackPrice, TrackPriceDto>().ReverseMap();
         }
         private void MappTrackPriceDetail()
         {
-            CreateMap<TrackPriceDetail, ITrackPriceDetailDto<TrackPriceDetailCarTypeDto>>().ReverseMap()
+            CreateMap<TrackPriceDetail, ITrackPriceDetailDto>().ReverseMap()
                 .ForMember(dest => dest.CreateUserId, opt => opt.MapFrom(src => _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
                 .ForMember(dest => dest.CreateDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.ModifyUserId, opt => opt.MapFrom(src =>src.Id==null?null: _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))

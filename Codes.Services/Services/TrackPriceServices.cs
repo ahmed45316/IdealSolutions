@@ -19,7 +19,7 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.Services.Services
 {
-    public class TrackPriceServices : BaseService<TrackPrice, ITrackPriceDto<TrackPriceDetailDto>>, ITrackPriceServices
+    public class TrackPriceServices : BaseService<TrackPrice, ITrackPriceDto>, ITrackPriceServices
     {
         public TrackPriceServices(IServiceBaseParameter<TrackPrice> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
@@ -50,7 +50,7 @@ namespace Codes.Services.Services
                 var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue,include: source => source
                   .Include(t => t.TrackPriceDetails)
                   .ThenInclude(t => t.TrackPriceDetailCarTypes));
-                var data = Mapper.Map<IEnumerable<ITrackPriceDto<TrackPriceDetailDto>>>(query.Item2);
+                var data = Mapper.Map<IEnumerable<ITrackPriceDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)

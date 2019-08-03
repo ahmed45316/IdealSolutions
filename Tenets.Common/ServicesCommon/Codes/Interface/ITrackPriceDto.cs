@@ -5,7 +5,7 @@ using Tenets.Common.Core;
 
 namespace Tenets.Common.ServicesCommon.Codes.Interface
 {
-    public interface ITrackPriceDto<T> : IPrimaryKeyField<Guid?>
+    public interface ITrackPriceDto : IPrimaryKeyField<Guid?>
     {
         Guid CustomerId { get; set; }
         DateTime? FromDate { get; set; }
@@ -13,6 +13,6 @@ namespace Tenets.Common.ServicesCommon.Codes.Interface
         decimal? OverNightPrice { get; set; }
         decimal? TownPrice { get; set; }
         decimal? RecallPrice { get; set; }
-        List<T> TrackPriceDetails { get; set; }
+        List<object> TrackPriceDetails { get; set; }
     }
 }
