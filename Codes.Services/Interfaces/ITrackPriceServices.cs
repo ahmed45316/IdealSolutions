@@ -1,5 +1,6 @@
 ﻿using Codes.Entities.Entities;
 using Codes.Services.Core;
+using Codes.Services.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.Services.Interfaces
 {
-    public interface ITrackPriceServices : IBaseService<TrackPrice, ITrackPriceDto>
+    public interface ITrackPriceServices : IBaseService<TrackPrice, ITrackPriceDto<TrackPriceDetailDto>>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackPriceFilter> filter);
     }

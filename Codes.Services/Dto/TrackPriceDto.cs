@@ -5,11 +5,15 @@ using Tenets.Common.ServicesCommon.Codes.Interface;
 
 namespace Codes.Services.Dto
 {
-    public class TrackPriceDto : ITrackPriceDto
+    public class TrackPriceDto : ITrackPriceDto<TrackPriceDetailDto>
     {
-        public Guid CustomerId { get ; set ; }
-        public Guid? FromTrackId { get ; set ; }
-        public Guid? ToTrackId { get ; set ; }
+        public Guid CustomerId { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
+        public decimal? OverNightPrice { get; set; }
+        public decimal? TownPrice { get; set; }
+        public decimal? RecallPrice { get; set; }
         public Guid? Id { get ; set ; }
+        public List<TrackPriceDetailDto> TrackPriceDetails { get; set; }
     }
 }

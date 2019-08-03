@@ -1,13 +1,18 @@
 ﻿using AutoMapper;
 using Codes.Entities.Entities;
+using Codes.Services.Dto;
+using Microsoft.AspNetCore.Http;
+using System;
 using Tenets.Common.ServicesCommon.Codes.Interface;
 
 namespace Codes.Services.Profiler
 {
     public class AutoMapperConfiguration : Profile
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
         public AutoMapperConfiguration()
         {
+            _httpContextAccessor = new HttpContextAccessor();
             MappCompanies();
             MappBranch();
             MappCar();
@@ -25,6 +30,8 @@ namespace Codes.Services.Profiler
             MappTrackPrice();
             MappDriver();
             MappTrackSetting();
+            MappTrackPriceDetail();
+            MappTrackPriceDetailCarType();
         }
 
         private void MappCompanies()
@@ -38,7 +45,7 @@ namespace Codes.Services.Profiler
         private void MappCar()
         {
             CreateMap<Car, ICarDto>()
-                .ForMember(dest => dest.ModelName , opt => opt.MapFrom(src => src.Model)).ReverseMap();
+                .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.Model)).ReverseMap();
         }
         private void MappCarType()
         {
@@ -86,7 +93,24 @@ namespace Codes.Services.Profiler
         }
         private void MappTrackPrice()
         {
-            CreateMap<TrackPrice, ITrackPriceDto>().ReverseMap();
+            CreateMap<TrackPrice, ITrackPriceDto<TrackPriceDetailDto>>().ReverseMap();
+            CreateMap<TrackPrice, TrackPriceDto>().ReverseMap();
+        }
+        private void MappTrackPriceDetail()
+        {
+            CreateMap<TrackPriceDetail, ITrackPriceDetailDto<TrackPriceDetailCarTypeDto>>().ReverseMap()
+                .ForMember(dest => dest.CreateUserId, opt => opt.MapFrom(src => _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
+                .ForMember(dest => dest.CreateDate, opt => opt.MapFrom(src => DateTime.Now))
+                .ForMember(dest => dest.ModifyUserId, opt => opt.MapFrom(src =>src.Id==null?null: _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
+                .ForMember(dest => dest.ModifyDate, opt => opt.MapFrom(src => src.Id == null ? (DateTime?)null : DateTime.Now));
+        }
+        private void MappTrackPriceDetailCarType()
+        {
+            CreateMap<TrackPriceDetailCarType, ITrackPriceDetailCarTypeDto>().ReverseMap()
+                .ForMember(dest => dest.CreateUserId, opt => opt.MapFrom(src => _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
+                .ForMember(dest => dest.CreateDate, opt => opt.MapFrom(src => DateTime.Now))
+                .ForMember(dest => dest.ModifyUserId, opt => opt.MapFrom(src => src.Id == null ? null : _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
+                .ForMember(dest => dest.ModifyDate, opt => opt.MapFrom(src => src.Id == null ? (DateTime?)null : DateTime.Now));
         }
         private void MappDriver()
         {
@@ -94,11 +118,11 @@ namespace Codes.Services.Profiler
         }
         private void MappTrackSetting()
         {
-            CreateMap<ITrackSettingDto,TrackSetting>().ReverseMap().ForMember(dest => dest.NameAr,
+            CreateMap<ITrackSettingDto, TrackSetting>().ReverseMap().ForMember(dest => dest.NameAr,
                 opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
             CreateMap<ITrackSettingDropDownDto, TrackSetting>().ReverseMap()
-                .ForMember(dest => dest.NameAr, 
-                opt => opt.MapFrom(src => (src.FromTrack==null || src.ToTrack==null)?"": src.FromTrack.NameAr+"-"+ src.ToTrack.NameAr));
+                .ForMember(dest => dest.NameAr,
+                opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
         }
     }
 }
