@@ -24,6 +24,29 @@ namespace Codes.Services.Services
         public TrackPriceServices(IServiceBaseParameter<TrackPrice> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
         }
+
+        public async override Task<IResult> DeleteAsync(Guid id)
+        {
+            try
+            {
+                var entityToDelete = await _unitOfWork.Repository.FirstOrDefaultAsync(t=>t.Id==id,include:source=>source
+                .Include(t=>t.TrackPriceDetails)
+                .ThenInclude(t=>t.TrackPriceDetailCarTypes));
+                _unitOfWork.Repository.Remove(entityToDelete);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async override Task<IResult> GetAllAsync(bool disableTracking = false)
         {
             try
