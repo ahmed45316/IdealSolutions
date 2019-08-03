@@ -55,7 +55,7 @@ namespace Codes.Services.Services
             {
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue, include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
                 var data = Mapper.Map<IEnumerable<ITrackSettingDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }

@@ -13,5 +13,7 @@ namespace Codes.Services.Dto
         public byte TrackSettingType { get; set; }
         public decimal? DriverMotivation { get; set; }
         public Guid? Id { get; set; }
+        public string NameAr { get; set; }
+        public string NameEn { get; set; }
     }
 }
