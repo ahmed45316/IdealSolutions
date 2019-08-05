@@ -14,5 +14,6 @@ namespace Codes.Services.Interfaces
     public interface ICustomerServices : IBaseService<Customer, ICustomerDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<CustomerFilter> filter);
+        Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
     }
 }

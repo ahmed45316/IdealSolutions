@@ -12,6 +12,7 @@ using Codes.Services.UnitOfWork;
 using Tenets.Common.ServicesCommon.Codes.Interface;
 using Codes.Services.Dto;
 using Codes.Services.Services;
+using Tenets.Common.ServicesCommon.Base;
 
 namespace Codes.Services.Extensions
 {
@@ -50,6 +51,7 @@ namespace Codes.Services.Extensions
             services.AddScoped<IDriverDto, DriverDto>();
             services.AddScoped<ITrackSettingDto, TrackSettingDto>();
             services.AddScoped<ITrackSettingDropDownDto, TrackSettingDropDownDto>();
+            services.AddScoped<IDropdownDto, DropdownDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {

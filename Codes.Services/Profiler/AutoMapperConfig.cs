@@ -3,6 +3,7 @@ using Codes.Entities.Entities;
 using Codes.Services.Dto;
 using Microsoft.AspNetCore.Http;
 using System;
+using Tenets.Common.ServicesCommon.Base;
 using Tenets.Common.ServicesCommon.Codes.Interface;
 
 namespace Codes.Services.Profiler
@@ -62,6 +63,7 @@ namespace Codes.Services.Profiler
         private void MappCustomer()
         {
             CreateMap<Customer, ICustomerDto>().ReverseMap();
+            CreateMap<Customer, IDropdownDto>().ReverseMap();
         }
         private void MappCustomerCategory()
         {
