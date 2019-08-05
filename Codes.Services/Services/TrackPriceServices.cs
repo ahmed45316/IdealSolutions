@@ -54,25 +54,8 @@ namespace Codes.Services.Services
         {
             try
             {
-                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: disableTracking, include: source => source
-                    .Include(t => t.TrackPriceDetails)
-                    .ThenInclude(t => t.TrackPriceDetailCarTypes));
+                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: true);
                 var data = Mapper.Map<IEnumerable<TrackPriceDto>>(query);
-                var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
-                data = data.Select(q =>
-                {
-                    foreach (var trackpricedetail in q.TrackPriceDetails)
-                    {
-                        var cartypesids = trackpricedetail.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
-                        var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
-                        foreach (var cartypeitem in cartypesdata)
-                        {
-                            trackpricedetail.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0 });
-                        }
-                    }
-                    return q;
-                });
-                
                 return ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)
@@ -82,30 +65,43 @@ namespace Codes.Services.Services
                 return result;
             }
         }
+        public async override Task<IResult> GetByIdAsync(Guid id)
+        {
+            try
+            {
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id, include: source => source
+                     .Include(t => t.TrackPriceDetails)
+                     .ThenInclude(t => t.TrackPriceDetailCarTypes));
+                var data = Mapper.Map<TrackPriceDto>(query);
+                var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
+                var trackPriceDetails = data.TrackPriceDetails.Select(q =>
+                {                  
+                        var cartypesids = q.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
+                        var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
+                        foreach (var cartypeitem in cartypesdata)
+                        {
+                            q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0 });
+                        }
+                    return q;
+                }).ToList();
+                data.TrackPriceDetails = trackPriceDetails;
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackPriceFilter> filter)
         {
             try
             {
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue, include: source => source
-                   .Include(t => t.TrackPriceDetails)
-                   .ThenInclude(t => t.TrackPriceDetailCarTypes));
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<TrackPriceDto>>(query.Item2);
-                var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
-                data = data.Select(q =>
-                {
-                    foreach (var trackpricedetail in q.TrackPriceDetails)
-                    {
-                        var cartypesids = trackpricedetail.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
-                        var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
-                        foreach (var cartypeitem in cartypesdata)
-                        {
-                            trackpricedetail.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0 });
-                        }
-                    }
-                    return q;
-                });
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)
