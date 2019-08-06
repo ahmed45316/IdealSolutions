@@ -65,6 +65,21 @@ namespace Codes.Services.Services
                 return result;
             }
         }
+        public async Task<IResult> GetTrackPriceDetailCarType()
+        {
+            try
+            {
+                var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
+                var carTypesDto = Mapper.Map<IEnumerable<ITrackPriceDetailCarTypeDto>>(carTypes);
+                return ResponseResult.PostResult(result: carTypesDto, status: HttpStatusCode.OK, message: "Data Updated Successfully");
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async override Task<IResult> GetByIdAsync(Guid id)
         {
             try

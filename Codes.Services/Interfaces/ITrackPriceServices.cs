@@ -15,5 +15,6 @@ namespace Codes.Services.Interfaces
     public interface ITrackPriceServices : IBaseService<TrackPrice, TrackPriceDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackPriceFilter> filter);
+        Task<IResult> GetTrackPriceDetailCarType();
     }
 }

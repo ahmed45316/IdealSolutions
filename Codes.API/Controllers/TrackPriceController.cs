@@ -53,6 +53,15 @@ namespace Codes.API.Controllers
             return await _trackPriceServices.GetAllAsync();
         }
         /// <summary>
+        /// GetAll car types
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IResult> GetAllCarTypes()
+        {
+            return await _trackPriceServices.GetTrackPriceDetailCarType();
+        }
+        /// <summary>
         /// GetAll Data paged
         /// </summary>
         /// <param name="filter">Filter resposiable for search and sort</param>
