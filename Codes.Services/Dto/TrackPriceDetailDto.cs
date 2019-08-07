@@ -9,6 +9,8 @@ namespace Codes.Services.Dto
     {
         public Guid? TrackPriceId { get ; set ; }
         public Guid TrackSettingId { get ; set ; }
+        public string TrackSettingNameAr { get; set; }
+        public string TrackSettingNameEn { get; set; }
         public Guid? Id { get ; set ; }
         public List<TrackPriceDetailCarTypeDto> TrackPriceDetailCarTypes { get; set; }
     }

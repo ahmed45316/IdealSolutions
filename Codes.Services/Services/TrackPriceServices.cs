@@ -104,7 +104,14 @@ namespace Codes.Services.Services
             {
                 var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id, include: source => source
                      .Include(t => t.TrackPriceDetails)
-                     .ThenInclude(t => t.TrackPriceDetailCarTypes));
+                     .ThenInclude(ts=>ts.TrackSetting)
+                     .ThenInclude(ts => ts.FromTrack)
+                     .Include(t => t.TrackPriceDetails)
+                     .ThenInclude(ts => ts.TrackSetting)
+                     .ThenInclude(ts => ts.ToTrack)
+                     .Include(t => t.TrackPriceDetails)
+                     .ThenInclude(t => t.TrackPriceDetailCarTypes)
+                     .ThenInclude(c=>c.CarType));
                 var data = Mapper.Map<TrackPriceDto>(query);
                 var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
                 var trackPriceDetails = data.TrackPriceDetails.Select(q =>
@@ -113,7 +120,7 @@ namespace Codes.Services.Services
                         var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
                         foreach (var cartypeitem in cartypesdata)
                         {
-                            q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0 });
+                            q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0 ,CarNameAr=cartypeitem.NameAr, CarNameEn = cartypeitem.NameEn});
                         }
                     return q;
                 }).ToList();

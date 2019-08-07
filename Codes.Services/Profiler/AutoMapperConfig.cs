@@ -104,19 +104,27 @@ namespace Codes.Services.Profiler
         }
         private void MappTrackPriceDetail()
         {
-            CreateMap<TrackPriceDetail, TrackPriceDetailDto>().ReverseMap()
+            CreateMap<TrackPriceDetailDto,TrackPriceDetail>()
                 .ForMember(dest => dest.CreateUserId, opt => opt.MapFrom(src => _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
                 .ForMember(dest => dest.CreateDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.ModifyUserId, opt => opt.MapFrom(src =>src.Id==null?null: _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
                 .ForMember(dest => dest.ModifyDate, opt => opt.MapFrom(src => src.Id == null ? (DateTime?)null : DateTime.Now));
+
+            CreateMap<TrackPriceDetail, TrackPriceDetailDto>()
+                .ForMember(dest => dest.TrackSettingNameAr, opt => opt.MapFrom(src => src.TrackSetting.FromTrack.NameAr+'-'+src.TrackSetting.ToTrack.NameAr))
+                .ForMember(dest => dest.TrackSettingNameEn, opt => opt.MapFrom(src => src.TrackSetting.FromTrack.NameEn + '-' + src.TrackSetting.ToTrack.NameEn));
         }
         private void MappTrackPriceDetailCarType()
         {
-            CreateMap<TrackPriceDetailCarType,TrackPriceDetailCarTypeDto>().ReverseMap()
+            CreateMap<TrackPriceDetailCarTypeDto, TrackPriceDetailCarType>()
                 .ForMember(dest => dest.CreateUserId, opt => opt.MapFrom(src => _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
                 .ForMember(dest => dest.CreateDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.ModifyUserId, opt => opt.MapFrom(src => src.Id == null ? null : _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value))
                 .ForMember(dest => dest.ModifyDate, opt => opt.MapFrom(src => src.Id == null ? (DateTime?)null : DateTime.Now));
+
+            CreateMap<TrackPriceDetailCarType, TrackPriceDetailCarTypeDto>()
+                .ForMember(dest => dest.CarNameAr, opt => opt.MapFrom(src => src.CarType.NameAr))
+                .ForMember(dest => dest.CarNameEn, opt => opt.MapFrom(src => src.CarType.NameEn));
         }
         private void MappDriver()
         {
