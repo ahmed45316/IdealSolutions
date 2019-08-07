@@ -88,7 +88,7 @@ namespace Codes.Services.Services
             try
             {
                 var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
-                var carTypesDto = Mapper.Map<IEnumerable<ITrackPriceDetailCarTypeDto>>(carTypes);
+                var carTypesDto = Mapper.Map<IEnumerable<TrackPriceDetailCarTypeDto>>(carTypes);
                 return ResponseResult.PostResult(result: carTypesDto, status: HttpStatusCode.OK, message: "Data Updated Successfully");
             }
             catch (Exception e)

@@ -51,8 +51,11 @@ namespace Codes.Services.Profiler
         private void MappCarType()
         {
             CreateMap<CarType, ICarTypeDto>().ReverseMap();
-            CreateMap<ITrackPriceDetailCarTypeDto, CarType>().ReverseMap()
-                .ForMember(dest => dest.CarTypeId, opt => opt.MapFrom(src => src.Id));
+            CreateMap<TrackPriceDetailCarTypeDto, CarType>().ReverseMap()
+                .ForMember(dest => dest.CarTypeId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.CarNameAr, opt => opt.MapFrom(src => src.NameAr))
+                .ForMember(dest => dest.CarNameEn, opt => opt.MapFrom(src => src.NameEn))
+                .ForMember(dest => dest.Id,opt => opt.Ignore());
         }
         private void MappCity()
         {
