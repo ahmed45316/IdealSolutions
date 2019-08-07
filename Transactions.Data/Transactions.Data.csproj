@@ -1,7 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190807213533_CreateDB.cs" />
+    <Compile Remove="Migrations\20190807213533_CreateDB.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
+    <ProjectReference Include="..\Transactions.Entities\Transactions.Entities.csproj" />
+  </ItemGroup>
 
 </Project>

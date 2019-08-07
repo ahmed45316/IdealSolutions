@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Tenets.Common.Extensions;
+using Transactions.Services.Extensions;
 
 namespace Transactions.API
 {
@@ -32,6 +33,7 @@ namespace Transactions.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.RegisterCommonServices(Configuration);
+            services.RegisterServices(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

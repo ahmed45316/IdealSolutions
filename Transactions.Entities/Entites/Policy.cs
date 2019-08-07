@@ -22,5 +22,7 @@ namespace Transactions.Entities.Entites
         public decimal? AllTotalPriceBeforTax { get; set; }
         public decimal? TotalTaxValue { get; set; }
         public decimal? AllTotalPriceAfterTax { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PolicyDetail> PolicyDetails { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Transactions.Entities.Entities.Base;
 
@@ -34,5 +35,7 @@ namespace Transactions.Entities.Entites
         public bool IsRentedCar { get; set; } = false;
         [StringLength(16)]
         public string CarNo { get; set; }
+        [ForeignKey("PolicyId")]
+        public virtual Policy Policy { get; set; }
     }
 }

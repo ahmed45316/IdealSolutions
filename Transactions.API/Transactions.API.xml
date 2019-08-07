@@ -4,6 +4,27 @@
         <name>Transactions.API</name>
     </assembly>
     <members>
+        <member name="T:Transactions.API.Controllers.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="T:Transactions.API.Controllers.Base.IMainEndPoint`1">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Get(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Add(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Update(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
+            <inheritdoc />
+        </member>
         <member name="T:Transactions.API.Program">
             <inheritdoc />
         </member>
@@ -34,6 +55,46 @@
             </summary>
             <param name="app">Provide mechanisms to configure requests</param>
             <param name="env">Provide information about hosting</param>
+        </member>
+        <member name="T:Codes.API.Controllers.PolicyController">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.PolicyController.Add(Transactions.Services.Dto.PolicyDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.PolicyController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.PolicyController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.PolicyController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.PolicyController.Update(Transactions.Services.Dto.PolicyDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
