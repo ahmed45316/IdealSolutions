@@ -17,5 +17,7 @@ namespace Codes.Entities.Entities
         public Guid TaxCategoryId { get; set; }
         [ForeignKey("TaxCategoryId")]
         public virtual TaxCategory TaxCategory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Setting> Settings { get; set; }
     }
 }
