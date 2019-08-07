@@ -27,7 +27,25 @@ namespace Codes.Services.Services
         {
             _carTypeUnitOfWork = carTypeUnitOfWork;
         }
-
+        public async override Task<IResult> UpdateAsync(TrackPriceDto model)
+        {
+            try
+            {
+                var entityToUpdate = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == model.Id, include: source => source
+                         .Include(t => t.TrackPriceDetails)
+                         .ThenInclude(t => t.TrackPriceDetailCarTypes));
+                _unitOfWork.Repository.Remove(entityToUpdate);
+                await _unitOfWork.SaveChanges();
+               await AddAsync(model);
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async override Task<IResult> DeleteAsync(Guid id)
         {
             try
