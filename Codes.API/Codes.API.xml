@@ -776,6 +776,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetAllCarTypes">
+            <summary>
+            GetAll car types
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.TrackPriceController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.TrackPriceFilter})">
             <summary>
             GetAll Data paged
