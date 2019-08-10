@@ -72,7 +72,8 @@ namespace Codes.Services.Services
         {
             try
             {
-                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: true);
+                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: true,include: source => source
+                      .Include(t => t.Customer));
                 var data = Mapper.Map<IEnumerable<TrackPriceDto>>(query);
                 return ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
@@ -103,6 +104,7 @@ namespace Codes.Services.Services
             try
             {
                 var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id, include: source => source
+                     .Include(t => t.Customer)
                      .Include(t => t.TrackPriceDetails)
                      .ThenInclude(ts=>ts.TrackSetting)
                      .ThenInclude(ts => ts.FromTrack)
@@ -140,7 +142,8 @@ namespace Codes.Services.Services
             {
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue, include: source => source
+                      .Include(t => t.Customer));
                 var data = Mapper.Map<IEnumerable<TrackPriceDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }

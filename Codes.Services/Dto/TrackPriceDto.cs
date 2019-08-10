@@ -9,6 +9,8 @@ namespace Codes.Services.Dto
     public class TrackPriceDto:IPrimaryKeyField<Guid?>
     {
         public Guid CustomerId { get; set; }
+        public string CustomerNameAr { get; set; }
+        public string CustomerNameEn { get; set; }
         public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }
         public decimal? OverNightPrice { get; set; }

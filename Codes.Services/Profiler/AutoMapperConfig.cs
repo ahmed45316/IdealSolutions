@@ -100,7 +100,9 @@ namespace Codes.Services.Profiler
         }
         private void MappTrackPrice()
         {
-            CreateMap<TrackPrice, TrackPriceDto>().ReverseMap();
+            CreateMap<TrackPriceDto,TrackPrice>().ReverseMap()
+                 .ForMember(dest => dest.CustomerNameAr, opt => opt.MapFrom(src =>src.Customer.NameAr))
+                 .ForMember(dest => dest.CustomerNameEn, opt => opt.MapFrom(src => src.Customer.NameEn));
         }
         private void MappTrackPriceDetail()
         {

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Transactions.Entities.Entites;
+using Transactions.Services.Dto;
 
 namespace Transactions.Services.Profiler
 {
@@ -11,7 +13,7 @@ namespace Transactions.Services.Profiler
 
         private void MappPolicy()
         {
-            //CreateMap<Company, ICompanyDto>().ReverseMap();
+            CreateMap<Policy,PolicyDto>().ReverseMap();
         }      
     }
 }
