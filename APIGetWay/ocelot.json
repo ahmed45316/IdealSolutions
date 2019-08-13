@@ -21,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7071
+          "Port": 7079
         }
       ],
       "UpstreamPathTemplate": "/L/{everything}",
@@ -60,7 +60,7 @@
         {
           "Name": "Lookups API",
           "Version": "v1",
-          "Url": "http://localhost:7071/swagger/v1/swagger.json"
+          "Url": "http://localhost:7079/swagger/v1/swagger.json"
         }
       ]
     },
