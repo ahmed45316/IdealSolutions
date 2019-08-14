@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Identity.Base;
+using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.API.Controllers.Base;
 using Transactions.Services.Dto;
 using Transactions.Services.Interfaces;
@@ -10,7 +11,7 @@ using Transactions.Services.Interfaces;
 namespace Codes.API.Controllers
 {
     /// <inheritdoc />
-    public class PolicyController : BaseController,IMainEndPoint<PolicyDto>
+    public class PolicyController : BaseController, IMainEndPoint<PolicyDto>
     {
         private readonly IPolicyServices _PolicyServices;
         /// <inheritdoc />
@@ -51,11 +52,11 @@ namespace Codes.API.Controllers
         /// GetAll Data paged
         /// </summary>
         /// <returns></returns>
-        //[HttpPost]
-        //public async Task<IDataPagging> GetPaged([FromBody]BaseParam<PolicyFilter> filter)
-        //
-        //   return await _PolicyServices.GetAllPaggedAsync(filter);
-        //}
+        [HttpPost]
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<PolicyFilter> filter)
+        {
+            return await _PolicyServices.GetAllPaggedAsync(filter);
+        }
         /// <summary>
         /// Remove data by id
         /// </summary>

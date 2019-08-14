@@ -13,6 +13,7 @@ namespace Transactions.Services.Profiler
 
         private void MappPolicy()
         {
+            CreateMap<PolicyDetail, PolicyDetailDto > ().ReverseMap();
             CreateMap<Policy,PolicyDto>().ReverseMap();
         }      
     }
