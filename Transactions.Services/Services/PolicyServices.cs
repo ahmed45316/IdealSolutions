@@ -28,8 +28,28 @@ namespace Transactions.Services.Services
         {
             try 
             {
-                await base.DeleteAsync(model.Id??new Guid(""));
+                await DeleteAsync(model.Id??new Guid(""));
                 await base.AddAsync(model);
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
+        public async override Task<IResult> DeleteAsync(Guid id)
+        {
+            try
+            {
+                var entityToDelete = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id,include:source=>source.Include(p=>p.PolicyDetails));
+                _unitOfWork.Repository.Remove(entityToDelete);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Removed Successfully");
+                }
                 return result;
             }
             catch (Exception e)
