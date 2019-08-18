@@ -82,6 +82,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.PolicyController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.PolicyFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.PolicyController.Remove(System.Guid)">
             <summary>
             Remove data by id
