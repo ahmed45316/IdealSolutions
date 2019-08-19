@@ -10,6 +10,6 @@ namespace Codes.Services.Dto
         public Guid? Id { get; set; }
         public string NameAr { get; set; }
         public string NameEn { get; set; }
-
+        public string TableName { get; set; }
     }
 }

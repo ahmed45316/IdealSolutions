@@ -9,5 +9,6 @@ namespace Tenets.Common.ServicesCommon.Base
          Guid? Id { get; set; }
          string NameAr { get; set; }
          string NameEn { get; set; }
+         string TableName { get; set; }
     }
 }

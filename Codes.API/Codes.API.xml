@@ -508,6 +508,17 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "T:Codes.API.Controllers.LookupsController" -->
+        <member name="M:Codes.API.Controllers.LookupsController.#ctor(Codes.Services.Interfaces.ILookupsServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.LookupsController.GetLookups">
+            <summary>
+            Get all lookups in end point data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Controllers.RentController">
             <inheritdoc />
         </member>
