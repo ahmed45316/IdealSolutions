@@ -39,19 +39,19 @@ namespace Codes.Services.Services
         {
             try
             {
-                var lookups = new List<DropdownDto>();
+                var lookups = new LookupsDto();
                 var invoiceType = await _invoiceType.Repository.GetAllAsync();
-                lookups.AddRange(_mapper.Map<IEnumerable<DropdownDto>>(invoiceType));
+                lookups.InvoiceType=_mapper.Map<IEnumerable<DropdownDto>>(invoiceType);
                 var car = await _car.Repository.GetAllAsync();
-                lookups.AddRange(_mapper.Map<IEnumerable<DropdownDto>>(car));
-                var carType = await _carType.Repository.GetAllAsync();
-                lookups.AddRange(_mapper.Map<IEnumerable<DropdownDto>>(carType));
+                lookups.Car=_mapper.Map<IEnumerable<DropdownDto>>(car);
+                var carType= await _carType.Repository.GetAllAsync();
+                lookups.CarType=_mapper.Map<IEnumerable<DropdownDto>>(carType);
                 var customerCategory = await _customerCategory.Repository.GetAllAsync();
-                lookups.AddRange(_mapper.Map<IEnumerable<DropdownDto>>(customerCategory));
+                lookups.CustomerCategory=_mapper.Map<IEnumerable<DropdownDto>>(customerCategory);
                 var trackSetting = await _trackSetting.Repository.GetAllAsync(disableTracking: false);
-                lookups.AddRange(_mapper.Map<IEnumerable<DropdownDto>>(trackSetting));
+                lookups.TrackSetting=_mapper.Map<IEnumerable<DropdownDto>>(trackSetting);
                 var taxType = await _taxType.Repository.GetAllAsync();
-                lookups.AddRange(_mapper.Map<IEnumerable<DropdownDto>>(taxType));
+                lookups.TaxType=_mapper.Map<IEnumerable<DropdownDto>>(taxType);
                 return _responseResult.PostResult(lookups, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)

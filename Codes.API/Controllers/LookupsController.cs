@@ -24,7 +24,7 @@ namespace Codes.API.Controllers
         /// </summary>
         /// <param name="model">Object content</param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet]
         public async Task<IResult> GetLookups()
         {
             return await _lookupsServices.GetAllLookupsForPolicy();

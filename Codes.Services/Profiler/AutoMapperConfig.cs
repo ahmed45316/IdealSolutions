@@ -47,10 +47,9 @@ namespace Codes.Services.Profiler
         {
             CreateMap<Car, ICarDto>()
                 .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.Model)).ReverseMap();
-                CreateMap<DropdownDto, Car>().ReverseMap()
-                .ForMember(dest => dest.NameAr, opt => opt.MapFrom(src => src.PlateNumber))
-                .ForMember(dest => dest.NameEn, opt => opt.MapFrom(src => src.PlateNumber))
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "Car"));
+            CreateMap<DropdownDto, Car>().ReverseMap()
+            .ForMember(dest => dest.NameAr, opt => opt.MapFrom(src => src.PlateNumber))
+            .ForMember(dest => dest.NameEn, opt => opt.MapFrom(src => src.PlateNumber));
         }
         private void MappCarType()
         {
@@ -60,8 +59,7 @@ namespace Codes.Services.Profiler
                 .ForMember(dest => dest.CarNameAr, opt => opt.MapFrom(src => src.NameAr))
                 .ForMember(dest => dest.CarNameEn, opt => opt.MapFrom(src => src.NameEn))
                 .ForMember(dest => dest.Id,opt => opt.Ignore());
-            CreateMap<DropdownDto, CarType>().ReverseMap()
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "CarType"));
+            CreateMap<DropdownDto, CarType>().ReverseMap();
         }
         private void MappCity()
         {
@@ -74,20 +72,17 @@ namespace Codes.Services.Profiler
         private void MappCustomer()
         {
             CreateMap<Customer, ICustomerDto>().ReverseMap();
-            CreateMap<IDropdownDto,Customer>().ReverseMap()
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "Customer"));
+            CreateMap<IDropdownDto,Customer>().ReverseMap();
         }
         private void MappCustomerCategory()
         {
             CreateMap<CustomerCategory, ICustomerCategoryDto>().ReverseMap();
-            CreateMap<DropdownDto, CustomerCategory>().ReverseMap()
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "CustomerCategory"));
+            CreateMap<DropdownDto, CustomerCategory>().ReverseMap();
         }
         private void MappInvoiceType()
         {
             CreateMap<InvoiceType, IInvoiceTypeDto>().ReverseMap();
-            CreateMap<DropdownDto, InvoiceType>().ReverseMap()
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "InvoiceType"));
+            CreateMap<DropdownDto, InvoiceType>().ReverseMap();
         }
         private void MappRent()
         {
@@ -104,8 +99,7 @@ namespace Codes.Services.Profiler
         private void MappTaxType()
         {
             CreateMap<TaxType, ITaxTypeDto>().ReverseMap();
-            CreateMap<DropdownDto, TaxType>().ReverseMap()
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "TaxType"));
+            CreateMap<DropdownDto, TaxType>().ReverseMap();
         }
         private void MappTrack()
         {
@@ -152,8 +146,7 @@ namespace Codes.Services.Profiler
             CreateMap<ITrackSettingDropDownDto, TrackSetting>().ReverseMap()
                 .ForMember(dest => dest.NameAr,
                 opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
-            CreateMap<DropdownDto, TrackSetting>().ReverseMap()
-                .ForMember(dest => dest.TableName, opt => opt.MapFrom(src => "TrackSetting"));
+            CreateMap<DropdownDto, TrackSetting>().ReverseMap();
         }
     }
 }
