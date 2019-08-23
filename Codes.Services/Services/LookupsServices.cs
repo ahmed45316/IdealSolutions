@@ -3,6 +3,7 @@ using Codes.Entities.Entities;
 using Codes.Services.Dto;
 using Codes.Services.Interfaces;
 using Codes.Services.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -48,7 +49,8 @@ namespace Codes.Services.Services
                 lookups.CarType=_mapper.Map<IEnumerable<DropdownDto>>(carType);
                 var customerCategory = await _customerCategory.Repository.GetAllAsync();
                 lookups.CustomerCategory=_mapper.Map<IEnumerable<DropdownDto>>(customerCategory);
-                var trackSetting = await _trackSetting.Repository.GetAllAsync(disableTracking: false);
+                var trackSetting = await _trackSetting.Repository.GetAllAsync(disableTracking: false,
+                    include:source=>source.Include(t=>t.FromTrack).Include(t => t.ToTrack));
                 lookups.TrackSetting=_mapper.Map<IEnumerable<DropdownDto>>(trackSetting);
                 var taxType = await _taxType.Repository.GetAllAsync();
                 lookups.TaxType=_mapper.Map<IEnumerable<DropdownDto>>(taxType);

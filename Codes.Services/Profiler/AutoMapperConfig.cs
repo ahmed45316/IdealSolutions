@@ -146,7 +146,9 @@ namespace Codes.Services.Profiler
             CreateMap<ITrackSettingDropDownDto, TrackSetting>().ReverseMap()
                 .ForMember(dest => dest.NameAr,
                 opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
-            CreateMap<DropdownDto, TrackSetting>().ReverseMap();
+            CreateMap<DropdownDto, TrackSetting>().ReverseMap()
+                .ForMember(dest => dest.NameAr,
+                opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
         }
     }
 }
