@@ -781,6 +781,13 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetByCustomerId(System.Guid)">
+            <summary>
+            Get data by CustomerId
+            </summary>
+            <param name="customerId">PK</param>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.TrackPriceController.GetAll">
             <summary>
             GetAll Data

@@ -136,6 +136,21 @@ namespace Codes.Services.Services
                 return result;
             }
         }
+        public async Task<IResult> GetByCustomerIdAsync(Guid customerId)
+        {
+            try
+            {
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId &&DateTime.Now.Date>= q.FromDate.Value.Date && DateTime.Now.Date <= q.ToDate.Value.Date);
+                var data = Mapper.Map<TrackPriceDto>(query);
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Done");
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackPriceFilter> filter)
         {
             try

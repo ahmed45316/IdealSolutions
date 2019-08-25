@@ -16,5 +16,6 @@ namespace Codes.Services.Interfaces
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackPriceFilter> filter);
         Task<IResult> GetTrackPriceDetailCarType();
+        Task<IResult> GetByCustomerIdAsync(Guid customerId);
     }
 }

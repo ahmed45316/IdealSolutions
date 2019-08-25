@@ -44,6 +44,16 @@ namespace Codes.API.Controllers
             return await _trackPriceServices.GetByIdAsync(id);
         }
         /// <summary>
+        /// Get data by CustomerId
+        /// </summary>
+        /// <param name="customerId">PK</param>
+        /// <returns></returns>
+        [HttpGet("{customerId}")]
+        public async Task<IResult> GetByCustomerId(Guid customerId)
+        {
+            return await _trackPriceServices.GetByCustomerIdAsync(customerId);
+        }
+        /// <summary>
         /// GetAll Data
         /// </summary>
         /// <returns></returns>
