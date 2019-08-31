@@ -33,6 +33,8 @@ namespace Transactions.Services.Extensions
         private static void Dtos(this IServiceCollection services)
         {
             services.AddScoped<IPolicyDto, PolicyDto>();
+            services.AddScoped<IOpeningBalanceDto, OpeningBalanceDto>();
+            services.AddScoped<IClaimCustomerDto, ClaimCustomerDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {

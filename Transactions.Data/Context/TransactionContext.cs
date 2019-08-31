@@ -10,6 +10,10 @@ namespace Transactions.Data.Context
         }
         public virtual DbSet<Policy> Policies { get; set; }
         public virtual DbSet<PolicyDetail> PolicyDetails { get; set; }
+        public virtual DbSet<OpeningBalance> OpeningBalances { get; set; }
+        public virtual DbSet<ClaimCustomer> ClaimCustomers { get; set; }
+
+
 
     }
 }

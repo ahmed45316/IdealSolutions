@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190807213533_CreateDB.cs" />
     <Compile Remove="Migrations\20190807213533_CreateDB.Designer.cs" />
+    <Compile Remove="Migrations\20190831214741_OpeningBalance.cs" />
+    <Compile Remove="Migrations\20190831214741_OpeningBalance.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

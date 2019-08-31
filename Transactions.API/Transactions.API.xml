@@ -25,6 +25,86 @@
         <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
             <inheritdoc />
         </member>
+        <member name="T:Transactions.API.Controllers.ClaimCustomerController">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.#ctor(Transactions.Services.Interfaces.IClaimCustomerServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Add(Transactions.Services.Dto.ClaimCustomerDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Update(Transactions.Services.Dto.ClaimCustomerDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Transactions.API.Controllers.OpeningBalanceController">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.#ctor(Transactions.Services.Interfaces.IOpeningBalanceServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Add(Transactions.Services.Dto.OpeningBalanceDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Update(Transactions.Services.Dto.OpeningBalanceDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Transactions.API.Program">
             <inheritdoc />
         </member>
