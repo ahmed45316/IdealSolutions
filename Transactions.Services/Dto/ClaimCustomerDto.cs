@@ -14,5 +14,6 @@ namespace Transactions.Services.Dto
         public decimal Tax { get; set; }
         public decimal TotalAfterTax { get; set; }
         public Guid? Id { get; set; }
+        public List<ClaimCustomerPolicyDto> ClaimCustomerPolicies { get; set; }
     }
 }

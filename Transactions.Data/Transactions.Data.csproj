@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20190807213533_CreateDB.Designer.cs" />
     <Compile Remove="Migrations\20190831214741_OpeningBalance.cs" />
     <Compile Remove="Migrations\20190831214741_OpeningBalance.Designer.cs" />
+    <Compile Remove="Migrations\20190903201738_ClaimcustomerPolicies.cs" />
+    <Compile Remove="Migrations\20190903201738_ClaimcustomerPolicies.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

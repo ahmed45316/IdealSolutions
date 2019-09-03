@@ -15,6 +15,7 @@ namespace Transactions.Entities.Entites
         public decimal Total { get; set; }
         public decimal Tax { get; set; }
         public decimal TotalAfterTax { get; set; }
+        public virtual ICollection<ClaimCustomerPolicy> ClaimCustomerPolicies { get; set; }
 
     }
 }
