@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Codes.API.Controllers.Base;
 using Codes.Services.Dto;
 using Codes.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
@@ -13,7 +10,9 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.API.Controllers
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Tax Category Controller
+    /// </summary>
     public class TaxCategoryController : BaseController,IMainEndPoint<TaxCategoryDto>
     {
         private readonly ITaxCategoryServices _taxCategoryServices;
