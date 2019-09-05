@@ -26,7 +26,9 @@
             <inheritdoc />
         </member>
         <member name="T:Codes.API.Controllers.BranchController">
-            <inheritdoc />
+            <summary>
+            Branch Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.BranchController.#ctor(Codes.Services.Interfaces.IBranchServices)">
             <inheritdoc />
@@ -72,7 +74,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CarController">
-            <inheritdoc />
+            <summary>
+            Car Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CarController.#ctor(Codes.Services.Interfaces.ICarServices)">
             <inheritdoc />
@@ -119,7 +123,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CarTypeController">
-            <inheritdoc />
+            <summary>
+            CarType Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CarTypeController.#ctor(Codes.Services.Interfaces.ICarTypeServices)">
             <inheritdoc />
@@ -166,7 +172,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CityController">
-            <inheritdoc />
+            <summary>
+            City Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CityController.#ctor(Codes.Services.Interfaces.ICityServices)">
             <inheritdoc />
@@ -213,7 +221,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CompanyController">
-            <inheritdoc />
+            <summary>
+            Company Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CompanyController.#ctor(Codes.Services.Interfaces.ICompanyServices)">
             <inheritdoc />
@@ -267,7 +277,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CountryController">
-            <inheritdoc />
+            <summary>
+            Country Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CountryController.#ctor(Codes.Services.Interfaces.ICountryServices)">
             <inheritdoc />
@@ -314,7 +326,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CustomerCategoryController">
-            <inheritdoc />
+            <summary>
+            Customer Category Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CustomerCategoryController.#ctor(Codes.Services.Interfaces.ICustomerCategoryServices)">
             <inheritdoc />
@@ -361,7 +375,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.CustomerController">
-            <inheritdoc />
+            <summary>
+            Customer Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.CustomerController.#ctor(Codes.Services.Interfaces.ICustomerServices)">
             <inheritdoc />
@@ -415,7 +431,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.DriverController">
-            <inheritdoc />
+            <summary>
+            Driver Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.DriverController.#ctor(Codes.Services.Interfaces.IDriverServices)">
             <inheritdoc />
@@ -462,7 +480,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.InvoiceTypeController">
-            <inheritdoc />
+            <summary>
+            Invoice Type Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.InvoiceTypeController.#ctor(Codes.Services.Interfaces.IInvoiceTypeServices)">
             <inheritdoc />
@@ -508,7 +528,9 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:Codes.API.Controllers.LookupsController" -->
+        <member name="T:Codes.API.Controllers.LookupsController">
+            <inherit  />
+        </member>
         <member name="M:Codes.API.Controllers.LookupsController.#ctor(Codes.Services.Interfaces.ILookupsServices)">
             <inheritdoc />
         </member>
@@ -516,11 +538,12 @@
             <summary>
             Get all lookups in end point data 
             </summary>
-            <param name="model">Object content</param>
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.RentController">
-            <inheritdoc />
+            <summary>
+            Rent Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.RentController.#ctor(Codes.Services.Interfaces.IRentServices)">
             <inheritdoc />
@@ -567,7 +590,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.RepresentativeController">
-            <inheritdoc />
+            <summary>
+            Representative Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.RepresentativeController.#ctor(Codes.Services.Interfaces.IRepresentativeServices)">
             <inheritdoc />
@@ -614,7 +639,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.TaxCategoryController">
-            <inheritdoc />
+            <summary>
+            Tax Category Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.TaxCategoryController.#ctor(Codes.Services.Interfaces.ITaxCategoryServices)">
             <inheritdoc />
@@ -661,7 +688,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.TaxTypeController">
-            <inheritdoc />
+            <summary>
+            Tax Type Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.TaxTypeController.#ctor(Codes.Services.Interfaces.ITaxTypeServices)">
             <inheritdoc />
@@ -708,7 +737,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.TrackController">
-            <inheritdoc />
+            <summary>
+            Track Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.TrackController.#ctor(Codes.Services.Interfaces.ITrackServices)">
             <inheritdoc />
@@ -762,7 +793,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.TrackPriceController">
-            <inheritdoc />
+            <summary>
+            Track Price Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.TrackPriceController.#ctor(Codes.Services.Interfaces.ITrackPriceServices)">
             <inheritdoc />
@@ -822,7 +855,9 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.TrackSettingController">
-            <inheritdoc />
+            <summary>
+            Track Setting Controller
+            </summary>
         </member>
         <member name="M:Codes.API.Controllers.TrackSettingController.#ctor(Codes.Services.Interfaces.ITrackSettingServices)">
             <inheritdoc />

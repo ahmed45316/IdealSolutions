@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Transactions.API.Controllers.Base;
@@ -11,7 +8,9 @@ using Transactions.Services.Interfaces;
 
 namespace Transactions.API.Controllers
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Claim Customer Controller
+    /// </summary>
     public class ClaimCustomerController : BaseController, IMainEndPoint<ClaimCustomerDto>
     {
         private readonly IClaimCustomerServices _claimCustomerServices;

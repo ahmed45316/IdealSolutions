@@ -1,24 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+
 
 namespace Transactions.API
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Kick Off
+    /// </summary>
     public class Program
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Main
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
-        /// <inheritdoc />
+        /// <summary>
+        /// Web Host
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
