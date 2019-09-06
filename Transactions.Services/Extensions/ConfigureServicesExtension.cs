@@ -33,7 +33,7 @@ namespace Transactions.Services.Extensions
         private static void Dtos(this IServiceCollection services)
         {
             services.AddScoped<IPolicyDto, PolicyDto>();
-            services.AddScoped<IOpeningBalanceDto, IOpeningBalanceDto>();
+            services.AddScoped<IOpeningBalanceDto, OpeningBalanceDto>();
             services.AddScoped<IClaimCustomerDto, ClaimCustomerDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
@@ -41,7 +41,7 @@ namespace Transactions.Services.Extensions
             services.AddTransient(typeof(IBaseService<,>), typeof(BaseService<,>));
             services.AddTransient(typeof(IServiceBaseParameter<>), typeof(ServiceBaseParameter<>));
             services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
-            var servicesToScan = Assembly.GetAssembly(typeof(PolicyServices)); 
+            var servicesToScan = Assembly.GetAssembly(typeof(PolicyServices));
             services.RegisterAssemblyPublicNonGenericClasses(servicesToScan)
               .Where(c => c.Name.EndsWith("Services"))
               .AsPublicImplementedInterfaces();
