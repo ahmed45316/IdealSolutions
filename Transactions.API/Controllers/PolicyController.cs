@@ -8,7 +8,7 @@ using Transactions.API.Controllers.Base;
 using Transactions.Services.Dto;
 using Transactions.Services.Interfaces;
 
-namespace Codes.API.Controllers
+namespace Transactions.API.Controllers
 {
     /// <inheritdoc />
     public class PolicyController : BaseController, IMainEndPoint<PolicyDto>
