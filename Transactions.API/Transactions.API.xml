@@ -26,7 +26,9 @@
             <inheritdoc />
         </member>
         <member name="T:Transactions.API.Controllers.ClaimCustomerController">
-            <inheritdoc />
+            <summary>
+            Claim Customer Controller
+            </summary>
         </member>
         <member name="M:Transactions.API.Controllers.ClaimCustomerController.#ctor(Transactions.Services.Interfaces.IClaimCustomerServices)">
             <inheritdoc />
@@ -66,7 +68,9 @@
             <returns></returns>
         </member>
         <member name="T:Transactions.API.Controllers.OpeningBalanceController">
-            <inheritdoc />
+            <summary>
+            Opening Balance Controller
+            </summary>
         </member>
         <member name="M:Transactions.API.Controllers.OpeningBalanceController.#ctor(Transactions.Services.Interfaces.IOpeningBalanceServices)">
             <inheritdoc />
@@ -112,7 +116,9 @@
             <returns></returns>
         </member>
         <member name="T:Transactions.API.Controllers.PolicyController">
-            <inheritdoc />
+            <summary>
+            Policy Controller
+            </summary>
         </member>
         <member name="M:Transactions.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices)">
             <inheritdoc />
@@ -158,22 +164,35 @@
             <returns></returns>
         </member>
         <member name="T:Transactions.API.Program">
-            <inheritdoc />
+            <summary>
+            Kick Off
+            </summary>
         </member>
         <member name="M:Transactions.API.Program.Main(System.String[])">
-            <inheritdoc />
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
         </member>
         <member name="M:Transactions.API.Program.CreateWebHostBuilder(System.String[])">
-            <inheritdoc />
+            <summary>
+            Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
         </member>
         <member name="T:Transactions.API.Startup">
-            <inheritdoc />
+            <summary>
+            Start Up Class
+            </summary>
         </member>
         <member name="M:Transactions.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <inheritdoc />
         </member>
         <member name="P:Transactions.API.Startup.Configuration">
-            <inheritdoc />
+            <summary>
+            Property
+            </summary>
         </member>
         <member name="M:Transactions.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

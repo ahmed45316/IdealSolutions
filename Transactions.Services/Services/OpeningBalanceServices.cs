@@ -19,7 +19,7 @@ namespace Transactions.Services.Services
 {
     public class OpeningBalanceServices : BaseService<OpeningBalance, IOpeningBalanceDto>, IOpeningBalanceServices
     {
-        protected internal OpeningBalanceServices(IServiceBaseParameter<OpeningBalance> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
+        public OpeningBalanceServices(IServiceBaseParameter<OpeningBalance> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
         }
 

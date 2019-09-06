@@ -8,22 +8,44 @@
             <inheritdoc />
         </member>
         <member name="T:Codes.API.Controllers.Base.IMainEndPoint`1">
-            <inheritdoc />
+            <summary>
+            Main ENd Point INterface
+            </summary>
+            <typeparam name="TDto"></typeparam>
         </member>
         <member name="M:Codes.API.Controllers.Base.IMainEndPoint`1.GetAll">
-            <inheritdoc />
+            <summary>
+            Get All
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.Base.IMainEndPoint`1.Get(System.Guid)">
-            <inheritdoc />
+            <summary>
+            Get By Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.Base.IMainEndPoint`1.Add(`0)">
-            <inheritdoc />
+            <summary>
+            Add
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.Base.IMainEndPoint`1.Update(`0)">
-            <inheritdoc />
+            <summary>
+            Update
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
-            <inheritdoc />
+            <summary>
+            Delete
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.BranchController">
             <summary>
@@ -911,22 +933,35 @@
             <returns></returns>
         </member>
         <member name="T:Codes.API.Program">
-            <inheritdoc />
+            <summary>
+            Kick Off
+            </summary>
         </member>
         <member name="M:Codes.API.Program.Main(System.String[])">
-            <inheritdoc />
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
         </member>
         <member name="M:Codes.API.Program.CreateWebHostBuilder(System.String[])">
-            <inheritdoc />
+            <summary>
+            Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
         </member>
         <member name="T:Codes.API.Startup">
-            <inheritdoc />
+            <summary>
+            Start Up Class
+            </summary>
         </member>
         <member name="M:Codes.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <inheritdoc />
         </member>
         <member name="P:Codes.API.Startup.Configuration">
-            <inheritdoc />
+            <summary>
+            Property
+            </summary>
         </member>
         <member name="M:Codes.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
