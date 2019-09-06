@@ -26,7 +26,9 @@
             <inheritdoc />
         </member>
         <member name="T:Transactions.API.Controllers.ClaimCustomerController">
-            <inheritdoc />
+            <summary>
+            Claim Customer Controller
+            </summary>
         </member>
         <member name="M:Transactions.API.Controllers.ClaimCustomerController.#ctor(Transactions.Services.Interfaces.IClaimCustomerServices)">
             <inheritdoc />
@@ -66,7 +68,9 @@
             <returns></returns>
         </member>
         <member name="T:Transactions.API.Controllers.OpeningBalanceController">
-            <inheritdoc />
+            <summary>
+            Opening Balance Controller
+            </summary>
         </member>
         <member name="M:Transactions.API.Controllers.OpeningBalanceController.#ctor(Transactions.Services.Interfaces.IOpeningBalanceServices)">
             <inheritdoc />
@@ -91,6 +95,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.OpeningBalanceFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Transactions.API.Controllers.OpeningBalanceController.Remove(System.Guid)">
             <summary>
             Remove data by id
@@ -105,23 +115,84 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
-        <member name="T:Transactions.API.Program">
+        <member name="T:Transactions.API.Controllers.PolicyController">
+            <summary>
+            Policy Controller
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices)">
             <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Add(Transactions.Services.Dto.PolicyDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.PolicyFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Update(Transactions.Services.Dto.PolicyDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Transactions.API.Program">
+            <summary>
+            Kick Off
+            </summary>
         </member>
         <member name="M:Transactions.API.Program.Main(System.String[])">
-            <inheritdoc />
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
         </member>
         <member name="M:Transactions.API.Program.CreateWebHostBuilder(System.String[])">
-            <inheritdoc />
+            <summary>
+            Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
         </member>
         <member name="T:Transactions.API.Startup">
-            <inheritdoc />
+            <summary>
+            Start Up Class
+            </summary>
         </member>
         <member name="M:Transactions.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <inheritdoc />
         </member>
         <member name="P:Transactions.API.Startup.Configuration">
-            <inheritdoc />
+            <summary>
+            Property
+            </summary>
         </member>
         <member name="M:Transactions.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
@@ -135,52 +206,6 @@
             </summary>
             <param name="app">Provide mechanisms to configure requests</param>
             <param name="env">Provide information about hosting</param>
-        </member>
-        <member name="T:Codes.API.Controllers.PolicyController">
-            <inheritdoc />
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices)">
-            <inheritdoc />
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.Add(Transactions.Services.Dto.PolicyDto)">
-            <summary>
-            Add data 
-            </summary>
-            <param name="model">Object content</param>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.Get(System.Guid)">
-            <summary>
-            Get data by Id
-            </summary>
-            <param name="id">PK</param>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.GetAll">
-            <summary>
-            GetAll Data
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.PolicyFilter})">
-            <summary>
-            GetAll Data paged
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.Remove(System.Guid)">
-            <summary>
-            Remove data by id
-            </summary>
-            <param name="id">PK</param>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.PolicyController.Update(Transactions.Services.Dto.PolicyDto)">
-            <summary>
-            Update data 
-            </summary>
-            <param name="model">Object content</param>
-            <returns></returns>
         </member>
     </members>
 </doc>
