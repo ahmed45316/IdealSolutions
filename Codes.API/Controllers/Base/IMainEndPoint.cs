@@ -1,43 +1,24 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
 
 namespace Codes.API.Controllers.Base
 {
-    /// <summary>
-    /// Main ENd Point INterface
-    /// </summary>
-    /// <typeparam name="TDto"></typeparam>
+    /// <inheritdoc />
     public interface IMainEndPoint<TDto>
     {
-        /// <summary>
-        /// Get All
-        /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc />
         Task<IResult> GetAll();
-        /// <summary>
-        /// Get By Id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <inheritdoc />
         Task<IResult> Get(Guid id);
-        /// <summary>
-        /// Add
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <inheritdoc />
         Task<IResult> Add(TDto model);
-        /// <summary>
-        /// Update
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <inheritdoc />
         Task<IResult> Update(TDto model);
-        /// <summary>
-        /// Delete
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <inheritdoc />
         Task<IResult> Remove(Guid id);
     }
 }

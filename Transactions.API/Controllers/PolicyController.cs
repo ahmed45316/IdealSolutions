@@ -8,18 +8,16 @@ using Transactions.API.Controllers.Base;
 using Transactions.Services.Dto;
 using Transactions.Services.Interfaces;
 
-namespace Transactions.API.Controllers
+namespace Codes.API.Controllers
 {
-    /// <summary>
-    /// Policy Controller
-    /// </summary>
+    /// <inheritdoc />
     public class PolicyController : BaseController, IMainEndPoint<PolicyDto>
     {
-        private readonly IPolicyServices _policyServices;
+        private readonly IPolicyServices _PolicyServices;
         /// <inheritdoc />
-        public PolicyController(IPolicyServices policyServices)
+        public PolicyController(IPolicyServices PolicyServices)
         {
-            _policyServices = policyServices;
+            _PolicyServices = PolicyServices;
         }
         /// <summary>
         /// Add data 
@@ -29,7 +27,7 @@ namespace Transactions.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(PolicyDto model)
         {
-            return await _policyServices.AddAsync(model);
+            return await _PolicyServices.AddAsync(model);
         }
         /// <summary>
         /// Get data by Id
@@ -39,7 +37,7 @@ namespace Transactions.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _policyServices.GetByIdAsync(id);
+            return await _PolicyServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -48,7 +46,7 @@ namespace Transactions.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _policyServices.GetAllAsync();
+            return await _PolicyServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
@@ -57,7 +55,7 @@ namespace Transactions.API.Controllers
         [HttpPost]
         public async Task<IDataPagging> GetPaged([FromBody]BaseParam<PolicyFilter> filter)
         {
-            return await _policyServices.GetAllPaggedAsync(filter);
+            return await _PolicyServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -67,7 +65,7 @@ namespace Transactions.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _policyServices.DeleteAsync(id);
+            return await _PolicyServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -77,7 +75,7 @@ namespace Transactions.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(PolicyDto model)
         {
-            return await _policyServices.UpdateAsync(model);
+            return await _PolicyServices.UpdateAsync(model);
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Identity.Base;
@@ -10,9 +13,7 @@ using Transactions.Services.Interfaces;
 
 namespace Transactions.API.Controllers
 {
-    /// <summary>
-    /// Opening Balance Controller
-    /// </summary>
+    /// <inheritdoc />
     public class OpeningBalanceController : BaseController, IMainEndPoint<OpeningBalanceDto>
     {
         private readonly IOpeningBalanceServices _openingBalanceServices;

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Codes.API.Controllers.Base;
 using Codes.Services.Dto;
 using Codes.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
@@ -10,10 +13,7 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.API.Controllers
 {
-    
-    /// <summary>
-    /// Car Controller
-    /// </summary>
+    /// <inheritdoc />
     public class CarController : BaseController,IMainEndPoint<CarDto>
     {
         private readonly ICarServices _carServices;

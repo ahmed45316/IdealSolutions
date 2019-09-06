@@ -10,9 +10,7 @@ using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.API.Controllers
 {
-    /// <summary>
-    /// Track Setting Controller
-    /// </summary>
+    /// <inheritdoc />
     public class TrackSettingController : BaseController,IMainEndPoint<TrackSettingDto>
     {
         private readonly ITrackSettingServices _trackSettingServices;

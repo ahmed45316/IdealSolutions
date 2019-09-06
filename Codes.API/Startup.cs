@@ -8,9 +8,7 @@ using Tenets.Common.Extensions;
 
 namespace Codes.API
 {
-    /// <summary>
-    /// Start Up Class
-    /// </summary>
+    /// <inheritdoc />
     public class Startup
     {
         /// <inheritdoc />
@@ -18,9 +16,7 @@ namespace Codes.API
         {
             Configuration = configuration;
         }
-        /// <summary>
-        /// Property
-        /// </summary>
+        /// <inheritdoc />
         public IConfiguration Configuration { get; }
 
         /// <summary>
