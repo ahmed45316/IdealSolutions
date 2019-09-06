@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
+using Tenets.Common.ServicesCommon.Identity.Base;
+using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.API.Controllers.Base;
 using Transactions.Services.Dto;
 using Transactions.Services.Interfaces;
@@ -49,15 +51,15 @@ namespace Transactions.API.Controllers
         {
             return await _openingBalanceServices.GetAllAsync();
         }
-        ///// <summary>
-        ///// GetAll Data paged
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpPost]
-        //public async Task<IDataPagging> GetPaged([FromBody]BaseParam<PolicyFilter> filter)
-        //{
-        //    return await _openingBalanceServices.GetAllPaggedAsync(filter);
-        //}
+        /// <summary>
+        /// GetAll Data paged
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IDataPagging> GetPaged([FromBody]BaseParam<OpeningBalanceFilter> filter)
+        {
+            return await _openingBalanceServices.GetAllPaggedAsync(filter);
+        }
         /// <summary>
         /// Remove data by id
         /// </summary>
