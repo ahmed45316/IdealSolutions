@@ -597,6 +597,13 @@
             <param name="filter">Filter resposiable for search and sort</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.RentController.GetDropDown(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.SearchCriteriaFilter})">
+            <summary>
+            GetAll Data paged for dropdown
+            </summary>
+            <param name="filter">Filter resposiable for search</param>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.RentController.Remove(System.Guid)">
             <summary>
             Remove data by id

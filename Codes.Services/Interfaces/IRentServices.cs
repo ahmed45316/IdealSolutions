@@ -14,5 +14,6 @@ namespace Codes.Services.Interfaces
     public interface IRentServices : IBaseService<Rent, IRentDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<RentFilter> filter);
+        Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
     }
 }

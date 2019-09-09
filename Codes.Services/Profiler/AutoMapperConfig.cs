@@ -87,6 +87,7 @@ namespace Codes.Services.Profiler
         private void MappRent()
         {
             CreateMap<Rent, IRentDto>().ReverseMap();
+            CreateMap<IDropdownDto, Rent>().ReverseMap();
         }
         private void MappRepresentative()
         {
