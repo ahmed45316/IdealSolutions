@@ -12,8 +12,6 @@ namespace Transactions.Data.Context
         public virtual DbSet<PolicyDetail> PolicyDetails { get; set; }
         public virtual DbSet<OpeningBalance> OpeningBalances { get; set; }
         public virtual DbSet<ClaimCustomer> ClaimCustomers { get; set; }
-        public virtual DbSet<ClaimCustomerPolicy> ClaimCustomerPolicies { get; set; }
-
 
     }
 }

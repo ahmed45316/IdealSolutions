@@ -37,6 +37,6 @@ namespace Transactions.Entities.Entites
         public string CarNo { get; set; }
         [ForeignKey("PolicyId")]
         public virtual Policy Policy { get; set; }
-        public virtual ICollection<ClaimCustomerPolicy> ClaimCustomerPolicies { get; set; }
+        public virtual ICollection<ClaimCustomer> ClaimCustomers { get; set; }
     }
 }

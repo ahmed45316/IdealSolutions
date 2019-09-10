@@ -13,5 +13,6 @@ namespace Tenets.Common.ServicesCommon.Transaction.Interface
          decimal Total { get; set; }
          decimal Tax { get; set; }
          decimal TotalAfterTax { get; set; }
+         Guid PolicyDetailId { get; set; }
     }
 }

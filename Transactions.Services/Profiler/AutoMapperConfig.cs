@@ -34,7 +34,6 @@ namespace Transactions.Services.Profiler
         private void MappClaimCustomer()
         {
             CreateMap<ClaimCustomer, IClaimCustomerDto>().ReverseMap();
-            CreateMap<ClaimCustomerPolicy, ClaimCustomerPolicyDto>().ReverseMap();
         }
     }
 }
