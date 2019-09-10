@@ -27,7 +27,7 @@ namespace Codes.Services.Services
         {
             try
             {
-                if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.Forbidden, message: "FromTrack can't be same equal ToTrack");
+                if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار متشابه برجاء اختر مسار مختلف");
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<TrackSetting>(model);
                 entity.CreateDate = DateTime.Now;

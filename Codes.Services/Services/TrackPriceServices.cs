@@ -27,6 +27,34 @@ namespace Codes.Services.Services
         {
             _carTypeUnitOfWork = carTypeUnitOfWork;
         }
+        public async override Task<IResult> AddAsync(TrackPriceDto model)
+        {
+            try
+            {
+                var validationEntity = _unitOfWork.Repository.FirstOrDefaultAsync(q => model.FromDate >= q.FromDate && model.FromDate <= q.ToDate || model.ToDate >= q.FromDate && model.ToDate <= q.ToDate || model.FromDate < q.FromDate && model.ToDate > q.ToDate);
+                if (validationEntity!=null)
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "يوجد عقد اخر للعميل داخل او خلال هذة الفترة");
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
+                var entity = Mapper.Map<TrackPrice>(model);
+                entity.CreateDate = DateTime.Now;
+                entity.CreateUserId = new Guid(userId);
+                _unitOfWork.Repository.Add(entity);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message: "Data Inserted Successfully");
+                }
+
+                result.Data = model;
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async override Task<IResult> UpdateAsync(TrackPriceDto model)
         {
             try
@@ -36,7 +64,7 @@ namespace Codes.Services.Services
                          .ThenInclude(t => t.TrackPriceDetailCarTypes));
                 _unitOfWork.Repository.Remove(entityToUpdate);
                 await _unitOfWork.SaveChanges();
-               await base.AddAsync(model);
+                await base.AddAsync(model);
                 return result;
             }
             catch (Exception e)
@@ -72,8 +100,8 @@ namespace Codes.Services.Services
         {
             try
             {
-                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: true,include: source => source
-                      .Include(t => t.Customer));
+                var query = await _unitOfWork.Repository.GetAllAsync(disableTracking: true, include: source => source
+                       .Include(t => t.Customer));
                 var data = Mapper.Map<IEnumerable<TrackPriceDto>>(query);
                 return ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
@@ -103,27 +131,27 @@ namespace Codes.Services.Services
         {
             try
             {
-                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id, include: source => source
-                     .Include(t => t.Customer)
-                     .Include(t => t.TrackPriceDetails)
-                     .ThenInclude(ts=>ts.TrackSetting)
-                     .ThenInclude(ts => ts.FromTrack)
-                     .Include(t => t.TrackPriceDetails)
-                     .ThenInclude(ts => ts.TrackSetting)
-                     .ThenInclude(ts => ts.ToTrack)
-                     .Include(t => t.TrackPriceDetails)
-                     .ThenInclude(t => t.TrackPriceDetailCarTypes)
-                     .ThenInclude(c=>c.CarType));
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, include: source => source
+                         .Include(t => t.Customer)
+                         .Include(t => t.TrackPriceDetails)
+                         .ThenInclude(ts => ts.TrackSetting)
+                         .ThenInclude(ts => ts.FromTrack)
+                         .Include(t => t.TrackPriceDetails)
+                         .ThenInclude(ts => ts.TrackSetting)
+                         .ThenInclude(ts => ts.ToTrack)
+                         .Include(t => t.TrackPriceDetails)
+                         .ThenInclude(t => t.TrackPriceDetailCarTypes)
+                         .ThenInclude(c => c.CarType));
                 var data = Mapper.Map<TrackPriceDto>(query);
                 var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
                 var trackPriceDetails = data.TrackPriceDetails.Select(q =>
-                {                  
-                        var cartypesids = q.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
-                        var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
-                        foreach (var cartypeitem in cartypesdata)
-                        {
-                            q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0 ,CarNameAr=cartypeitem.NameAr, CarNameEn = cartypeitem.NameEn});
-                        }
+                {
+                    var cartypesids = q.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
+                    var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
+                    foreach (var cartypeitem in cartypesdata)
+                    {
+                        q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0, CarNameAr = cartypeitem.NameAr, CarNameEn = cartypeitem.NameEn });
+                    }
                     return q;
                 }).ToList();
                 data.TrackPriceDetails = trackPriceDetails;
@@ -140,7 +168,11 @@ namespace Codes.Services.Services
         {
             try
             {
-                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId &&DateTime.Now.Date>= q.FromDate.Value.Date && DateTime.Now.Date <= q.ToDate.Value.Date);
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && DateTime.Now.Date >= q.FromDate.Value.Date && DateTime.Now.Date <= q.ToDate.Value.Date);
+                if (query == null)
+                {
+                    return ResponseResult.PostResult(result: null, status: HttpStatusCode.BadRequest, message: "لا يوجد عقد للعميل في هذة الفترة");
+                }
                 var data = Mapper.Map<TrackPriceDto>(query);
                 return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Done");
             }
