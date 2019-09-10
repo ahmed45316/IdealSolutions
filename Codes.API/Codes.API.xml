@@ -905,6 +905,13 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.GetValueForTrack(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.TrackSettingController.GetAll">
             <summary>
             GetAll Data

@@ -42,6 +42,17 @@ namespace Codes.API.Controllers
             return await _trackSettingServices.GetByIdAsync(id);
         }
         /// <summary>
+        /// Get data by Id
+        /// </summary>
+        /// <param name="id">PK</param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<IResult> GetValueForTrack(Guid id)
+        {
+            return await _trackSettingServices.GetValueForTrack(id);
+        }
+        
+        /// <summary>
         /// GetAll Data
         /// </summary>
         /// <returns></returns>
