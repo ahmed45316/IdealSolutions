@@ -14,6 +14,6 @@ namespace Transactions.Services.Dto
         public decimal Value { get ; set ; }
         public string Notes { get ; set ; }
         public DateTime OpeningBlanceDate { get ; set ; }
-        public Guid? Id { get ; set ; }
+        public Guid? Id { get; set; }
     }
 }
