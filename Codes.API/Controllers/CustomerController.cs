@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Codes.API.Controllers.Base;
 using Codes.Services.Dto;
@@ -91,6 +92,17 @@ namespace Codes.API.Controllers
         {
             
             return await _customerServices.UpdateAsync(model);
+        }
+        /// <summary>
+        /// Get list of customer by customer ids list  
+        /// </summary>
+        /// <param name="ids">customer ids</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IResult> GetList(List<Guid> ids)
+        {
+
+            return await _customerServices.GetList(ids);
         }
     }
 }

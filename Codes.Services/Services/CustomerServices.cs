@@ -42,9 +42,9 @@ namespace Codes.Services.Services
         static Expression<Func<Customer, bool>> PredicateBuilderFunction(CustomerFilter filter)
         {
             var predicate = PredicateBuilder.New<Customer>(true);
-            if (filter.RepresentativeId!=null)
+            if (filter.RepresentativeId != null)
             {
-                predicate = predicate.And(b => b.RepresentativeId==filter.RepresentativeId);
+                predicate = predicate.And(b => b.RepresentativeId == filter.RepresentativeId);
             }
             if (!string.IsNullOrWhiteSpace(filter.NameAr))
             {
@@ -56,7 +56,7 @@ namespace Codes.Services.Services
             }
             if (!string.IsNullOrWhiteSpace(filter.Email))
             {
-                predicate = predicate.And(b => b.Email.ToLower()==filter.Email.ToLower());
+                predicate = predicate.And(b => b.Email.ToLower() == filter.Email.ToLower());
             }
             return predicate;
         }
@@ -85,6 +85,11 @@ namespace Codes.Services.Services
                 predicate = predicate.And(b => b.NameAr.ToLower().Contains(filter.SearchCriteria.ToLower()));
             }
             return predicate;
+        }
+        public async Task<IResult> GetList(List<Guid> ids)
+        {
+            var data = await _unitOfWork.Repository.FindAsync(q => ids.Contains(q.Id));
+            return new ResponseResult(result: data, status: HttpStatusCode.OK, message: "");
         }
     }
 }

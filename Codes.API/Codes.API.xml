@@ -452,6 +452,13 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.CustomerController.GetList(System.Collections.Generic.List{System.Guid})">
+            <summary>
+            Get list of customer by customer ids list  
+            </summary>
+            <param name="ids">customer ids</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Controllers.DriverController">
             <summary>
             Driver Controller

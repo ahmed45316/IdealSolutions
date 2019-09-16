@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using LinqKit;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Tenets.Common.Core;
+using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
@@ -23,9 +25,11 @@ namespace Transactions.Services.Services
     public class ClaimCustomerServices : BaseService<ClaimCustomer, IClaimCustomerDto>, IClaimCustomerServices
     {
         private readonly IUnitOfWork<PolicyDetail> _policyDetailUnitOfWork;
-        public ClaimCustomerServices(IServiceBaseParameter<ClaimCustomer> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<PolicyDetail> policyDetailUnitOfWork) : base(businessBaseParameter, httpContextAccessor)
+        private readonly IRestSharpContainer _restSharpContainer;
+        public ClaimCustomerServices(IServiceBaseParameter<ClaimCustomer> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<PolicyDetail> policyDetailUnitOfWork,IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
         {
             _policyDetailUnitOfWork = policyDetailUnitOfWork;
+            _restSharpContainer = restSharpContainer;
         }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<ClaimCustomerFilter> filter)
         {
@@ -36,6 +40,18 @@ namespace Transactions.Services.Services
                 var query = await _policyDetailUnitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue,include: source=>source.Include(c=>c.ClaimCustomers));
                 var data = Mapper.Map<IEnumerable<PolicyDetailDto>>(query.Item2);
 
+                var customerIds = data.Select(q => q.CustomerId).ToList();
+                var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Customer/GetList", RestSharp.Method.POST, customerIds);
+                if (serviceResult == null && serviceResult.Data == null)
+                {
+                    return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
+                }
+                var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
+                var customersResult = JsonConvert.DeserializeObject<List<CustomerDto>>(jsonString);
+
+                data = data.Select(q => {
+                    q.CustomerNameAr = customersResult.FirstOrDefault(c => c.Id == q.CustomerId).NameAr;
+                    return q; });
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)

@@ -15,5 +15,6 @@ namespace Codes.Services.Interfaces
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<CustomerFilter> filter);
         Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
+        Task<IResult> GetList(List<Guid> ids);
     }
 }

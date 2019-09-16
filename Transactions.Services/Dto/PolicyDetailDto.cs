@@ -9,6 +9,7 @@ namespace Transactions.Services.Dto
         public Guid? Id { get; set; }
         public Guid PolicyId { get; set; }
         public Guid CustomerId { get; set; }
+        public string CustomerNameAr { get; set; }
         public Guid CustomerCategoryId { get; set; }
         public Guid InvoicTypeId { get; set; }
         public DateTime? PolicyDetailDatetime { get; set; }
