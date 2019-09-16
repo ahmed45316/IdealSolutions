@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Http;
+using Tenets.Common.RestSharp;
 
 namespace Tenets.Common.Extensions
 {
@@ -19,7 +20,7 @@ namespace Tenets.Common.Extensions
         public static IServiceCollection RegisterCommonServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCors();
-            services.RegisterMainCore();
+            services.RegisterMainCore(configuration);
             services.AddApiDocumentationServices(configuration);
             services.JWTSettings(configuration);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -48,12 +49,13 @@ namespace Tenets.Common.Extensions
                 };
             });
         }
-        private static void RegisterMainCore(this IServiceCollection services)
+        private static void RegisterMainCore(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IResponseResult, ResponseResult>();
             services.AddTransient<IResult, Result>();
             services.AddTransient<IDataPagging, DataPagging>();
             services.AddTransient<IImageConfig, ImageConfig>();
+            services.AddSingleton<IRestSharpContainer>(x => new RestSharpContainer(configuration["APIGetWayUrl"], x.GetRequiredService<IHttpContextAccessor>()));
         }
         private static void AddApiDocumentationServices(this IServiceCollection services, IConfiguration configuration)
         {

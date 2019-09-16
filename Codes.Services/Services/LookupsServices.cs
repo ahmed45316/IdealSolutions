@@ -6,11 +6,14 @@ using Codes.Services.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
+using Tenets.Common.Enums;
 using Tenets.Common.ServicesCommon.Base;
+using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.Services.Services
 {
@@ -24,8 +27,10 @@ namespace Codes.Services.Services
         private readonly IUnitOfWork<CustomerCategory> _customerCategory;
         private readonly IUnitOfWork<TrackSetting> _trackSetting;
         private readonly IUnitOfWork<TaxType> _taxType;
+        private readonly IUnitOfWork<Customer> _customer;
+        private readonly IUnitOfWork<Rent> _rent;
         private IResult result;
-        public LookupsServices(IMapper mapper, IResponseResult responseResult,IUnitOfWork<InvoiceType> invoiceType, IUnitOfWork<Car> car, IUnitOfWork<CarType> carType, IUnitOfWork<CustomerCategory> customerCategory, IUnitOfWork<TrackSetting> trackSetting, IUnitOfWork<TaxType> taxType)
+        public LookupsServices(IMapper mapper, IResponseResult responseResult, IUnitOfWork<InvoiceType> invoiceType, IUnitOfWork<Car> car, IUnitOfWork<CarType> carType, IUnitOfWork<CustomerCategory> customerCategory, IUnitOfWork<TrackSetting> trackSetting, IUnitOfWork<TaxType> taxType, IUnitOfWork<Customer> customer, IUnitOfWork<Rent> rent)
         {
             _mapper = mapper;
             _responseResult = responseResult;
@@ -35,6 +40,8 @@ namespace Codes.Services.Services
             _customerCategory = customerCategory;
             _trackSetting = trackSetting;
             _taxType = taxType;
+            _customer = customer;
+            _rent = rent;
         }
         public async Task<IResult> GetAllLookupsForPolicy()
         {
@@ -42,18 +49,18 @@ namespace Codes.Services.Services
             {
                 var lookups = new LookupsDto();
                 var invoiceType = await _invoiceType.Repository.GetAllAsync();
-                lookups.InvoiceType=_mapper.Map<IEnumerable<DropdownDto>>(invoiceType);
+                lookups.InvoiceType = _mapper.Map<IEnumerable<DropdownDto>>(invoiceType);
                 var car = await _car.Repository.GetAllAsync();
-                lookups.Car=_mapper.Map<IEnumerable<DropdownDto>>(car);
-                var carType= await _carType.Repository.GetAllAsync();
-                lookups.CarType=_mapper.Map<IEnumerable<DropdownDto>>(carType);
+                lookups.Car = _mapper.Map<IEnumerable<DropdownDto>>(car);
+                var carType = await _carType.Repository.GetAllAsync();
+                lookups.CarType = _mapper.Map<IEnumerable<DropdownDto>>(carType);
                 var customerCategory = await _customerCategory.Repository.GetAllAsync();
-                lookups.CustomerCategory=_mapper.Map<IEnumerable<DropdownDto>>(customerCategory);
+                lookups.CustomerCategory = _mapper.Map<IEnumerable<DropdownDto>>(customerCategory);
                 var trackSetting = await _trackSetting.Repository.GetAllAsync(disableTracking: false,
-                    include:source=>source.Include(t=>t.FromTrack).Include(t => t.ToTrack));
-                lookups.TrackSetting=_mapper.Map<IEnumerable<DropdownDto>>(trackSetting);
+                    include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
+                lookups.TrackSetting = _mapper.Map<IEnumerable<DropdownDto>>(trackSetting);
                 var taxType = await _taxType.Repository.GetAllAsync();
-                lookups.TaxType=_mapper.Map<IEnumerable<DropdownDto>>(taxType);
+                lookups.TaxType = _mapper.Map<IEnumerable<DropdownDto>>(taxType);
                 return _responseResult.PostResult(lookups, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)
@@ -62,6 +69,25 @@ namespace Codes.Services.Services
                 result = new ResponseResult(null, status: HttpStatusCode.InternalServerError, exception: e, message: result.Message);
                 return result;
             }
+        }
+        public async Task<IResult> GetTypeNameForOpeningBalance(IEnumerable<OpeningBalanceParameters> parameters)
+        {
+            var nameByTypeDto = new List<NameByTypeDto>();
+            // customer
+            var customerIds = parameters.Where(q => q.Type == OpeningBalanceType.Customer).Select(q => q.TypeId).ToList();
+            var customers = await _customer.Repository.FindAsync(q => customerIds.Contains(q.Id));
+            foreach (var customer in customers)
+            {
+                nameByTypeDto.Add(new NameByTypeDto() { Type = OpeningBalanceType.Customer, NameAr = customer.NameAr, NameEn = customer.NameEn, Id = customer.Id });
+            }
+            // rent
+            var rentIds = parameters.Where(q => q.Type == OpeningBalanceType.Rent).Select(q => q.TypeId).ToList();
+            var rents = await _rent.Repository.FindAsync(q => rentIds.Contains(q.Id));
+            foreach (var rent in rents)
+            {
+                nameByTypeDto.Add(new NameByTypeDto() { Type = OpeningBalanceType.Rent, NameAr = rent.NameAr, NameEn = rent.NameEn, Id = rent.Id });
+            }
+            return _responseResult.PostResult(nameByTypeDto, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
         }
     }
 }

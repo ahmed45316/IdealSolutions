@@ -29,7 +29,9 @@ namespace Transactions.Services.Profiler
         }
         private void MappOpeningBalance()
         {
-            CreateMap<OpeningBalance, IOpeningBalanceDto>().ReverseMap();
+            CreateMap<IOpeningBalanceDto, OpeningBalance>().ReverseMap()
+                .ForMember(dest => dest.DebitCridetNameEn, opt => opt.MapFrom(src => src.DebitCridet.ToString()))
+                .ForMember(dest => dest.DebitCridetNameEn, opt => opt.MapFrom(src => src.DebitCridet.ToString()== "Debit" ?"مدين":"دائن"));
         }
         private void MappClaimCustomer()
         {
