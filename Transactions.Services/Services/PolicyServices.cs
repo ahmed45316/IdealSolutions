@@ -50,7 +50,7 @@ namespace Transactions.Services.Services
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message: "Data Inserted Successfully");
+                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
                 }
 
                 result.Data = model;
@@ -87,7 +87,7 @@ namespace Transactions.Services.Services
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Removed Successfully");
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
                 }
                 return result;
             }

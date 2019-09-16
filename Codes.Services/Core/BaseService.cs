@@ -54,7 +54,7 @@ namespace Codes.Services.Core
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message:"Data Inserted Successfully");
+                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
                 }
 
                 result.Data = model;
@@ -82,7 +82,7 @@ namespace Codes.Services.Core
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم التعديل بنجاح");
                 }
 
                 return result;
@@ -103,7 +103,7 @@ namespace Codes.Services.Core
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "Data Updated Successfully");
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
                 }
                 return result;
             }
@@ -120,7 +120,7 @@ namespace Codes.Services.Core
             {
                 T query = await _unitOfWork.Repository.GetAsync(id);
                 var data = Mapper.Map<TDto>(query);             
-                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "");
             }
             catch (Exception e)
             {
