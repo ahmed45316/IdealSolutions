@@ -8,10 +8,11 @@ using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
 using Transactions.Services.Core;
+using Transactions.Services.Dto;
 
 namespace Transactions.Services.Interfaces
 {
-    public interface IPolicyServices : IBaseService<Policy, IPolicyDto>
+    public interface IPolicyServices : IBaseService<Policy, PolicyDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<PolicyFilter> filter);
     }

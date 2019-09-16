@@ -53,6 +53,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.ClaimCustomerFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Transactions.API.Controllers.ClaimCustomerController.Remove(System.Guid)">
             <summary>
             Remove data by id
