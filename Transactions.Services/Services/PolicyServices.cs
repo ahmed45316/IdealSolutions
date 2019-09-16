@@ -135,7 +135,7 @@ namespace Transactions.Services.Services
             var predicate = PredicateBuilder.New<Policy>(true);
             if (filter.PolicyDate != null)
             {
-                predicate = predicate.And(b => b.PolicyDateTime == filter.PolicyDate);
+                predicate = predicate.And(b => b.PolicyDateTime.Date == filter.PolicyDate.Value.Date);
             }
 
             return predicate;
