@@ -34,13 +34,13 @@ namespace Transactions.Services.Services
                 var policyNumbers = model?.PolicyDetails.Select(q => q.PolicyNumber).ToList();
                 if (policyNumbers.Count != policyNumbers.Distinct().Count())
                 {
-                    return new ResponseResult(result: null, status: HttpStatusCode.Created, message: "توجد ارقام فواتير مكررة");
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد ارقام فواتير مكررة");
                 }
                 var isExist = await _policyDetailUnitOfWork.Repository.FirstOrDefaultAsync(q => policyNumbers.Contains(q.PolicyNumber));
 
                 if (isExist != null)
                 {
-                    return new ResponseResult(result: null, status: HttpStatusCode.Created, message: "توجد فواتير بهذة الارقام موجودة في قاعدة البيانات برجاء مراجعة ارقام الفواتير واعادة الحفظ");
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد فواتير بهذة الارقام موجودة في قاعدة البيانات برجاء مراجعة ارقام الفواتير واعادة الحفظ");
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Policy>(model);
