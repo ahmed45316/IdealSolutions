@@ -16,7 +16,7 @@ using Tenets.Identity.Services.Profiler;
 using Tenets.Identity.Services.Services;
 using Tenets.Identity.Services.UnitOfWork;
 
-namespace Tenets.Identity.Services.Extensions
+namespace Tenets.Identity.API.AppExtension
 {
     public static class ConfigureServicesExtension
     {

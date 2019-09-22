@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-namespace Tenets.Common.Extensions
+namespace Transactions.API.AppExtension
 {
     public static class ConfigureExtension
     {
-        public static IApplicationBuilder ConfigureApp(this IApplicationBuilder app, IHostingEnvironment env,IConfiguration configuration)
+        public static IApplicationBuilder Configure(this IApplicationBuilder app, IHostingEnvironment env,IConfiguration configuration)
         {
             app.CorsConfig();
             app.UseAuthentication();

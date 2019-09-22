@@ -1,10 +1,11 @@
-﻿using Codes.Services.Extensions;
+﻿using Codes.API.AppExtension;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Tenets.Common.Extensions;
+
 
 namespace Codes.API
 {
@@ -41,7 +42,7 @@ namespace Codes.API
         /// <param name="env">Provide information about hosting</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.ConfigureApp(env, Configuration);
+            app.Configure(env, Configuration);
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             else app.UseHsts();
             app.UseHttpsRedirection();

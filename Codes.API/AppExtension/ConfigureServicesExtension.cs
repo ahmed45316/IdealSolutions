@@ -14,7 +14,7 @@ using Codes.Services.Dto;
 using Codes.Services.Services;
 using Tenets.Common.ServicesCommon.Base;
 
-namespace Codes.Services.Extensions
+namespace Codes.API.AppExtension
 {
     public static class ConfigureServicesExtension
     {

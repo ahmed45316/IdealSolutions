@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Tenets.Common.Extensions;
-using Transactions.Services.Extensions;
+using Transactions.API.AppExtension;
 
 namespace Transactions.API
 {
@@ -41,7 +41,7 @@ namespace Transactions.API
         /// <param name="env">Provide information about hosting</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.ConfigureApp(env, Configuration);
+            app.Configure(env, Configuration);
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             else app.UseHsts();
             app.UseHttpsRedirection();

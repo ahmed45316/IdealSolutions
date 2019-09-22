@@ -12,7 +12,7 @@ using Transactions.Services.Services;
 using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Transactions.Services.Dto;
 
-namespace Transactions.Services.Extensions
+namespace Transactions.API.AppExtension
 {
     public static class ConfigureServicesExtension
     {

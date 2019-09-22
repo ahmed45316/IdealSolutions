@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Tenets.Common\Tenets.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Codes.API.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Transactions.Services\Transactions.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Transactions.API.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
