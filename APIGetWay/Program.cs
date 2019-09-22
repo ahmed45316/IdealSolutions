@@ -18,6 +18,7 @@ namespace APIGetWay
             {
                 config.AddJsonFile("ocelot.json");
             })
+            .UseIISIntegration()
             .UseStartup<Startup>();
     }
 }
