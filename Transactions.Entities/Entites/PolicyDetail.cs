@@ -38,5 +38,6 @@ namespace Transactions.Entities.Entites
         [ForeignKey("PolicyId")]
         public virtual Policy Policy { get; set; }
         public virtual ICollection<ClaimCustomer> ClaimCustomers { get; set; }
+        public virtual ICollection<CollectReceipt> CollectReceipts { get; set; }
     }
 }

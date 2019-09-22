@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Tenets.Infrastructure\Tenets.Infrastructure.csproj" />
     <ProjectReference Include="..\Transactions.Data\Transactions.Data.csproj" />
+    <ProjectReference Include="..\Transactions.Entities\Transactions.Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -35,6 +35,7 @@ namespace Transactions.API.AppExtension
             services.AddScoped<IPolicyDto, PolicyDto>();
             services.AddScoped<IOpeningBalanceDto, OpeningBalanceDto>();
             services.AddScoped<IClaimCustomerDto, ClaimCustomerDto>();
+            services.AddScoped<ICollectReceiptDto, CollectReceiptDto>();
         }
         private static void RegisterCores(this IServiceCollection services)
         {

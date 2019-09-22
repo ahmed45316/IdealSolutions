@@ -73,6 +73,60 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <member name="T:Transactions.API.Controllers.CollectReceiptController">
+            <summary>
+            Claim Customer Controller
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.#ctor(Transactions.Services.Interfaces.ICollectReceiptServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Add(Transactions.Services.Dto.CollectReceiptDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.GetAllPaymentTypes">
+            <summary>
+            GetAll Payment Types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.CollectReceiptFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Update(Transactions.Services.Dto.CollectReceiptDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Transactions.API.Controllers.OpeningBalanceController">
             <summary>
             Opening Balance Controller
