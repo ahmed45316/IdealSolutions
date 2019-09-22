@@ -21,6 +21,7 @@ namespace Tenets.Identity.API
         /// <inheritdoc />
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .UseIISIntegration()
                 .UseStartup<Startup>();
     }
 }
