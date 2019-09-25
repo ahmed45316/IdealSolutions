@@ -31,8 +31,17 @@ namespace Tenets.Identity.API.AppExtension
         
         private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)
         {
-            var connection = _configuration.GetConnectionString("IdentityContext"); 
-            services.AddDbContext<IdentityContext>(options => options.UseSqlServer(connection));
+            var connection = _configuration.GetConnectionString("IdentityContext");
+            var rowNumberForPagging = bool.Parse(_configuration["RowNumberForPagging"]);
+            if (rowNumberForPagging)
+            {
+                services.AddDbContext<IdentityContext>(options => options.UseSqlServer(connection, builder => builder.UseRowNumberForPaging()));
+            }
+            else
+            {
+                services.AddDbContext<IdentityContext>(options => options.UseSqlServer(connection));
+            }
+           
             services.AddScoped<DbContext, IdentityContext>();
             services.AddSingleton<IDataInitialize, DataInitialize>();
         }

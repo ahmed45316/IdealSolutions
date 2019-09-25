@@ -26,10 +26,19 @@ namespace Codes.API.AppExtension
             services.AddAutoMapper(Assembly.GetAssembly(typeof(AutoMapperConfiguration)));
             return services;
         }
-       private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)
+        private static void DatabaseConfig(this IServiceCollection services, IConfiguration _configuration)
         {
-            var connection = _configuration.GetConnectionString("CodesContext"); 
-            services.AddDbContext<CodesContext>(options => options.UseSqlServer(connection));
+            var connection = _configuration.GetConnectionString("CodesContext");
+            var rowNumberForPagging = bool.Parse(_configuration["RowNumberForPagging"]);
+            if (rowNumberForPagging)
+            {
+                services.AddDbContext<CodesContext>(options => options.UseSqlServer(connection, builder => builder.UseRowNumberForPaging()));
+            }
+            else
+            {
+                services.AddDbContext<CodesContext>(options => options.UseSqlServer(connection));
+            }
+
             services.AddScoped<DbContext, CodesContext>();
         }
         private static void Dtos(this IServiceCollection services)

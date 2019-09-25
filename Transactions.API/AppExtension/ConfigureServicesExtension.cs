@@ -26,8 +26,16 @@ namespace Transactions.API.AppExtension
         }
        private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)
         {
-            var connection = _configuration.GetConnectionString("TransactionContext"); 
-            services.AddDbContext<TransactionContext>(options => options.UseSqlServer(connection));
+            var connection = _configuration.GetConnectionString("TransactionContext");
+            var rowNumberForPagging = bool.Parse(_configuration["RowNumberForPagging"]);
+            if (rowNumberForPagging)
+            {
+                services.AddDbContext<TransactionContext>(options => options.UseSqlServer(connection, builder => builder.UseRowNumberForPaging()));
+            }
+            else
+            {
+                services.AddDbContext<TransactionContext>(options => options.UseSqlServer(connection));
+            }
             services.AddScoped<DbContext, TransactionContext>();
         }
         private static void Dtos(this IServiceCollection services)
