@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
 using Tenets.Common.ServicesCommon.Identity.Base;
+using Tenets.Common.ServicesCommon.Transaction.Parameters;
 
 namespace Codes.API.Controllers
 {
     /// <summary>
     /// Track Price Controller
     /// </summary>
-    public class TrackPriceController : BaseController,IMainEndPoint<TrackPriceDto>
+    public class TrackPriceController : BaseController, IMainEndPoint<TrackPriceDto>
     {
         private readonly ITrackPriceServices _trackPriceServices;
         /// <inheritdoc />
@@ -29,7 +30,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(TrackPriceDto model)
         {
-            
+
             return await _trackPriceServices.AddAsync(model);
         }
         /// <summary>
@@ -45,12 +46,12 @@ namespace Codes.API.Controllers
         /// <summary>
         /// Get data by CustomerId
         /// </summary>
-        /// <param name="customerId">PK</param>
+        /// <param name="trackPriceBasedOnParameters"></param>
         /// <returns></returns>
-        [HttpGet("{customerId}")]
-        public async Task<IResult> GetByCustomerId(Guid customerId)
+        [HttpPost]
+        public async Task<IResult> GetByCustomerId(TrackPriceBasedOnParameters trackPriceBasedOnParameters)
         {
-            return await _trackPriceServices.GetByCustomerIdAsync(customerId);
+            return await _trackPriceServices.GetByCustomerIdAsync(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate);
         }
         /// <summary>
         /// GetAll Data
@@ -98,8 +99,20 @@ namespace Codes.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(TrackPriceDto model)
         {
-            
+
             return await _trackPriceServices.UpdateAsync(model);
+        }
+        /// <summary>
+        /// Get data by Id
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="policyDate"></param>
+        /// <param name="id">PK</param>
+        /// <returns></returns>
+        [HttpGet("{customerId}/{policyDate}/{id}")]
+        public async Task<IResult> GetValueForTrack(Guid customerId, DateTime policyDate, Guid id)
+        {
+            return await _trackPriceServices.GetValueForTrack(customerId,policyDate,id);
         }
     }
 }

@@ -167,11 +167,11 @@ namespace Codes.Services.Services
                 return result;
             }
         }
-        public async Task<IResult> GetByCustomerIdAsync(Guid customerId)
+        public async Task<IResult> GetByCustomerIdAsync(Guid customerId, DateTime policyDate)
         {
             try
             {
-                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && DateTime.Now.Date >= q.FromDate.Value.Date && DateTime.Now.Date <= q.ToDate.Value.Date);
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && policyDate.Date >= q.FromDate.Value.Date && policyDate.Date <= q.ToDate.Value.Date);
                 if (query == null)
                 {
                     return ResponseResult.PostResult(result: null, status: HttpStatusCode.BadRequest, message: "لا يوجد عقد للعميل في هذة الفترة");
@@ -202,6 +202,29 @@ namespace Codes.Services.Services
                 result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
                 result = new ResponseResult(null, status: HttpStatusCode.InternalServerError, exception: e, message: result.Message);
                 return new DataPagging(0, 0, 0, result);
+            }
+        }
+        public async Task<IResult> GetValueForTrack(Guid customerId, DateTime policyDate, Guid id)
+        {
+            try
+            {
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && policyDate.Date >= q.FromDate.Value.Date && policyDate.Date <= q.ToDate.Value.Date, include: source => source
+                          .Include(t => t.Customer)
+                          .Include(t => t.TrackPriceDetails)
+                          .ThenInclude(t => t.TrackPriceDetailCarTypes));
+                var trackPriceDetial = query.TrackPriceDetails.FirstOrDefault(q => q.TrackSettingId == id);
+                if (trackPriceDetial == null)
+                {
+                    return ResponseResult.PostResult(result: 0, status: HttpStatusCode.OK, message: "Data Updated Successfully");
+                }
+                var data = trackPriceDetial.TrackPriceDetailCarTypes.FirstOrDefault(q=>q.TrackPriceDetailId == trackPriceDetial.Id).CarTypePrice;
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
             }
         }
         static Expression<Func<TrackPrice, bool>> PredicateBuilderFunction(TrackPriceFilter filter)

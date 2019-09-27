@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Codes.API.Controllers.Base;
 using Codes.Services.Interfaces;
@@ -25,6 +26,15 @@ namespace Codes.API.Controllers
         public async Task<IResult> GetLookups()
         {
             return await _lookupsServices.GetAllLookupsForPolicy();
+        }
+        /// <summary>
+        /// Get track setting for policy
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{customerId}/{policyDate}")]
+        public async Task<IResult> GetTrackSettings(Guid customerId, DateTime policyDate)
+        {
+            return await _lookupsServices.GettrackSettingForPolicy(customerId,policyDate);
         }
         /// <summary>
         /// Get Type for CustomerName or Rent Name  

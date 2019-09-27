@@ -12,6 +12,5 @@ namespace Codes.Services.Dto
         public IEnumerable<DropdownDto> CustomerCategory { get; set; }
         public IEnumerable<DropdownDto> TrackSetting { get; set; }
         public IEnumerable<DropdownDto> TaxType { get; set; }
-
     }
 }

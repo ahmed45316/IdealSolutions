@@ -106,20 +106,6 @@ namespace Codes.Services.Services
             }
             return predicate;
         }
-        public async Task<IResult> GetValueForTrack(Guid id)
-        {
-            try
-            {
-                var query = await _unitOfWork.Repository.GetAsync(id);
-                var data = query.TrackSettingType == 2 ? ((decimal)query.DistanceByKilloMeters * query.DriverMotivation) : query.DriverMotivation;
-                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
-            }
-            catch (Exception e)
-            {
-                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
-                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
-                return result;
-            }
-        }
+        
     }
 }

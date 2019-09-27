@@ -26,11 +26,12 @@ namespace Codes.Services.Services
         private readonly IUnitOfWork<CarType> _carType;
         private readonly IUnitOfWork<CustomerCategory> _customerCategory;
         private readonly IUnitOfWork<TrackSetting> _trackSetting;
+        private readonly IUnitOfWork<TrackPrice> _trackPrice;
         private readonly IUnitOfWork<TaxType> _taxType;
         private readonly IUnitOfWork<Customer> _customer;
         private readonly IUnitOfWork<Rent> _rent;
         private IResult result;
-        public LookupsServices(IMapper mapper, IResponseResult responseResult, IUnitOfWork<InvoiceType> invoiceType, IUnitOfWork<Car> car, IUnitOfWork<CarType> carType, IUnitOfWork<CustomerCategory> customerCategory, IUnitOfWork<TrackSetting> trackSetting, IUnitOfWork<TaxType> taxType, IUnitOfWork<Customer> customer, IUnitOfWork<Rent> rent)
+        public LookupsServices(IMapper mapper, IResponseResult responseResult, IUnitOfWork<InvoiceType> invoiceType, IUnitOfWork<Car> car, IUnitOfWork<CarType> carType, IUnitOfWork<CustomerCategory> customerCategory, IUnitOfWork<TrackSetting> trackSetting, IUnitOfWork<TaxType> taxType, IUnitOfWork<Customer> customer, IUnitOfWork<Rent> rent, IUnitOfWork<TrackPrice> trackPrice)
         {
             _mapper = mapper;
             _responseResult = responseResult;
@@ -42,6 +43,7 @@ namespace Codes.Services.Services
             _taxType = taxType;
             _customer = customer;
             _rent = rent;
+            _trackPrice = trackPrice;
         }
         public async Task<IResult> GetAllLookupsForPolicy()
         {
@@ -62,6 +64,27 @@ namespace Codes.Services.Services
                 var taxType = await _taxType.Repository.GetAllAsync();
                 lookups.TaxType = _mapper.Map<IEnumerable<DropdownDto>>(taxType);
                 return _responseResult.PostResult(lookups, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, status: HttpStatusCode.InternalServerError, exception: e, message: result.Message);
+                return result;
+            }
+        }
+        public async Task<IResult> GettrackSettingForPolicy(Guid customerId , DateTime policyDate)
+        {
+            try
+            {
+                var query = await _trackPrice.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && policyDate.Date >= q.FromDate.Value.Date && policyDate.Date <= q.ToDate.Value.Date,include:
+                    source=>source.Include(p=>p.TrackPriceDetails));
+                var ids = query.TrackPriceDetails.Select(q => q.Id).ToList();
+                var trackSetting = await _trackSetting.Repository.FindAsync(q=>ids.Contains(q.Id),disableTracking: false,
+                    include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
+
+                var result = _mapper.Map<IEnumerable<DropdownDto>>(trackSetting);
+               
+                return _responseResult.PostResult(result, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)
             {

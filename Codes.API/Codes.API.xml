@@ -569,6 +569,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.LookupsController.GetTrackSettings(System.Guid,System.DateTime)">
+            <summary>
+            Get track setting for policy
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.LookupsController.GetTypeNameForOpeningBalance(System.Collections.Generic.IEnumerable{Tenets.Common.ServicesCommon.Codes.Parameters.OpeningBalanceParameters})">
             <summary>
             Get Type for CustomerName or Rent Name  
@@ -856,11 +862,11 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TrackPriceController.GetByCustomerId(System.Guid)">
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetByCustomerId(Tenets.Common.ServicesCommon.Transaction.Parameters.TrackPriceBasedOnParameters)">
             <summary>
             Get data by CustomerId
             </summary>
-            <param name="customerId">PK</param>
+            <param name="trackPriceBasedOnParameters"></param>
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.TrackPriceController.GetAll">
@@ -896,6 +902,15 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetValueForTrack(System.Guid,System.DateTime,System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="customerId"></param>
+            <param name="policyDate"></param>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Controllers.TrackSettingController">
             <summary>
             Track Setting Controller
@@ -912,13 +927,6 @@
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.TrackSettingController.Get(System.Guid)">
-            <summary>
-            Get data by Id
-            </summary>
-            <param name="id">PK</param>
-            <returns></returns>
-        </member>
-        <member name="M:Codes.API.Controllers.TrackSettingController.GetValueForTrack(System.Guid)">
             <summary>
             Get data by Id
             </summary>

@@ -15,6 +15,6 @@ namespace Codes.Services.Interfaces
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackSettingFilter> filter);
         Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
-        Task<IResult> GetValueForTrack(Guid id);
+        
     }
 }
