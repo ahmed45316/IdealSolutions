@@ -3,8 +3,10 @@ using Codes.Services.Core;
 using Codes.Services.Interfaces;
 using LinqKit;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
@@ -21,6 +23,30 @@ namespace Codes.Services.Services
         {
         }
 
+        public async override Task<IResult> DeleteAsync(Guid id)
+        {
+            try
+            {
+                var entityToDelete = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id,include:source=>source.Include(i=>i.Customers));
+                if (entityToDelete.Customers.Any())
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.BadRequest, message: "لا تستطيع حذف مندوب مربوط بعملاء بالفعل");
+                }
+                _unitOfWork.Repository.Remove(entityToDelete);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<RepresentativeFilter> filter)
         {
             try

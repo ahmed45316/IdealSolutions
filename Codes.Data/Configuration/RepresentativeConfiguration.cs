@@ -13,6 +13,7 @@ namespace Codes.Data.Configuration
         {
             builder.HasIndex(u => u.RepresentativeCode).IsUnique();
             builder.Property(e => e.IsWorking).HasDefaultValueSql("0");
+            //builder.HasMany(c => c.Customers).WithOne(r => r.Representative).OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
