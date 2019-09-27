@@ -59,7 +59,7 @@ namespace Codes.Services.Services
         {
             try
             {
-                var validationEntity = _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == model.CustomerId && q.Id != model.Id && (model.FromDate >= q.FromDate && model.FromDate <= q.ToDate || model.ToDate >= q.FromDate && model.ToDate <= q.ToDate || model.FromDate < q.FromDate && model.ToDate > q.ToDate));
+                var validationEntity = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == model.CustomerId && q.Id != model.Id && (model.FromDate >= q.FromDate && model.FromDate <= q.ToDate || model.ToDate >= q.FromDate && model.ToDate <= q.ToDate || model.FromDate < q.FromDate && model.ToDate > q.ToDate));
                 if (validationEntity != null)
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "يوجد عقد اخر للعميل داخل او خلال هذة الفترة");
                 var entityToUpdate = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == model.Id, include: source => source
