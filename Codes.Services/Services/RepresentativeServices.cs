@@ -30,7 +30,7 @@ namespace Codes.Services.Services
                 var entityToDelete = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id,include:source=>source.Include(i=>i.Customers));
                 if (entityToDelete.Customers.Any())
                 {
-                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.BadRequest, message: "لا تستطيع حذف مندوب مربوط بعملاء بالفعل");
+                    return ResponseResult.PostResult(result: true, status: HttpStatusCode.BadRequest, message: "لا تستطيع حذف مندوب مربوط بعملاء بالفعل");
                 }
                 _unitOfWork.Repository.Remove(entityToDelete);
                 int affectedRows = await _unitOfWork.SaveChanges();
