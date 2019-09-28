@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NetCore.AutoRegisterDi;
 using System.Reflection;
-using Tenets.Common.ServicesCommon.Identity.Interface;
 using Codes.Data.Context;
 using Codes.Services.Core;
 using Codes.Services.Profiler;

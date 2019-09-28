@@ -80,49 +80,5 @@ namespace Tenets.Identity.API.Controllers
         {
             return await _userServices.GetUsers(filter);
         }
-        /// <summary>
-        /// Check Fields IsExists
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="type"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("{name}/{type}/{id?}")]
-        public async Task<IResult> IsExists(string name, byte type, Guid? id = null)
-        {
-            return type == 3 ? await _userServices.IsPhoneExists(name, id) : type == 2 ? await _userServices.IsEmailExists(name, id) : await _userServices.IsUsernameExists(name, id);
-        }
-        /// <summary>
-        /// Get Users Select2
-        /// </summary>
-        /// <param name="pageSize"></param>
-        /// <param name="pageNumber"></param>
-        /// <param name="searchTerm"></param>
-        /// <returns></returns>
-        [HttpGet()]
-        public async Task<IActionResult> GetUsersSelect2(int pageSize, int pageNumber, string searchTerm = null)
-        {
-            return Ok(await _userServices.GetUsersSelect2(searchTerm, pageSize, pageNumber));
-        }
-        /// <summary>
-        /// Get users to assigned to Role 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserAssigned(Guid id)
-        {
-            return Ok(await _userServices.GetUserAssignedSelect2(id));
-        }
-        /// <summary>
-        /// Save User assigned
-        /// </summary>
-        /// <param name="parameters"></param>
-        /// <returns></returns>
-        [HttpPost()]
-        public async Task<IResult> SaveUserAssigned([FromForm]AssignUserOnRoleParameters parameters)
-        {
-            return await _userServices.SaveUserAssigned(parameters);
-        }
     }
 }

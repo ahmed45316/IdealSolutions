@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Identity.Entities;
+using Tenets.Identity.Services.Dto;
 
 namespace Tenets.Identity.Services.Profiler
 {
@@ -11,24 +11,17 @@ namespace Tenets.Identity.Services.Profiler
     {
         public AutoMapperConfiguration()
         {
-            MappUsers();
-            MappMenu();
             MappRole();
+            MappUsers();
         }
 
-        #region identity
         private void MappUsers()
         {
-            CreateMap<User, IUserDto>().ReverseMap();
-        }
-        private void MappMenu()
-        {
-            CreateMap<Menu, IMenuDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
         }
         private void MappRole()
         {
-            CreateMap<Role, IRoleDto>().ReverseMap();
+            CreateMap<Role, RoleDto>().ReverseMap();
         }
-        #endregion
     }
 }

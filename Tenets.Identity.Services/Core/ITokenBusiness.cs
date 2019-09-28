@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Tenets.Common.ServicesCommon.Identity.Interface;
+using Tenets.Identity.Services.Dto;
 
 namespace Tenets.Identity.Services.Core
 {
     public interface ITokenBusiness
     {
-        IUserLoginReturn GenerateJsonWebToken(IUserDto userInfo, string roles,  string refreshToken="" );        
-        IDecodingValidToken GetUserDataFromToken(ControllerBase controller);
+        UserLoginReturn GenerateJsonWebToken(UserDto userInfo, string role);      
     }
 }

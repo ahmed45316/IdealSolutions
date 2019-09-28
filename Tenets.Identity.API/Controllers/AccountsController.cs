@@ -17,12 +17,10 @@ namespace Tenets.Identity.API.Controllers
     public class AccountsController : BaseController
     {
         private readonly ILoginServices _loginServices;
-        private readonly IMenuServices _menuServices;
         /// <inheritdoc />
-        public AccountsController(ILoginServices loginServices,ITokenBusiness tokenBusiness, IMenuServices menuServices): base(tokenBusiness)
+        public AccountsController(ILoginServices loginServices,ITokenBusiness tokenBusiness): base(tokenBusiness)
         {
             _loginServices = loginServices;
-            _menuServices = menuServices;
         }
         /// <summary>
         /// Login 
@@ -34,17 +32,6 @@ namespace Tenets.Identity.API.Controllers
         public async Task<IResult> Login(LoginParameters parameter)
         {
             return await _loginServices.Login(parameter);
-        }
-        /// <summary>
-        /// Get Menu
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet(nameof(GetMenu))]
-        [Authorize]
-        public async Task<IResult> GetMenu()
-        {
-            var userId = User.Claims.First(t => t.Type == "UserId").Value;
-            return await _menuServices.GetMenu(new Guid(userId));
         }
     }
 }

@@ -5,15 +5,15 @@ using System.Net;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
 using Tenets.Common.Hasher;
-using Tenets.Common.ServicesCommon.Identity.Interface;
 using Tenets.Common.ServicesCommon.Identity.Parameters;
 using Tenets.Identity.Entities;
 using Tenets.Identity.Services.Core;
+using Tenets.Identity.Services.Dto;
 using Tenets.Identity.Services.Interfaces;
 
 namespace Tenets.Identity.Services.Services
 {
-    public class LoginServices : BaseService<User,IUserDto>, ILoginServices
+    public class LoginServices : BaseService<User,UserDto>, ILoginServices
     {
         private readonly ITokenBusiness _tokenBusiness;
         public LoginServices(IServiceBaseParameter<User> businessBaseParameter, ITokenBusiness tokenBusiness) : base(businessBaseParameter)
@@ -22,15 +22,14 @@ namespace Tenets.Identity.Services.Services
         }
         public async Task<IResult> Login(LoginParameters parameters)
         {
-            var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == parameters.Username && !q.IsDeleted,include:source=>source.Include(a=>a.UsersRole),disableTracking:false);
+            var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == parameters.Username && !q.IsDeleted,include:source=>source.Include(a=>a.Role),disableTracking:false);
             if (user==null) return ResponseResult.PostResult(status: HttpStatusCode.BadRequest,
                              message: "Wrong Username or Password");
-            bool rightPass = CreptoHasher.VerifyHashedPassword(user.PasswordHash, parameters.Password);
+            bool rightPass = CreptoHasher.VerifyHashedPassword(user.Password, parameters.Password);
             if (!rightPass) return ResponseResult.PostResult(status: HttpStatusCode.NotFound, message: "Wrong Password");
-            var refToken = Guid.NewGuid().ToString();
-            var roles = user.UsersRole.Select(q => q.RoleId).ToList();
-            var userDto = Mapper.Map<User, IUserDto>(user);
-            var userLoginReturn = _tokenBusiness.GenerateJsonWebToken(userDto, string.Join(",", roles), refToken);
+            var role = user.RoleId;
+            var userDto = Mapper.Map<User, UserDto>(user);
+            var userLoginReturn = _tokenBusiness.GenerateJsonWebToken(userDto, role.ToString());
             return ResponseResult.PostResult(userLoginReturn, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); 
         }
     }

@@ -9,7 +9,5 @@ namespace Tenets.Identity.Data.SeedData
     {
         User[] AddSystemAdmin();
         Role[] AddDefaultRole();
-        UsersRole[] AddUserRole();
-        Menu[] addMenus();
     }
 }
