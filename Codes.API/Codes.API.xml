@@ -569,7 +569,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.LookupsController.GetTrackSettings(System.Guid,System.DateTime)">
+        <member name="M:Codes.API.Controllers.LookupsController.GetTrackSettings(Tenets.Common.ServicesCommon.Transaction.Parameters.TrackPriceBasedOnParameters)">
             <summary>
             Get track setting for policy
             </summary>
@@ -902,13 +902,11 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
-        <member name="M:Codes.API.Controllers.TrackPriceController.GetValueForTrack(System.Guid,System.DateTime,System.Guid)">
+        <member name="M:Codes.API.Controllers.TrackPriceController.GetValueForTrack(Tenets.Common.ServicesCommon.Transaction.Parameters.TrackPriceBasedOnParameters)">
             <summary>
             Get data by Id
             </summary>
-            <param name="customerId"></param>
-            <param name="policyDate"></param>
-            <param name="id">PK</param>
+            <param name="trackPriceBasedOnParameters"></param>
             <returns></returns>
         </member>
         <member name="T:Codes.API.Controllers.TrackSettingController">

@@ -6,6 +6,7 @@ using Codes.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
+using Tenets.Common.ServicesCommon.Transaction.Parameters;
 
 namespace Codes.API.Controllers
 {
@@ -31,10 +32,10 @@ namespace Codes.API.Controllers
         /// Get track setting for policy
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{customerId}/{policyDate}")]
-        public async Task<IResult> GetTrackSettings(Guid customerId, DateTime policyDate)
+        [HttpPost]
+        public async Task<IResult> GetTrackSettings(TrackPriceBasedOnParameters trackPriceBasedOnParameters)
         {
-            return await _lookupsServices.GettrackSettingForPolicy(customerId,policyDate);
+            return await _lookupsServices.GettrackSettingForPolicy(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate);
         }
         /// <summary>
         /// Get Type for CustomerName or Rent Name  

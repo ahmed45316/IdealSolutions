@@ -105,14 +105,12 @@ namespace Codes.API.Controllers
         /// <summary>
         /// Get data by Id
         /// </summary>
-        /// <param name="customerId"></param>
-        /// <param name="policyDate"></param>
-        /// <param name="id">PK</param>
+        /// <param name="trackPriceBasedOnParameters"></param>
         /// <returns></returns>
-        [HttpGet("{customerId}/{policyDate}/{id}")]
-        public async Task<IResult> GetValueForTrack(Guid customerId, DateTime policyDate, Guid id)
+        [HttpPost]
+        public async Task<IResult> GetValueForTrack(TrackPriceBasedOnParameters trackPriceBasedOnParameters)
         {
-            return await _trackPriceServices.GetValueForTrack(customerId,policyDate,id);
+            return await _trackPriceServices.GetValueForTrack(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate, trackPriceBasedOnParameters.Id??Guid.Empty);
         }
     }
 }

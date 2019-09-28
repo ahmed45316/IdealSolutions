@@ -78,7 +78,7 @@ namespace Codes.Services.Services
             {
                 var query = await _trackPrice.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && policyDate.Date >= q.FromDate.Value.Date && policyDate.Date <= q.ToDate.Value.Date,include:
                     source=>source.Include(p=>p.TrackPriceDetails));
-                var ids = query.TrackPriceDetails.Select(q => q.Id).ToList();
+                var ids = query.TrackPriceDetails.Select(q => q.TrackSettingId).ToList();
                 var trackSetting = await _trackSetting.Repository.FindAsync(q=>ids.Contains(q.Id),disableTracking: false,
                     include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
 
