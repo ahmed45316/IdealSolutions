@@ -17,8 +17,10 @@ using Tenets.Identity.Services.UnitOfWork;
 
 namespace Tenets.Identity.API.AppExtension
 {
+    /// <inheritoc />
     public static class ConfigureServicesExtension
     {
+        /// <inheritoc />
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration _configuration)
         {
             services.DatabaseConfig(_configuration);

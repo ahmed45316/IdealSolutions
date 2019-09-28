@@ -5,8 +5,10 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Tenets.Identity.API.AppExtension
 {
+    /// <inheritoc />
     public static class ConfigureExtension
     {
+        /// <inheritoc />
         public static IApplicationBuilder Configure(this IApplicationBuilder app, IHostingEnvironment env,IConfiguration configuration)
         {
             app.CorsConfig();

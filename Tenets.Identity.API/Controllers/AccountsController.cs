@@ -27,7 +27,7 @@ namespace Tenets.Identity.API.Controllers
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        [HttpPost(nameof(Login))]
+        [HttpPost]
         [AllowAnonymous]
         public async Task<IResult> Login(LoginParameters parameter)
         {

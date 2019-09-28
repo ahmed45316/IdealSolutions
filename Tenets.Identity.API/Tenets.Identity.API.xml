@@ -4,6 +4,18 @@
         <name>Tenets.Identity.API</name>
     </assembly>
     <members>
+        <member name="T:Tenets.Identity.API.AppExtension.ConfigureExtension">
+            <inheritoc />
+        </member>
+        <member name="M:Tenets.Identity.API.AppExtension.ConfigureExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritoc />
+        </member>
+        <member name="T:Tenets.Identity.API.AppExtension.ConfigureServicesExtension">
+            <inheritoc />
+        </member>
+        <member name="M:Tenets.Identity.API.AppExtension.ConfigureServicesExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritoc />
+        </member>
         <member name="T:Tenets.Identity.API.Controllers.AccountsController">
             <inheritdoc />
         </member>

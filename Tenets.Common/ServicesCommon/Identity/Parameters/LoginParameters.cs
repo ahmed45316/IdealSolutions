@@ -8,6 +8,5 @@ namespace Tenets.Common.ServicesCommon.Identity.Parameters
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
-        public bool IsSavedPassword { get; set; }
     }
 }

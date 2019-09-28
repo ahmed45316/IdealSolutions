@@ -14,10 +14,10 @@ namespace Tenets.Identity.Services.Core
     {
         private readonly IConfiguration _config;
         private readonly UserLoginReturn _userLoginReturn;
-        public TokenBusiness(IConfiguration config, UserLoginReturn userLoginReturn)
+        public TokenBusiness(IConfiguration config)
         {
             _config = config;
-            _userLoginReturn = userLoginReturn;
+            _userLoginReturn = new UserLoginReturn();
         }
 
         public UserLoginReturn GenerateJsonWebToken(UserDto userInfo, string role)
