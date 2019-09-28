@@ -8,6 +8,7 @@ namespace Transactions.Services.Dto
     {
         public Guid? Id { get; set; }
         public DateTime? PolicyDetailDatetime { get; set; }
+        public string PolicyNumber { get; set; }
         public decimal? TotalPriceAfterTax { get; set; }
         public decimal? PreviouslyPaidForCollect { get; set; }
         public decimal ResidualForCollect { get; set; }

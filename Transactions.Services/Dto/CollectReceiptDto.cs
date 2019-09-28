@@ -12,7 +12,7 @@ namespace Transactions.Services.Dto
         public DateTime CollectReceiptDate { get; set; }
         public DateTime? CollectReceiptDateHegry { get; set; }
         public string Notes { get; set; }
-        public int CollectReceiptNumber { get; set; }
+        public string CollectReceiptNumber { get; set; }
         public decimal Paid { get; set; }
         public PaymentType PaymentType { get; set; }
         public string AccountCode { get; set; }

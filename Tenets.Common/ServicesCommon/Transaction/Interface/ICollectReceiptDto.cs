@@ -12,7 +12,7 @@ namespace Tenets.Common.ServicesCommon.Transaction.Interface
          DateTime CollectReceiptDate { get; set; }
          DateTime? CollectReceiptDateHegry { get; set; }
          string Notes { get; set; }
-         int CollectReceiptNumber { get; set; }
+         string CollectReceiptNumber { get; set; }
          decimal Paid { get; set; }
          PaymentType PaymentType { get; set; }
          string AccountCode { get; set; }

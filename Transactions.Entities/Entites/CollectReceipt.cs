@@ -15,7 +15,7 @@ namespace Transactions.Entities.Entites
         public DateTime? CollectReceiptDateHegry { get; set; }
         [StringLength(512)]
         public string Notes { get; set; }
-        public int CollectReceiptNumber { get; set; }
+        public string CollectReceiptNumber { get; set; }
         public decimal Paid { get; set; }
         public PaymentType PaymentType { get; set; }
         [StringLength(128)]
