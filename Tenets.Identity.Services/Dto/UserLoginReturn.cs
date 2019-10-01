@@ -8,5 +8,6 @@ namespace Tenets.Identity.Services.Dto
         public Guid UserId { get; set; }
         public string NameEn { get; set; }
         public string NameAr { get; set; }
+        public string RoleName { get; set; }
     }
 }

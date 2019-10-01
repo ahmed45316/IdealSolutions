@@ -27,7 +27,7 @@ namespace Tenets.Identity.Services.Services
                              message: "Wrong Username or Password");
             bool rightPass = CreptoHasher.VerifyHashedPassword(user.Password, parameters.Password);
             if (!rightPass) return ResponseResult.PostResult(status: HttpStatusCode.NotFound, message: "Wrong Password");
-            var role = user.RoleId;
+            var role = user.Role.Name;
             var userDto = Mapper.Map<User, UserDto>(user);
             var userLoginReturn = _tokenBusiness.GenerateJsonWebToken(userDto, role.ToString());
             return ResponseResult.PostResult(userLoginReturn, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); 
