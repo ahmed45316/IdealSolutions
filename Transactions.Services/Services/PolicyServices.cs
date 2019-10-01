@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using LinqKit;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Tenets.Common.Core;
+using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
@@ -21,9 +23,10 @@ namespace Transactions.Services.Services
 {
     public class PolicyServices : BaseService<Policy, PolicyDto>, IPolicyServices
     {
-        public PolicyServices(IServiceBaseParameter<Policy> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
+        private readonly IRestSharpContainer _restSharpContainer;
+        public PolicyServices(IServiceBaseParameter<Policy> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
         {
-            
+            _restSharpContainer = restSharpContainer;
         }
         public async override Task<IResult> AddAsync(PolicyDto model)
         {
@@ -97,6 +100,21 @@ namespace Transactions.Services.Services
                 int offset = ((--filter.PageNumber) * filter.PageSize);
                 var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<PolicyDto>>(query.Item2);
+                //==============================================================
+                var customerIds = data.Select(q => q.CustomerId).ToList();
+                var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Customer/GetList", RestSharp.Method.POST, customerIds);
+                if (serviceResult == null && serviceResult.Data == null)
+                {
+                    return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
+                }
+                var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
+                var customersResult = JsonConvert.DeserializeObject<List<CustomerDto>>(jsonString);
+
+                data = data.Select(q => {
+                    q.CustomerNameAr = customersResult.FirstOrDefault(c => c.Id == q.CustomerId).NameAr;
+                    return q;
+                });
+                //==============================================================
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)
