@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 using Tenets.Common.Core;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
-using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
 using Transactions.Services.Core;
@@ -21,7 +20,7 @@ using Transactions.Services.Interfaces;
 
 namespace Transactions.Services.Services
 {
-    public class OpeningBalanceServices : BaseService<OpeningBalance, IOpeningBalanceDto>, IOpeningBalanceServices
+    public class OpeningBalanceServices : BaseService<OpeningBalance, OpeningBalanceDto>, IOpeningBalanceServices
     {
         private readonly IRestSharpContainer _restSharpContainer;
         public OpeningBalanceServices(IServiceBaseParameter<OpeningBalance> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
@@ -36,7 +35,7 @@ namespace Transactions.Services.Services
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
                 var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
-                var data = Mapper.Map<IEnumerable<IOpeningBalanceDto>>(query.Item2);
+                var data = Mapper.Map<IEnumerable<OpeningBalanceDto>>(query.Item2);
 
                 var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Lookups/GetTypeNameForOpeningBalance", RestSharp.Method.POST, data);
                 if (serviceResult == null && serviceResult.Data == null)

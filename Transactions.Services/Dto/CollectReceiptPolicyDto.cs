@@ -7,7 +7,7 @@ namespace Transactions.Services.Dto
     public class CollectReceiptPolicyDto
     {
         public Guid? Id { get; set; }
-        public DateTime? PolicyDetailDatetime { get; set; }
+        public DateTime? PolicyDatetime { get; set; }
         public string PolicyNumber { get; set; }
         public decimal? TotalPriceAfterTax { get; set; }
         public decimal? PreviouslyPaidForCollect { get; set; }

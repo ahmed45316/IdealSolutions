@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tenets.Common.Core;
 using Tenets.Common.Enums;
-using Tenets.Common.ServicesCommon.Transaction.Interface;
 
 namespace Transactions.Services.Dto
 {
-    public class OpeningBalanceDto : IOpeningBalanceDto
+    public class OpeningBalanceDto : IPrimaryKeyField<Guid?>
     {
         public OpeningBalanceType Type { get; set; }
         public Guid TypeId { get; set; }

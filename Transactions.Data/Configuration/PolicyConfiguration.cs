@@ -7,9 +7,9 @@ using Transactions.Entities.Entites;
 
 namespace Transactions.Data.Configuration
 {
-    class PolicyDetailsConfiguration : IEntityTypeConfiguration<PolicyDetail>
+    class PolicyConfiguration : IEntityTypeConfiguration<Policy>
     {
-        public void Configure(EntityTypeBuilder<PolicyDetail> builder)
+        public void Configure(EntityTypeBuilder<Policy> builder)
         {
             builder.HasIndex(u => u.PolicyNumber).IsUnique();
         }

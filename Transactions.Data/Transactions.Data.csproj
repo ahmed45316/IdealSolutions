@@ -5,15 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190807213533_CreateDB.cs" />
-    <Compile Remove="Migrations\20190807213533_CreateDB.Designer.cs" />
-    <Compile Remove="Migrations\20190831214741_OpeningBalance.cs" />
-    <Compile Remove="Migrations\20190831214741_OpeningBalance.Designer.cs" />
-    <Compile Remove="Migrations\20190903201738_ClaimcustomerPolicies.cs" />
-    <Compile Remove="Migrations\20190903201738_ClaimcustomerPolicies.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
     <ProjectReference Include="..\Transactions.Entities\Transactions.Entities.csproj" />
   </ItemGroup>

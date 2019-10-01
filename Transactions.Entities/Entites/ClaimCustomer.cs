@@ -16,8 +16,8 @@ namespace Transactions.Entities.Entites
         public decimal Total { get; set; }
         public decimal Tax { get; set; }
         public decimal TotalAfterTax { get; set; }
-        public Guid PolicyDetailId { get; set; }
-        [ForeignKey("PolicyDetailId")]
-        public virtual PolicyDetail PolicyDetail { get; set; }
+        public Guid PolicyId { get; set; }
+        [ForeignKey("PolicyId")]
+        public virtual Policy Policy { get; set; }
     }
 }

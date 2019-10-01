@@ -9,7 +9,6 @@ using Transactions.Services.Core;
 using Transactions.Services.Profiler;
 using Transactions.Services.UnitOfWork;
 using Transactions.Services.Services;
-using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Transactions.Services.Dto;
 
 namespace Transactions.API.AppExtension
@@ -19,7 +18,6 @@ namespace Transactions.API.AppExtension
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration _configuration)
         {
             services.DatabaseConfig(_configuration);
-            services.Dtos();
             services.RegisterCores();
             services.AddAutoMapper(Assembly.GetAssembly(typeof(AutoMapperConfiguration)));
             return services;
@@ -38,13 +36,7 @@ namespace Transactions.API.AppExtension
             }
             services.AddScoped<DbContext, TransactionContext>();
         }
-        private static void Dtos(this IServiceCollection services)
-        {
-            services.AddScoped<IPolicyDto, PolicyDto>();
-            services.AddScoped<IOpeningBalanceDto, OpeningBalanceDto>();
-            services.AddScoped<IClaimCustomerDto, ClaimCustomerDto>();
-            services.AddScoped<ICollectReceiptDto, CollectReceiptDto>();
-        }
+       
         private static void RegisterCores(this IServiceCollection services)
         {
             services.AddTransient(typeof(IBaseService<,>), typeof(BaseService<,>));

@@ -23,8 +23,8 @@ namespace Transactions.Entities.Entites
         [StringLength(128)]
         public string CostCenter { get; set; }
         public CollectReceiptType CollectReceiptType { get; set; }
-        public Guid PolicyDetailId { get; set; }
-        [ForeignKey("PolicyDetailId")]
-        public virtual PolicyDetail PolicyDetail { get; set; }
+        public Guid PolicyId { get; set; }
+        [ForeignKey("PolicyId")]
+        public virtual Policy Policy { get; set; }
     }
 }

@@ -10,14 +10,13 @@ namespace Transactions.Data.Context
         {
         }
         public virtual DbSet<Policy> Policies { get; set; }
-        public virtual DbSet<PolicyDetail> PolicyDetails { get; set; }
         public virtual DbSet<OpeningBalance> OpeningBalances { get; set; }
         public virtual DbSet<ClaimCustomer> ClaimCustomers { get; set; }
         public virtual DbSet<CollectReceipt> CollectReceipts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CollectReceiptConfiguration());
-            modelBuilder.ApplyConfiguration(new PolicyDetailsConfiguration());
+            modelBuilder.ApplyConfiguration(new PolicyConfiguration());
         }
     }
 }

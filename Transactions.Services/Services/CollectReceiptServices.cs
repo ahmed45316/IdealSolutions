@@ -13,7 +13,6 @@ using Tenets.Common.Core;
 using Tenets.Common.Enums;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
-using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
 using Transactions.Services.Core;
@@ -23,11 +22,11 @@ using Transactions.Services.UnitOfWork;
 
 namespace Transactions.Services.Services
 {
-    public class CollectReceiptServices : BaseService<CollectReceipt, ICollectReceiptDto>, ICollectReceiptServices
+    public class CollectReceiptServices : BaseService<CollectReceipt, CollectReceiptDto>, ICollectReceiptServices
     {
-        private readonly IUnitOfWork<PolicyDetail> _policyDetailUnitOfWork;
+        private readonly IUnitOfWork<Policy> _policyDetailUnitOfWork;
         private readonly IRestSharpContainer _restSharpContainer;
-        public CollectReceiptServices(IServiceBaseParameter<CollectReceipt> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<PolicyDetail> policyDetailUnitOfWork, IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
+        public CollectReceiptServices(IServiceBaseParameter<CollectReceipt> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<Policy> policyDetailUnitOfWork, IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
         {
             _policyDetailUnitOfWork = policyDetailUnitOfWork;
             _restSharpContainer = restSharpContainer;
@@ -60,9 +59,9 @@ namespace Transactions.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        static Expression<Func<PolicyDetail, bool>> PredicateBuilderFunction(CollectReceiptFilter filter)
+        static Expression<Func<Policy, bool>> PredicateBuilderFunction(CollectReceiptFilter filter)
         {
-            var predicate = PredicateBuilder.New<PolicyDetail>(true);
+            var predicate = PredicateBuilder.New<Policy>(true);
             predicate = predicate.And(b => b.CustomerId == filter.CustomerId);
             return predicate;
         }

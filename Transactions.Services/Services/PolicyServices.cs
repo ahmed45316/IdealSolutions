@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Identity.Base;
-using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
 using Transactions.Services.Core;
@@ -22,25 +21,19 @@ namespace Transactions.Services.Services
 {
     public class PolicyServices : BaseService<Policy, PolicyDto>, IPolicyServices
     {
-        private readonly IUnitOfWork<PolicyDetail> _policyDetailUnitOfWork;
-        public PolicyServices(IServiceBaseParameter<Policy> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<PolicyDetail> policyDetailUnitOfWork) : base(businessBaseParameter, httpContextAccessor)
+        public PolicyServices(IServiceBaseParameter<Policy> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
-            _policyDetailUnitOfWork = policyDetailUnitOfWork;
+            
         }
         public async override Task<IResult> AddAsync(PolicyDto model)
         {
             try
             {
-                var policyNumbers = model?.PolicyDetails.Select(q => q.PolicyNumber).ToList();
-                if (policyNumbers.Count != policyNumbers.Distinct().Count())
-                {
-                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد ارقام فواتير مكررة");
-                }
-                var isExist = await _policyDetailUnitOfWork.Repository.FirstOrDefaultAsync(q => policyNumbers.Contains(q.PolicyNumber));
 
-                if (isExist != null)
+                var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower());
+                if (policyData != null)
                 {
-                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد فواتير بهذة الارقام موجودة في قاعدة البيانات برجاء مراجعة ارقام الفواتير واعادة الحفظ");
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Policy>(model);
@@ -67,28 +60,25 @@ namespace Transactions.Services.Services
         {
             try
             {
-                await DeleteAsync(model.Id ?? new Guid(""));
-                await base.AddAsync(model);
-                return result;
-            }
-            catch (Exception e)
-            {
-                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
-                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
-                return result;
-            }
-        }
-        public async override Task<IResult> DeleteAsync(Guid id)
-        {
-            try
-            {
-                var entityToDelete = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, include: source => source.Include(p => p.PolicyDetails));
-                _unitOfWork.Repository.Remove(entityToDelete);
+                var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower() && q.Id !=model.Id);
+                if (policyData != null)
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
+                }
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
+                var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
+                var newEntity = Mapper.Map(model, entityToUpdate);
+                newEntity.CreateUserId = entityToUpdate.CreateUserId;
+                newEntity.CreateDate = entityToUpdate.CreateDate;
+                newEntity.ModifyDate = DateTime.Now;
+                newEntity.ModifyUserId = new Guid(userId);
+                _unitOfWork.Repository.Update(entityToUpdate, newEntity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم التعديل بنجاح");
                 }
+
                 return result;
             }
             catch (Exception e)
@@ -98,21 +88,7 @@ namespace Transactions.Services.Services
                 return result;
             }
         }
-        public async override Task<IResult> GetByIdAsync(Guid id)
-        {
-            try
-            {
-                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, include: source => source.Include(p => p.PolicyDetails));
-                var data = Mapper.Map<PolicyDto>(query);
-                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "");
-            }
-            catch (Exception e)
-            {
-                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
-                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
-                return result;
-            }
-        }
+        
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<PolicyFilter> filter)
         {
             try
@@ -133,11 +109,27 @@ namespace Transactions.Services.Services
         static Expression<Func<Policy, bool>> PredicateBuilderFunction(PolicyFilter filter)
         {
             var predicate = PredicateBuilder.New<Policy>(true);
-            if (filter.PolicyDate != null)
+            if (filter.PolicyDatetime != null)
             {
-                predicate = predicate.And(b => b.PolicyDateTime.Date == filter.PolicyDate.Value.Date);
+                predicate = predicate.And(b => b.PolicyDatetime.Value.Date == filter.PolicyDatetime.Value.Date);
             }
 
+            if (filter.CustomerId != null)
+            {
+                predicate = predicate.And(b => b.CustomerId == filter.CustomerId);
+            }
+            if (filter.CustomerCategoryId != null)
+            {
+                predicate = predicate.And(b => b.CustomerCategoryId == filter.CustomerCategoryId);
+            }
+            if (filter.InvoicTypeId != null)
+            {
+                predicate = predicate.And(b => b.InvoicTypeId == filter.InvoicTypeId);
+            }
+            if (!string.IsNullOrWhiteSpace(filter.PolicyNumber))
+            {
+                predicate = predicate.And(b => b.PolicyNumber.ToLower().StartsWith(filter.PolicyNumber));
+            }
             return predicate;
         }
     }

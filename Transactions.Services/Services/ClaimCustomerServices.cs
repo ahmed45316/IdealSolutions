@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 using Tenets.Common.Core;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
-using Tenets.Common.ServicesCommon.Transaction.Interface;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
 using Transactions.Services.Core;
@@ -22,11 +21,11 @@ using Transactions.Services.UnitOfWork;
 
 namespace Transactions.Services.Services
 {
-    public class ClaimCustomerServices : BaseService<ClaimCustomer, IClaimCustomerDto>, IClaimCustomerServices
+    public class ClaimCustomerServices : BaseService<ClaimCustomer, ClaimCustomerDto>, IClaimCustomerServices
     {
-        private readonly IUnitOfWork<PolicyDetail> _policyDetailUnitOfWork;
+        private readonly IUnitOfWork<Policy> _policyDetailUnitOfWork;
         private readonly IRestSharpContainer _restSharpContainer;
-        public ClaimCustomerServices(IServiceBaseParameter<ClaimCustomer> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<PolicyDetail> policyDetailUnitOfWork,IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
+        public ClaimCustomerServices(IServiceBaseParameter<ClaimCustomer> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IUnitOfWork<Policy> policyDetailUnitOfWork,IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
         {
             _policyDetailUnitOfWork = policyDetailUnitOfWork;
             _restSharpContainer = restSharpContainer;
@@ -38,7 +37,7 @@ namespace Transactions.Services.Services
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
                 var query = await _policyDetailUnitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue,include: source=>source.Include(c=>c.ClaimCustomers));
-                var data = Mapper.Map<IEnumerable<PolicyDetailDto>>(query.Item2);
+                var data = Mapper.Map<IEnumerable<PolicyDto>>(query.Item2);
 
                 var customerIds = data.Select(q => q.CustomerId).ToList();
                 var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Customer/GetList", RestSharp.Method.POST, customerIds);
@@ -61,10 +60,10 @@ namespace Transactions.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        static Expression<Func<PolicyDetail, bool>> PredicateBuilderFunction(ClaimCustomerFilter filter)
+        static Expression<Func<Policy, bool>> PredicateBuilderFunction(ClaimCustomerFilter filter)
         {
-            var predicate = PredicateBuilder.New<PolicyDetail>(true);
-            predicate = predicate.And(b => b.PolicyDetailDatetime >= filter.StartDate && b.PolicyDetailDatetime <= filter.EndDate && !b.ClaimCustomers.Any());
+            var predicate = PredicateBuilder.New<Policy>(true);
+            predicate = predicate.And(b => b.PolicyDatetime >= filter.StartDate && b.PolicyDatetime <= filter.EndDate && !b.ClaimCustomers.Any());
             if (filter.CustomerId != null)
             {
                 predicate = predicate.And(b => b.CustomerId == filter.CustomerId);
