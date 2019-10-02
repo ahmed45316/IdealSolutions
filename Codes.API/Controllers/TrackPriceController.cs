@@ -110,7 +110,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IResult> GetValueForTrack(TrackPriceBasedOnParameters trackPriceBasedOnParameters)
         {
-            return await _trackPriceServices.GetValueForTrack(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate, trackPriceBasedOnParameters.Id??Guid.Empty);
+            return await _trackPriceServices.GetValueForTrack(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate, trackPriceBasedOnParameters.TrackSettingId ?? Guid.Empty, trackPriceBasedOnParameters.Id??Guid.Empty);
         }
     }
 }

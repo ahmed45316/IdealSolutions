@@ -204,7 +204,7 @@ namespace Codes.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        public async Task<IResult> GetValueForTrack(Guid customerId, DateTime policyDate, Guid id)
+        public async Task<IResult> GetValueForTrack(Guid customerId, DateTime policyDate, Guid trackSettingId, Guid id)
         {
             try
             {
@@ -212,12 +212,12 @@ namespace Codes.Services.Services
                           .Include(t => t.Customer)
                           .Include(t => t.TrackPriceDetails)
                           .ThenInclude(t => t.TrackPriceDetailCarTypes));
-                var trackPriceDetial = query.TrackPriceDetails.FirstOrDefault(q => q.TrackSettingId == id);
+                var trackPriceDetial = query.TrackPriceDetails.FirstOrDefault(q => q.TrackSettingId == trackSettingId);
                 if (trackPriceDetial == null)
                 {
                     return ResponseResult.PostResult(result: 0, status: HttpStatusCode.OK, message: "Data Updated Successfully");
                 }
-                var data = trackPriceDetial.TrackPriceDetailCarTypes.FirstOrDefault(q=>q.TrackPriceDetailId == trackPriceDetial.Id).CarTypePrice;
+                var data = trackPriceDetial.TrackPriceDetailCarTypes.FirstOrDefault(q=>q.CarTypeId == id).CarTypePrice;
                 return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
             }
             catch (Exception e)

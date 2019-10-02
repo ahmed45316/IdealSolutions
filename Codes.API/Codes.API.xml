@@ -575,6 +575,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.LookupsController.GetCarTypes(Tenets.Common.ServicesCommon.Transaction.Parameters.TrackPriceBasedOnParameters)">
+            <summary>
+            Get car types for policy
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.LookupsController.GetTypeNameForOpeningBalance(System.Collections.Generic.IEnumerable{Tenets.Common.ServicesCommon.Codes.Parameters.OpeningBalanceParameters})">
             <summary>
             Get Type for CustomerName or Rent Name  

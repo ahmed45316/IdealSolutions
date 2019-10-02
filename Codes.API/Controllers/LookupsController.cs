@@ -38,6 +38,15 @@ namespace Codes.API.Controllers
             return await _lookupsServices.GettrackSettingForPolicy(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate);
         }
         /// <summary>
+        /// Get car types for policy
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IResult> GetCarTypes(TrackPriceBasedOnParameters trackPriceBasedOnParameters)
+        {
+            return await _lookupsServices.GetCarTypesForPolicy(trackPriceBasedOnParameters.CustomerId, trackPriceBasedOnParameters.PolicyDate,trackPriceBasedOnParameters.TrackSettingId??Guid.Empty);
+        }
+        /// <summary>
         /// Get Type for CustomerName or Rent Name  
         /// </summary>
         /// <returns></returns>

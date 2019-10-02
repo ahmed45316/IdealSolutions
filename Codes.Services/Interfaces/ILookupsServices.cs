@@ -13,5 +13,6 @@ namespace Codes.Services.Interfaces
         Task<IResult> GetAllLookupsForPolicy();
         Task<IResult> GetTypeNameForOpeningBalance(IEnumerable<OpeningBalanceParameters> parameters);
         Task<IResult> GettrackSettingForPolicy(Guid customerId, DateTime policyDate);
+        Task<IResult> GetCarTypesForPolicy(Guid customerId, DateTime policyDate, Guid trackSettingId);
     }
 }

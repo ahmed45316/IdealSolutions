@@ -8,6 +8,7 @@ namespace Tenets.Common.ServicesCommon.Transaction.Parameters
     {
         public Guid CustomerId { get; set; }
         public DateTime PolicyDate { get; set; }
+        public Guid? TrackSettingId { get; set; }
         public Guid? Id { get; set; }
     }
 }

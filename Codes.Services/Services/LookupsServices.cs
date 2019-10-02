@@ -93,6 +93,28 @@ namespace Codes.Services.Services
                 return result;
             }
         }
+        public async Task<IResult> GetCarTypesForPolicy(Guid customerId, DateTime policyDate,Guid trackSettingId)
+        {
+            try
+            {
+                var query = await _trackPrice.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId && policyDate.Date >= q.FromDate.Value.Date && policyDate.Date <= q.ToDate.Value.Date, include:
+                    source => source.Include(p => p.TrackPriceDetails).ThenInclude(c=>c.TrackPriceDetailCarTypes));
+
+                var ids = query.TrackPriceDetails.FirstOrDefault(p => p.TrackSettingId == trackSettingId).TrackPriceDetailCarTypes.Select(q => q.CarTypeId).ToList();
+
+                var carTypes = await _carType.Repository.FindAsync(q => ids.Contains(q.Id), disableTracking: false);
+
+                var result = _mapper.Map<IEnumerable<DropdownDto>>(carTypes);
+
+                return _responseResult.PostResult(result, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, status: HttpStatusCode.InternalServerError, exception: e, message: result.Message);
+                return result;
+            }
+        }
         public async Task<IResult> GetTypeNameForOpeningBalance(IEnumerable<OpeningBalanceParameters> parameters)
         {
             var nameByTypeDto = new List<NameByTypeDto>();
