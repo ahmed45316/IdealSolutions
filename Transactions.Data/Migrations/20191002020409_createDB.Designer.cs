@@ -10,8 +10,8 @@ using Transactions.Data.Context;
 namespace Transactions.Data.Migrations
 {
     [DbContext(typeof(TransactionContext))]
-    [Migration("20190910211730_MdifyClaimCustomer")]
-    partial class MdifyClaimCustomer
+    [Migration("20191002020409_createDB")]
+    partial class createDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,7 +41,7 @@ namespace Transactions.Data.Migrations
                     b.Property<string>("Notes")
                         .HasMaxLength(512);
 
-                    b.Property<Guid>("PolicyDetailId");
+                    b.Property<Guid>("PolicyId");
 
                     b.Property<decimal>("Tax");
 
@@ -51,9 +51,58 @@ namespace Transactions.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PolicyDetailId");
+                    b.HasIndex("PolicyId");
 
                     b.ToTable("ClaimCustomers");
+                });
+
+            modelBuilder.Entity("Transactions.Entities.Entites.CollectReceipt", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AccountCode")
+                        .HasMaxLength(128);
+
+                    b.Property<DateTime>("CollectReceiptDate");
+
+                    b.Property<DateTime?>("CollectReceiptDateHegry");
+
+                    b.Property<string>("CollectReceiptNumber");
+
+                    b.Property<int>("CollectReceiptType");
+
+                    b.Property<string>("CostCenter")
+                        .HasMaxLength(128);
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<Guid>("CreateUserId");
+
+                    b.Property<Guid>("CustomerId");
+
+                    b.Property<DateTime?>("ModifyDate");
+
+                    b.Property<Guid?>("ModifyUserId");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(512);
+
+                    b.Property<decimal>("Paid");
+
+                    b.Property<int>("PaymentType");
+
+                    b.Property<Guid>("PolicyId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CollectReceiptNumber")
+                        .IsUnique()
+                        .HasFilter("[CollectReceiptNumber] IS NOT NULL");
+
+                    b.HasIndex("PolicyId");
+
+                    b.ToTable("CollectReceipts");
                 });
 
             modelBuilder.Entity("Transactions.Entities.Entites.OpeningBalance", b =>
@@ -92,51 +141,6 @@ namespace Transactions.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal?>("AllTotalPriceAfterTax");
-
-                    b.Property<decimal?>("AllTotalPriceBeforTax");
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<Guid>("CreateUserId");
-
-                    b.Property<DateTime?>("ModifyDate");
-
-                    b.Property<Guid?>("ModifyUserId");
-
-                    b.Property<string>("Notes")
-                        .HasMaxLength(512);
-
-                    b.Property<byte>("PayType");
-
-                    b.Property<DateTime>("PolicyDateTime");
-
-                    b.Property<DateTime?>("PolicyDateTimeHijri");
-
-                    b.Property<decimal?>("TotalDiscount");
-
-                    b.Property<decimal?>("TotalOverNightPrice");
-
-                    b.Property<decimal?>("TotalRecallPrice");
-
-                    b.Property<decimal?>("TotalTaxValue");
-
-                    b.Property<decimal?>("TotalTownPrice");
-
-                    b.Property<decimal?>("TotalTrackCost");
-
-                    b.Property<decimal?>("TotalTrackValue");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Policies");
-                });
-
-            modelBuilder.Entity("Transactions.Entities.Entites.PolicyDetail", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
                     b.Property<Guid>("CarId");
 
                     b.Property<string>("CarNo")
@@ -167,9 +171,7 @@ namespace Transactions.Data.Migrations
 
                     b.Property<decimal?>("OverNightPrice");
 
-                    b.Property<DateTime?>("PolicyDetailDatetime");
-
-                    b.Property<Guid>("PolicyId");
+                    b.Property<DateTime?>("PolicyDatetime");
 
                     b.Property<string>("PolicyNumber")
                         .HasMaxLength(64);
@@ -177,6 +179,8 @@ namespace Transactions.Data.Migrations
                     b.Property<decimal?>("RecallPrice");
 
                     b.Property<Guid>("RepresentativeId");
+
+                    b.Property<long?>("THeadId");
 
                     b.Property<Guid>("TaxTypeId");
 
@@ -196,23 +200,25 @@ namespace Transactions.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PolicyId");
+                    b.HasIndex("PolicyNumber")
+                        .IsUnique()
+                        .HasFilter("[PolicyNumber] IS NOT NULL");
 
-                    b.ToTable("PolicyDetails");
+                    b.ToTable("Policies");
                 });
 
             modelBuilder.Entity("Transactions.Entities.Entites.ClaimCustomer", b =>
                 {
-                    b.HasOne("Transactions.Entities.Entites.PolicyDetail", "PolicyDetail")
+                    b.HasOne("Transactions.Entities.Entites.Policy", "Policy")
                         .WithMany("ClaimCustomers")
-                        .HasForeignKey("PolicyDetailId")
+                        .HasForeignKey("PolicyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Transactions.Entities.Entites.PolicyDetail", b =>
+            modelBuilder.Entity("Transactions.Entities.Entites.CollectReceipt", b =>
                 {
                     b.HasOne("Transactions.Entities.Entites.Policy", "Policy")
-                        .WithMany("PolicyDetails")
+                        .WithMany("CollectReceipts")
                         .HasForeignKey("PolicyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
