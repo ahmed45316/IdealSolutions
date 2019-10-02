@@ -96,9 +96,10 @@ namespace Transactions.Services.Services
         {
             try
             {
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter,userId), skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<PolicyDto>>(query.Item2);
                 //==============================================================
                 var customerIds = data.Select(q => q.CustomerId).ToList();
@@ -125,9 +126,10 @@ namespace Transactions.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        static Expression<Func<Policy, bool>> PredicateBuilderFunction(PolicyFilter filter)
+        static Expression<Func<Policy, bool>> PredicateBuilderFunction(PolicyFilter filter, string userId)
         {
             var predicate = PredicateBuilder.New<Policy>(true);
+            predicate = predicate.And(b => b.CreateUserId == new Guid(userId));
             if (filter.PolicyDatetime != null)
             {
                 predicate = predicate.And(b => b.PolicyDatetime.Value.Date == filter.PolicyDatetime.Value.Date);
