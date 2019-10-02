@@ -64,9 +64,14 @@ namespace Transactions.Services.Services
             try
             {
                 var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower() && q.Id != model.Id);
+               
                 if (policyData != null)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
+                }
+                if (!(policyData.THeadId == null ||policyData.THeadId == 0))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "تم الترحيل");
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
