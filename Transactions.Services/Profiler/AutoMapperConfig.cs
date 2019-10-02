@@ -22,7 +22,8 @@ namespace Transactions.Services.Profiler
 
         private void MappPolicy()
         {
-            CreateMap<Policy, PolicyDto>().ReverseMap();
+            CreateMap<PolicyDto,Policy>().ReverseMap()
+                .ForMember(dest => dest.Migrated, opt => opt.MapFrom(src => !(src.THeadId == null || src.THeadId == 0)));
             CreateMap<CollectReceiptPolicyDto, Policy>().ReverseMap();
         }
         private void MappOpeningBalance()

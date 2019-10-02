@@ -32,5 +32,6 @@ namespace Transactions.Services.Dto
         public string Notes { get; set; }
         public bool IsRentedCar { get; set; } = false;
         public string CarNo { get; set; }
+        public bool? Migrated { get; set; } = false;
     }
 }
