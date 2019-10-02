@@ -17,11 +17,13 @@ namespace Tenets.Identity.Services.Profiler
 
         private void MappUsers()
         {
-            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<UserDto,User>().ReverseMap()
+                 .ForMember(dest => dest.RolName, opt => opt.MapFrom(src => src.Role.Name))
+                 .ForMember(dest => dest.Password, opt => opt.Ignore());
         }
         private void MappRole()
         {
-            CreateMap<Role, RoleDto>().ReverseMap();
+            CreateMap<RoleDto, Role>().ReverseMap();
         }
     }
 }

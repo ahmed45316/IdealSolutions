@@ -39,6 +39,7 @@ namespace Tenets.Identity.Services.Core
                 signingCredentials: credentials,
                 claims: claims);
 
+            _userLoginReturn.NameAr = _userLoginReturn.NameEn = userInfo.UserName;
             _userLoginReturn.UserId = userInfo.Id??new Guid("710BDFD1-D75B-4C2F-B9E1-FEAE2B27491A");
             _userLoginReturn.TokenValidTo = token.ValidTo;
             _userLoginReturn.RoleName = role;

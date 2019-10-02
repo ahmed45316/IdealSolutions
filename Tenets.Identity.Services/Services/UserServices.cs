@@ -58,6 +58,7 @@ namespace Tenets.Identity.Services.Services
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "اسم المستخدم موجود بالفعل");
                 }
                 var entity = Mapper.Map<User>(model);
+                entity.Password = CreptoHasher.HashPassword(entity.Password);
                 _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
@@ -66,6 +67,33 @@ namespace Tenets.Identity.Services.Services
                 }
 
                 result.Data = model;
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
+        public async override Task<IResult> UpdateAsync(UserDto model)
+        {
+            try
+            {
+                if (await IsUsernameExists(model.UserName,model.Id))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "اسم المستخدم موجود بالفعل");
+                }
+                var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
+                model.Password = CreptoHasher.HashPassword(model.Password);
+                var newEntity = Mapper.Map(model, entityToUpdate);
+                _unitOfWork.Repository.Update(entityToUpdate, newEntity);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم التعديل بنجاح");
+                }
+
                 return result;
             }
             catch (Exception e)

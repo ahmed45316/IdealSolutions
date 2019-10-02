@@ -11,6 +11,7 @@ namespace Tenets.Identity.Services.Dto
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public Guid RoleId { get; set; }
+        public string RolName { get; set; }
         public virtual RoleDto Role { get; set; }
     }
 }

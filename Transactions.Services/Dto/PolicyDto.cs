@@ -5,7 +5,7 @@ using Tenets.Common.Core;
 
 namespace Transactions.Services.Dto
 {
-   public class PolicyDto: IPrimaryKeyField<Guid?>
+    public class PolicyDto : IPrimaryKeyField<Guid?>
     {
         public Guid? Id { get; set; }
         public Guid CustomerId { get; set; }
@@ -27,6 +27,7 @@ namespace Transactions.Services.Dto
         public decimal? TotalPriceBeforTax { get; set; }
         public Guid TaxTypeId { get; set; }
         public decimal? TaxValue { get; set; }
+        public decimal? TaxValueAll { get { return TotalPriceBeforTax.HasValue ? (TotalPriceBeforTax * TaxValue) / 100 : 0; } }
         public decimal? TotalPriceAfterTax { get; set; }
         public string Notes { get; set; }
         public bool IsRentedCar { get; set; } = false;
