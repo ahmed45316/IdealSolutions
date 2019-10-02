@@ -42,6 +42,16 @@ namespace Transactions.API.Controllers
             return await _policyServices.GetByIdAsync(id);
         }
         /// <summary>
+        /// Get data by Customer Id
+        /// </summary>
+        /// <param name="customerId">customerId</param>
+        /// <returns></returns>
+        [HttpGet("{customerId}")]
+        public async Task<IResult> GetByCustomerId(Guid customerId)
+        {
+            return await _policyServices.GetByCustomerId(customerId);
+        }
+        /// <summary>
         /// GetAll Data
         /// </summary>
         /// <returns></returns>

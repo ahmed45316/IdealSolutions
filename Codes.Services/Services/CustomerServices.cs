@@ -9,6 +9,7 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
+using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Base;
 using Tenets.Common.ServicesCommon.Codes.Interface;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
@@ -18,8 +19,10 @@ namespace Codes.Services.Services
 {
     public class CustomerServices : BaseService<Customer, ICustomerDto>, ICustomerServices
     {
-        public CustomerServices(IServiceBaseParameter<Customer> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
+        private readonly IRestSharpContainer _restSharpContainer;
+        public CustomerServices(IServiceBaseParameter<Customer> businessBaseParameter, IHttpContextAccessor httpContextAccessor, IRestSharpContainer restSharpContainer) : base(businessBaseParameter, httpContextAccessor)
         {
+            _restSharpContainer = restSharpContainer;
         }
 
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<CustomerFilter> filter)
@@ -90,6 +93,31 @@ namespace Codes.Services.Services
         {
             var data = await _unitOfWork.Repository.FindAsync(q => ids.Contains(q.Id));
             return new ResponseResult(result: data, status: HttpStatusCode.OK, message: "");
+        }
+        public async override Task<IResult> DeleteAsync(Guid id)
+        {
+            try
+            {
+                var serviceResult = await _restSharpContainer.SendRequest<Result>($"T/Policy/GetByCustomerId/{id}", RestSharp.Method.GET);
+                if (serviceResult.Data!=null)
+                {
+                    return ResponseResult.PostResult(result: true, status: HttpStatusCode.BadRequest, message: "لا تستطيع الحذف");
+                }
+                var entityToDelete = await _unitOfWork.Repository.GetAsync(id);
+                _unitOfWork.Repository.Remove(entityToDelete);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
         }
     }
 }

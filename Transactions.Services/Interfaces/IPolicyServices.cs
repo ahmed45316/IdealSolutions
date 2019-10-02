@@ -14,5 +14,6 @@ namespace Transactions.Services.Interfaces
     public interface IPolicyServices : IBaseService<Policy, PolicyDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<PolicyFilter> filter);
+        Task<IResult> GetByCustomerId(Guid customerId);
     }
 }

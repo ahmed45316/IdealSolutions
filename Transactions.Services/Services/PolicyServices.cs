@@ -63,7 +63,7 @@ namespace Transactions.Services.Services
         {
             try
             {
-                var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower() && q.Id !=model.Id);
+                var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower() && q.Id != model.Id);
                 if (policyData != null)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
@@ -91,7 +91,7 @@ namespace Transactions.Services.Services
                 return result;
             }
         }
-        
+
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<PolicyFilter> filter)
         {
             try
@@ -110,7 +110,8 @@ namespace Transactions.Services.Services
                 var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
                 var customersResult = JsonConvert.DeserializeObject<List<CustomerDto>>(jsonString);
 
-                data = data.Select(q => {
+                data = data.Select(q =>
+                {
                     q.CustomerNameAr = customersResult.FirstOrDefault(c => c.Id == q.CustomerId).NameAr;
                     return q;
                 });
@@ -149,6 +150,13 @@ namespace Transactions.Services.Services
                 predicate = predicate.And(b => b.PolicyNumber.ToLower().StartsWith(filter.PolicyNumber));
             }
             return predicate;
+        }
+
+        public async Task<IResult> GetByCustomerId(Guid customerId)
+        {
+            var data = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId);
+            var dto = Mapper.Map<PolicyDto>(data);
+            return ResponseResult.PostResult(result: dto, status: HttpStatusCode.OK, message: "");
         }
     }
 }

@@ -197,6 +197,13 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetByCustomerId(System.Guid)">
+            <summary>
+            Get data by Customer Id
+            </summary>
+            <param name="customerId">customerId</param>
+            <returns></returns>
+        </member>
         <member name="M:Transactions.API.Controllers.PolicyController.GetAll">
             <summary>
             GetAll Data
