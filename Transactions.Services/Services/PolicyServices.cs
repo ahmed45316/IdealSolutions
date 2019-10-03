@@ -64,12 +64,12 @@ namespace Transactions.Services.Services
             try
             {
                 var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower() && q.Id != model.Id);
-               
+
                 if (policyData != null)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
                 }
-                if (!(policyData.THeadId == null ||policyData.THeadId == 0))
+                if (!(policyData.THeadId == null || policyData.THeadId == 0))
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "تم الترحيل");
                 }
@@ -101,10 +101,14 @@ namespace Transactions.Services.Services
         {
             try
             {
+
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter,userId), skip: offset, take: limit, filter.OrderByValue);
+
+                var serviceResultForIsSuper = await _restSharpContainer.SendRequest<bool>($"I/User/IsSuperAdmin/{userId}", RestSharp.Method.GET);
+
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter, userId, serviceResultForIsSuper), skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<PolicyDto>>(query.Item2);
                 //==============================================================
                 var customerIds = data.Select(q => q.CustomerId).ToList();
@@ -131,10 +135,14 @@ namespace Transactions.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        static Expression<Func<Policy, bool>> PredicateBuilderFunction(PolicyFilter filter, string userId)
+        static Expression<Func<Policy, bool>> PredicateBuilderFunction(PolicyFilter filter, string userId, bool isSuperAdmin)
         {
             var predicate = PredicateBuilder.New<Policy>(true);
-            predicate = predicate.And(b => b.CreateUserId == new Guid(userId));
+            //IsSuperAdmin
+            if (!isSuperAdmin)
+            {
+                predicate = predicate.And(b => b.CreateUserId == new Guid(userId));
+            }
             if (filter.PolicyDatetime != null)
             {
                 predicate = predicate.And(b => b.PolicyDatetime.Value.Date == filter.PolicyDatetime.Value.Date);

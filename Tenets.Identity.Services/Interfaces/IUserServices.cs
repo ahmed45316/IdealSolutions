@@ -14,5 +14,6 @@ namespace Tenets.Identity.Services.Interfaces
     public interface IUserServices: IBaseService<User, UserDto>
     {
         Task<IDataPagging> GetUsers(BaseParam<UserFilter> filter);
+        Task<bool> IsSuperAdmin(Guid userId);
     }
 }

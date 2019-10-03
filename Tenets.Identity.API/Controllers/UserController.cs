@@ -80,5 +80,15 @@ namespace Tenets.Identity.API.Controllers
         {
             return await _userServices.GetUsers(filter);
         }
+        /// <summary>
+        ///check if is super admin
+        /// </summary>
+        /// <param name="userId">user Id</param>
+        /// <returns>Object for id choosen</returns>
+        [HttpGet("{userId}")]
+        public async Task<bool> IsSuperAdmin(Guid userId)
+        {
+            return await _userServices.IsSuperAdmin(userId);
+        }
     }
 }

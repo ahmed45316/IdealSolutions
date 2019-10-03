@@ -105,6 +105,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Tenets.Identity.API.Controllers.UserController.IsSuperAdmin(System.Guid)">
+             <summary>
+            check if is super admin
+             </summary>
+             <param name="userId">user Id</param>
+             <returns>Object for id choosen</returns>
+        </member>
         <member name="T:Tenets.Identity.API.Program">
             <inheritdoc />
         </member>

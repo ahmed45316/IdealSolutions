@@ -21,6 +21,7 @@ namespace Tenets.Identity.Services.Services
 {
     public class UserServices : BaseService<User, UserDto>, IUserServices
     {
+        const string superAdmin = "c21c91c0-5c2f-45cc-ab6d-1d256538a5ee";
         public UserServices(IServiceBaseParameter<User> businessBaseParameter) : base(businessBaseParameter)
         {
         }
@@ -103,10 +104,16 @@ namespace Tenets.Identity.Services.Services
                 return result;
             }
         }
+        public async Task<bool> IsSuperAdmin(Guid userId)
+        {
+            var data = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == userId);
+            return data.RoleId == new Guid(superAdmin);
+        }
         private async Task<bool> IsUsernameExists(string name, Guid? id =null)
         {
             var res = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == name && q.Id != id && !q.IsDeleted);
             return res != null;
         }
+        
     }
 }
