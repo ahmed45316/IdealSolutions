@@ -14,5 +14,6 @@ namespace Codes.Services.Interfaces
     public interface IDriverServices : IBaseService<Driver, DriverDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<DriverFilter> filter);
+        Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
     }
 }

@@ -137,6 +137,7 @@ namespace Codes.Services.Profiler
         private void MappDriver()
         {
             CreateMap<Driver, DriverDto>().ReverseMap();
+            CreateMap<DropdownDto, Driver>().ReverseMap();
         }
         private void MappTrackSetting()
         {
