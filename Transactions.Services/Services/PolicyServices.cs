@@ -96,7 +96,30 @@ namespace Transactions.Services.Services
                 return result;
             }
         }
-
+        public async override Task<IResult> DeleteAsync(Guid id)
+        {
+            try
+            {
+                var entityToDelete = await _unitOfWork.Repository.GetAsync(id);
+                if (!(entityToDelete.THeadId == null || entityToDelete.THeadId == 0))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "تم الترحيل");
+                }
+                _unitOfWork.Repository.Remove(entityToDelete);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<PolicyFilter> filter)
         {
             try
