@@ -22,13 +22,14 @@ namespace Tenets.Common.Core
             {
                 System.IO.Directory.CreateDirectory(path); //Create directory if it doesn't exist
             }
-            var imageExtension = imgBase64.Split(',')[0].Split('/')[1].Split(';')[0];
+            var base64Full = imgBase64.Split(',');
+            var imageExtension = base64Full[0].Split('/')[1].Split(';')[0];
             string imageName = $"{ImgName}.{imageExtension}";
 
             //set the image path
             string imgPath = Path.Combine(path, imageName);
 
-            byte[] imageBytes = Convert.FromBase64String(imgBase64);
+            byte[] imageBytes = Convert.FromBase64String(base64Full[1]);
 
             File.WriteAllBytes(imgPath, imageBytes);
 
