@@ -13,7 +13,7 @@ namespace Tenets.Common.Core
         {
             _hostingEnvironment = hostingEnvironment;
         }
-        public string SaveImage(string imgBase64, string ImgName,string ImgExtension,string folderName)
+        public string SaveImage(string imgBase64, string ImgName,string folderName)
         {
             String path = $"{_hostingEnvironment.ContentRootPath}/{folderName}"; //Path
 
@@ -22,8 +22,8 @@ namespace Tenets.Common.Core
             {
                 System.IO.Directory.CreateDirectory(path); //Create directory if it doesn't exist
             }
-
-            string imageName = $"{ImgName}{ImgExtension}";
+            var imageExtension = imgBase64.Split(',')[0].Split('/')[1].Split(';')[0];
+            string imageName = $"{ImgName}.{imageExtension}";
 
             //set the image path
             string imgPath = Path.Combine(path, imageName);
@@ -34,13 +34,14 @@ namespace Tenets.Common.Core
 
             return imageName;
         }
-        public string ConvertToBase64String(string fileName,string extension, string folderName)
+        public string ConvertToBase64String(string fileName, string folderName)
         {
             try
             {
                 string path = $"{_hostingEnvironment.ContentRootPath}/{folderName}/{fileName}";
                 byte[] fileByte = File.ReadAllBytes(path);
-                return $"data:image/{extension};base64,{Convert.ToBase64String(fileByte)}";
+                var imageExtension = fileName.Split('.')[1];
+                return $"data:image/{imageExtension};base64,{Convert.ToBase64String(fileByte)}";
             }
             catch (Exception)
             {
