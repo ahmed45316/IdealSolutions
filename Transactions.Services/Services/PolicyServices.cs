@@ -40,6 +40,15 @@ namespace Transactions.Services.Services
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Policy>(model);
+                if (entity.IsRentedCar&&entity.DriverId==null)
+                {
+
+                    var driverObject = new DriverDto() { NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, Address = entity.DriverNationality };
+                    var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Add", RestSharp.Method.POST, driverObject);
+                    var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
+                    var driverResult = JsonConvert.DeserializeObject<DriverDto>(jsonString);
+                    entity.DriverId = driverResult.Id;
+                }
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId = new Guid(userId);
                 _unitOfWork.Repository.Add(entity);
@@ -75,6 +84,12 @@ namespace Transactions.Services.Services
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
+                //if (model.IsRentedCar && model.DriverId != null)
+                //{
+
+                //    var driverObject = new DriverDto() {Id = model.DriverId, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, Address = model.DriverNationality };
+                //    var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                //}
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;
                 newEntity.CreateDate = entityToUpdate.CreateDate;

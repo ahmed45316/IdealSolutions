@@ -146,18 +146,19 @@ namespace Codes.Services.Services
                          .ThenInclude(t => t.TrackPriceDetailCarTypes)
                          .ThenInclude(c => c.CarType));
                 var data = Mapper.Map<TrackPriceDto>(query);
-                var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
-                var trackPriceDetails = data.TrackPriceDetails.Select(q =>
-                {
-                    var cartypesids = q.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
-                    var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
-                    foreach (var cartypeitem in cartypesdata)
-                    {
-                        q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0, CarNameAr = cartypeitem.NameAr, CarNameEn = cartypeitem.NameEn });
-                    }
-                    return q;
-                }).ToList();
-                data.TrackPriceDetails = trackPriceDetails;
+
+                //var carTypes = await _carTypeUnitOfWork.Repository.GetAllAsync();
+                //var trackPriceDetails = data.TrackPriceDetails.Select(q =>
+                //{
+                //    var cartypesids = q.TrackPriceDetailCarTypes.Select(tpdct => tpdct.CarTypeId).ToList();
+                //    var cartypesdata = carTypes.Where(cars => !cartypesids.Contains(cars.Id));
+                //    foreach (var cartypeitem in cartypesdata)
+                //    {
+                //        q.TrackPriceDetailCarTypes.Add(new TrackPriceDetailCarTypeDto() { CarTypeId = cartypeitem.Id, CarTypePrice = 0, CarNameAr = cartypeitem.NameAr, CarNameEn = cartypeitem.NameEn });
+                //    }
+                //    return q;
+                //}).ToList();
+               // data.TrackPriceDetails = trackPriceDetails;
                 return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "Data Updated Successfully");
             }
             catch (Exception e)

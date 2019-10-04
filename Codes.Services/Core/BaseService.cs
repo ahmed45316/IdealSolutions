@@ -50,11 +50,11 @@ namespace Codes.Services.Core
                 T entity = Mapper.Map<T>(model);
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId =new Guid(userId);
-                _unitOfWork.Repository.Add(entity);
+                var dataSaved = _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
+                    result = new ResponseResult(result: dataSaved, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
                 }
 
                 result.Data = model;

@@ -21,7 +21,6 @@ namespace Codes.Services.Services
         public DriverServices(IServiceBaseParameter<Driver> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
         }
-
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<DriverFilter> filter)
         {
             try
