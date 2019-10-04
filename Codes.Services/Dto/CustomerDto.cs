@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tenets.Common.ServicesCommon.Codes.Interface;
+using Tenets.Common.Core;
 
 namespace Codes.Services.Dto
 {
-    public class CustomerDto : ICustomerDto
+    public class CustomerDto : IPrimaryKeyField<Guid?>
     {
         public string NameAr { get ; set ; }
         public string NameEn { get ; set ; }

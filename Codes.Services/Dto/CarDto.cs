@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tenets.Common.ServicesCommon.Codes.Interface;
+using Tenets.Common.Core;
 
 namespace Codes.Services.Dto
 {
-    public class CarDto : ICarDto
+    public class CarDto : IPrimaryKeyField<Guid?>
     {
         public string PlateNumber { get ; set ; }
         public string ModelName { get ; set ; }

@@ -14,7 +14,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.ServicesCommon.Codes.Interface;
+
 using Tenets.Common.ServicesCommon.Codes.Parameters;
 using Tenets.Common.ServicesCommon.Identity.Base;
 

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tenets.Common.ServicesCommon.Codes.Interface;
+using Tenets.Common.Core;
 
 namespace Codes.Services.Dto
 {
-    public class DriverDto : IDriverDto
+    public class DriverDto : IPrimaryKeyField<Guid?>
     {
         public string NameAr { get; set; }
         public string NameEn { get; set; }
@@ -19,5 +19,6 @@ namespace Codes.Services.Dto
         public string AccountCode { get; set; }
         public string CostCenter { get; set; }
         public Guid? Id { get; set; }
+        public bool? IsOutSource { get; set; }
     }
 }

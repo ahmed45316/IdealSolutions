@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Tenets.Common.Core;
-using Tenets.Common.ServicesCommon.Codes.Interface;
 
 namespace Codes.Services.Dto
 {

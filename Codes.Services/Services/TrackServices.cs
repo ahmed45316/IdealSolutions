@@ -1,5 +1,6 @@
 ﻿using Codes.Entities.Entities;
 using Codes.Services.Core;
+using Codes.Services.Dto;
 using Codes.Services.Interfaces;
 using LinqKit;
 using Microsoft.AspNetCore.Http;
@@ -9,13 +10,12 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
-using Tenets.Common.ServicesCommon.Codes.Interface;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
 using Tenets.Common.ServicesCommon.Identity.Base;
 
 namespace Codes.Services.Services
 {
-    public class TrackServices : BaseService<Track, ITrackDto>, ITrackServices
+    public class TrackServices : BaseService<Track, TrackDto>, ITrackServices
     {
         public TrackServices(IServiceBaseParameter<Track> businessBaseParameter, IHttpContextAccessor httpContextAccessor) : base(businessBaseParameter, httpContextAccessor)
         {
@@ -28,7 +28,7 @@ namespace Codes.Services.Services
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
                 var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
-                var data = Mapper.Map<IEnumerable<ITrackDto>>(query.Item2);
+                var data = Mapper.Map<IEnumerable<TrackDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ namespace Codes.Services.Services
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
                 var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
-                var data = Mapper.Map<IEnumerable<ITrackDto>>(query.Item2);
+                var data = Mapper.Map<IEnumerable<TrackDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
             catch (Exception e)

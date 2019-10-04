@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tenets.Common.ServicesCommon.Codes.Interface;
+using Tenets.Common.Core;
 
 namespace Codes.Services.Dto
 {
-    public class TrackSettingDto : ITrackSettingDto
+    public class TrackSettingDto : IPrimaryKeyField<Guid?>
     {
         public Guid? FromTrackId { get; set; }
         public Guid? ToTrackId { get; set; }

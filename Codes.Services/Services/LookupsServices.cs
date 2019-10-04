@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
 using Tenets.Common.Enums;
-using Tenets.Common.ServicesCommon.Base;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
 
 namespace Codes.Services.Services

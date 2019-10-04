@@ -33,5 +33,9 @@ namespace Transactions.Services.Dto
         public bool IsRentedCar { get; set; } = false;
         public string CarNo { get; set; }
         public bool? Migrated { get; set; } = false;
+        public Guid? DriverId { get; set; }
+        public string DriverName { get; set; }
+        public string DriverNationality { get; set; }
+        public string DriverPhone { get; set; }
     }
 }

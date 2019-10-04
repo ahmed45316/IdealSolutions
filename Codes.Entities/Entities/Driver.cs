@@ -24,5 +24,6 @@ namespace Codes.Entities.Entities
         public string AccountCode { get; set; }
         [StringLength(128)]
         public string CostCenter { get; set; }
+        public bool? IsOutSource { get; set; } = false;
     }
 }

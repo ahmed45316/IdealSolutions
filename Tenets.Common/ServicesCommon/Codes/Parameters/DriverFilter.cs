@@ -8,5 +8,6 @@ namespace Tenets.Common.ServicesCommon.Codes.Parameters
     public class DriverFilter : MainFilter
     {
         public string Email { get; set; }
+        public bool? IsOutSource { get; set; }
     }
 }

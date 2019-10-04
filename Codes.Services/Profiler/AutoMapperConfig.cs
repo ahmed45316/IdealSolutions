@@ -3,8 +3,6 @@ using Codes.Entities.Entities;
 using Codes.Services.Dto;
 using Microsoft.AspNetCore.Http;
 using System;
-using Tenets.Common.ServicesCommon.Base;
-using Tenets.Common.ServicesCommon.Codes.Interface;
 
 namespace Codes.Services.Profiler
 {
@@ -37,15 +35,15 @@ namespace Codes.Services.Profiler
 
         private void MappCompanies()
         {
-            CreateMap<Company, ICompanyDto>().ReverseMap();
+            CreateMap<Company, CompanyDto>().ReverseMap();
         }
         private void MappBranch()
         {
-            CreateMap<Branch, IBranchDto>().ReverseMap();
+            CreateMap<Branch, BranchDto>().ReverseMap();
         }
         private void MappCar()
         {
-            CreateMap<Car, ICarDto>()
+            CreateMap<Car, CarDto>()
                 .ForMember(dest => dest.ModelName, opt => opt.MapFrom(src => src.Model)).ReverseMap();
             CreateMap<DropdownDto, Car>().ReverseMap()
             .ForMember(dest => dest.NameAr, opt => opt.MapFrom(src => src.PlateNumber))
@@ -53,7 +51,7 @@ namespace Codes.Services.Profiler
         }
         private void MappCarType()
         {
-            CreateMap<CarType, ICarTypeDto>().ReverseMap();
+            CreateMap<CarType, CarTypeDto>().ReverseMap();
             CreateMap<TrackPriceDetailCarTypeDto, CarType>().ReverseMap()
                 .ForMember(dest => dest.CarTypeId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CarNameAr, opt => opt.MapFrom(src => src.NameAr))
@@ -63,48 +61,48 @@ namespace Codes.Services.Profiler
         }
         private void MappCity()
         {
-            CreateMap<City, ICityDto>().ReverseMap();
+            CreateMap<City, CityDto>().ReverseMap();
         }
         private void MappCountry()
         {
-            CreateMap<Country, ICountryDto>().ReverseMap();
+            CreateMap<Country, CountryDto>().ReverseMap();
         }
         private void MappCustomer()
         {
-            CreateMap<Customer, ICustomerDto>().ReverseMap();
-            CreateMap<IDropdownDto,Customer>().ReverseMap();
+            CreateMap<Customer, CustomerDto>().ReverseMap();
+            CreateMap<DropdownDto,Customer>().ReverseMap();
         }
         private void MappCustomerCategory()
         {
-            CreateMap<CustomerCategory, ICustomerCategoryDto>().ReverseMap();
+            CreateMap<CustomerCategory, CustomerCategoryDto>().ReverseMap();
             CreateMap<DropdownDto, CustomerCategory>().ReverseMap();
         }
         private void MappInvoiceType()
         {
-            CreateMap<InvoiceType, IInvoiceTypeDto>().ReverseMap();
+            CreateMap<InvoiceType, InvoiceTypeDto>().ReverseMap();
             CreateMap<DropdownDto, InvoiceType>().ReverseMap();
         }
         private void MappRent()
         {
-            CreateMap<Rent, IRentDto>().ReverseMap();
-            CreateMap<IDropdownDto, Rent>().ReverseMap();
+            CreateMap<Rent, RentDto>().ReverseMap();
+            CreateMap<DropdownDto, Rent>().ReverseMap();
         }
         private void MappRepresentative()
         {
-            CreateMap<Representative, IRepresentativeDto>().ReverseMap();
+            CreateMap<Representative, RepresentativeDto>().ReverseMap();
         }
         private void MappTaxCategory()
         {
-            CreateMap<TaxCategory, ITaxCategoryDto>().ReverseMap();
+            CreateMap<TaxCategory, TaxCategoryDto>().ReverseMap();
         }
         private void MappTaxType()
         {
-            CreateMap<TaxType, ITaxTypeDto>().ReverseMap();
+            CreateMap<TaxType, TaxTypeDto>().ReverseMap();
             CreateMap<DropdownDto, TaxType>().ReverseMap();
         }
         private void MappTrack()
         {
-            CreateMap<Track, ITrackDto>().ReverseMap();
+            CreateMap<Track, TrackDto>().ReverseMap();
         }
         private void MappTrackPrice()
         {
@@ -138,14 +136,11 @@ namespace Codes.Services.Profiler
         }
         private void MappDriver()
         {
-            CreateMap<Driver, IDriverDto>().ReverseMap();
+            CreateMap<Driver, DriverDto>().ReverseMap();
         }
         private void MappTrackSetting()
         {
-            CreateMap<ITrackSettingDto, TrackSetting>().ReverseMap().ForMember(dest => dest.NameAr,
-                opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
-            CreateMap<ITrackSettingDropDownDto, TrackSetting>().ReverseMap()
-                .ForMember(dest => dest.NameAr,
+            CreateMap<TrackSettingDto, TrackSetting>().ReverseMap().ForMember(dest => dest.NameAr,
                 opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
             CreateMap<DropdownDto, TrackSetting>().ReverseMap()
                 .ForMember(dest => dest.NameAr,
