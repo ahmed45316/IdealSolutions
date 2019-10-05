@@ -13,7 +13,7 @@ namespace Transactions.Services.Dto
         public Guid CustomerCategoryId { get; set; }
         public Guid InvoicTypeId { get; set; }
         public DateTime? PolicyDatetime { get; set; }
-        public string PolicyNumber { get; set; }
+        public long PolicyNumber { get; set; }
         public Guid RepresentativeId { get; set; }
         public Guid CarId { get; set; }
         public Guid CarTypeId { get; set; }

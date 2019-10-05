@@ -12,6 +12,8 @@ namespace Transactions.Data.Configuration
         public void Configure(EntityTypeBuilder<Policy> builder)
         {
             builder.HasIndex(u => u.PolicyNumber).IsUnique();
+            builder.Property(o => o.PolicyNumber)
+            .HasDefaultValueSql("NEXT VALUE FOR PolicyNumbers");
         }
     }
 }

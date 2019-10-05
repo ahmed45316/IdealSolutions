@@ -10,6 +10,6 @@ namespace Tenets.Common.ServicesCommon.Transaction.Parameters
         public Guid? CustomerId { get; set; }
         public Guid? InvoicTypeId { get; set; }
         public Guid? CustomerCategoryId { get; set; }
-        public string PolicyNumber { get; set; }
+        public long? PolicyNumber { get; set; }
     }
 }

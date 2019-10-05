@@ -33,11 +33,11 @@ namespace Transactions.Services.Services
             try
             {
 
-                var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower());
-                if (policyData != null)
-                {
-                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
-                }
+                //var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower());
+                //if (policyData != null)
+                //{
+                //    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
+                //}
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Policy>(model);
                 if (entity.IsRentedCar && entity.DriverId == null)
@@ -72,12 +72,12 @@ namespace Transactions.Services.Services
         {
             try
             {
-                var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower() && q.Id != model.Id);
+                //var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber == model.PolicyNumber && q.Id != model.Id);
 
-                if (policyData != null)
-                {
-                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
-                }
+                //if (policyData != null)
+                //{
+                //    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
+                //}
 
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
@@ -199,9 +199,9 @@ namespace Transactions.Services.Services
             {
                 predicate = predicate.And(b => b.InvoicTypeId == filter.InvoicTypeId);
             }
-            if (!string.IsNullOrWhiteSpace(filter.PolicyNumber))
+            if (filter.PolicyNumber!=null)
             {
-                predicate = predicate.And(b => b.PolicyNumber.ToLower().StartsWith(filter.PolicyNumber));
+                predicate = predicate.And(b => b.PolicyNumber==filter.PolicyNumber);
             }
             return predicate;
         }

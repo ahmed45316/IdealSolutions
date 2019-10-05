@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191005153559_AddSequancePolicyNumber1.cs" />
+    <Compile Remove="Migrations\20191005153559_AddSequancePolicyNumber1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
     <ProjectReference Include="..\Transactions.Entities\Transactions.Entities.csproj" />
   </ItemGroup>

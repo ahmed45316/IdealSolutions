@@ -13,8 +13,7 @@ namespace Transactions.Entities.Entites
         public Guid CustomerCategoryId { get; set; }
         public Guid InvoicTypeId{ get; set; }
         public DateTime? PolicyDatetime { get; set; }
-        [StringLength(64)]
-        public string PolicyNumber { get; set; }
+        public long PolicyNumber { get; set; }
         public Guid RepresentativeId { get; set; }
         public Guid CarId { get; set; }
         public Guid CarTypeId { get; set; }

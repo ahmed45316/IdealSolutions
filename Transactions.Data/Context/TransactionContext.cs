@@ -15,6 +15,7 @@ namespace Transactions.Data.Context
         public virtual DbSet<CollectReceipt> CollectReceipts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasSequence<long>("PolicyNumbers").StartsAt(1000).IncrementsBy(1);
             modelBuilder.ApplyConfiguration(new CollectReceiptConfiguration());
             modelBuilder.ApplyConfiguration(new PolicyConfiguration());
         }
