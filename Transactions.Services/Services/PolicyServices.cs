@@ -40,10 +40,10 @@ namespace Transactions.Services.Services
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Policy>(model);
-                if (entity.IsRentedCar&&entity.DriverId==null)
+                if (entity.IsRentedCar && entity.DriverId == null)
                 {
 
-                    var driverObject = new DriverDto() { NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, Address = entity.DriverNationality };
+                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, Address = entity.DriverNationality, IsOutSource = true };
                     var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Add", RestSharp.Method.POST, driverObject);
                     var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
                     var driverResult = JsonConvert.DeserializeObject<DriverDto>(jsonString);
@@ -78,18 +78,19 @@ namespace Transactions.Services.Services
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
                 }
-                if (!(policyData.THeadId == null || policyData.THeadId == 0))
+
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
+                var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
+                if (!(entityToUpdate.THeadId == null || entityToUpdate.THeadId == 0))
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "تم الترحيل");
                 }
-                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
-                var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
-                //if (model.IsRentedCar && model.DriverId != null)
-                //{
+                if (model.IsRentedCar && model.DriverId != null)
+                {
 
-                //    var driverObject = new DriverDto() {Id = model.DriverId, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, Address = model.DriverNationality };
-                //    var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
-                //}
+                    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, Address = model.DriverNationality, IsOutSource = true };
+                     await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                }
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;
                 newEntity.CreateDate = entityToUpdate.CreateDate;

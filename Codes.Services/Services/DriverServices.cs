@@ -41,6 +41,7 @@ namespace Codes.Services.Services
         static Expression<Func<Driver, bool>> PredicateBuilderFunction(DriverFilter filter)
         {
             var predicate = PredicateBuilder.New<Driver>(true);
+            predicate = predicate.And(b => b.IsOutSource == (filter.IsOutSource ?? false));
             if (!string.IsNullOrWhiteSpace(filter.NameAr))
             {
                 predicate = predicate.And(b => b.NameAr.ToLower().Contains(filter.NameAr.ToLower()));
@@ -53,10 +54,7 @@ namespace Codes.Services.Services
             {
                 predicate = predicate.And(b => b.Email.ToLower() == filter.Email.ToLower());
             }
-            if (filter.IsOutSource.HasValue)
-            {
-                predicate = predicate.And(b => b.IsOutSource == filter.IsOutSource);
-            }
+               
             return predicate;
         }
         public async Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter)

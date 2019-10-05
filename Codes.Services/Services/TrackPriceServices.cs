@@ -67,8 +67,7 @@ namespace Codes.Services.Services
                          .ThenInclude(t => t.TrackPriceDetailCarTypes));
                 _unitOfWork.Repository.Remove(entityToUpdate);
                 await _unitOfWork.SaveChanges();
-                await base.AddAsync(model);
-                return result;
+                return await AddAsync(model);
             }
             catch (Exception e)
             {

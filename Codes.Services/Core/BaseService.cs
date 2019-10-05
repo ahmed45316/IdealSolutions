@@ -56,8 +56,6 @@ namespace Codes.Services.Core
                 {
                     result = new ResponseResult(result: dataSaved, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
                 }
-
-                result.Data = model;
                 return result;
             }
             catch (Exception e)

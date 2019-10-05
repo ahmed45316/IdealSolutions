@@ -19,6 +19,6 @@ namespace Codes.Services.Dto
         public string AccountCode { get; set; }
         public string CostCenter { get; set; }
         public Guid? Id { get; set; }
-        public bool? IsOutSource { get; set; }
+        public bool IsOutSource { get; set; }
     }
 }
