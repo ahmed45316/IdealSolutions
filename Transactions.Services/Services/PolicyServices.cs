@@ -51,6 +51,10 @@ namespace Transactions.Services.Services
                 }
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId = new Guid(userId);
+                //For Some Times Only 
+                var policies =await _unitOfWork.Repository.GetAllAsync();
+                entity.PolicyNumber = policies.Any()?(1000+policies.Count()) :1000;
+                    //end
                 _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
