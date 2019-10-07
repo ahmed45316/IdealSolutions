@@ -29,6 +29,10 @@ namespace Codes.Services.Services
         {
             try
             {
+                if (_unitOfWork.Repository.IsExists(q => q.Id != model.Id && (q.NameAr == model.NameAr || q.NameEn == model.NameEn)))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "الاسم موجود من قبل!");
+                }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Company>(model);
                 if (!string.IsNullOrWhiteSpace(entity.Logo))
@@ -58,6 +62,10 @@ namespace Codes.Services.Services
         {
             try
             {
+                if (_unitOfWork.Repository.IsExists(q => q.Id != model.Id && (q.NameAr == model.NameAr || q.NameEn == model.NameEn)))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "الاسم موجود من قبل!");
+                }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
                 var newEntity = Mapper.Map(model, entityToUpdate);

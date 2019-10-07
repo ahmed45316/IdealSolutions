@@ -23,5 +23,6 @@ namespace Tenets.Infrastructure.Repository
         void Remove(T entity);
         void Remove(Expression<Func<T, bool>> predicate);
         void RemoveRange(IEnumerable<T> entities);
+        bool IsExists(Expression<Func<T, bool>> predicate);
     }
 }

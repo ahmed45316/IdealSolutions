@@ -136,5 +136,10 @@ namespace Tenets.Infrastructure.Repository
         {
             DbSet.RemoveRange(entities);
         }
+        public bool IsExists(Expression<Func<T, bool>> predicate)
+        {
+            IQueryable<T> query = DbSet;
+            return query.Any(predicate);
+        }
     }
 }

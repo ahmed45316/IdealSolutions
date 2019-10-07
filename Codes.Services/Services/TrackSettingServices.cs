@@ -50,6 +50,34 @@ namespace Codes.Services.Services
                 return result;
             }
         }
+        public async override Task<IResult> UpdateAsync(TrackSettingDto model)
+        {
+            try
+            {
+                if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار متشابه برجاء اختر مسار مختلف");
+                var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
+                var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
+                var newEntity = Mapper.Map(model, entityToUpdate);
+                newEntity.CreateUserId = entityToUpdate.CreateUserId;
+                newEntity.CreateDate = entityToUpdate.CreateDate;
+                newEntity.ModifyDate = DateTime.Now;
+                newEntity.ModifyUserId = new Guid(userId);
+                _unitOfWork.Repository.Update(entityToUpdate, newEntity);
+                int affectedRows = await _unitOfWork.SaveChanges();
+                if (affectedRows > 0)
+                {
+                    result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم التعديل بنجاح");
+                }
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackSettingFilter> filter)
         {
             try
