@@ -166,6 +166,13 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.CarTypeController.GetForReport(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.CarTypeController.GetAll">
             <summary>
             GetAll Data
@@ -418,6 +425,13 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.CustomerController.GetForReport(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.CustomerController.GetAll">
             <summary>
             GetAll Data
@@ -475,6 +489,13 @@
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.DriverController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.DriverController.GetForReport(System.Guid)">
             <summary>
             Get data by Id
             </summary>
@@ -938,6 +959,13 @@
             <returns></returns>
         </member>
         <member name="M:Codes.API.Controllers.TrackSettingController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.TrackSettingController.GetForReport(System.Guid)">
             <summary>
             Get data by Id
             </summary>

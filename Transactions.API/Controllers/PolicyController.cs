@@ -102,6 +102,7 @@ namespace Transactions.API.Controllers
         /// Generate Reports
         /// </summary>
         //[HttpGet]
+        //[AllowAnonymous]
         //public IActionResult GenerateReport()
         //{
         //    _generator.Bind(new PolicyReportModel());
@@ -109,6 +110,7 @@ namespace Transactions.API.Controllers
         //}
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetReport(Guid id)
         {
             try

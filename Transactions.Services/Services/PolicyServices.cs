@@ -224,21 +224,21 @@ namespace Transactions.Services.Services
             var data = await _unitOfWork.Repository.GetAsync(id);
             var policy = Mapper.Map<PolicyViewModel>(data);
                 //Customer
-                var customerResult = await _restSharpContainer.SendRequest<Result>($"L/Customer/Get/{data.CustomerId}", RestSharp.Method.GET);
+                var customerResult = await _restSharpContainer.SendRequest<Result>($"L/Customer/GetForReport/{data.CustomerId}", RestSharp.Method.GET);
                 var customer = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(customerResult.Data));
                 policy.CustomerNameAr = customer.NameAr;
                 //Car Type
-                var carTypeResult = await _restSharpContainer.SendRequest<Result>($"L/CarType/Get/{data.CarTypeId}", RestSharp.Method.GET);
+                var carTypeResult = await _restSharpContainer.SendRequest<Result>($"L/CarType/GetForReport/{data.CarTypeId}", RestSharp.Method.GET);
                 var carType = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(carTypeResult.Data));
                 policy.CarTypeName = carType.NameAr;
                 //Track
-                var TrackResult = await _restSharpContainer.SendRequest<Result>($"L/TrackSetting/Get/{data.TrackSettingId}", RestSharp.Method.GET);
+                var TrackResult = await _restSharpContainer.SendRequest<Result>($"L/TrackSetting/GetForReport/{data.TrackSettingId}", RestSharp.Method.GET);
                 var Track = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(TrackResult.Data));
                 policy.TrackName = Track.NameAr;
                 //Driver
                 if (data.DriverId != null)
                 {
-                    var driverResult = await _restSharpContainer.SendRequest<Result>($"L/Driver/Get/{data.DriverId}", RestSharp.Method.GET);
+                    var driverResult = await _restSharpContainer.SendRequest<Result>($"L/Driver/GetForReport/{data.DriverId}", RestSharp.Method.GET);
                     var driver = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(driverResult.Data));
                     policy.DriverName = driver.NameAr;
                 }
