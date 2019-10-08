@@ -35,6 +35,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="ExternalDll\CodeShellCore.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ExternalDll\CodeShellCore.Reporting.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ExternalDll\CodeShellCore.Web.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\Policy.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Transactions.API.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
