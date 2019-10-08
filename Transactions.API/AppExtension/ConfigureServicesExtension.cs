@@ -10,6 +10,8 @@ using Transactions.Services.Profiler;
 using Transactions.Services.UnitOfWork;
 using Transactions.Services.Services;
 using Transactions.Services.Dto;
+using CodeShellCore.Reporting.Services;
+using CodeShellCore.Services;
 
 namespace Transactions.API.AppExtension
 {
@@ -20,6 +22,8 @@ namespace Transactions.API.AppExtension
             services.DatabaseConfig(_configuration);
             services.RegisterCores();
             services.AddAutoMapper(Assembly.GetAssembly(typeof(AutoMapperConfiguration)));
+            services.AddTransient<RdlcDataSetGenerator,RdlcDataSetGenerator>();
+            services.AddTransient<WriterService, WriterService>();
             return services;
         }
        private static void DatabaseConfig(this IServiceCollection services,IConfiguration _configuration)

@@ -8,6 +8,7 @@ using Tenets.Common.ServicesCommon.Transaction.Parameters;
 using Transactions.Entities.Entites;
 using Transactions.Services.Core;
 using Transactions.Services.Dto;
+using Transactions.Services.ReportsDto;
 
 namespace Transactions.Services.Interfaces
 {
@@ -15,5 +16,6 @@ namespace Transactions.Services.Interfaces
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<PolicyFilter> filter);
         Task<IResult> GetByCustomerId(Guid customerId);
+        Task<PolicyViewModel> GetPolicyForReport(Guid id);
     }
 }

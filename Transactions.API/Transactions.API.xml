@@ -180,7 +180,7 @@
             Policy Controller
             </summary>
         </member>
-        <member name="M:Transactions.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices)">
+        <member name="M:Transactions.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices,CodeShellCore.Reporting.Services.RdlcDataSetGenerator)">
             <inheritdoc />
         </member>
         <member name="M:Transactions.API.Controllers.PolicyController.Add(Transactions.Services.Dto.PolicyDto)">
@@ -229,6 +229,11 @@
             </summary>
             <param name="model">Object content</param>
             <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetReport(System.Guid)">
+            <summary>
+            Generate Reports
+            </summary>
         </member>
         <member name="T:Transactions.API.Program">
             <summary>

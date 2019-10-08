@@ -10,9 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="System.Drawing.Common" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,9 +23,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="CodeShellCore">
+      <HintPath>ExternalDll\CodeShellCore.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeShellCore.Reporting">
+      <HintPath>ExternalDll\CodeShellCore.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeShellCore.Web">
+      <HintPath>ExternalDll\CodeShellCore.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Transactions.API.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
 
 </Project>

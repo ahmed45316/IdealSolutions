@@ -78,6 +78,21 @@ namespace Codes.Services.Services
                 return result;
             }
         }
+        public async override Task<IResult> GetByIdAsync(Guid id)
+        {
+            try
+            {
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id, include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
+                var data = Mapper.Map<TrackSettingDto>(query);
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "");
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
         public async Task<IDataPagging> GetAllPaggedAsync(BaseParam<TrackSettingFilter> filter)
         {
             try

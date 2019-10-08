@@ -17,7 +17,9 @@ using Transactions.Entities.Entites;
 using Transactions.Services.Core;
 using Transactions.Services.Dto;
 using Transactions.Services.Interfaces;
+using Transactions.Services.ReportsDto;
 using Transactions.Services.UnitOfWork;
+
 
 namespace Transactions.Services.Services
 {
@@ -52,9 +54,9 @@ namespace Transactions.Services.Services
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId = new Guid(userId);
                 //For Some Times Only 
-                var policies =await _unitOfWork.Repository.GetAllAsync();
-                entity.PolicyNumber = policies.Any()?(1000+policies.Count()) :1000;
-                    //end
+                var policies = await _unitOfWork.Repository.GetAllAsync();
+                entity.PolicyNumber = policies.Any() ? (1000 + policies.Count()) : 1000;
+                //end
                 _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
@@ -93,7 +95,7 @@ namespace Transactions.Services.Services
                 {
 
                     var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, Address = model.DriverNationality, IsOutSource = true };
-                     await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                    await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
                 }
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;
@@ -203,9 +205,9 @@ namespace Transactions.Services.Services
             {
                 predicate = predicate.And(b => b.InvoicTypeId == filter.InvoicTypeId);
             }
-            if (filter.PolicyNumber!=null)
+            if (filter.PolicyNumber != null)
             {
-                predicate = predicate.And(b => b.PolicyNumber==filter.PolicyNumber);
+                predicate = predicate.And(b => b.PolicyNumber == filter.PolicyNumber);
             }
             return predicate;
         }
@@ -215,6 +217,33 @@ namespace Transactions.Services.Services
             var data = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.CustomerId == customerId);
             var dto = Mapper.Map<PolicyDto>(data);
             return ResponseResult.PostResult(result: dto, status: HttpStatusCode.OK, message: "");
+        }
+
+        public async Task<PolicyViewModel> GetPolicyForReport(Guid id)
+        {
+            var data = await _unitOfWork.Repository.GetAsync(id);
+            var policy = Mapper.Map<PolicyViewModel>(data);
+                //Customer
+                var customerResult = await _restSharpContainer.SendRequest<Result>($"L/Customer/Get/{data.CustomerId}", RestSharp.Method.GET);
+                var customer = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(customerResult.Data));
+                policy.CustomerNameAr = customer.NameAr;
+                //Car Type
+                var carTypeResult = await _restSharpContainer.SendRequest<Result>($"L/CarType/Get/{data.CarTypeId}", RestSharp.Method.GET);
+                var carType = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(carTypeResult.Data));
+                policy.CarTypeName = carType.NameAr;
+                //Track
+                var TrackResult = await _restSharpContainer.SendRequest<Result>($"L/TrackSetting/Get/{data.TrackSettingId}", RestSharp.Method.GET);
+                var Track = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(TrackResult.Data));
+                policy.TrackName = Track.NameAr;
+                //Driver
+                if (data.DriverId != null)
+                {
+                    var driverResult = await _restSharpContainer.SendRequest<Result>($"L/Driver/Get/{data.DriverId}", RestSharp.Method.GET);
+                    var driver = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(driverResult.Data));
+                    policy.DriverName = driver.NameAr;
+                }
+
+            return policy;
         }
     }
 }
