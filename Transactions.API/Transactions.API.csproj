@@ -36,13 +36,13 @@
 
   <ItemGroup>
     <None Update="ExternalDll\CodeShellCore.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="ExternalDll\CodeShellCore.Reporting.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="ExternalDll\CodeShellCore.Web.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="Reports\Policy.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
