@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Tenets.Common.Core;
+using Tenets.Common.Extensions;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
@@ -62,20 +63,8 @@ namespace Transactions.Services.Services
         }
         static Expression<Func<Policy, bool>> PredicateBuilderFunction(ClaimCustomerFilter filter)
         {
-            var predicate = PredicateBuilder.New<Policy>(true);
+            ExpressionStarter<Policy> predicate = ExpressionBuilder.GetPredicate<Policy,ClaimCustomerFilter>(filter);
             predicate = predicate.And(b => b.PolicyDatetime >= filter.StartDate && b.PolicyDatetime <= filter.EndDate && !b.ClaimCustomers.Any());
-            if (filter.CustomerId != null)
-            {
-                predicate = predicate.And(b => b.CustomerId == filter.CustomerId);
-            }
-            if (filter.CustomerCategoryId != null)
-            {
-                predicate = predicate.And(b => b.CustomerCategoryId == filter.CustomerCategoryId);
-            }
-            if (filter.InvoicTypeId != null)
-            {
-                predicate = predicate.And(b => b.InvoicTypeId == filter.InvoicTypeId);
-            }
             return predicate;
         }
     }

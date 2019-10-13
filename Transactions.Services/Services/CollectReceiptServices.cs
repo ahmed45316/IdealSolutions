@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Tenets.Common.Core;
 using Tenets.Common.Enums;
+using Tenets.Common.Extensions;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
@@ -37,7 +38,8 @@ namespace Transactions.Services.Services
             {
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _policyDetailUnitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue, include: source => source.Include(c => c.CollectReceipts));
+                var predicate = ExpressionBuilder.GetPredicate<Policy,CollectReceiptFilter>(filter.Filter);
+                var query = await _policyDetailUnitOfWork.Repository.FindPaggedAsync(predicate: predicate, skip: offset, take: limit, filter.OrderByValue, include: source => source.Include(c => c.CollectReceipts));
                 var data = Mapper.Map<IEnumerable<CollectReceiptPolicyDto>>(query.Item2);
 
                 data = data.Select(q =>
@@ -58,12 +60,6 @@ namespace Transactions.Services.Services
                 result = new ResponseResult(null, status: HttpStatusCode.InternalServerError, exception: e, message: result.Message);
                 return new DataPagging(0, 0, 0, result);
             }
-        }
-        static Expression<Func<Policy, bool>> PredicateBuilderFunction(CollectReceiptFilter filter)
-        {
-            var predicate = PredicateBuilder.New<Policy>(true);
-            predicate = predicate.And(b => b.CustomerId == filter.CustomerId);
-            return predicate;
         }
 
         public async Task<IResult> GetAllPaymentTypeAsync()

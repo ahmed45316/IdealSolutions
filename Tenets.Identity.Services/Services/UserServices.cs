@@ -42,12 +42,8 @@ namespace Tenets.Identity.Services.Services
         }
         static Expression<Func<User, bool>> PredicateBuilderFunction(UserFilter parameters)
         {
-            var predicate = PredicateBuilder.New<User>(true);
+            ExpressionStarter<User> predicate = ExpressionBuilder.GetPredicate<User,UserFilter>(parameters);
             predicate = predicate.And(u => !u.IsDeleted&&u.Id != new Guid(AdmistratorId));
-            if (!string.IsNullOrWhiteSpace(parameters.UserName))
-            {
-                predicate = predicate.And(b => b.UserName.ToLower().Contains(parameters.UserName.ToLower()));
-            }
             return predicate;
         }
         public async override Task<IResult> AddAsync(UserDto model)

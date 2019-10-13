@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Tenets.Common.Core;
+using Tenets.Common.Extensions;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
@@ -34,7 +35,8 @@ namespace Transactions.Services.Services
             {
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
+                var predicate = ExpressionBuilder.GetPredicate<OpeningBalance, OpeningBalanceFilter>(filter.Filter);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: predicate, skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<OpeningBalanceDto>>(query.Item2);
 
                 var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Lookups/GetTypeNameForOpeningBalance", RestSharp.Method.POST, data);
@@ -63,22 +65,6 @@ namespace Transactions.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        static Expression<Func<OpeningBalance, bool>> PredicateBuilderFunction(OpeningBalanceFilter filter)
-        {
-            var predicate = PredicateBuilder.New<OpeningBalance>(true);
-            if (filter.OpeningBalanceFilterDate != null)
-            {
-                predicate = predicate.And(b => b.OpeningBlanceDate == filter.OpeningBalanceFilterDate);
-            }
-            if (filter.Type != null)
-            {
-                predicate = predicate.And(b => b.Type == filter.Type);
-            }
-            if (filter.TypeId != null)
-            {
-                predicate = predicate.And(b => b.TypeId == filter.TypeId);
-            }
-            return predicate;
-        }
+
     }
 }
