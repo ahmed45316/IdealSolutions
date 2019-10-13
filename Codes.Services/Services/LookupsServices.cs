@@ -29,8 +29,9 @@ namespace Codes.Services.Services
         private readonly IUnitOfWork<TaxType> _taxType;
         private readonly IUnitOfWork<Customer> _customer;
         private readonly IUnitOfWork<Rent> _rent;
+        private readonly IUnitOfWork<Nationality> _nationality;
         private IResult result;
-        public LookupsServices(IMapper mapper, IResponseResult responseResult, IUnitOfWork<InvoiceType> invoiceType, IUnitOfWork<Car> car, IUnitOfWork<CarType> carType, IUnitOfWork<CustomerCategory> customerCategory, IUnitOfWork<TrackSetting> trackSetting, IUnitOfWork<TaxType> taxType, IUnitOfWork<Customer> customer, IUnitOfWork<Rent> rent, IUnitOfWork<TrackPrice> trackPrice)
+        public LookupsServices(IMapper mapper, IResponseResult responseResult, IUnitOfWork<InvoiceType> invoiceType, IUnitOfWork<Car> car, IUnitOfWork<CarType> carType, IUnitOfWork<CustomerCategory> customerCategory, IUnitOfWork<TrackSetting> trackSetting, IUnitOfWork<TaxType> taxType, IUnitOfWork<Customer> customer, IUnitOfWork<Rent> rent, IUnitOfWork<TrackPrice> trackPrice, IUnitOfWork<Nationality> nationality)
         {
             _mapper = mapper;
             _responseResult = responseResult;
@@ -43,6 +44,7 @@ namespace Codes.Services.Services
             _customer = customer;
             _rent = rent;
             _trackPrice = trackPrice;
+            _nationality = nationality;
         }
         public async Task<IResult> GetAllLookupsForPolicy()
         {
@@ -62,6 +64,8 @@ namespace Codes.Services.Services
                 lookups.TrackSetting = _mapper.Map<IEnumerable<DropdownDto>>(trackSetting);
                 var taxType = await _taxType.Repository.GetAllAsync();
                 lookups.TaxType = _mapper.Map<IEnumerable<DropdownDto>>(taxType);
+                var nationality = await _nationality.Repository.GetAllAsync();
+                lookups.Nationality = _mapper.Map<IEnumerable<DropdownDto>>(nationality);
                 return _responseResult.PostResult(lookups, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
             }
             catch (Exception e)

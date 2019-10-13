@@ -151,6 +151,7 @@ namespace Codes.Services.Profiler
         private void MapNationality()
         {
             CreateMap<Nationality, NationalityDto>().ReverseMap();
+            CreateMap<DropdownDto, Nationality>().ReverseMap();
         }
     }
 }

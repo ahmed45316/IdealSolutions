@@ -28,7 +28,7 @@ namespace Codes.Entities.Entities
         public bool? IsOutSource { get; set; } = false;
         public Guid? NationalityId { get; set; }
         [ForeignKey("NationalityId")]
-        public Nationality Nationality { get; set; }
+        public virtual Nationality Nationality { get; set; }
         public string IdentifacationNumber { get; set; }
     }
 }
