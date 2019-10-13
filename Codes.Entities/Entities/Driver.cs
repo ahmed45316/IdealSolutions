@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Codes.Entities.Entities
@@ -25,5 +26,9 @@ namespace Codes.Entities.Entities
         [StringLength(128)]
         public string CostCenter { get; set; }
         public bool? IsOutSource { get; set; } = false;
+        public Guid? NationalityId { get; set; }
+        [ForeignKey("NationalityId")]
+        public Nationality Nationality { get; set; }
+        public string IdentifacationNumber { get; set; }
     }
 }

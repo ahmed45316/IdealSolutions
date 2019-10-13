@@ -36,9 +36,14 @@ namespace Transactions.Entities.Entites
         public long? THeadId { get; set; } = 0;
         public Guid? DriverId { get; set; }
         public string DriverName { get; set; }
-        public string DriverNationality { get; set; }
+        public Guid? DriverNationalityId { get; set; }
         public string DriverPhone { get; set; }
         public virtual ICollection<ClaimCustomer> ClaimCustomers { get; set; }
         public virtual ICollection<CollectReceipt> CollectReceipts { get; set; }
+        public string ManafestNumber { get; set; }
+        public string ColdNumber { get; set; }
+        public Guid BranchId { get; set; }
+        public Guid? RequestPaymentId { get; set; }
+
     }
 }

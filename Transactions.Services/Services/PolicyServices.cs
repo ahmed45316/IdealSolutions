@@ -45,7 +45,7 @@ namespace Transactions.Services.Services
                 if (entity.IsRentedCar && entity.DriverId == null)
                 {
 
-                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, Address = entity.DriverNationality, IsOutSource = true };
+                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, IsOutSource = true };
                     var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Add", RestSharp.Method.POST, driverObject);
                     var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
                     var driverResult = JsonConvert.DeserializeObject<DriverDto>(jsonString);

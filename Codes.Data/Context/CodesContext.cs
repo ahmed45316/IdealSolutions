@@ -27,6 +27,7 @@ namespace Codes.Data.Context
         public virtual DbSet<CarType> CarTypes { get; set; }
         public virtual DbSet<TaxCategory> TaxCategories { get; set; }
         public virtual DbSet<TaxType> TaxTypes { get; set; }
+        public virtual DbSet<Nationality> Nationalities { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());

@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191013191129_AddNew.cs" />
+    <Compile Remove="Migrations\20191013191129_AddNew.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Codes.Entities\Codes.Entities.csproj" />
     <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
   </ItemGroup>

@@ -31,6 +31,7 @@ namespace Codes.Services.Profiler
             MappTrackSetting();
             MappTrackPriceDetail();
             MappTrackPriceDetailCarType();
+            MapNationality();
         }
 
         private void MappCompanies()
@@ -146,6 +147,10 @@ namespace Codes.Services.Profiler
             CreateMap<DropdownDto, TrackSetting>().ReverseMap()
                 .ForMember(dest => dest.NameAr,
                 opt => opt.MapFrom(src => (src.FromTrack == null || src.ToTrack == null) ? "" : src.FromTrack.NameAr + "-" + src.ToTrack.NameAr));
+        }
+        private void MapNationality()
+        {
+            CreateMap<Nationality, NationalityDto>().ReverseMap();
         }
     }
 }

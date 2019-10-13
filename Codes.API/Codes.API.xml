@@ -615,6 +615,62 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Codes.API.Controllers.NationalityController">
+            <summary>
+            Nationality Controller
+            </summary>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.#ctor(Codes.Services.Interfaces.INationalityServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.Add(Codes.Services.Dto.NationalityDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.GetForReport(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Codes.Parameters.MainFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter resposiable for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Codes.API.Controllers.NationalityController.Update(Codes.Services.Dto.NationalityDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Codes.API.Controllers.RentController">
             <summary>
             Rent Controller

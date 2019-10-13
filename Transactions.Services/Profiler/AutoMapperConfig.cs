@@ -27,8 +27,8 @@ namespace Transactions.Services.Profiler
                 .ForMember(dest => dest.Migrated, opt => opt.MapFrom(src => !(src.THeadId == null || src.THeadId == 0)));
             CreateMap<CollectReceiptPolicyDto, Policy>().ReverseMap();
             CreateMap<PolicyViewModel, Policy>().ReverseMap()
-                .ForMember(dest => dest.TelNumber, opt => opt.MapFrom(src => src.DriverPhone))
-                .ForMember(dest => dest.Nationality, opt => opt.MapFrom(src => src.DriverNationality));
+                .ForMember(dest => dest.TelNumber, opt => opt.MapFrom(src => src.DriverPhone));
+                //.ForMember(dest => dest.Nationality, opt => opt.MapFrom(src => src.DriverNationality));
         }
         private void MappOpeningBalance()
         {
