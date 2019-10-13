@@ -4,6 +4,7 @@ using Codes.Services.Dto;
 using Codes.Services.Interfaces;
 using LinqKit;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -71,6 +72,23 @@ namespace Codes.Services.Services
                 }
 
                 return result;
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, HttpStatusCode.InternalServerError, e, result.Message);
+                return result;
+            }
+        }
+        public async override Task<IResult> GetByIdAsync(Guid id)
+        {
+            try
+            {
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id,include:source=>source.Include(q=>q.Nationality));
+                var data = Mapper.Map<DriverDto>(query);
+                data.NationalityNameAr = query?.Nationality?.NameAr;
+                data.NationalityNameEn = query?.Nationality?.NameEn;
+                return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "");
             }
             catch (Exception e)
             {

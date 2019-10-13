@@ -230,7 +230,7 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
-        <member name="M:Transactions.API.Controllers.PolicyController.GetReport(System.Guid)">
+        <member name="M:Transactions.API.Controllers.PolicyController.GenerateReport">
             <summary>
             Generate Reports
             </summary>

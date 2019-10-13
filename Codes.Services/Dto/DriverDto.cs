@@ -21,6 +21,8 @@ namespace Codes.Services.Dto
         public Guid? Id { get; set; }
         public bool IsOutSource { get; set; }
         public Guid? NationalityId { get; set; }
+        public string NationalityNameAr { get; set; }
+        public string NationalityNameEn { get; set; }
         public string IdentifacationNumber { get; set; }
     }
 }

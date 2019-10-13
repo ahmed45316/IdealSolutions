@@ -44,16 +44,9 @@
     <None Update="ExternalDll\CodeShellCore.Web.dll">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Reports\Policy.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Transactions.API.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Reports\" />
   </ItemGroup>
 
 </Project>

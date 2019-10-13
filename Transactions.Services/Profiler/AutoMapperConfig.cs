@@ -28,7 +28,6 @@ namespace Transactions.Services.Profiler
             CreateMap<CollectReceiptPolicyDto, Policy>().ReverseMap();
             CreateMap<PolicyViewModel, Policy>().ReverseMap()
                 .ForMember(dest => dest.TelNumber, opt => opt.MapFrom(src => src.DriverPhone));
-                //.ForMember(dest => dest.Nationality, opt => opt.MapFrom(src => src.DriverNationality));
         }
         private void MappOpeningBalance()
         {

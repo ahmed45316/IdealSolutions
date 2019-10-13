@@ -35,7 +35,7 @@ namespace Transactions.Services.Services
             try
             {
 
-                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber!=null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
+                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
                 if (hasManafest)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "رقم منفست مكرر");
@@ -46,9 +46,9 @@ namespace Transactions.Services.Services
                 if (entity.IsRentedCar && entity.DriverId == null)
                 {
 
-                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, NationalityId = entity.NationalityId , IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
+                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, NationalityId = entity.NationalityId, IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
                     var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Add", RestSharp.Method.POST, driverObject);
-                    if(serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
+                    if (serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
                     var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
                     var driverResult = JsonConvert.DeserializeObject<DriverDto>(jsonString);
                     entity.DriverId = driverResult.Id;
@@ -97,8 +97,8 @@ namespace Transactions.Services.Services
                 if (model.IsRentedCar && model.DriverId != null)
                 {
 
-                    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, NationalityId = model.NationalityId,IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
-                   var serviceResult= await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, NationalityId = model.NationalityId, IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
+                    var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
                     if (serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
                 }
                 var newEntity = Mapper.Map(model, entityToUpdate);
@@ -228,25 +228,27 @@ namespace Transactions.Services.Services
         {
             var data = await _unitOfWork.Repository.GetAsync(id);
             var policy = Mapper.Map<PolicyViewModel>(data);
-                //Customer
-                var customerResult = await _restSharpContainer.SendRequest<Result>($"L/Customer/GetForReport/{data.CustomerId}", RestSharp.Method.GET);
-                var customer = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(customerResult.Data));
-                policy.CustomerNameAr = customer.NameAr;
-                //Car Type
-                var carTypeResult = await _restSharpContainer.SendRequest<Result>($"L/CarType/GetForReport/{data.CarTypeId}", RestSharp.Method.GET);
-                var carType = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(carTypeResult.Data));
-                policy.CarTypeName = carType.NameAr;
-                //Track
-                var TrackResult = await _restSharpContainer.SendRequest<Result>($"L/TrackSetting/GetForReport/{data.TrackSettingId}", RestSharp.Method.GET);
-                var Track = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(TrackResult.Data));
-                policy.TrackName = Track.NameAr;
-                //Driver
-                if (data.DriverId != null)
-                {
-                    var driverResult = await _restSharpContainer.SendRequest<Result>($"L/Driver/GetForReport/{data.DriverId}", RestSharp.Method.GET);
-                    var driver = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(driverResult.Data));
-                    policy.DriverName = driver.NameAr;
-                }
+            //Customer
+            var customerResult = await _restSharpContainer.SendRequest<Result>($"L/Customer/GetForReport/{data.CustomerId}", RestSharp.Method.GET);
+            var customer = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(customerResult.Data));
+            policy.CustomerNameAr = customer.NameAr;
+            //Car Type
+            var carTypeResult = await _restSharpContainer.SendRequest<Result>($"L/CarType/GetForReport/{data.CarTypeId}", RestSharp.Method.GET);
+            var carType = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(carTypeResult.Data));
+            policy.CarTypeName = carType.NameAr;
+            //Track
+            var TrackResult = await _restSharpContainer.SendRequest<Result>($"L/TrackSetting/GetForReport/{data.TrackSettingId}", RestSharp.Method.GET);
+            var Track = JsonConvert.DeserializeObject<CustomerDto>(JsonConvert.SerializeObject(TrackResult.Data));
+            policy.TrackName = Track.NameAr;
+            //Driver
+            if (data.DriverId != null)
+            {
+                var driverResult = await _restSharpContainer.SendRequest<Result>($"L/Driver/GetForReport/{data.DriverId}", RestSharp.Method.GET);
+                var driver = JsonConvert.DeserializeObject<DriverDto>(JsonConvert.SerializeObject(driverResult?.Data));
+                policy.DriverName = driver?.NameAr;
+                policy.Nationality = driver?.NationalityNameAr;
+                policy.IdentifactionNumber = driver?.IdentifacationNumber;
+            }
 
             return policy;
         }

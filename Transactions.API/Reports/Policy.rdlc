@@ -237,7 +237,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.86088in</Top>
+        <Top>2.73588in</Top>
         <Left>6.92584in</Left>
         <Height>0.34375in</Height>
         <Width>1.1875in</Width>
@@ -273,7 +273,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.86088in</Top>
+        <Top>2.73588in</Top>
         <Left>2.87374in</Left>
         <Height>0.34375in</Height>
         <Width>1.11459in</Width>
@@ -309,10 +309,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.65565in</Top>
-        <Left>6.91197in</Left>
+        <Top>4.15565in</Top>
+        <Left>2.8529in</Left>
         <Height>0.35417in</Height>
-        <Width>1.1875in</Width>
+        <Width>1.1146in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -331,7 +331,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ملاحظات</Value>
+                <Value>هوية السائق</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -345,10 +345,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.65565in</Top>
-        <Left>2.85986in</Left>
+        <Top>4.15565in</Top>
+        <Left>6.90501in</Left>
         <Height>0.35417in</Height>
-        <Width>1.1146in</Width>
+        <Width>1.1875in</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -450,7 +450,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DriverName</rd:DefaultName>
-        <Top>2.87129in</Top>
+        <Top>2.74629in</Top>
         <Left>4.27306in</Left>
         <Height>0.33334in</Height>
         <Width>2.58333in</Width>
@@ -485,7 +485,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nationality</rd:DefaultName>
-        <Top>2.86088in</Top>
+        <Top>2.73588in</Top>
         <Left>0.07861in</Left>
         <Height>0.34375in</Height>
         <Width>2.7118in</Width>
@@ -551,7 +551,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>5.61411in</Top>
+        <Top>6.61411in</Top>
         <Left>6.45472in</Left>
         <Height>0.8368in</Height>
         <Width>1.68751in</Width>
@@ -617,7 +617,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>5.61411in</Top>
+        <Top>6.61411in</Top>
         <Left>2.31583in</Left>
         <Height>0.8368in</Height>
         <Width>1.7014in</Width>
@@ -683,7 +683,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>7.25299in</Top>
+        <Top>8.25299in</Top>
         <Left>6.45472in</Left>
         <Height>0.82638in</Height>
         <Width>1.68752in</Width>
@@ -749,7 +749,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>7.25299in</Top>
+        <Top>8.25299in</Top>
         <Left>2.30778in</Left>
         <Height>0.82638in</Height>
         <Width>1.7014in</Width>
@@ -764,14 +764,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Notes">
+      <Textbox Name="IdentifactionNumber">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Notes.Value, "Policies")</Value>
+                <Value>=First(Fields!IdentifactionNumber.Value, "Policies")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontSize>12pt</FontSize>
@@ -783,11 +783,10 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Notes</rd:DefaultName>
-        <Top>3.63481in</Top>
-        <Left>0.08557in</Left>
+        <Top>4.15565in</Top>
+        <Left>4.25222in</Left>
         <Height>0.36459in</Height>
-        <Width>2.7118in</Width>
+        <Width>2.58333in</Width>
         <ZIndex>18</ZIndex>
         <Style>
           <Border>
@@ -814,7 +813,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>5.61411in</Top>
+        <Top>6.61411in</Top>
         <Left>0.1075in</Left>
         <Height>0.8368in</Height>
         <Width>2.09484in</Width>
@@ -844,7 +843,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>7.25299in</Top>
+        <Top>8.25299in</Top>
         <Left>0.09945in</Left>
         <Height>0.82638in</Height>
         <Width>2.09484in</Width>
@@ -874,7 +873,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>5.61411in</Top>
+        <Top>6.61411in</Top>
         <Left>4.30195in</Left>
         <Height>0.8368in</Height>
         <Width>2.08333in</Width>
@@ -904,7 +903,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>7.25299in</Top>
+        <Top>8.25299in</Top>
         <Left>4.2939in</Left>
         <Height>0.82638in</Height>
         <Width>2.09138in</Width>
@@ -919,14 +918,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="PolicyNumber1">
+      <Textbox Name="TelNumber">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!PolicyNumber.Value, "Policies")</Value>
+                <Value>=First(Fields!TelNumber.Value, "Policies")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontSize>12pt</FontSize>
@@ -939,11 +938,10 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>PolicyNumber1</rd:DefaultName>
-        <Top>3.65565in</Top>
-        <Left>4.25918in</Left>
+        <Top>4.15565in</Top>
+        <Left>0.07861in</Left>
         <Height>0.35417in</Height>
-        <Width>2.58333in</Width>
+        <Width>2.7118in</Width>
         <ZIndex>23</ZIndex>
         <Style>
           <Border>
@@ -956,7 +954,7 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>6.00868in</Top>
+        <Top>7.00868in</Top>
         <Left>6.45472in</Left>
         <Height>0in</Height>
         <Width>1.68751in</Width>
@@ -968,7 +966,7 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>6.00868in</Top>
+        <Top>7.00868in</Top>
         <Left>2.31583in</Left>
         <Height>0in</Height>
         <Width>1.7014in</Width>
@@ -980,7 +978,7 @@
         </Style>
       </Line>
       <Line Name="Line3">
-        <Top>7.69618in</Top>
+        <Top>8.69618in</Top>
         <Left>6.45472in</Left>
         <Height>0in</Height>
         <Width>1.68752in</Width>
@@ -992,7 +990,7 @@
         </Style>
       </Line>
       <Line Name="Line4">
-        <Top>7.69618in</Top>
+        <Top>8.69618in</Top>
         <Left>2.30778in</Left>
         <Height>0in</Height>
         <Width>1.7014in</Width>
@@ -1076,8 +1074,220 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>رقم الحافلة</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>3.44147in</Top>
+        <Left>6.90501in</Left>
+        <Height>0.35417in</Height>
+        <Width>1.1875in</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>درجة التبريد</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>3.44147in</Top>
+        <Left>2.8529in</Left>
+        <Height>0.35417in</Height>
+        <Width>1.1146in</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="ColdNumber">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!ColdNumber.Value, "Policies")</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.42063in</Top>
+        <Left>0.07861in</Left>
+        <Height>0.36459in</Height>
+        <Width>2.7118in</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="CarNo">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!CarNo.Value, "Policies")</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <ListLevel>1</ListLevel>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.44147in</Top>
+        <Left>4.25222in</Left>
+        <Height>0.35417in</Height>
+        <Width>2.58333in</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>ملاحظات</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>5.00299in</Top>
+        <Left>7.0057in</Left>
+        <Height>0.54168in</Height>
+        <Width>1.1146in</Width>
+        <ZIndex>34</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Notes">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Notes.Value, "Policies")</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Notes</rd:DefaultName>
+        <Top>5.00299in</Top>
+        <Left>0.1075in</Left>
+        <Height>0.53126in</Height>
+        <Width>6.83571in</Width>
+        <ZIndex>35</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>8.61211in</Height>
+    <Height>9.47669in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -1199,6 +1409,18 @@
         </Field>
         <Field Name="Notes">
           <DataField>Notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CarNo">
+          <DataField>CarNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ColdNumber">
+          <DataField>ColdNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IdentifactionNumber">
+          <DataField>IdentifactionNumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
