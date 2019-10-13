@@ -15,6 +15,9 @@ namespace Transactions.Services.ReportsDto
         public string Nationality { get; set; }
         public string TelNumber { get; set; }
         public string Notes { get; set; }
+        public string CarNo { get; set; }
+        public string ColdNumber { get; set; }
+        public string IdentifactionNumber { get; set; }
 
     }
 }
