@@ -20,5 +20,7 @@ namespace Transactions.Services.Dto
         public string CostCenter { get; set; }
         public Guid? Id { get; set; }
         public bool? IsOutSource { get; set; }
+        public Guid? NationalityId { get; set; }
+        public string IdentifacationNumber { get; set; }
     }
 }

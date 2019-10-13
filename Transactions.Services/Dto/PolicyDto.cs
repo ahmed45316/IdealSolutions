@@ -35,7 +35,10 @@ namespace Transactions.Services.Dto
         public bool? Migrated { get; set; } = false;
         public Guid? DriverId { get; set; }
         public string DriverName { get; set; }
-        public string DriverNationality { get; set; }
+        public Guid? NationalityId { get; set; }
         public string DriverPhone { get; set; }
+        public string IdentifacationNumber { get; set; }
+        public string ManafestNumber { get; set; }
+        public string ColdNumber { get; set; }
     }
 }

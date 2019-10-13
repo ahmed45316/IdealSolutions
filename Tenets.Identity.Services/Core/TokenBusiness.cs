@@ -26,6 +26,7 @@ namespace Tenets.Identity.Services.Core
                 new Claim( JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Sub, userInfo.UserName),
                 new Claim("UserId", userInfo.Id.ToString()),
+                new Claim("BranchId", userInfo.BranchId.ToString()),
                 new Claim("Role", role)
             };
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]));

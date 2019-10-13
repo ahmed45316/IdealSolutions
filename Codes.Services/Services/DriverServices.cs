@@ -25,9 +25,9 @@ namespace Codes.Services.Services
         {
             try
             {
-                if (_unitOfWork.Repository.IsExists(q => q.Id != model.Id && (q.NameAr == model.NameAr || q.NameEn == model.NameEn || q.DriverCode == model.DriverCode)))
+                if (_unitOfWork.Repository.IsExists(q => (q.NameAr == model.NameAr || q.NameEn == model.NameEn || q.DriverCode == model.DriverCode || (q.IdentifacationNumber != null && q.IdentifacationNumber == model.IdentifacationNumber)) && q.Id != model.Id))
                 {
-                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "الاسم او الكود موجود من قبل!");
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "الاسم او الكود او رقم الهوية موجود من قبل!");
                 }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<Driver>(model);
@@ -112,7 +112,7 @@ namespace Codes.Services.Services
             {
                 predicate = predicate.And(b => b.Email.ToLower() == filter.Email.ToLower());
             }
-               
+
             return predicate;
         }
         public async Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter)

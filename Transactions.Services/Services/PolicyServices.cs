@@ -35,24 +35,27 @@ namespace Transactions.Services.Services
             try
             {
 
-                //var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber.ToLower() == model.PolicyNumber.ToLower());
-                //if (policyData != null)
-                //{
-                //    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
-                //}
+                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber!=null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
+                if (hasManafest)
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "رقم منفست مكرر");
+                }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
+                var branchId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "BranchId").Value;
                 var entity = Mapper.Map<Policy>(model);
                 if (entity.IsRentedCar && entity.DriverId == null)
                 {
 
-                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, IsOutSource = true };
+                    var driverObject = new DriverDto() { NameEn = entity.DriverName, NameAr = entity.DriverName, Phone = entity.DriverPhone, Mobile = entity.DriverPhone, NationalityId = entity.NationalityId , IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
                     var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Add", RestSharp.Method.POST, driverObject);
+                    if(serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
                     var jsonString = JsonConvert.SerializeObject(serviceResult.Data);
                     var driverResult = JsonConvert.DeserializeObject<DriverDto>(jsonString);
                     entity.DriverId = driverResult.Id;
                 }
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId = new Guid(userId);
+                entity.BranchId = new Guid(branchId);
                 //For Some Times Only 
                 var policies = await _unitOfWork.Repository.GetAllAsync();
                 entity.PolicyNumber = policies.Any() ? (1000 + policies.Count()) : 1000;
@@ -78,14 +81,14 @@ namespace Transactions.Services.Services
         {
             try
             {
-                //var policyData = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.PolicyNumber == model.PolicyNumber && q.Id != model.Id);
-
-                //if (policyData != null)
-                //{
-                //    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "توجد بوليصة بهذا الرقم برجاء المراجعة واعادة الحفظ");
-                //}
+                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower() && q.Id != model.Id);
+                if (hasManafest)
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "رقم منفست مكرر");
+                }
 
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
+                var branchId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "BranchId").Value;
                 var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
                 if (!(entityToUpdate.THeadId == null || entityToUpdate.THeadId == 0))
                 {
@@ -94,14 +97,16 @@ namespace Transactions.Services.Services
                 if (model.IsRentedCar && model.DriverId != null)
                 {
 
-                    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, Address = model.DriverNationality, IsOutSource = true };
-                    await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, NationalityId = model.NationalityId,IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
+                   var serviceResult= await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                    if (serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
                 }
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;
                 newEntity.CreateDate = entityToUpdate.CreateDate;
                 newEntity.ModifyDate = DateTime.Now;
                 newEntity.ModifyUserId = new Guid(userId);
+                newEntity.BranchId = new Guid(branchId);
                 _unitOfWork.Repository.Update(entityToUpdate, newEntity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
