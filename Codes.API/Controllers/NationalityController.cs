@@ -17,11 +17,11 @@ namespace Codes.API.Controllers
     /// </summary>
     public class NationalityController : BaseController, IMainEndPoint<NationalityDto>
     {
-        private readonly INationalityServices _NationalityServices;
+        private readonly INationalityServices _nationalityServices;
         /// <inheritdoc />
-        public NationalityController(INationalityServices NationalityServices)
+        public NationalityController(INationalityServices nationalityServices)
         {
-            _NationalityServices = NationalityServices;
+            _nationalityServices = nationalityServices;
         }
         /// <summary>
         /// Add data 
@@ -31,7 +31,7 @@ namespace Codes.API.Controllers
         [HttpPost]
         public async Task<IResult> Add(NationalityDto model)
         {      
-            return await _NationalityServices.AddAsync(model);
+            return await _nationalityServices.AddAsync(model);
         }
         /// <summary>
         /// Get data by Id
@@ -41,7 +41,7 @@ namespace Codes.API.Controllers
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
         {
-            return await _NationalityServices.GetByIdAsync(id);
+            return await _nationalityServices.GetByIdAsync(id);
         }
         /// <summary>
         /// Get data by Id
@@ -52,7 +52,7 @@ namespace Codes.API.Controllers
         [AllowAnonymous]
         public async Task<IResult> GetForReport(Guid id)
         {
-            return await _NationalityServices.GetByIdAsync(id);
+            return await _nationalityServices.GetByIdAsync(id);
         }
         /// <summary>
         /// GetAll Data
@@ -61,17 +61,17 @@ namespace Codes.API.Controllers
         [HttpGet]
         public async Task<IResult> GetAll()
         {
-            return await _NationalityServices.GetAllAsync();
+            return await _nationalityServices.GetAllAsync();
         }
         /// <summary>
         /// GetAll Data paged
         /// </summary>
-        /// <param name="filter">Filter resposiable for search and sort</param>
+        /// <param name="filter">Filter responsible for search and sort</param>
         /// <returns></returns>
         [HttpPost]
         public async Task<IDataPagging> GetPaged([FromBody]BaseParam<MainFilter> filter)
         {
-            return await _NationalityServices.GetAllPaggedAsync(filter);
+            return await _nationalityServices.GetAllPaggedAsync(filter);
         }
         /// <summary>
         /// Remove data by id
@@ -81,7 +81,7 @@ namespace Codes.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IResult> Remove(Guid id)
         {
-            return await _NationalityServices.DeleteAsync(id);
+            return await _nationalityServices.DeleteAsync(id);
         }
         /// <summary>
         /// Update data 
@@ -91,7 +91,7 @@ namespace Codes.API.Controllers
         [HttpPut]
         public async Task<IResult> Update(NationalityDto model)
         {        
-            return await _NationalityServices.UpdateAsync(model);
+            return await _nationalityServices.UpdateAsync(model);
         }
     }
 }
