@@ -7,5 +7,6 @@ namespace Codes.Entities.Entities
 {
     public class Nationality : CommonPropertyEntity
     {
+        public virtual ICollection<Driver> Drivers { get; set; }
     }
 }
