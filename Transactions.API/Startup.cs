@@ -14,6 +14,7 @@ namespace Transactions.API
     /// </summary>
     public class Startup
     {
+        /// <inheritdoc />
         public TransactionShell _transactionShell { get; set; }
         /// <inheritdoc />
         public Startup(IConfiguration configuration)

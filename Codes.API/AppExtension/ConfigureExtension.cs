@@ -5,8 +5,10 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Codes.API.AppExtension
 {
+    /// <inheritdoc />
     public static class ConfigureExtension
     {
+        /// <inheritdoc />
         public static IApplicationBuilder Configure(this IApplicationBuilder app, IHostingEnvironment env,IConfiguration configuration)
         {
             app.CorsConfig();

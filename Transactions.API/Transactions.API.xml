@@ -4,6 +4,18 @@
         <name>Transactions.API</name>
     </assembly>
     <members>
+        <member name="T:Transactions.API.AppExtension.ConfigureExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.AppExtension.ConfigureExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
+        <member name="T:Transactions.API.AppExtension.ConfigureServicesExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.AppExtension.ConfigureServicesExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
         <member name="T:Transactions.API.Controllers.Base.BaseController">
             <inheritdoc />
         </member>
@@ -253,10 +265,22 @@
             <param name="args"></param>
             <returns></returns>
         </member>
+        <member name="T:Transactions.API.ReportModels.PolicyReportModel">
+            <inheritdoc />
+        </member>
+        <member name="P:Transactions.API.ReportModels.PolicyReportModel.Policies">
+            <inheritdoc />
+        </member>
+        <member name="P:Transactions.API.ReportModels.PolicyReportModel.Template">
+            <inheritdoc />
+        </member>
         <member name="T:Transactions.API.Startup">
             <summary>
             Start Up Class
             </summary>
+        </member>
+        <member name="P:Transactions.API.Startup._transactionShell">
+            <inheritdoc />
         </member>
         <member name="M:Transactions.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <inheritdoc />
@@ -278,6 +302,18 @@
             </summary>
             <param name="app">Provide mechanisms to configure requests</param>
             <param name="env">Provide information about hosting</param>
+        </member>
+        <member name="T:Transactions.API.TransactionShell">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.TransactionShell.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
+        <member name="P:Transactions.API.TransactionShell.useLocalization">
+            <inheritdoc />
+        </member>
+        <member name="P:Transactions.API.TransactionShell.defaultCulture">
+            <inheritdoc />
         </member>
     </members>
 </doc>
