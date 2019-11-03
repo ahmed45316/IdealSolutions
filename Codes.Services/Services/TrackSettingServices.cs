@@ -28,7 +28,11 @@ namespace Codes.Services.Services
         {
             try
             {
-                if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار متشابه برجاء اختر مسار مختلف");
+                // if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار متشابه برجاء اختر مسار مختلف");
+                if (_unitOfWork.Repository.IsExists(q => q.FromTrackId == model.FromTrackId && q.ToTrackId == model.ToTrackId))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار موجود بالفعل");
+                }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entity = Mapper.Map<TrackSetting>(model);
                 entity.CreateDate = DateTime.Now;
@@ -54,7 +58,11 @@ namespace Codes.Services.Services
         {
             try
             {
-                if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار متشابه برجاء اختر مسار مختلف");
+                //if (model.FromTrackId == model.ToTrackId) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار متشابه برجاء اختر مسار مختلف");
+                if (_unitOfWork.Repository.IsExists(q => q.FromTrackId == model.FromTrackId && q.ToTrackId == model.ToTrackId && q.Id != model.Id))
+                {
+                    return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "المسار موجود بالفعل");
+                }
                 var userId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "UserId").Value;
                 var entityToUpdate = await _unitOfWork.Repository.GetAsync(model.Id);
                 var newEntity = Mapper.Map(model, entityToUpdate);
@@ -82,7 +90,7 @@ namespace Codes.Services.Services
         {
             try
             {
-                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q=>q.Id==id, include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
+                var query = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
                 var data = Mapper.Map<TrackSettingDto>(query);
                 return ResponseResult.PostResult(result: data, status: HttpStatusCode.OK, message: "");
             }
@@ -119,7 +127,7 @@ namespace Codes.Services.Services
             }
             if (filter.ToTrackId != null)
             {
-                predicate = predicate.And(b => b.ToTrackId == filter.ToTrackId); 
+                predicate = predicate.And(b => b.ToTrackId == filter.ToTrackId);
             }
             return predicate;
         }
@@ -130,7 +138,7 @@ namespace Codes.Services.Services
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
                 var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue,
-                                                                         include:source=>source.Include(t=>t.FromTrack).Include(t => t.ToTrack));
+                                                                         include: source => source.Include(t => t.FromTrack).Include(t => t.ToTrack));
                 var data = Mapper.Map<IEnumerable<DropdownDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
@@ -146,10 +154,10 @@ namespace Codes.Services.Services
             var predicate = PredicateBuilder.New<TrackSetting>(true);
             if (!string.IsNullOrWhiteSpace(filter.SearchCriteria))
             {
-                predicate = predicate.And(b => (b.FromTrack.NameAr.ToLower()+"-"+b.ToTrack.NameAr.ToLower()).Contains(filter.SearchCriteria.ToLower()));
+                predicate = predicate.And(b => (b.FromTrack.NameAr.ToLower() + "-" + b.ToTrack.NameAr.ToLower()).Contains(filter.SearchCriteria.ToLower()));
             }
             return predicate;
         }
-        
+
     }
 }
