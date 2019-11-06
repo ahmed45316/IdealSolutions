@@ -13,7 +13,7 @@ namespace Codes.Services.Interfaces
 {
     public interface INationalityServices: IBaseService<Nationality, NationalityDto>
     {
-        Task<IDataPagging> GetAllPaggedAsync(BaseParam<MainFilter> filter
-            );
+        Task<IDataPagging> GetAllPaggedAsync(BaseParam<MainFilter> filter);
+        Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
     }
 }

@@ -11,5 +11,6 @@ namespace Codes.Services.Interfaces
     public interface ICarServices: IBaseService<Car, CarDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<CarFilter> filter);
+        Task<IDataPagging> GetDropDownAsync(BaseParam<SearchCriteriaFilter> filter);
     }
 }
