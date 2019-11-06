@@ -14,6 +14,6 @@ namespace Transactions.Services.Interfaces
     public interface ICollectReceiptServices : IBaseService<CollectReceipt, CollectReceiptDto>
     {
         Task<IDataPagging> GetAllPaggedAsync(BaseParam<CollectReceiptFilter> filter);
-        Task<IResult> GetAllPaymentTypeAsync();
+        IResult GetAllPaymentType();
     }
 }

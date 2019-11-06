@@ -35,8 +35,8 @@ namespace Transactions.Services.Services
             try
             {
 
-                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
-                if (hasManafest)
+                var hasManifest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
+                if (hasManifest)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "رقم منفست مكرر");
                 }
@@ -172,7 +172,7 @@ namespace Transactions.Services.Services
 
                 data = data.Select(q =>
                 {
-                    q.CustomerNameAr = customersResult.FirstOrDefault(c => c.Id == q.CustomerId).NameAr;
+                    q.CustomerNameAr = customersResult?.FirstOrDefault(c => c.Id == q.CustomerId)?.NameAr;
                     return q;
                 });
                 //==============================================================

@@ -4,6 +4,18 @@
         <name>Codes.API</name>
     </assembly>
     <members>
+        <member name="T:Codes.API.AppExtension.ConfigureExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.AppExtension.ConfigureExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
+        <member name="T:Codes.API.AppExtension.ConfigureServicesExtension">
+            <inheritdoc />
+        </member>
+        <member name="M:Codes.API.AppExtension.ConfigureServicesExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
         <member name="T:Codes.API.Controllers.Base.BaseController">
             <inheritdoc />
         </member>

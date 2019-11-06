@@ -55,9 +55,9 @@ namespace Transactions.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IResult> GetAllPaymentTypes()
+        public IResult GetAllPaymentTypes()
         {
-            return await _collectReceiptServices.GetAllPaymentTypeAsync();
+            return _collectReceiptServices.GetAllPaymentType();
         }
         /// <summary>
         /// GetAll Data paged

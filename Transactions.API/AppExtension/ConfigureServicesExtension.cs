@@ -15,8 +15,10 @@ using CodeShellCore.Services;
 
 namespace Transactions.API.AppExtension
 {
+    /// <inheritdoc />
     public static class ConfigureServicesExtension
     {
+        /// <inheritdoc />
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration _configuration)
         {
             services.DatabaseConfig(_configuration);

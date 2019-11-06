@@ -62,7 +62,7 @@ namespace Transactions.Services.Services
             }
         }
 
-        public async Task<IResult> GetAllPaymentTypeAsync()
+        public IResult GetAllPaymentType()
         {
             var values = Enum.GetValues(typeof(PaymentType)).Cast<PaymentType>();
             var los = new List<PaymentTypeDto>();
@@ -72,6 +72,6 @@ namespace Transactions.Services.Services
             }
             return new ResponseResult(los, status: HttpStatusCode.OK, message: "");
         }
-        
+
     }
 }

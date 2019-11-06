@@ -34,6 +34,7 @@ namespace Codes.Services.Services
                 var entity = Mapper.Map<Driver>(model);
                 entity.CreateDate = DateTime.Now;
                 entity.CreateUserId = new Guid(userId);
+                entity.Nationality = null;
                 var dataSaved = _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
@@ -62,6 +63,7 @@ namespace Codes.Services.Services
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;
                 newEntity.CreateDate = entityToUpdate.CreateDate;
+                newEntity.Nationality = null;
                 newEntity.ModifyDate = DateTime.Now;
                 newEntity.ModifyUserId = new Guid(userId);
                 _unitOfWork.Repository.Update(entityToUpdate, newEntity);
