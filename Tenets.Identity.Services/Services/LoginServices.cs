@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Tenets.Common.Core;
@@ -25,11 +23,11 @@ namespace Tenets.Identity.Services.Services
             var user = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.UserName == parameters.Username && !q.IsDeleted,include:source=>source.Include(a=>a.Role),disableTracking:false);
             if (user==null) return ResponseResult.PostResult(status: HttpStatusCode.BadRequest,
                              message: "Wrong Username or Password");
-            bool rightPass = CreptoHasher.VerifyHashedPassword(user.Password, parameters.Password);
+            var rightPass = CreptoHasher.VerifyHashedPassword(user.Password, parameters.Password);
             if (!rightPass) return ResponseResult.PostResult(status: HttpStatusCode.NotFound, message: "Wrong Password");
             var role = user.Role.Name;
             var userDto = Mapper.Map<User, UserDto>(user);
-            var userLoginReturn = _tokenBusiness.GenerateJsonWebToken(userDto, role.ToString());
+            var userLoginReturn = _tokenBusiness.GenerateJsonWebToken(userDto, role);
             return ResponseResult.PostResult(userLoginReturn, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()); 
         }
     }
