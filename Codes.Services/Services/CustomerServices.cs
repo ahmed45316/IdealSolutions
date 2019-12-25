@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
+using RestSharp;
 using Tenets.Common.Core;
 using Tenets.Common.RestSharp;
 
@@ -42,6 +43,8 @@ namespace Codes.Services.Services
                 if (affectedRows > 0)
                 {
                     result = new ResponseResult(result: dataSaved, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
+                    await _restSharpContainer.SendRequest("T/Communication/Add", RestSharp.Method.POST, dataSaved);
+
                 }
                 return result;
             }
@@ -72,6 +75,7 @@ namespace Codes.Services.Services
                 if (affectedRows > 0)
                 {
                     result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم التعديل بنجاح");
+                    await _restSharpContainer.SendRequest("T/Communication/Update", RestSharp.Method.PUT, model);
                 }
 
                 return result;
@@ -167,6 +171,8 @@ namespace Codes.Services.Services
                 if (affectedRows > 0)
                 {
                     result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
+                     await _restSharpContainer.SendRequest($"T/Communication/Remove/{id}",Method.DELETE);
+
                 }
                 return result;
             }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 using Transactions.Entities.Entities.Base;
 
-namespace Transactions.Entities.Entites
+namespace Transactions.Entities.Entities
 {
     public class ClaimCustomer : BaseEntity
     {
@@ -19,5 +17,7 @@ namespace Transactions.Entities.Entites
         public Guid PolicyId { get; set; }
         [ForeignKey("PolicyId")]
         public virtual Policy Policy { get; set; }
+        [ForeignKey("CustomerId")]
+        public virtual Customer Customer { get; set; }
     }
 }

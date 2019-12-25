@@ -15,7 +15,7 @@ using Tenets.Common.Extensions;
 using Tenets.Common.RestSharp;
 using Tenets.Common.ServicesCommon.Identity.Base;
 using Tenets.Common.ServicesCommon.Transaction.Parameters;
-using Transactions.Entities.Entites;
+using Transactions.Entities.Entities;
 using Transactions.Services.Core;
 using Transactions.Services.Dto;
 using Transactions.Services.Interfaces;

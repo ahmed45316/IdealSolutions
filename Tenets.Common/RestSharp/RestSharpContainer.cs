@@ -33,5 +33,18 @@ namespace Tenets.Common.RestSharp
             var response = await client.ExecuteTaskAsync<T>(request);
             return response.Data;
         }
+
+        public async Task SendRequest(string uri, Method method, object obj = null)
+        {
+            client.CookieContainer = new CookieContainer();
+            var request = new RestRequest($"{_serverUri}{uri}", method);
+            if (method == Method.POST || method == Method.PUT)
+            {
+                request.AddJsonBody(obj);
+            }
+            var accessToken = await _httpContextAccessor.HttpContext.GetTokenAsync("access_token");
+            if (accessToken != null) request.AddParameter("Authorization", "Bearer " + accessToken, ParameterType.HttpHeader);
+            var response = await client.ExecuteTaskAsync(request);
+        }
     }
 }

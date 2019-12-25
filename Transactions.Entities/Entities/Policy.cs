@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Transactions.Entities.Entities.Base;
 
-namespace Transactions.Entities.Entites
+namespace Transactions.Entities.Entities
 {
     public class Policy:BaseEntity
     {
@@ -45,6 +45,8 @@ namespace Transactions.Entities.Entites
         public string ColdNumber { get; set; }
         public Guid BranchId { get; set; }
         public Guid? RequestPaymentId { get; set; }
+        [ForeignKey("CustomerId")]
+        public virtual  Customer Customer { get; set; }
 
     }
 }

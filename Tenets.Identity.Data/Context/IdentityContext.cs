@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using Tenets.Identity.Data.SeedData;
 using Tenets.Identity.Entities;
 
@@ -15,6 +16,7 @@ namespace Tenets.Identity.Data.Context
         public virtual DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).ToList().ForEach(foreignKey => foreignKey.DeleteBehavior = DeleteBehavior.Restrict);
             #region Seed Data
             modelBuilder.Entity<User>().HasData(_dataInitialize.AddSystemAdmin());
             modelBuilder.Entity<Role>().HasData(_dataInitialize.AddDefaultRole());

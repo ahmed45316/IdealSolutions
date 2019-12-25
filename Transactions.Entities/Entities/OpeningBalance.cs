@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 using Tenets.Common.Enums;
 using Transactions.Entities.Entities.Base;
 
-namespace Transactions.Entities.Entites
+namespace Transactions.Entities.Entities
 {
     public class OpeningBalance : BaseEntity
     {
@@ -16,5 +15,7 @@ namespace Transactions.Entities.Entites
         [StringLength(512)]
         public string Notes { get; set; }
         public DateTime OpeningBlanceDate { get; set; }
+        [ForeignKey("CustomerId")]
+        public virtual Customer Customer { get; set; }
     }
 }

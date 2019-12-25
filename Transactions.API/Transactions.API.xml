@@ -139,6 +139,38 @@
             <param name="model">Object content</param>
             <returns></returns>
         </member>
+        <member name="T:Transactions.API.Controllers.CommunicationController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.CommunicationController.#ctor(Transactions.Services.Interfaces.ICommunicationServices)">
+            <summary>
+            
+            </summary>
+            <param name="communicationServices"></param>
+        </member>
+        <member name="M:Transactions.API.Controllers.CommunicationController.Add(Transactions.Services.Dto.CustomerDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CommunicationController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CommunicationController.Update(Transactions.Services.Dto.CustomerDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
         <member name="T:Transactions.API.Controllers.OpeningBalanceController">
             <summary>
             Opening Balance Controller

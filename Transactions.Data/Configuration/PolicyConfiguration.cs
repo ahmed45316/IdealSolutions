@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Transactions.Entities.Entites;
+using Transactions.Entities.Entities;
 
 namespace Transactions.Data.Configuration
 {

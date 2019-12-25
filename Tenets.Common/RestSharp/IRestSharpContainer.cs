@@ -9,5 +9,6 @@ namespace Tenets.Common.RestSharp
    public interface IRestSharpContainer
     {
         Task<T> SendRequest<T>(string uri, Method method, object obj = null);
+        Task SendRequest(string uri, Method method, object obj = null);
     }
 }

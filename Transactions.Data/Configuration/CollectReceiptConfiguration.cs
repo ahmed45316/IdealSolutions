@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Transactions.Entities.Entites;
+using Transactions.Entities.Entities;
 
 namespace Transactions.Data.Configuration
 {

@@ -1,4 +1,5 @@
-﻿using Codes.Data.Configuration;
+﻿using System.Linq;
+using Codes.Data.Configuration;
 using Codes.Entities.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,6 +31,7 @@ namespace Codes.Data.Context
         public virtual DbSet<Nationality> Nationalities { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()).ToList().ForEach(foreignKey => foreignKey.DeleteBehavior = DeleteBehavior.Restrict);
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new RepresentativeConfiguration());
             modelBuilder.ApplyConfiguration(new RentConfiguration());
