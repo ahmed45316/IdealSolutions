@@ -79,7 +79,7 @@ namespace Transactions.Services.Services
         {
             try
             {
-                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower() && q.Id != model.Id);
+                var hasManafest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber != "0" && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower() && q.Id != model.Id);
                 if (hasManafest)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "رقم منفست مكرر");
@@ -92,13 +92,13 @@ namespace Transactions.Services.Services
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "تم الترحيل");
                 }
-                if (model.IsRentedCar && model.DriverId != null)
-                {
+                //if (model.IsRentedCar && model.DriverId != null)
+                //{
 
-                    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, NationalityId = model.NationalityId, IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
-                    var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
-                    if (serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
-                }
+                //    var driverObject = new DriverDto() { Id = model.DriverId, NameEn = model.DriverName, NameAr = model.DriverName, Phone = model.DriverPhone, Mobile = model.DriverPhone, NationalityId = model.NationalityId, IdentifacationNumber = model.IdentifacationNumber, IsOutSource = true };
+                //    var serviceResult = await _restSharpContainer.SendRequest<Result>("L/Driver/Update", RestSharp.Method.PUT, driverObject);
+                //    if (serviceResult.Data is null) return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: serviceResult.Message);
+                //}
                 var newEntity = Mapper.Map(model, entityToUpdate);
                 newEntity.CreateUserId = entityToUpdate.CreateUserId;
                 newEntity.CreateDate = entityToUpdate.CreateDate;
@@ -231,6 +231,12 @@ namespace Transactions.Services.Services
                 policy.DriverName = driver?.NameAr;
                 policy.Nationality = driver?.NationalityNameAr;
                 policy.IdentifactionNumber = driver?.IdentifacationNumber;
+                policy.TelNumber = driver?.Phone;
+                if (string.IsNullOrWhiteSpace(policy.CarNo))
+                {
+                    var dataForCar = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.DriverId == data.DriverId && q.CarNo !=null && q.CarNo !="");
+                    policy.CarNo = dataForCar.CarNo;
+                }
             }
 
             return policy;
