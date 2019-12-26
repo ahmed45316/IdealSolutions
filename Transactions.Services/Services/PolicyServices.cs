@@ -35,7 +35,7 @@ namespace Transactions.Services.Services
             try
             {
 
-                var hasManifest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
+                var hasManifest = _unitOfWork.Repository.IsExists(q => q.ManafestNumber != null && q.ManafestNumber !="0" && q.ManafestNumber.ToLower() == model.ManafestNumber.ToLower());
                 if (hasManifest)
                 {
                     return new ResponseResult(result: null, status: HttpStatusCode.BadRequest, message: "رقم منفست مكرر");
@@ -60,14 +60,12 @@ namespace Transactions.Services.Services
                 var policies = await _unitOfWork.Repository.GetAllAsync();
                 entity.PolicyNumber = policies.Any() ? (1000 + policies.Count()) : 1000;
                 //end
-                _unitOfWork.Repository.Add(entity);
+               var dataSaved = _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
                 if (affectedRows > 0)
                 {
-                    result = new ResponseResult(result: null, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
+                    result = new ResponseResult(result: dataSaved, status: HttpStatusCode.Created, message: "تم الحفظ بنجاح");
                 }
-
-                result.Data = model;
                 return result;
             }
             catch (Exception e)
@@ -172,6 +170,7 @@ namespace Transactions.Services.Services
         static Expression<Func<Policy, bool>> PredicateBuilderFunction(PolicyFilter filter, string userId, bool isSuperAdmin)
         {
             var predicate = PredicateBuilder.New<Policy>(true);
+            predicate = predicate.And(b => b.THeadId == null || b.THeadId == 0 );
             //IsSuperAdmin
             if (!isSuperAdmin)
             {
