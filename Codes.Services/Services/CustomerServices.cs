@@ -129,9 +129,10 @@ namespace Codes.Services.Services
         {
             try
             {
+                var representativeId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "RepresentativeId").Value;
                 int limit = filter.PageSize;
                 int offset = ((--filter.PageNumber) * filter.PageSize);
-                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter), skip: offset, take: limit, filter.OrderByValue);
+                var query = await _unitOfWork.Repository.FindPaggedAsync(predicate: PredicateBuilderFunction(filter.Filter, representativeId), skip: offset, take: limit, filter.OrderByValue);
                 var data = Mapper.Map<IEnumerable<DropdownDto>>(query.Item2);
                 return new DataPagging(++filter.PageNumber, filter.PageSize, query.Item1, ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString()));
             }
@@ -142,12 +143,17 @@ namespace Codes.Services.Services
                 return new DataPagging(0, 0, 0, result);
             }
         }
-        static Expression<Func<Customer, bool>> PredicateBuilderFunction(SearchCriteriaFilter filter)
+        static Expression<Func<Customer, bool>> PredicateBuilderFunction(SearchCriteriaFilter filter, string representativeId)
         {
             var predicate = PredicateBuilder.New<Customer>(true);
             if (!string.IsNullOrWhiteSpace(filter.SearchCriteria))
             {
                 predicate = predicate.And(b => b.NameAr.ToLower().Contains(filter.SearchCriteria.ToLower()));
+            }
+
+            if (!string.IsNullOrWhiteSpace(representativeId))
+            {
+                predicate = predicate.And(b => b.RepresentativeId == new Guid(representativeId));
             }
             return predicate;
         }
@@ -161,7 +167,7 @@ namespace Codes.Services.Services
             try
             {
                 var serviceResult = await _restSharpContainer.SendRequest<Result>($"T/Policy/GetByCustomerId/{id}", RestSharp.Method.GET);
-                if (serviceResult.Data!=null)
+                if (serviceResult.Data != null)
                 {
                     return ResponseResult.PostResult(result: true, status: HttpStatusCode.BadRequest, message: "لا تستطيع الحذف");
                 }
@@ -171,7 +177,7 @@ namespace Codes.Services.Services
                 if (affectedRows > 0)
                 {
                     result = ResponseResult.PostResult(result: true, status: HttpStatusCode.Accepted, message: "تم الحذف بنجاح");
-                     await _restSharpContainer.SendRequest($"T/Communication/Remove/{id}",Method.DELETE);
+                    await _restSharpContainer.SendRequest($"T/Communication/Remove/{id}", Method.DELETE);
 
                 }
                 return result;

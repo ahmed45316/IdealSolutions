@@ -19,5 +19,6 @@ namespace Tenets.Identity.Entities
         [ForeignKey("RoleId")]
         public virtual Role Role { get; set; }
         public Guid BranchId { get; set; }
+        public Guid? RepresentativeId { get; set; }
     }
 }

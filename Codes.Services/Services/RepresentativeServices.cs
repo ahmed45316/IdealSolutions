@@ -139,5 +139,24 @@ namespace Codes.Services.Services
             }
             return predicate;
         }
+        public async override Task<IResult> GetAllAsync(bool disableTracking = false)
+        {
+            try
+            {
+                var representativeId = _httpContextAccessor.HttpContext.User.FindFirst(t => t.Type == "RepresentativeId").Value;
+
+                var query = string.IsNullOrWhiteSpace(representativeId)? await _unitOfWork.Repository.GetAllAsync(disableTracking: disableTracking) : await _unitOfWork.Repository.FindAsync(disableTracking: disableTracking,predicate:q=>q.Id == new Guid(representativeId));
+
+                var data = Mapper.Map<IEnumerable<RepresentativeDto>>(query);
+                return ResponseResult.PostResult(data, status: HttpStatusCode.OK, message: HttpStatusCode.OK.ToString());
+            }
+            catch (Exception e)
+            {
+                result.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+                result = new ResponseResult(null, status: HttpStatusCode.InternalServerError, exception: e, message: result.Message);
+                return result;
+            }
+        }
+
     }
 }
