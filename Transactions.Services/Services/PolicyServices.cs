@@ -58,7 +58,7 @@ namespace Transactions.Services.Services
                 entity.BranchId = new Guid(branchId);
                 //For Some Times Only 
                 var policies = await _unitOfWork.Repository.GetAllAsync();
-                entity.PolicyNumber = policies.Any() ? (1000 + policies.Count()) : 1000;
+                entity.PolicyNumber = policies.Any() ? (1010001 + policies.Count()) : 1010001;
                 //end
                var dataSaved = _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
