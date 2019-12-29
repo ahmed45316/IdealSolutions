@@ -45,6 +45,7 @@ namespace Transactions.Entities.Entities
         public string ColdNumber { get; set; }
         public Guid BranchId { get; set; }
         public Guid? RequestPaymentId { get; set; }
+        public bool Review { get; set; }
         [ForeignKey("CustomerId")]
         public virtual  Customer Customer { get; set; }
 
