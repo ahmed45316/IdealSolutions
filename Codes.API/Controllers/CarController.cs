@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Codes.API.Controllers.Base;
 using Codes.Services.Dto;
 using Codes.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tenets.Common.Core;
 using Tenets.Common.ServicesCommon.Codes.Parameters;
@@ -40,6 +41,17 @@ namespace Codes.API.Controllers
         /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IResult> Get(Guid id)
+        {
+            return await _carServices.GetByIdAsync(id);
+        }
+        /// <summary>
+        /// Get data by Id
+        /// </summary>
+        /// <param name="id">PK</param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<IResult> GetForReport(Guid id)
         {
             return await _carServices.GetByIdAsync(id);
         }

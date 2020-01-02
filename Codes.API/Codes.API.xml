@@ -129,6 +129,13 @@
             <param name="id">PK</param>
             <returns></returns>
         </member>
+        <member name="M:Codes.API.Controllers.CarController.GetForReport(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
         <member name="M:Codes.API.Controllers.CarController.GetAll">
             <summary>
             GetAll Data

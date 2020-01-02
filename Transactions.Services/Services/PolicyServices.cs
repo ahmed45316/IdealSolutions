@@ -58,7 +58,7 @@ namespace Transactions.Services.Services
                 entity.BranchId = new Guid(branchId);
                 //For Some Times Only 
                 var policies = await _unitOfWork.Repository.GetAllAsync();
-                entity.PolicyNumber = policies.Any() ? (1010001 + policies.Count()) : 1010001;
+                entity.PolicyNumber = policies.Any() ? (51010001 + policies.Count()) : 51010001;
                 //end
                var dataSaved = _unitOfWork.Repository.Add(entity);
                 int affectedRows = await _unitOfWork.SaveChanges();
@@ -235,8 +235,14 @@ namespace Transactions.Services.Services
                 if (string.IsNullOrWhiteSpace(policy.CarNo))
                 {
                     var dataForCar = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.DriverId == data.DriverId && q.CarNo !=null && q.CarNo !="");
-                    policy.CarNo = dataForCar.CarNo;
+                    policy.CarNo = dataForCar?.CarNo;
                 }
+            }
+             if (!data.IsRentedCar)
+            {
+                var carResult = await _restSharpContainer.SendRequest<Result>($"L/Car/GetForReport/{data.CarId}", RestSharp.Method.GET);
+                var car = JsonConvert.DeserializeObject<CarDto>(JsonConvert.SerializeObject(carResult.Data));
+                policy.CarNo = car.PlateNumber;
             }
 
             return policy;
