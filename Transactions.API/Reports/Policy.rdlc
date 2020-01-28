@@ -1364,22 +1364,8 @@
   <Width>8.72792in</Width>
   <Page>
     <PageHeader>
-      <Height>1.17013in</Height>
+      <Height>1.0243in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
-      <ReportItems>
-        <Image Name="Image1">
-          <Source>Embedded</Source>
-          <Value>ID11111</Value>
-          <Sizing>Fit</Sizing>
-          <Height>1.17013in</Height>
-          <Width>8.69668in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
-      </ReportItems>
       <Style>
         <Border>
           <Style>Solid</Style>
