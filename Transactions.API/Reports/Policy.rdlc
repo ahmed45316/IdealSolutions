@@ -805,9 +805,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>3.87799in</Top>
-        <Left>7.0057in</Left>
+        <Left>6.92585in</Left>
         <Height>0.54168in</Height>
-        <Width>1.1146in</Width>
+        <Width>1.19445in</Width>
         <ZIndex>22</ZIndex>
         <Style>
           <Border>
@@ -840,9 +840,9 @@
         </Paragraphs>
         <rd:DefaultName>Notes</rd:DefaultName>
         <Top>3.87799in</Top>
-        <Left>0.1075in</Left>
+        <Left>0.07861in</Left>
         <Height>0.53126in</Height>
-        <Width>6.83571in</Width>
+        <Width>6.77778in</Width>
         <ZIndex>23</ZIndex>
         <Style>
           <Border>
@@ -997,7 +997,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Emp.Tme البدء بالتفرغ </Value>
+                    <Value>Emp.Time البدء بالتفرغ </Value>
                     <Style>
                       <FontSize>14pt</FontSize>
                     </Style>
@@ -1246,7 +1246,7 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>4.67236in</Top>
+        <Top>4.54736in</Top>
         <Left>0.07861in</Left>
         <Height>2.68749in</Height>
         <Width>8.04169in</Width>
@@ -1289,7 +1289,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
-        <Top>4.67236in</Top>
+        <Top>4.54736in</Top>
         <Left>3.64112in</Left>
         <Height>0.48958in</Height>
         <Width>2.17013in</Width>
@@ -1325,55 +1325,104 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value xml:space="preserve"> </Value>
+                <Value />
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
               <TextRun>
-                <Value>--------------------------- </Value>
+                <Value xml:space="preserve"> </Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>---------------------- </Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>اسم السائق</Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> ----------------------------------------------- </Value>
+                <Value> -------------------------------------- </Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>من </Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>------------------------- </Value>
+                <Value>---------------------</Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>الي </Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>----------------------- </Value>
+                <Value>--------------------- </Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>التاريخ</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -1388,6 +1437,7 @@
               <TextRun>
                 <Value>.اقر انا ------------------------------------------------------ بأني قد استلمت المستندات الخاصة بالبوليصة المذكور رقمها اعلاه</Value>
                 <Style>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1398,9 +1448,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>7.83555in</Top>
+        <Top>7.71055in</Top>
         <Left>0.07861in</Left>
-        <Height>0.80556in</Height>
+        <Height>1.28473in</Height>
         <Width>8.0139in</Width>
         <ZIndex>26</ZIndex>
         <Style>
@@ -1433,7 +1483,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
-        <Top>7.4432in</Top>
+        <Top>7.3182in</Top>
         <Left>0.07861in</Left>
         <Height>0.25in</Height>
         <Width>8.0139in</Width>
@@ -1449,7 +1499,7 @@
         </Style>
       </Textbox>
       <Line Name="Line8">
-        <Top>7.73486in</Top>
+        <Top>7.60986in</Top>
         <Left>0.1075in</Left>
         <Height>0in</Height>
         <Width>7.98501in</Width>
