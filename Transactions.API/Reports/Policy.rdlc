@@ -23,7 +23,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.30083in</Top>
+        <Top>1.05083in</Top>
         <Left>6.92585in</Left>
         <Height>0.34374in</Height>
         <Width>1.18749in</Width>
@@ -58,7 +58,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PolicyDatetime</rd:DefaultName>
-        <Top>1.31125in</Top>
+        <Top>1.06125in</Top>
         <Left>4.27306in</Left>
         <Height>0.33332in</Height>
         <Width>2.58333in</Width>
@@ -94,7 +94,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.30083in</Top>
+        <Top>1.05083in</Top>
         <Left>2.85986in</Left>
         <Height>0.34374in</Height>
         <Width>1.12847in</Width>
@@ -129,7 +129,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CustomerNameAr</rd:DefaultName>
-        <Top>1.30083in</Top>
+        <Top>1.05083in</Top>
         <Left>0.07861in</Left>
         <Height>0.34374in</Height>
         <Width>2.7118in</Width>
@@ -165,7 +165,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.07292in</Top>
+        <Top>1.57292in</Top>
         <Left>6.92585in</Left>
         <Height>0.33333in</Height>
         <Width>1.18749in</Width>
@@ -201,7 +201,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.07292in</Top>
+        <Top>1.57292in</Top>
         <Left>2.87374in</Left>
         <Height>0.33333in</Height>
         <Width>1.11348in</Width>
@@ -237,7 +237,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.73588in</Top>
+        <Top>2.11088in</Top>
         <Left>6.92584in</Left>
         <Height>0.34375in</Height>
         <Width>1.1875in</Width>
@@ -273,7 +273,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.73588in</Top>
+        <Top>2.11088in</Top>
         <Left>2.87374in</Left>
         <Height>0.34375in</Height>
         <Width>1.11459in</Width>
@@ -309,7 +309,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>4.15565in</Top>
+        <Top>3.28065in</Top>
         <Left>2.8529in</Left>
         <Height>0.35417in</Height>
         <Width>1.1146in</Width>
@@ -345,7 +345,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>4.15565in</Top>
+        <Top>3.28065in</Top>
         <Left>6.90501in</Left>
         <Height>0.35417in</Height>
         <Width>1.1875in</Width>
@@ -380,7 +380,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TrackName</rd:DefaultName>
-        <Top>2.08333in</Top>
+        <Top>1.58333in</Top>
         <Left>4.27306in</Left>
         <Height>0.32292in</Height>
         <Width>2.58333in</Width>
@@ -415,7 +415,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CarTypeName</rd:DefaultName>
-        <Top>2.07292in</Top>
+        <Top>1.57292in</Top>
         <Left>0.07861in</Left>
         <Height>0.33333in</Height>
         <Width>2.7118in</Width>
@@ -450,7 +450,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DriverName</rd:DefaultName>
-        <Top>2.74629in</Top>
+        <Top>2.12129in</Top>
         <Left>4.27306in</Left>
         <Height>0.33334in</Height>
         <Width>2.58333in</Width>
@@ -485,275 +485,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nationality</rd:DefaultName>
-        <Top>2.73588in</Top>
+        <Top>2.11088in</Top>
         <Left>0.07861in</Left>
         <Height>0.34375in</Height>
         <Width>2.7118in</Width>
         <ZIndex>13</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox12">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>البدء بالتحميل</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>المشرف / الختم</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>6.61411in</Top>
-        <Left>6.45472in</Left>
-        <Height>0.8368in</Height>
-        <Width>1.68751in</Width>
-        <ZIndex>14</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox13">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>الانتهاء من التحميل</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>توقيع المرسل / الختم</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>6.61411in</Top>
-        <Left>2.31583in</Left>
-        <Height>0.8368in</Height>
-        <Width>1.7014in</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox15">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>البدء بالتفريغ</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>توقيع المرسل الية/الختم</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>8.25299in</Top>
-        <Left>6.45472in</Left>
-        <Height>0.82638in</Height>
-        <Width>1.68752in</Width>
-        <ZIndex>16</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>الانتهـــــاء</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value xml:space="preserve"> </Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>توقيع السائق / الختم</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>8.25299in</Top>
-        <Left>2.30778in</Left>
-        <Height>0.82638in</Height>
-        <Width>1.7014in</Width>
-        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -783,131 +519,11 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>4.15565in</Top>
+        <Top>3.28065in</Top>
         <Left>4.25222in</Left>
         <Height>0.36459in</Height>
         <Width>2.58333in</Width>
-        <ZIndex>18</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>6.61411in</Top>
-        <Left>0.1075in</Left>
-        <Height>0.8368in</Height>
-        <Width>2.09484in</Width>
-        <ZIndex>19</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox3">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>8.25299in</Top>
-        <Left>0.09945in</Left>
-        <Height>0.82638in</Height>
-        <Width>2.09484in</Width>
-        <ZIndex>20</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>6.61411in</Top>
-        <Left>4.30195in</Left>
-        <Height>0.8368in</Height>
-        <Width>2.08333in</Width>
-        <ZIndex>21</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox16">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>8.25299in</Top>
-        <Left>4.2939in</Left>
-        <Height>0.82638in</Height>
-        <Width>2.09138in</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -938,11 +554,11 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>4.15565in</Top>
+        <Top>3.28065in</Top>
         <Left>0.07861in</Left>
         <Height>0.35417in</Height>
         <Width>2.7118in</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -953,54 +569,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Line Name="Line1">
-        <Top>7.00868in</Top>
-        <Left>6.45472in</Left>
-        <Height>0in</Height>
-        <Width>1.68751in</Width>
-        <ZIndex>24</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
-      <Line Name="Line2">
-        <Top>7.00868in</Top>
-        <Left>2.31583in</Left>
-        <Height>0in</Height>
-        <Width>1.7014in</Width>
-        <ZIndex>25</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
-      <Line Name="Line3">
-        <Top>8.69618in</Top>
-        <Left>6.45472in</Left>
-        <Height>0in</Height>
-        <Width>1.68752in</Width>
-        <ZIndex>26</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
-      <Line Name="Line4">
-        <Top>8.69618in</Top>
-        <Left>2.30778in</Left>
-        <Height>0in</Height>
-        <Width>1.7014in</Width>
-        <ZIndex>27</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
       <Textbox Name="Textbox2">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1022,11 +590,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.39583in</Top>
+        <Top>0.27083in</Top>
         <Left>3.82811in</Left>
         <Height>0.4375in</Height>
         <Width>2.03595in</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1058,11 +626,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PolicyNumber</rd:DefaultName>
-        <Top>0.39583in</Top>
+        <Top>0.27083in</Top>
         <Left>2.30034in</Left>
         <Height>0.4375in</Height>
         <Width>1.45833in</Width>
-        <ZIndex>29</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1095,11 +663,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.44147in</Top>
+        <Top>2.69147in</Top>
         <Left>6.90501in</Left>
         <Height>0.35417in</Height>
         <Width>1.1875in</Width>
-        <ZIndex>30</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1131,11 +699,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.44147in</Top>
+        <Top>2.69147in</Top>
         <Left>2.8529in</Left>
         <Height>0.35417in</Height>
         <Width>1.1146in</Width>
-        <ZIndex>31</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1165,11 +733,11 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>3.42063in</Top>
+        <Top>2.67063in</Top>
         <Left>0.07861in</Left>
         <Height>0.36459in</Height>
         <Width>2.7118in</Width>
-        <ZIndex>32</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1200,11 +768,11 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>3.44147in</Top>
+        <Top>2.69147in</Top>
         <Left>4.25222in</Left>
         <Height>0.35417in</Height>
         <Width>2.58333in</Width>
-        <ZIndex>33</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1236,11 +804,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>5.00299in</Top>
+        <Top>3.87799in</Top>
         <Left>7.0057in</Left>
         <Height>0.54168in</Height>
         <Width>1.1146in</Width>
-        <ZIndex>34</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1271,11 +839,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Notes</rd:DefaultName>
-        <Top>5.00299in</Top>
+        <Top>3.87799in</Top>
         <Left>0.1075in</Left>
         <Height>0.53126in</Height>
         <Width>6.83571in</Width>
-        <ZIndex>35</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1286,6 +854,612 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Line Name="Line1">
+            <Left>5.77431in</Left>
+            <Height>2.68749in</Height>
+            <Width>0in</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line2">
+            <Left>3.52085in</Left>
+            <Height>2.68749in</Height>
+            <Width>0in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox16">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>البدء بالتحميل</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Left>5.82986in</Left>
+            <Height>0.48958in</Height>
+            <Width>2.18404in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox18">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>التفريغ</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Emptying</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Left>0.02889in</Left>
+            <Height>0.48958in</Height>
+            <Width>3.45029in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line4">
+            <Top>0.48958in</Top>
+            <Height>0in</Height>
+            <Width>8.04169in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line5">
+            <Top>0.875in</Top>
+            <Height>0in</Height>
+            <Width>8.04169in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line3">
+            <Top>0.48958in</Top>
+            <Left>1.65626in</Left>
+            <Height>2.19791in</Height>
+            <Width>0in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox22">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Emp.Tme البدء بالتفرغ </Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>0.51736in</Top>
+            <Left>1.68404in</Left>
+            <Height>0.32986in</Height>
+            <Width>1.82292in</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox23">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Finish الانتهاء</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>0.48958in</Top>
+            <Left>0.02889in</Left>
+            <Height>0.35764in</Height>
+            <Width>1.61348in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line6">
+            <Top>1.3177in</Top>
+            <Height>0in</Height>
+            <Width>8.04169in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox24">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>توقيع المشرف / الختم</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Consigner</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>1.3177in</Top>
+            <Left>5.7882in</Left>
+            <Height>0.76041in</Height>
+            <Width>2.2257in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox25">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>توقيع الراسل / الختم</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Sender Signature</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Consigner / Stamp</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>1.3177in</Top>
+            <Left>3.54861in</Left>
+            <Height>0.76041in</Height>
+            <Width>2.2257in</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox26">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>توقيع المرسل اليه / الختم Signature of Consignee </Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>1.33159in</Top>
+            <Left>1.65626in</Left>
+            <Height>0.76041in</Height>
+            <Width>1.83681in</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox27">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>توقيع السائق / الختم  Driver Signature </Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox16</rd:DefaultName>
+            <Top>1.3177in</Top>
+            <Left>0.02889in</Left>
+            <Height>0.76041in</Height>
+            <Width>1.61348in</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>4.67236in</Top>
+        <Left>0.07861in</Left>
+        <Height>2.68749in</Height>
+        <Width>8.04169in</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>الانتهاء من التحميل</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Finish Time</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox16</rd:DefaultName>
+        <Top>4.67236in</Top>
+        <Left>3.64112in</Left>
+        <Height>0.48958in</Height>
+        <Width>2.17013in</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>التوقيع علي البوليصة يعني كامل الموافقة علي الشروط الموضحة عليه</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>--------------------------- </Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>اسم السائق</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value> ----------------------------------------------- </Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>من </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>------------------------- </Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>الي </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>----------------------- </Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>التاريخ</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>.اقر انا ------------------------------------------------------ بأني قد استلمت المستندات الخاصة بالبوليصة المذكور رقمها اعلاه</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox30</rd:DefaultName>
+        <Top>7.83555in</Top>
+        <Left>0.07861in</Left>
+        <Height>0.80556in</Height>
+        <Width>8.0139in</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox31">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>لا تعتبر البوليصة مؤمن لها بدون أصل شهادة التامين</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox31</rd:DefaultName>
+        <Top>7.4432in</Top>
+        <Left>0.07861in</Left>
+        <Height>0.25in</Height>
+        <Width>8.0139in</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line8">
+        <Top>7.73486in</Top>
+        <Left>0.1075in</Left>
+        <Height>0in</Height>
+        <Width>7.98501in</Width>
+        <ZIndex>28</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
     <Height>9.47669in</Height>
     <Style>
@@ -1295,7 +1469,7 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>8.72792in</Width>
+  <Width>8.4675in</Width>
   <Page>
     <PageHeader>
       <Height>1.53472in</Height>

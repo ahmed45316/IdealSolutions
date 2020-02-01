@@ -231,7 +231,7 @@ namespace Transactions.Services.Services
                 policy.DriverName = driver?.NameAr;
                 policy.Nationality = driver?.NationalityNameAr;
                 policy.IdentifactionNumber = driver?.IdentifacationNumber;
-                policy.TelNumber = driver?.Phone;
+                policy.TelNumber = driver?.Mobile;
                 if (string.IsNullOrWhiteSpace(policy.CarNo))
                 {
                     var dataForCar = await _unitOfWork.Repository.FirstOrDefaultAsync(q => q.DriverId == data.DriverId && q.CarNo !=null && q.CarNo !="");
