@@ -23,7 +23,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.05083in</Top>
+        <Top>0.80083in</Top>
         <Left>6.92585in</Left>
         <Height>0.34374in</Height>
         <Width>1.18749in</Width>
@@ -58,7 +58,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PolicyDatetime</rd:DefaultName>
-        <Top>1.06125in</Top>
+        <Top>0.81125in</Top>
         <Left>4.27306in</Left>
         <Height>0.33332in</Height>
         <Width>2.58333in</Width>
@@ -94,7 +94,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.05083in</Top>
+        <Top>0.80083in</Top>
         <Left>2.85986in</Left>
         <Height>0.34374in</Height>
         <Width>1.12847in</Width>
@@ -129,7 +129,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CustomerNameAr</rd:DefaultName>
-        <Top>1.05083in</Top>
+        <Top>0.80083in</Top>
         <Left>0.07861in</Left>
         <Height>0.34374in</Height>
         <Width>2.7118in</Width>
@@ -165,7 +165,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.57292in</Top>
+        <Top>1.32292in</Top>
         <Left>6.92585in</Left>
         <Height>0.33333in</Height>
         <Width>1.18749in</Width>
@@ -201,7 +201,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.57292in</Top>
+        <Top>1.32292in</Top>
         <Left>2.87374in</Left>
         <Height>0.33333in</Height>
         <Width>1.11348in</Width>
@@ -237,7 +237,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.11088in</Top>
+        <Top>1.86088in</Top>
         <Left>6.92584in</Left>
         <Height>0.34375in</Height>
         <Width>1.1875in</Width>
@@ -273,7 +273,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.11088in</Top>
+        <Top>1.86088in</Top>
         <Left>2.87374in</Left>
         <Height>0.34375in</Height>
         <Width>1.11459in</Width>
@@ -309,7 +309,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.28065in</Top>
+        <Top>3.03065in</Top>
         <Left>2.8529in</Left>
         <Height>0.35417in</Height>
         <Width>1.1146in</Width>
@@ -345,7 +345,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.28065in</Top>
+        <Top>3.03065in</Top>
         <Left>6.90501in</Left>
         <Height>0.35417in</Height>
         <Width>1.1875in</Width>
@@ -380,7 +380,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TrackName</rd:DefaultName>
-        <Top>1.58333in</Top>
+        <Top>1.33333in</Top>
         <Left>4.27306in</Left>
         <Height>0.32292in</Height>
         <Width>2.58333in</Width>
@@ -415,7 +415,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CarTypeName</rd:DefaultName>
-        <Top>1.57292in</Top>
+        <Top>1.32292in</Top>
         <Left>0.07861in</Left>
         <Height>0.33333in</Height>
         <Width>2.7118in</Width>
@@ -450,7 +450,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>DriverName</rd:DefaultName>
-        <Top>2.12129in</Top>
+        <Top>1.87129in</Top>
         <Left>4.27306in</Left>
         <Height>0.33334in</Height>
         <Width>2.58333in</Width>
@@ -485,7 +485,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nationality</rd:DefaultName>
-        <Top>2.11088in</Top>
+        <Top>1.86088in</Top>
         <Left>0.07861in</Left>
         <Height>0.34375in</Height>
         <Width>2.7118in</Width>
@@ -519,7 +519,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>3.28065in</Top>
+        <Top>3.03065in</Top>
         <Left>4.25222in</Left>
         <Height>0.36459in</Height>
         <Width>2.58333in</Width>
@@ -554,7 +554,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>3.28065in</Top>
+        <Top>3.03065in</Top>
         <Left>0.07861in</Left>
         <Height>0.35417in</Height>
         <Width>2.7118in</Width>
@@ -590,7 +590,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.27083in</Top>
+        <Top>0.14583in</Top>
         <Left>3.82811in</Left>
         <Height>0.4375in</Height>
         <Width>2.03595in</Width>
@@ -626,7 +626,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PolicyNumber</rd:DefaultName>
-        <Top>0.27083in</Top>
+        <Top>0.14583in</Top>
         <Left>2.30034in</Left>
         <Height>0.4375in</Height>
         <Width>1.45833in</Width>
@@ -663,7 +663,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.69147in</Top>
+        <Top>2.44147in</Top>
         <Left>6.90501in</Left>
         <Height>0.35417in</Height>
         <Width>1.1875in</Width>
@@ -699,7 +699,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.69147in</Top>
+        <Top>2.44147in</Top>
         <Left>2.8529in</Left>
         <Height>0.35417in</Height>
         <Width>1.1146in</Width>
@@ -733,7 +733,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>2.67063in</Top>
+        <Top>2.42063in</Top>
         <Left>0.07861in</Left>
         <Height>0.36459in</Height>
         <Width>2.7118in</Width>
@@ -768,7 +768,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>2.69147in</Top>
+        <Top>2.44147in</Top>
         <Left>4.25222in</Left>
         <Height>0.35417in</Height>
         <Width>2.58333in</Width>
@@ -804,7 +804,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>3.87799in</Top>
+        <Top>3.62799in</Top>
         <Left>6.92585in</Left>
         <Height>0.54168in</Height>
         <Width>1.19445in</Width>
@@ -839,7 +839,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Notes</rd:DefaultName>
-        <Top>3.87799in</Top>
+        <Top>3.62799in</Top>
         <Left>0.07861in</Left>
         <Height>0.53126in</Height>
         <Width>6.77778in</Width>
@@ -997,7 +997,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Emp.Time البدء بالتفرغ </Value>
+                    <Value>Emp.Time البدء بالتفريغ </Value>
                     <Style>
                       <FontSize>14pt</FontSize>
                     </Style>
@@ -1010,9 +1010,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
             <Top>0.51736in</Top>
-            <Left>1.68404in</Left>
+            <Left>1.65626in</Left>
             <Height>0.32986in</Height>
-            <Width>1.82292in</Width>
+            <Width>1.8988in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1246,7 +1246,7 @@
           </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>4.54736in</Top>
+        <Top>4.29736in</Top>
         <Left>0.07861in</Left>
         <Height>2.68749in</Height>
         <Width>8.04169in</Width>
@@ -1289,7 +1289,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox16</rd:DefaultName>
-        <Top>4.54736in</Top>
+        <Top>4.29736in</Top>
         <Left>3.64112in</Left>
         <Height>0.48958in</Height>
         <Width>2.17013in</Width>
@@ -1312,20 +1312,6 @@
             <TextRuns>
               <TextRun>
                 <Value>التوقيع علي البوليصة يعني كامل الموافقة علي الشروط الموضحة عليه</Value>
-                <Style>
-                  <FontSize>14pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
                 <Style>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1446,11 +1432,53 @@
               <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>--------------------------------- : التوقيع</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>7.71055in</Top>
+        <Top>7.33555in</Top>
         <Left>0.07861in</Left>
-        <Height>1.28473in</Height>
+        <Height>1.52431in</Height>
         <Width>8.0139in</Width>
         <ZIndex>26</ZIndex>
         <Style>
@@ -1483,9 +1511,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
-        <Top>7.3182in</Top>
+        <Top>7.0682in</Top>
         <Left>0.07861in</Left>
-        <Height>0.25in</Height>
+        <Height>0.22222in</Height>
         <Width>8.0139in</Width>
         <ZIndex>27</ZIndex>
         <Style>
@@ -1499,8 +1527,8 @@
         </Style>
       </Textbox>
       <Line Name="Line8">
-        <Top>7.60986in</Top>
-        <Left>0.1075in</Left>
+        <Top>7.29042in</Top>
+        <Left>0.13529in</Left>
         <Height>0in</Height>
         <Width>7.98501in</Width>
         <ZIndex>28</ZIndex>
