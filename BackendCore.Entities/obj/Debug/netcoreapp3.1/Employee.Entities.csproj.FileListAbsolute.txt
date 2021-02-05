@@ -1,0 +1,8 @@
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\bin\Debug\netcoreapp3.1\Employee.Entities.deps.json
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\bin\Debug\netcoreapp3.1\Employee.Entities.dll
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\bin\Debug\netcoreapp3.1\Employee.Entities.pdb
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\Employee.Entities.AssemblyInfoInputs.cache
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\Employee.Entities.AssemblyInfo.cs
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\Employee.Entities.csproj.CoreCompileInputs.cache
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\Employee.Entities.dll
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\Employee.Entities.pdb

@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BackendCore.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BackendCore.Api.Controllers.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="F:BackendCore.Api.Controllers.Base.BaseController.TokenService">
+            <summary>
+            Token Business Property
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.Base.BaseController.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:BackendCore.Api.Controllers.Base.BaseController.#ctor(BackendCore.Service.Services.Base.ITokenService)">
+            <inheritdoc />
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.AboutController">
+            <summary>
+            About Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.AboutController.#ctor(BackendCore.Service.Services.About.IAboutService)">
+            <summary>
+            Constructor 
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.AboutController.GetAboutAsync">
+            <summary>
+            Get ABoyt
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.ApplicationsController">
+            <summary>
+            Applications Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.#ctor(BackendCore.Service.Services.Application.IApplicationService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Application.Parameters.ApplicationFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.AddAsync(BackendCore.Common.DTO.Application.AddApplicationDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.UpdateAsync(BackendCore.Common.DTO.Application.AddApplicationDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.ApplicationsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.BannersController">
+            <summary>
+            Banners Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.#ctor(BackendCore.Service.Services.Banner.IBannerService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Banner.Parameters.BannerFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.AddAsync(BackendCore.Common.DTO.Banner.AddBannerDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.UpdateAsync(BackendCore.Common.DTO.Banner.AddBannerDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.BannersController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController">
+            <summary>
+            DocumentCategories Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.#ctor(BackendCore.Service.Services.DocumentCategory.IDocumentCategoryService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.DocumentCategory.Parameters.DocumentCategoryFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.AddAsync(BackendCore.Common.DTO.DocumentCategory.AddDocumentCategoryDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.UpdateAsync(BackendCore.Common.DTO.DocumentCategory.AddDocumentCategoryDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentCategoriesController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.DocumentsController">
+            <summary>
+            Documents Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.#ctor(BackendCore.Service.Services.Document.IDocumentService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Document.Parameters.DocumentFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.AddAsync(BackendCore.Common.DTO.Document.AddDocumentDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.UpdateAsync(BackendCore.Common.DTO.Document.AddDocumentDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.DocumentsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.MissionsController">
+            <summary>
+            Missions Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.#ctor(BackendCore.Service.Services.Mission.IMissionService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Mission.Parameters.MissionFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.AddAsync(BackendCore.Common.DTO.Mission.AddMissionDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.UpdateAsync(BackendCore.Common.DTO.Mission.AddMissionDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.MissionsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.NewsController">
+            <summary>
+            News Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.#ctor(BackendCore.Service.Services.New.INewService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.New.Parameters.NewFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.AddAsync(BackendCore.Common.DTO.New.AddNewDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.UpdateAsync(BackendCore.Common.DTO.New.AddNewDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.NewsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.TeamsController">
+            <summary>
+            Teams Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.#ctor(BackendCore.Service.Services.Team.ITeamService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Team.Parameters.TeamFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.AddAsync(BackendCore.Common.DTO.Team.AddTeamDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.UpdateAsync(BackendCore.Common.DTO.Team.AddTeamDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.TeamsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.ContentControllers.VisionsController">
+            <summary>
+            Visions Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.#ctor(BackendCore.Service.Services.Vision.IVisionService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Vision.Parameters.VisionFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.AddAsync(BackendCore.Common.DTO.Vision.AddVisionDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.UpdateAsync(BackendCore.Common.DTO.Vision.AddVisionDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.ContentControllers.VisionsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.UserManagementControllers.AccountsController">
+            <summary>
+            App Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.AccountsController.#ctor(BackendCore.Service.Services.Login.ILoginService,BackendCore.Service.Services.Base.ITokenService)">
+            <inheritdoc />
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.AccountsController.Login(BackendCore.Common.DTO.Login.LoginParameters)">
+            <summary>
+            Login With Database Username and Password
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.AccountsController.AdLogin(BackendCore.Common.DTO.Login.LoginParameters)">
+            <summary>
+            Login With Active Directory Username and Password
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController">
+            <summary>
+            News Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.#ctor(BackendCore.Service.Services.Company.ICompanyService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Company.Parameters.CompanyFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.AddAsync(BackendCore.Common.DTO.Company.AddCompanyDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.UpdateAsync(BackendCore.Common.DTO.Company.AddCompanyDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.CompaniesController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.UserManagementControllers.PagesController">
+            <summary>
+            Pages Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.#ctor(BackendCore.Service.Services.Page.IPageService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.GetEditAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.GetForRolePage">
+            <summary>
+            Get Pages For Add Role Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.GetPaged(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Page.Parameters.PageFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.AddAsync(BackendCore.Common.DTO.Page.AddPageDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.UpdateAsync(BackendCore.Common.DTO.Page.AddPageDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PagesController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController">
+            <summary>
+            App Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.#ctor(BackendCore.Service.Services.Permission.IPermissionService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Permission.Parameters.PermissionFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.AddAsync(BackendCore.Common.DTO.Permission.AddPermissionDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.UpdateAsync(BackendCore.Common.DTO.Permission.AddPermissionDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.PermissionsController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.UserManagementControllers.RolesController">
+            <summary>
+            Role Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.#ctor(BackendCore.Service.Services.Role.IRoleService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.GetByCompanyIdAsync(System.Int64)">
+            <summary>
+            Get By company Id 
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.GetAllAsync">
+            <summary>
+            Get All Roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.Role.Parameters.RoleFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.AddAsync(BackendCore.Common.DTO.Role.AddRoleDto)">
+            <summary>
+            Add Role
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.UpdateAsync(BackendCore.Common.DTO.Role.AddRoleDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.RolesController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Controllers.UserManagementControllers.UsersController">
+            <summary>
+            App Controller
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.#ctor(BackendCore.Service.Services.User.IUserService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.GetAsync(System.Int64)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.GetUsersNotInTeamAsync(System.Int64)">
+            <summary>
+            Get Users That are not belonging to this team Id
+            </summary>
+            <param name="teamId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.GetByEmployeeIdAsync(System.String)">
+            <summary>
+            Get Employee Data By Id
+            </summary>
+            <param name="employeeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.GetPagedAsync(BackendCore.Common.DTO.Base.BaseParam{BackendCore.Common.DTO.User.Parameters.UserFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.AddAsync(BackendCore.Common.DTO.User.AddUserDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.AddTeamUsersAsync(System.Collections.Generic.List{BackendCore.Common.DTO.User.TeamUserDto})">
+            <summary>
+            Add 
+            </summary>
+            <param name="dtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.UpdateAsync(BackendCore.Common.DTO.User.AddUserDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.DeleteAsync(System.Int64)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Controllers.UserManagementControllers.UsersController.DeleteByTeamIdAsync(System.Int64)">
+            <summary>
+            Remove User From Team
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Extensions.ConfigureExtension">
+            <summary>
+            Pipeline Extensions
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            General Configuration Method
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureExtension.ConfigureCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configure Cors
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureExtension.SwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            User Swagger
+            </summary>
+            <param name="app"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:BackendCore.Api.Extensions.ConfigureServiceExtension">
+            <summary>
+            Dependency Extensions
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureServiceExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Register Extensions
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureServiceExtension.RegisterDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add DbContext
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureServiceExtension.RegisterAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            register auto-mapper
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureServiceExtension.RegisterRepository(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register Custom Repositories
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:BackendCore.Api.Extensions.ConfigureServiceExtension.RegisterCores(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register Main Core
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:BackendCore.Api.Program">
+            <summary>
+            Start Point
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Program.Main(System.String[])">
+            <summary>
+            Kick Off
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:BackendCore.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Build Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BackendCore.Api.Startup">
+            <summary>
+            Start Up Class
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:BackendCore.Api.Startup.Configuration">
+            <summary>
+            Public Configuration Property
+            </summary>
+        </member>
+        <member name="M:BackendCore.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Dependencies
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:BackendCore.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure Pipeline
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
