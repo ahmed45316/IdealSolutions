@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\APIGetWay\\APIGetWay.csproj": {}
+    "D:\\WorkSpace\\tasks\\IdealSolutions\\APIGetWay\\APIGetWay.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\APIGetWay\\APIGetWay.csproj": {
+    "D:\\WorkSpace\\tasks\\IdealSolutions\\APIGetWay\\APIGetWay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\APIGetWay\\APIGetWay.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutions\\APIGetWay\\APIGetWay.csproj",
         "projectName": "APIGetWay",
-        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\APIGetWay\\APIGetWay.csproj",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutions\\APIGetWay\\APIGetWay.csproj",
         "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\APIGetWay\\obj\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutions\\APIGetWay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -60,11 +60,11 @@
             },
             "Ocelot": {
               "target": "Package",
-              "version": "[13.5.2, )"
+              "version": "[15.0.7, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.1, )"
+              "version": "[5.5.1, )"
             }
           },
           "imports": [

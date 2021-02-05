@@ -1,76 +1,52 @@
 ﻿{
   "ReRoutes": [
-    //Identity
+    //Employees
     {
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 6066
+          "Port": 5088
         }
       ],
-      "UpstreamPathTemplate": "/I/{everything}",
+      "UpstreamPathTemplate": "/Employees/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
-      "SwaggerKey": "identity"
+      "SwaggerKey": "Employees"
     },
-    //Lookups
+    //Tasks
     {
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7079
+          "Port": 5089
         }
       ],
-      "UpstreamPathTemplate": "/L/{everything}",
+      "UpstreamPathTemplate": "/Tasks/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
-      "SwaggerKey": "lookups"
-    },
-    //Transactions
-    {
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 8080
-        }
-      ],
-      "UpstreamPathTemplate": "/T/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
-      "SwaggerKey": "transaction"
+      "SwaggerKey": "Tasks"
     }
   ],
   "SwaggerEndPoints": [
     {
-      "Key": "identity",
+      "Key": "Employees",
       "Config": [
         {
-          "Name": "Identity API",
+          "Name": "Employees API",
           "Version": "v1",
-          "Url": "http://localhost:6066/swagger/v1/swagger.json"
+          "Url": "http://localhost:5088/swagger/v1/swagger.json"
         }
       ]
     },
     {
-      "Key": "lookups",
+      "Key": "Tasks",
       "Config": [
         {
-          "Name": "Lookups API",
+          "Name": "Tasks API",
           "Version": "v1",
-          "Url": "http://localhost:7079/swagger/v1/swagger.json"
-        }
-      ]
-    },
-    {
-      "Key": "transaction",
-      "Config": [
-        {
-          "Name": "Transaction API",
-          "Version": "v1",
-          "Url": "http://localhost:8080/swagger/v1/swagger.json"
+          "Url": "http://localhost:5089/swagger/v1/swagger.json"
         }
       ]
     }

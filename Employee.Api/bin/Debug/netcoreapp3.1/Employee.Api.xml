@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Employee.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Employee.Api.Controllers.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="M:Employee.Api.Controllers.Base.BaseController.#ctor">
+            <summary>
+            
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:Employee.Api.Controllers.EmployeesController">
+            <inheritdoc />
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.#ctor(Employee.Service.Services.Employee.IEmployeeService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.GetAsync(System.Guid)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.GetPagedAsync(BackendCore.Common.FilterDto.EmployeeFilterDto)">
+            <summary>
+            GetAll with filter
+            </summary>
+            <param name="filter">Filter responsible for search and sort</param>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.AddAsync(BackendCore.Common.DTO.Employee.EmployeeDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.UpdateAsync(BackendCore.Common.DTO.Employee.EmployeeDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Controllers.EmployeesController.DeleteAsync(System.Guid)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:Employee.Api.Extensions.ConfigureExtension">
+            <summary>
+            Pipeline Extensions
+            </summary>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            General Configuration Method
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureExtension.CreateDatabase(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Create Database From Migration
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureExtension.ConfigureCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configure Cors
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureExtension.SwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            User Swagger
+            </summary>
+            <param name="app"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:Employee.Api.Extensions.ConfigureServiceExtension">
+            <summary>
+            Dependency Extensions
+            </summary>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureServiceExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Register Extensions
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureServiceExtension.RegisterDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add DbContext
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureServiceExtension.RegisterAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            register auto-mapper
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Employee.Api.Extensions.ConfigureServiceExtension.RegisterCores(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register Main Core
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Employee.Api.Program">
+            <summary>
+            Start Point
+            </summary>
+        </member>
+        <member name="M:Employee.Api.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Employee.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Build Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Employee.Api.Startup">
+            <summary>
+            Start Up Class
+            </summary>
+        </member>
+        <member name="M:Employee.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Employee.Api.Startup.Configuration">
+            <summary>
+            Public Configuration Property
+            </summary>
+        </member>
+        <member name="M:Employee.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            EscalationService
+            </summary>
+            <summary>
+            Configure Dependencies
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Employee.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure Pipeline
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

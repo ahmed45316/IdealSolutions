@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {}
+    "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\BackendCore.Common.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {
+    "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\BackendCore.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\BackendCore.Common.csproj",
         "projectName": "BackendCore.Common",
-        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\BackendCore.Common.csproj",
         "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\obj\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -100,6 +100,10 @@
             "Microsoft.Windows.Compatibility": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.1, )"
             },
             "RestSharp": {
               "target": "Package",

@@ -1,0 +1,14 @@
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\Tasks.Data.deps.json
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\Tasks.Data.dll
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\Tasks.Data.pdb
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\BackendCore.Common.dll
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\Tasks.Entities.dll
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\BackendCore.Common.pdb
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\bin\Debug\netcoreapp3.1\Tasks.Entities.pdb
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.csprojAssemblyReference.cache
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.AssemblyInfoInputs.cache
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.AssemblyInfo.cs
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.csproj.CoreCompileInputs.cache
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.csproj.CopyComplete
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.dll
+D:\WorkSpace\tasks\IdealSolutions\Tasks.Data\obj\Debug\netcoreapp3.1\Tasks.Data.pdb

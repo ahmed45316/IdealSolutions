@@ -1,0 +1,9 @@
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\bin\Debug\netcoreapp3.1\BackendCore.Entities.deps.json
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\bin\Debug\netcoreapp3.1\BackendCore.Entities.dll
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\bin\Debug\netcoreapp3.1\BackendCore.Entities.pdb
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\BackendCore.Entities.AssemblyInfoInputs.cache
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\BackendCore.Entities.AssemblyInfo.cs
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\BackendCore.Entities.csproj.CoreCompileInputs.cache
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\BackendCore.Entities.dll
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\BackendCore.Entities.pdb
+D:\WorkSpace\Elsadhan\AlsadhanBackend\BackendCore.Entities\obj\Debug\netcoreapp3.1\BackendCore.Entities.csprojAssemblyReference.cache

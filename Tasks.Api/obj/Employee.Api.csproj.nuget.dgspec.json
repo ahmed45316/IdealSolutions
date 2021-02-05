@@ -1,0 +1,422 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\Tasks.Api\\Employee.Api.csproj": {}
+  },
+  "projects": {
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
+        "projectName": "BackendCore.Common",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
+        "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Pc Tec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "LinqKit.Core": {
+              "target": "Package",
+              "version": "[1.1.21, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.1, )"
+            },
+            "Swashbuckle.AspNetCore.Newtonsoft": {
+              "target": "Package",
+              "version": "[5.5.1, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.1.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj",
+        "projectName": "Employee.Data",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj",
+        "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Pc Tec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj"
+              },
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
+        "projectName": "Employee.Entities",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
+        "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Pc Tec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj",
+        "projectName": "Employee.Service",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj",
+        "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Pc Tec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj"
+              },
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\Tasks.Api\\Employee.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\Tasks.Api\\Employee.Api.csproj",
+        "projectName": "Employee.Api",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\Tasks.Api\\Employee.Api.csproj",
+        "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\Tasks.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Pc Tec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj"
+              },
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "NetCore.AutoRegisterDi": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

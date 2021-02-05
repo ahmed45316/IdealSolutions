@@ -751,6 +751,19 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "RabbitMQ.Client/6.2.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4",
+          "System.Threading.Channels": "4.7.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        }
+      },
       "RestSharp/106.11.4": {
         "type": "package",
         "compile": {
@@ -1575,6 +1588,15 @@
           }
         }
       },
+      "System.Memory/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
       "System.Net.NameResolution/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2224,6 +2246,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "System.Threading.Channels/4.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
         }
       },
       "System.Threading.Tasks/4.3.0": {
@@ -3490,6 +3521,25 @@
         "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.2.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "RabbitMQ.Client/6.2.1": {
+      "sha512": "kdcin0uz1b9xQPvlLOoa8Y2zQsfu7nRuTrcX02dCLVzwGVlsPp9AFgu1L3kRh4wSFEOGE03OVqpWKxaDlhuowQ==",
+      "type": "package",
+      "path": "rabbitmq.client/6.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "lib/net461/RabbitMQ.Client.dll",
+        "lib/net461/RabbitMQ.Client.pdb",
+        "lib/net461/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.pdb",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.6.2.1.nupkg.sha512",
+        "rabbitmq.client.nuspec"
       ]
     },
     "RestSharp/106.11.4": {
@@ -5489,6 +5539,29 @@
         "runtimes/win/lib/netcoreapp2.0/System.Management.xml",
         "system.management.4.7.0.nupkg.sha512",
         "system.management.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "type": "package",
+      "path": "system.memory/4.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.4.nupkg.sha512",
+        "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -7799,6 +7872,30 @@
         "version.txt"
       ]
     },
+    "System.Threading.Channels/4.7.1": {
+      "sha512": "6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
+      "type": "package",
+      "path": "system.threading.channels/4.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Threading.Channels.dll",
+        "lib/net461/System.Threading.Channels.xml",
+        "lib/netcoreapp3.0/System.Threading.Channels.dll",
+        "lib/netcoreapp3.0/System.Threading.Channels.xml",
+        "lib/netstandard1.3/System.Threading.Channels.dll",
+        "lib/netstandard1.3/System.Threading.Channels.xml",
+        "lib/netstandard2.0/System.Threading.Channels.dll",
+        "lib/netstandard2.0/System.Threading.Channels.xml",
+        "system.threading.channels.4.7.1.nupkg.sha512",
+        "system.threading.channels.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Threading.Tasks/4.3.0": {
       "sha512": "LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "type": "package",
@@ -8173,6 +8270,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.5",
       "Microsoft.Extensions.DependencyInjection >= 3.1.5",
       "Microsoft.Windows.Compatibility >= 3.1.0",
+      "RabbitMQ.Client >= 6.2.1",
       "RestSharp >= 106.11.4",
       "Swashbuckle.AspNetCore >= 5.5.1",
       "Swashbuckle.AspNetCore.Newtonsoft >= 5.5.1",
@@ -8187,11 +8285,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\BackendCore.Common.csproj",
       "projectName": "BackendCore.Common",
-      "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
+      "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\BackendCore.Common.csproj",
       "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\obj\\",
+      "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutions\\BackendCore.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8280,6 +8378,10 @@
           "Microsoft.Windows.Compatibility": {
             "target": "Package",
             "version": "[3.1.0, )"
+          },
+          "RabbitMQ.Client": {
+            "target": "Package",
+            "version": "[6.2.1, )"
           },
           "RestSharp": {
             "target": "Package",

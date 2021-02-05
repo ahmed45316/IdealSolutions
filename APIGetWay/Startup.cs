@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -10,7 +10,7 @@ namespace APIGetWay
 {
     public class Startup
     {
-        private const string allowLocalhostOriginPolicy = "_allowLocalhostOriginPolicy";
+        private const string AllowLocalhostOriginPolicy = "_allowLocalhostOriginPolicy";
 
         public Startup(IConfiguration configuration)
         {
@@ -25,21 +25,21 @@ namespace APIGetWay
             string origin = Configuration["OriginUrl"];
             services.AddCors(options =>
             {
-                options.AddPolicy(allowLocalhostOriginPolicy,
+                options.AddPolicy(AllowLocalhostOriginPolicy,
                 builder =>
                 {
                     builder.WithOrigins(origin).AllowAnyHeader().AllowAnyMethod();
                 });
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllers();
             services.AddOcelot(Configuration);
             services.AddSwaggerForOcelot(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public async void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(allowLocalhostOriginPolicy);
+            app.UseCors(AllowLocalhostOriginPolicy);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tasks.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Tasks.Api.Controllers.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="M:Tasks.Api.Controllers.Base.BaseController.#ctor">
+            <summary>
+            
+            </summary>
+            <inheritdoc />
+        </member>
+        <member name="T:Tasks.Api.Controllers.TasksController">
+            <inheritdoc />
+        </member>
+        <member name="M:Tasks.Api.Controllers.TasksController.#ctor(Tasks.Service.Services.Task.ITaskService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Tasks.Api.Controllers.TasksController.GetAsync(System.Guid)">
+            <summary>
+            Get By Id 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tasks.Api.Controllers.TasksController.GetAllAsync">
+            <summary>
+            Get All 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tasks.Api.Controllers.TasksController.AddAsync(BackendCore.Common.DTO.Task.TaskDto)">
+            <summary>
+            Add 
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tasks.Api.Controllers.TasksController.UpdateAsync(BackendCore.Common.DTO.Task.TaskDto)">
+            <summary>
+            Update  
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tasks.Api.Controllers.TasksController.DeleteAsync(System.Guid)">
+            <summary>
+            Remove  by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="T:Tasks.Api.Extensions.ConfigureExtension">
+            <summary>
+            Pipeline Extensions
+            </summary>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureExtension.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            General Configuration Method
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureExtension.CreateDatabase(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Create Database From Migration
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureExtension.ConfigureCors(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configure Cors
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureExtension.SwaggerConfig(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            User Swagger
+            </summary>
+            <param name="app"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:Tasks.Api.Extensions.ConfigureServiceExtension">
+            <summary>
+            Dependency Extensions
+            </summary>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureServiceExtension.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Register Extensions
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureServiceExtension.RegisterDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add DbContext
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureServiceExtension.RegisterAutoMapper(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            register auto-mapper
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Tasks.Api.Extensions.ConfigureServiceExtension.RegisterCores(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register Main Core
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Tasks.Api.Program">
+            <summary>
+            Start Point
+            </summary>
+        </member>
+        <member name="M:Tasks.Api.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Tasks.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Build Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tasks.Api.Startup">
+            <summary>
+            Start Up Class
+            </summary>
+        </member>
+        <member name="M:Tasks.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Tasks.Api.Startup.Configuration">
+            <summary>
+            Public Configuration Property
+            </summary>
+        </member>
+        <member name="M:Tasks.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            EscalationService
+            </summary>
+            <summary>
+            Configure Dependencies
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Tasks.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure Pipeline
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
