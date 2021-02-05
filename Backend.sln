@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B9BD83EF-683E-4A08-9EA6-C84CFC77523B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GetWay", "GetWay", "{99031C1D-AEF6-4549-A7CE-5568C0E97B62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGetWay", "APIGetWay\APIGetWay.csproj", "{0AA97C00-3B5B-4C4F-B5CF-1FC313E1AF86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AA97C00-3B5B-4C4F-B5CF-1FC313E1AF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA97C00-3B5B-4C4F-B5CF-1FC313E1AF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA97C00-3B5B-4C4F-B5CF-1FC313E1AF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA97C00-3B5B-4C4F-B5CF-1FC313E1AF86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0AA97C00-3B5B-4C4F-B5CF-1FC313E1AF86} = {99031C1D-AEF6-4549-A7CE-5568C0E97B62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E5DBE31-5476-438E-AB27-40FC9BD7AF12}
+	EndGlobalSection
+EndGlobal

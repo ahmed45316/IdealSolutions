@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Codes.Entities\Codes.Entities.csproj" />
-    <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
   </ItemGroup>
 
 </Project>

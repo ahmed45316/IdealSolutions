@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Codes.Services\Codes.Services.csproj" />
-    <ProjectReference Include="..\Tenets.Common\Tenets.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

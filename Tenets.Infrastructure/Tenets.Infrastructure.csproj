@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tenets.Common\Tenets.Common.csproj" />
     <ProjectReference Include="..\Tenets.Nugets\Tenets.Nugets.csproj" />
   </ItemGroup>
 
