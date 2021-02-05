@@ -8187,11 +8187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
       "projectName": "BackendCore.Common",
-      "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj",
+      "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
       "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\obj\\",
+      "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D0ycW09T4traP5Qq4QHczo8K+BgHpyR2NePEEDWdDnBqZK50a0BCNhCXZRJg/nK7U8qUaD/kTJI2k37TKkCxwQ==",
+  "dgSpecHash": "qq3bRaRhh0YtjtsElVQaYe/6+eXbjPDgw9RxZHc1VdZ79DjDqjrkJnccXbUSZ2G1sUS7f4zKwqgXQn6yRrZbLQ==",
   "success": true,
-  "projectFilePath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj",
+  "projectFilePath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

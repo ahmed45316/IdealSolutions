@@ -8255,11 +8255,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Api\\Employee.Api.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Api\\Employee.Api.csproj",
       "projectName": "Employee.Api",
-      "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Api\\Employee.Api.csproj",
+      "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Api\\Employee.Api.csproj",
       "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Api\\obj\\",
+      "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8281,11 +8281,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\Employee.Data.csproj": {
-              "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\Employee.Data.csproj"
+            "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj": {
+              "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj"
             },
-            "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Service\\Employee.Service.csproj": {
-              "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Service\\Employee.Service.csproj"
+            "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj": {
+              "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj"
             }
           }
         }

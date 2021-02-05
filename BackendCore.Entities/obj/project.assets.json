@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
       "projectName": "Employee.Entities",
-      "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj",
+      "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
       "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\obj\\",
+      "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

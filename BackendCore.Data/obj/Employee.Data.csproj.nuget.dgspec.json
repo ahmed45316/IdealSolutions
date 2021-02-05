@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\Employee.Data.csproj": {}
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj": {
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
         "projectName": "BackendCore.Common",
-        "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj",
         "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\obj\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -140,14 +140,14 @@
         }
       }
     },
-    "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\Employee.Data.csproj": {
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\Employee.Data.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj",
         "projectName": "Employee.Data",
-        "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\Employee.Data.csproj",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\Employee.Data.csproj",
         "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Data\\obj\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -169,11 +169,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj": {
-                "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Common\\BackendCore.Common.csproj"
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Common\\BackendCore.Common.csproj"
               },
-              "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj": {
-                "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj"
+              "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj": {
+                "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj"
               }
             }
           }
@@ -209,14 +209,14 @@
         }
       }
     },
-    "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj": {
+    "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
         "projectName": "Employee.Entities",
-        "projectPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\Employee.Entities.csproj",
+        "projectPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\Employee.Entities.csproj",
         "packagesPath": "C:\\Users\\Pc Tec\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Entities\\obj\\",
+        "outputPath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

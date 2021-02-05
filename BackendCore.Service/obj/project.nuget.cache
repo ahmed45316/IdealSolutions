@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EWyjlyjhOHs5UhtPs7K1E/7arln0aQ5ctpAy8WIc4W4okHbOsdDgYfctHPTNKGCRM5iKf3aM1i0ElHhVmj08Hg==",
+  "dgSpecHash": "6oG5jB0HOO3kqZuFsWKaaZCxEIQUeQYe4AYORC52LBoUZWvV3apYbWnpoWxXnuYjHHXV1YCbiO6O292Q6AYguQ==",
   "success": true,
-  "projectFilePath": "D:\\WorkSpace\\Elsadhan\\AlsadhanBackend\\BackendCore.Service\\Employee.Service.csproj",
+  "projectFilePath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\BackendCore.Service\\Employee.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pc Tec\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Pc Tec\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
