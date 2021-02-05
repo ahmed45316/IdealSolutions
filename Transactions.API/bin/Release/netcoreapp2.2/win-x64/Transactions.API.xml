@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Transactions.API</name>
+    </assembly>
+    <members>
+        <member name="T:Transactions.API.Controllers.Base.BaseController">
+            <inheritdoc />
+        </member>
+        <member name="T:Transactions.API.Controllers.Base.IMainEndPoint`1">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.GetAll">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Get(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Add(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Update(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.Base.IMainEndPoint`1.Remove(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="T:Transactions.API.Controllers.ClaimCustomerController">
+            <summary>
+            Claim Customer Controller
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.#ctor(Transactions.Services.Interfaces.IClaimCustomerServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Add(Transactions.Services.Dto.ClaimCustomerDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.ClaimCustomerFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.ClaimCustomerController.Update(Transactions.Services.Dto.ClaimCustomerDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Transactions.API.Controllers.CollectReceiptController">
+            <summary>
+            Claim Customer Controller
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.#ctor(Transactions.Services.Interfaces.ICollectReceiptServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Add(Transactions.Services.Dto.CollectReceiptDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.GetAllPaymentTypes">
+            <summary>
+            GetAll Payment Types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.CollectReceiptFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.CollectReceiptController.Update(Transactions.Services.Dto.CollectReceiptDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Transactions.API.Controllers.OpeningBalanceController">
+            <summary>
+            Opening Balance Controller
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.#ctor(Transactions.Services.Interfaces.IOpeningBalanceServices)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Add(Transactions.Services.Dto.OpeningBalanceDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.OpeningBalanceFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.OpeningBalanceController.Update(Transactions.Services.Dto.OpeningBalanceDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="T:Transactions.API.Controllers.PolicyController">
+            <summary>
+            Policy Controller
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.#ctor(Transactions.Services.Interfaces.IPolicyServices,CodeShellCore.Reporting.Services.RdlcDataSetGenerator)">
+            <inheritdoc />
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Add(Transactions.Services.Dto.PolicyDto)">
+            <summary>
+            Add data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Get(System.Guid)">
+            <summary>
+            Get data by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetByCustomerId(System.Guid)">
+            <summary>
+            Get data by Customer Id
+            </summary>
+            <param name="customerId">customerId</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetAll">
+            <summary>
+            GetAll Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetPaged(Tenets.Common.ServicesCommon.Identity.Base.BaseParam{Tenets.Common.ServicesCommon.Transaction.Parameters.PolicyFilter})">
+            <summary>
+            GetAll Data paged
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Remove(System.Guid)">
+            <summary>
+            Remove data by id
+            </summary>
+            <param name="id">PK</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.Update(Transactions.Services.Dto.PolicyDto)">
+            <summary>
+            Update data 
+            </summary>
+            <param name="model">Object content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Transactions.API.Controllers.PolicyController.GetReport(System.Guid)">
+            <summary>
+            Generate Reports
+            </summary>
+        </member>
+        <member name="T:Transactions.API.Program">
+            <summary>
+            Kick Off
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Transactions.API.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Web Host
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Transactions.API.Startup">
+            <summary>
+            Start Up Class
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
+        <member name="P:Transactions.API.Startup.Configuration">
+            <summary>
+            Property
+            </summary>
+        </member>
+        <member name="M:Transactions.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Contract for service descriptors</param>
+        </member>
+        <member name="M:Transactions.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Provide mechanisms to configure requests</param>
+            <param name="env">Provide information about hosting</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gkw3578iRWWL4daZToccxCkq1hLoilIPsP6+STkkCrzl6APjN/R4aM5tRa3xsN3Bc1HTxTpr4lc/8bZwoFpnIg==",
+  "success": true,
+  "projectFilePath": "D:\\WorkSpace\\tasks\\IdealSolutionsBackEnd\\Codes.Entities\\Codes.Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Pc Tec\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Pc Tec\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

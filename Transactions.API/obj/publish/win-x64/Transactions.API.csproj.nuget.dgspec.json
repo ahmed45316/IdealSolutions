@@ -1,0 +1,547 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.API\\Transactions.API.csproj": {}
+  },
+  "projects": {
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj",
+        "projectName": "Tenets.Common",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "LinqKit": {
+              "target": "Package",
+              "version": "[1.1.16, )"
+            },
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.6.10, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Infrastructure\\Tenets.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Infrastructure\\Tenets.Infrastructure.csproj",
+        "projectName": "Tenets.Infrastructure",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Infrastructure\\Tenets.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj"
+              },
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj",
+        "projectName": "Tenets.Nugets",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Build.Tasks.Core": {
+              "target": "Package",
+              "version": "[16.0.461, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "NetCore.AutoRegisterDi": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.API\\Transactions.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.API\\Transactions.API.csproj",
+        "projectName": "Transactions.API",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.API\\Transactions.API.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.API\\obj\\publish\\win-x64\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj"
+              },
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Services\\Transactions.Services.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Services\\Transactions.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "AspNetCore.Reporting": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.6, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.6, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Data\\Transactions.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Data\\Transactions.Data.csproj",
+        "projectName": "Transactions.Data",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Data\\Transactions.Data.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Nugets\\Tenets.Nugets.csproj"
+              },
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj",
+        "projectName": "Transactions.Entities",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Common\\Tenets.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Services\\Transactions.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Services\\Transactions.Services.csproj",
+        "projectName": "Transactions.Services",
+        "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Services\\Transactions.Services.csproj",
+        "packagesPath": "C:\\Users\\Developer\\.nuget\\packages\\",
+        "outputPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Developer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Infrastructure\\Tenets.Infrastructure.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Tenets.Infrastructure\\Tenets.Infrastructure.csproj"
+              },
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Data\\Transactions.Data.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Data\\Transactions.Data.csproj"
+              },
+              "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj": {
+                "projectPath": "E:\\Work\\ahmed\\Samples\\Wimax Co\\PolisityBackEnd\\Transactions.Entities\\Transactions.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

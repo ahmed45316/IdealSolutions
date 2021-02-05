@@ -1,0 +1,79 @@
+﻿{
+  "ReRoutes": [
+    //Identity
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6066
+        }
+      ],
+      "UpstreamPathTemplate": "/I/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "identity"
+    },
+    //Lookups
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7079
+        }
+      ],
+      "UpstreamPathTemplate": "/L/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "lookups"
+    },
+    //Transactions
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/T/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "transaction"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "identity",
+      "Config": [
+        {
+          "Name": "Identity API",
+          "Version": "v1",
+          "Url": "http://localhost:6066/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "lookups",
+      "Config": [
+        {
+          "Name": "Lookups API",
+          "Version": "v1",
+          "Url": "http://localhost:7079/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "transaction",
+      "Config": [
+        {
+          "Name": "Transaction API",
+          "Version": "v1",
+          "Url": "http://localhost:8080/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {}
+}
