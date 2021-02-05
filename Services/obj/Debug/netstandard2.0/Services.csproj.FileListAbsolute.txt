@@ -1,8 +1,0 @@
-E:\Work\ahmed\Samples\Tenets.Identity\Services\bin\Debug\netstandard2.0\Services.deps.json
-E:\Work\ahmed\Samples\Tenets.Identity\Services\bin\Debug\netstandard2.0\Services.dll
-E:\Work\ahmed\Samples\Tenets.Identity\Services\bin\Debug\netstandard2.0\Services.pdb
-E:\Work\ahmed\Samples\Tenets.Identity\Services\obj\Debug\netstandard2.0\Services.csproj.CoreCompileInputs.cache
-E:\Work\ahmed\Samples\Tenets.Identity\Services\obj\Debug\netstandard2.0\Services.AssemblyInfoInputs.cache
-E:\Work\ahmed\Samples\Tenets.Identity\Services\obj\Debug\netstandard2.0\Services.AssemblyInfo.cs
-E:\Work\ahmed\Samples\Tenets.Identity\Services\obj\Debug\netstandard2.0\Services.dll
-E:\Work\ahmed\Samples\Tenets.Identity\Services\obj\Debug\netstandard2.0\Services.pdb
