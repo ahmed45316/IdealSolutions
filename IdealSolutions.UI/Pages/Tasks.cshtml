@@ -1,0 +1,42 @@
+﻿@page
+@model TasksModel
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<div class="container-fluid page__container">
+    <h1 class="h2">Tasks</h1>
+    <hr />
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="actions">
+                <a onclick="cleartxt();" style="cursor: pointer" data-toggle="modal" data-target="#addeditmodel" title="Add New">
+                    <i class="fas fa-user-plus fa-3x"></i>
+                </a>
+            </div>
+        </div>
+        <br />
+
+        <div id="tableArea" class="portlet-body">
+
+            <table class="display" style="width:100%" id="dataGridView">
+                <thead>
+                <tr>
+                    <th class="all" style="width: 20px">Index</th>
+                    <th class="all">Task name</th>
+                    <th>Assigned to</th>
+                    <th>Deadline Date</th>
+                    <th class="all" style="width: 20px"></th>
+                    <th class="all" style="width: 20px"></th>
+                </tr>
+                </thead>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/JS/Tasks.js"></script>
+}

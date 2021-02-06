@@ -27,13 +27,13 @@ namespace Employee.Api.Extensions
             IConfiguration configuration
             )
         {
-            app.ConfigureCors();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.SwaggerConfig(configuration);
             app.CreateDatabase();
+            app.ConfigureCors();
             return app;
         }
         /// <summary>

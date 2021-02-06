@@ -60,8 +60,7 @@ namespace Tasks.Api.Extensions
         /// <param name="app"></param>
         public static void ConfigureCors(this IApplicationBuilder app)
         {
-            app.UseCors(builder => builder
-                .AllowAnyOrigin()
+            app.UseCors(builder => builder.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
         }

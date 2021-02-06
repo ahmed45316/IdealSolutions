@@ -1,0 +1,99 @@
+﻿@page
+@model EmployeesModel
+@{
+    ViewData["Title"] = "Employees";
+}
+<style>
+    .modal-backdrop.show {
+        z-index: -1 !important
+    }
+</style>
+<div class="container-fluid page__container">
+    <h1 class="h2">Employees</h1>
+    <hr />
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="actions">
+                <a onclick="cleartxt();" style="cursor: pointer" data-toggle="modal" data-target="#addeditmodel" title="Add New">
+                    <i class="fas fa-user-plus fa-3x"></i>
+                </a>
+            </div>
+        </div>
+        <br />
+
+        <div id="tableArea" class="portlet-body">
+
+            <table class="display" style="width:100%" id="dataGridView">
+                <thead>
+                    <tr>
+                        <th class="all" style="width: 20px">Index</th>
+                        <th class="all">First name</th>
+                        <th class="all">Last name</th>
+                        <th>Job title</th>
+                        <th>Email</th>
+                        <th>Salary</th>
+                        <th>Birth date</th>
+                        <th class="all" style="width: 20px"></th>
+                        <th class="all" style="width: 20px"></th>
+                    </tr>
+                </thead>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+@section Scripts
+{
+    <script src="~/JS/Employees.js"></script>
+}
+
+
+
+<!--Modal-->
+<div class="modal" data-backdrop="static" data-keyboard="false" id="addeditmodel" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Employees</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="popupForm" class="container-fluid">
+                <input type="hidden" id="hiddenId" />
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">First name</label>
+                        <input class="form-control" name="firstName" onchange="onChange()" type="text" id="firstname" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Last name</label>
+                        <input class="form-control" name="lastName" onchange="onChange()" type="text" id="lastname" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Job title</label>
+                        <input class="form-control" name="jobTitle" onchange="onChange()" type="text" id="jobtitle" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <input class="form-control" name="email" onchange="onChange()" type="email" id="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Salary</label>
+                        <input class="form-control" name="salary" type="number" min="0" value="0" id="salary" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Birth Date</label>
+                        <input class="form-control" name="birthDate" type="date" id="birthdate" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="form-submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

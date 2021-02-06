@@ -1,0 +1,153 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Dashboard</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="assets/vendor/perfect-scrollbar.css" rel="stylesheet">
+    @*<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />*@
+    <!-- Material Design Icons -->
+    <link type="text/css" href="assets/css/material-icons.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/material-icons.rtl.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/Jquery.dataTables.css" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="assets/css/fontawesome.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/app.css" rel="stylesheet">
+    <script>
+        const baseUrl = @Json.Serialize(@Configuration.GetSection("ApiUrls").GetSection("baseUrl").Value)
+        console.log('base url --> ', baseUrl);
+    </script>
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-double-bounce">
+            <div class="sk-child sk-double-bounce1"></div>
+            <div class="sk-child sk-double-bounce2"></div>
+        </div>
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content">
+
+                <!-- Navbar -->
+                <nav id="default-navbar" class="navbar navbar-expand navbar-dark bg-primary m-0">
+                    <div class="container-fluid">
+                        <!-- Toggle sidebar -->
+                        <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+                            <span class="material-icons">menu</span>
+                        </button>
+
+                        <!-- Brand -->
+                        <a href="/Employees" class="navbar-brand">
+                            <img src="assets/images/logo/white.svg" class="mr-2" alt="DashBoard" />
+                            <span class="d-none d-xs-md-block">DashBoard</span>
+                        </a>
+
+                        <!-- Search -->
+                        <form class="search-form d-none d-md-flex">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button class="btn" type="button"><i class="material-icons font-size-24pt">search</i></button>
+                        </form>
+                        <!-- // END Search -->
+
+                        <div class="flex"></div>
+                    </div>
+                </nav>
+                <!-- // END Navbar -->
+
+            </div>
+        </div>
+
+        <!-- // END Header -->
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    @RenderBody()
+
+                </div>
+
+
+
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                    <div class="mdk-drawer__content ">
+                        <div class="sidebar sidebar-left sidebar-dark bg-dark o-hidden" data-perfect-scrollbar>
+                            <div class="sidebar-p-y">
+                                <div class="sidebar-heading">APPLICATIONS</div>
+                                <ul class="sidebar-menu sm-active-button-bg">
+                                    <li class="sidebar-menu-item active">
+                                        <a class="sidebar-menu-button" href="/Employees">
+                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i> Employees
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="/Tasks">
+                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i> Tasks
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/Jquery.dataTables.js"></script>
+    <script src="~/assets/js/dataTableDatetime.js"></script>
+    <script src="~/assets/js/moment.min.js"></script>
+    <!-- Perfect Scrollbar -->
+    <script src="assets/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- Global Settings -->
+    <script src="assets/js/settings.js"></script>
+
+    <!-- Moment.js -->
+    <script src="assets/vendor/moment.min.js"></script>
+    <script src="assets/vendor/moment-range.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

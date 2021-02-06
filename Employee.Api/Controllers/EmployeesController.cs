@@ -57,7 +57,7 @@ namespace Employee.Api.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResult> AddAsync([FromBody] EmployeeDto dto)
+        public async Task<IResult> AddAsync(EmployeeDto dto)
         {
             var result = await _service.AddAsync(dto);
             return result;
